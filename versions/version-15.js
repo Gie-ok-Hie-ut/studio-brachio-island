@@ -1834,6 +1834,16 @@ function bindReaderSetting(control, key) {
   });
 }
 
+function bindModalTouchScrollGuard(modal, scrollTarget) {
+  if (!modal || !scrollTarget || modal.dataset.touchScrollGuardBound === "true") return;
+  modal.dataset.touchScrollGuardBound = "true";
+  modal.addEventListener("touchmove", (event) => {
+    if (!document.body.classList.contains("reader-open")) return;
+    if (scrollTarget.contains(event.target)) return;
+    event.preventDefault();
+  }, { passive: false });
+}
+
 function closeReader() {
   if (!readerModal) return;
   setReaderVariant("");
@@ -2463,6 +2473,7 @@ bindReaderSetting(readerLang, "lang");
 bindReaderSetting(readerSize, "size");
 bindReaderSetting(readerSpacing, "spacing");
 bindReaderSetting(readerTheme, "theme");
+bindModalTouchScrollGuard(readerModal, readerContent);
 languageControls.forEach((control) => {
   control.addEventListener("click", () => setLanguage(control.dataset.language));
 });
