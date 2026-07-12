@@ -23,13 +23,15 @@ const rolePanels = document.querySelectorAll("[data-role-panel]");
 const activeRoleRoom = document.body.dataset.roleRoom || "";
 const roleRoomTarget = document.querySelector("[data-role-room-target]");
 const isRoleRoomPage = Boolean(activeRoleRoom);
-const projectRoot = isRoleRoomPage ? "../../" : "../";
+const isArchivedVersionPage = !isRoleRoomPage && /\/versions\/[^/]+\.html$/i.test(window.location.pathname);
+const projectRoot = isRoleRoomPage ? "../../" : isArchivedVersionPage ? "../" : "";
+const roleRoomRoot = isRoleRoomPage ? "" : isArchivedVersionPage ? "rooms-v15/" : "versions/rooms-v15/";
 const roleRoomPaths = {
-  identity: "rooms-v15/who-are-we.html",
-  engineer: "rooms-v15/ai-research.html",
-  novel: "rooms-v15/novel.html",
-  visual: "rooms-v15/visual-art.html",
-  aesthetics: "rooms-v15/essay.html",
+  identity: `${roleRoomRoot}who-are-we.html`,
+  engineer: `${roleRoomRoot}ai-research.html`,
+  novel: `${roleRoomRoot}novel.html`,
+  visual: `${roleRoomRoot}visual-art.html`,
+  aesthetics: `${roleRoomRoot}essay.html`,
 };
 const galleryAssetFiles = [
   "IMG_9630.jpg",
