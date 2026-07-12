@@ -3804,6 +3804,11 @@ body[data-role-room] .pdf-window,
     grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
   }
 
+  body[data-role-room="aesthetics"] .role-essay-items button {
+    gap: clamp(12px, 3vw, 18px);
+    grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
+  }
+
   body[data-role-room] .role-detail-layout-novel .role-section-body-novel {
     display: grid;
     grid-template-columns: 1fr;
