@@ -1844,6 +1844,29 @@ function bindModalTouchScrollGuard(modal, scrollTarget) {
   }, { passive: false });
 }
 
+function bindReaderManualTouchScroll(scrollTarget) {
+  if (!scrollTarget || scrollTarget.dataset.manualTouchScrollBound === "true") return;
+  scrollTarget.dataset.manualTouchScrollBound = "true";
+  let lastTouchY = 0;
+
+  scrollTarget.addEventListener("touchstart", (event) => {
+    if (event.touches.length !== 1) return;
+    lastTouchY = event.touches[0].clientY;
+  }, { passive: true });
+
+  scrollTarget.addEventListener("touchmove", (event) => {
+    if (!document.body.classList.contains("reader-open")) return;
+    if (event.touches.length !== 1) return;
+    if (scrollTarget.scrollHeight <= scrollTarget.clientHeight) return;
+
+    const nextTouchY = event.touches[0].clientY;
+    const deltaY = lastTouchY - nextTouchY;
+    lastTouchY = nextTouchY;
+    scrollTarget.scrollTop += deltaY;
+    event.preventDefault();
+  }, { passive: false });
+}
+
 function closeReader() {
   if (!readerModal) return;
   setReaderVariant("");
@@ -2474,6 +2497,7 @@ bindReaderSetting(readerSize, "size");
 bindReaderSetting(readerSpacing, "spacing");
 bindReaderSetting(readerTheme, "theme");
 bindModalTouchScrollGuard(readerModal, readerContent);
+bindReaderManualTouchScroll(readerContent);
 languageControls.forEach((control) => {
   control.addEventListener("click", () => setLanguage(control.dataset.language));
 });
