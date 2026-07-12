@@ -898,7 +898,7 @@ function openGalleryAsset(filename) {
   detail.append(detailLabel, detailBody);
   wrapper.append(figure, detail);
   readerContent.replaceChildren(wrapper);
-  resetReaderScroll();
+  readerContent.scrollTop = 0;
   openReader();
 
   fetch(descriptionPath)
@@ -1110,7 +1110,7 @@ function openGalleryProject(item, startIndex = 0) {
   wrapper.append(meta, stage, info);
   setActiveAsset(activeIndex);
   readerContent.replaceChildren(wrapper);
-  resetReaderScroll();
+  readerContent.scrollTop = 0;
   openReader();
 }
 
@@ -1839,15 +1839,32 @@ function bindModalTouchScrollGuard(modal, scrollTarget) {
   modal.dataset.touchScrollGuardBound = "true";
   modal.addEventListener("touchmove", (event) => {
     if (!document.body.classList.contains("reader-open")) return;
-    if (readerWindow?.contains(event.target)) return;
     if (scrollTarget.contains(event.target)) return;
     event.preventDefault();
   }, { passive: false });
 }
 
-function resetReaderScroll() {
-  if (readerContent) readerContent.scrollTop = 0;
-  if (readerWindow) readerWindow.scrollTop = 0;
+function bindReaderManualTouchScroll(scrollTarget) {
+  if (!scrollTarget || scrollTarget.dataset.manualTouchScrollBound === "true") return;
+  scrollTarget.dataset.manualTouchScrollBound = "true";
+  let lastTouchY = 0;
+
+  scrollTarget.addEventListener("touchstart", (event) => {
+    if (event.touches.length !== 1) return;
+    lastTouchY = event.touches[0].clientY;
+  }, { passive: true });
+
+  scrollTarget.addEventListener("touchmove", (event) => {
+    if (!document.body.classList.contains("reader-open")) return;
+    if (event.touches.length !== 1) return;
+    if (scrollTarget.scrollHeight <= scrollTarget.clientHeight) return;
+
+    const nextTouchY = event.touches[0].clientY;
+    const deltaY = lastTouchY - nextTouchY;
+    lastTouchY = nextTouchY;
+    scrollTarget.scrollTop += deltaY;
+    event.preventDefault();
+  }, { passive: false });
 }
 
 function closeReader() {
@@ -2297,7 +2314,7 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
         basePath: path,
       });
       readerContent.replaceChildren(...markdownNodes);
-      resetReaderScroll();
+      readerContent.scrollTop = 0;
       updateReaderBackState();
     })
     .catch(() => {
@@ -2333,7 +2350,7 @@ function renderMarkdownReader(id, shouldOpen = false) {
     novelMedia,
     ...markdownNodes,
   ].filter(Boolean));
-  resetReaderScroll();
+  readerContent.scrollTop = 0;
   updateReaderBackState();
   if (shouldOpen) {
     openReader();
@@ -2396,7 +2413,7 @@ function renderReader(id, shouldOpen = false) {
   });
 
   readerContent.replaceChildren(...nodes);
-  resetReaderScroll();
+  readerContent.scrollTop = 0;
   if (shouldOpen) {
     openReader();
   }
@@ -2480,6 +2497,7 @@ bindReaderSetting(readerSize, "size");
 bindReaderSetting(readerSpacing, "spacing");
 bindReaderSetting(readerTheme, "theme");
 bindModalTouchScrollGuard(readerModal, readerContent);
+bindReaderManualTouchScroll(readerContent);
 languageControls.forEach((control) => {
   control.addEventListener("click", () => setLanguage(control.dataset.language));
 });
