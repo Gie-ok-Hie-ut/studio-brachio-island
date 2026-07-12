@@ -2655,14 +2655,34 @@ figcaption {
   max-width: 960px;
   min-height: 0;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
   overscroll-behavior: contain;
   padding: 24px 18px 8px 0;
+  scrollbar-color: rgba(5, 5, 5, 0.35) transparent;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
   user-select: text;
   -webkit-user-select: text;
   word-break: keep-all;
+}
+
+.reader-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.reader-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reader-content::-webkit-scrollbar-thumb {
+  background: rgba(5, 5, 5, 0.32);
+  border-radius: 999px;
+}
+
+.reader-window[data-theme="dark"] .reader-content::-webkit-scrollbar-thumb {
+  background: rgba(216, 216, 208, 0.34);
 }
 
 .reader-window.reader-window-gallery {
