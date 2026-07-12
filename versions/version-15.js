@@ -72,7 +72,7 @@ const NOVEL_HOVER_VELOCITY = Math.abs(NOVEL_DEFAULT_VELOCITY) * 8;
 const NOVEL_SLOW_VELOCITY = -0.035;
 const NOVEL_VELOCITY_EASE_MS = 1100;
 const novelView = {
-  mode: "orbit",
+  mode: window.matchMedia("(max-width: 900px)").matches ? "grid" : "orbit",
 };
 const novelOrbit = {
   angle: 0,
@@ -1850,6 +1850,64 @@ function closePdf() {
   pdfModal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("pdf-open");
   if (pdfFrame) pdfFrame.removeAttribute("src");
+  if (pdfSource) {
+    pdfSource.hidden = true;
+    pdfSource.textContent = "";
+  }
+}
+
+function isMobilePdfViewport() {
+  return window.matchMedia("(max-width: 900px), (pointer: coarse)").matches;
+}
+
+function ensurePdfMobileFallback() {
+  if (!pdfFrame) return null;
+  let fallback = document.querySelector(".pdf-mobile-fallback");
+  if (fallback) return fallback;
+
+  fallback = document.createElement("div");
+  fallback.className = "pdf-mobile-fallback";
+  fallback.hidden = true;
+  pdfFrame.insertAdjacentElement("afterend", fallback);
+  return fallback;
+}
+
+function setPdfViewerSource(title, pdfPath) {
+  if (!pdfSource || !pdfFrame) return;
+  const href = projectHref(pdfPath);
+  const fallback = ensurePdfMobileFallback();
+  const linkText = readerSettings.lang === "ko" ? "PDF 열기" : "Open PDF";
+  const noteText = readerSettings.lang === "ko"
+    ? "모바일 브라우저에서는 PDF를 전체 화면으로 열어야 모든 페이지를 안정적으로 볼 수 있습니다."
+    : "On mobile browsers, open the PDF directly to view every page reliably.";
+
+  pdfSource.href = href;
+  pdfSource.hidden = false;
+  pdfSource.textContent = linkText;
+  pdfSource.target = "_blank";
+  pdfSource.rel = "noreferrer";
+  pdfFrame.title = title;
+
+  if (isMobilePdfViewport()) {
+    pdfFrame.hidden = true;
+    pdfFrame.removeAttribute("src");
+    if (fallback) {
+      const note = document.createElement("p");
+      const link = document.createElement("a");
+      note.textContent = noteText;
+      link.href = href;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      link.textContent = linkText;
+      fallback.replaceChildren(note, link);
+      fallback.hidden = false;
+    }
+    return;
+  }
+
+  pdfFrame.hidden = false;
+  pdfFrame.src = href;
+  if (fallback) fallback.hidden = true;
 }
 
 function normalizeMarkdownTextLine(line) {
@@ -2273,11 +2331,7 @@ function renderPdfReader(id) {
   currentReader = { type: "pdf", id: item.id };
   const title = getLocalizedTitle(item);
   pdfTitle.textContent = title;
-  pdfSource.href = projectHref(item.meta.pdf);
-  pdfSource.target = "_blank";
-  pdfSource.rel = "noreferrer";
-  pdfFrame.src = projectHref(item.meta.pdf);
-  pdfFrame.title = title;
+  setPdfViewerSource(title, item.meta.pdf);
   openPdf();
 }
 
@@ -2285,11 +2339,7 @@ function openPdfFile(title, pdfPath) {
   if (!pdfTitle || !pdfSource || !pdfFrame) return;
   currentReader = { type: "pdf", id: pdfPath };
   pdfTitle.textContent = title;
-  pdfSource.href = projectHref(pdfPath);
-  pdfSource.target = "_blank";
-  pdfSource.rel = "noreferrer";
-  pdfFrame.src = projectHref(pdfPath);
-  pdfFrame.title = title;
+  setPdfViewerSource(title, pdfPath);
   openPdf();
 }
 
