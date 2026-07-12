@@ -8,17 +8,119 @@
       name="description"
       content="Studio Brachio Island gathers AI research, fiction, visual art, essays, and identity into one studio archive."
     >
-    <link rel="canonical" href="versions/version-15.html">
-    <meta http-equiv="refresh" content="0; url=versions/version-15.html">
+    <link rel="canonical" href="./">
+    <link rel="stylesheet" href="versions/version-15.css?v=20260712-17">
   </head>
-  <body>
-    <main>
-      <p>
-        <a href="versions/version-15.html">Enter Studio Brachio Island</a>
-      </p>
+  <body class="v15-home">
+    <main class="v15-landing" aria-label="Studio Brachio Island">
+      <section class="v15-landing-title" aria-label="Studio Brachio Island">
+        <h1>
+          <span>STUDIO</span>
+          <span class="v15-landing-title-invert">BRACHIO</span>
+          <span class="v15-landing-title-invert">ISLAND</span>
+        </h1>
+      </section>
+
+      <button
+        class="v15-menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="v15-role-menu"
+        data-v15-menu-toggle
+      >
+        <span class="v15-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav id="v15-role-menu" class="v15-role-menu" aria-label="Studio roles">
+        <a href="./" data-menu-hover="HOME">HOME</a>
+        <a href="versions/rooms-v15/who-are-we.html" data-menu-hover="@STUDIO BRACHIO ISLAND">WHO WE ARE</a>
+        <a href="versions/rooms-v15/ai-research.html" data-menu-hover="@LEE GUNHEE">AI RESEARCH</a>
+        <a href="versions/rooms-v15/novel.html" data-menu-hover="@ILLI">NOVEL</a>
+        <a href="versions/rooms-v15/visual-art.html" data-menu-hover="@NEOHEE">VISUAL ART</a>
+        <a href="versions/rooms-v15/essay.html" data-menu-hover="@ALL">ESSAY</a>
+        <a href="mailto:ivagasm@naver.com" data-menu-hover="EMAIL" aria-label="Contact by email">CONTACT</a>
+        <div class="v15-menu-language language-switch" aria-label="Language">
+          <button type="button" data-language="en">EN</button>
+          <span>/</span>
+          <button type="button" data-language="ko">KO</button>
+        </div>
+      </nav>
     </main>
-    <script>
-      window.location.replace("versions/version-15.html");
-    </script>
+
+    <div id="reader-modal" class="reader-modal" aria-hidden="true">
+      <div class="reader-backdrop" data-close-reader></div>
+      <section class="reader-window" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+        <div class="reader-toolbar">
+          <div>
+            <p class="reader-kicker">Read</p>
+            <h2 id="reader-title">글을 선택하세요</h2>
+          </div>
+          <div class="reader-actions">
+            <label>
+              lang
+              <select id="reader-lang" aria-label="언어">
+                <option value="en" selected>en</option>
+                <option value="ko">ko</option>
+              </select>
+            </label>
+            <label>
+              size
+              <select id="reader-size" aria-label="글씨 크기">
+                <option value="small">small</option>
+                <option value="medium" selected>medium</option>
+                <option value="large">large</option>
+              </select>
+            </label>
+            <label>
+              spacing
+              <select id="reader-spacing" aria-label="줄간격">
+                <option value="tight">tight</option>
+                <option value="normal" selected>normal</option>
+                <option value="wide">wide</option>
+              </select>
+            </label>
+            <label>
+              theme
+              <select id="reader-theme" aria-label="읽기 테마">
+                <option value="light" selected>white</option>
+                <option value="dark">night</option>
+              </select>
+            </label>
+            <a id="reader-source" class="modal-source" href="#" hidden></a>
+            <button class="modal-back" type="button" data-reader-back aria-label="Back" disabled>←</button>
+            <button class="modal-close" type="button" data-close-reader aria-label="Close reader">×</button>
+          </div>
+        </div>
+        <article id="reader-content" class="reader-content">
+          <p>writing 섹션에서 제목을 클릭하면 이곳에 본문이 렌더링됩니다.</p>
+        </article>
+      </section>
+    </div>
+
+    <div id="pdf-modal" class="pdf-modal" aria-hidden="true">
+      <div class="pdf-backdrop" data-close-pdf></div>
+      <section class="pdf-window" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
+        <div class="pdf-toolbar">
+          <div>
+            <p class="reader-kicker">PDF</p>
+            <h2 id="pdf-title">PDF를 선택하세요</h2>
+          </div>
+          <div class="reader-actions">
+            <a id="pdf-source" class="modal-source" href="#" hidden></a>
+            <button class="modal-close" type="button" data-close-pdf aria-label="Close PDF">×</button>
+          </div>
+        </div>
+        <iframe id="pdf-frame" class="pdf-frame" title="PDF viewer"></iframe>
+      </section>
+    </div>
+
+    <script src="versions/writing-data.js"></script>
+    <script src="content-index.js?v=20260712-10"></script>
+    <script src="versions/version-15.js?v=20260712-10"></script>
   </body>
 </html>

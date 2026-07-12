@@ -12,4 +12,4 @@ Use the repository root as the Pages source.
 4. Select the `main` branch and `/ (root)`.
 5. Open the published GitHub Pages URL.
 
-The root `index.html` forwards visitors to the current site at `versions/version-15.html`.
+The root `index.html` is the public entry page. Supporting CSS, JavaScript, and room pages live under `versions/`.
