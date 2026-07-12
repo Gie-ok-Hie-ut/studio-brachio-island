@@ -2685,6 +2685,23 @@ figcaption {
   background: rgba(216, 216, 208, 0.34);
 }
 
+.reader-window::-webkit-scrollbar {
+  width: 4px;
+}
+
+.reader-window::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reader-window::-webkit-scrollbar-thumb {
+  background: rgba(5, 5, 5, 0.32);
+  border-radius: 999px;
+}
+
+.reader-window[data-theme="dark"]::-webkit-scrollbar-thumb {
+  background: rgba(216, 216, 208, 0.34);
+}
+
 .reader-window.reader-window-gallery {
   height: min(94vh, 1040px);
   width: min(calc(100vw - 36px), 1360px);
@@ -3275,9 +3292,18 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 
   .reader-window {
     align-self: stretch;
+    display: block;
     height: calc(100dvh - 20px);
     max-height: calc(100dvh - 20px);
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 16px;
+    overscroll-behavior: contain;
+    scrollbar-color: rgba(5, 5, 5, 0.35) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
     width: calc(100vw - 20px);
   }
 
@@ -3295,9 +3321,12 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 
   .reader-content {
+    flex: none;
+    height: auto;
     max-height: none;
     min-height: 0;
-    padding: 20px 4px 8px 0;
+    overflow: visible;
+    padding: 20px 4px 48px 0;
   }
 
 }

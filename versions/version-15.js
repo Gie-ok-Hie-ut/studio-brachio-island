@@ -898,7 +898,7 @@ function openGalleryAsset(filename) {
   detail.append(detailLabel, detailBody);
   wrapper.append(figure, detail);
   readerContent.replaceChildren(wrapper);
-  readerContent.scrollTop = 0;
+  resetReaderScroll();
   openReader();
 
   fetch(descriptionPath)
@@ -1110,7 +1110,7 @@ function openGalleryProject(item, startIndex = 0) {
   wrapper.append(meta, stage, info);
   setActiveAsset(activeIndex);
   readerContent.replaceChildren(wrapper);
-  readerContent.scrollTop = 0;
+  resetReaderScroll();
   openReader();
 }
 
@@ -1839,9 +1839,15 @@ function bindModalTouchScrollGuard(modal, scrollTarget) {
   modal.dataset.touchScrollGuardBound = "true";
   modal.addEventListener("touchmove", (event) => {
     if (!document.body.classList.contains("reader-open")) return;
+    if (readerWindow?.contains(event.target)) return;
     if (scrollTarget.contains(event.target)) return;
     event.preventDefault();
   }, { passive: false });
+}
+
+function resetReaderScroll() {
+  if (readerContent) readerContent.scrollTop = 0;
+  if (readerWindow) readerWindow.scrollTop = 0;
 }
 
 function closeReader() {
@@ -2291,7 +2297,7 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
         basePath: path,
       });
       readerContent.replaceChildren(...markdownNodes);
-      readerContent.scrollTop = 0;
+      resetReaderScroll();
       updateReaderBackState();
     })
     .catch(() => {
@@ -2327,7 +2333,7 @@ function renderMarkdownReader(id, shouldOpen = false) {
     novelMedia,
     ...markdownNodes,
   ].filter(Boolean));
-  readerContent.scrollTop = 0;
+  resetReaderScroll();
   updateReaderBackState();
   if (shouldOpen) {
     openReader();
@@ -2390,7 +2396,7 @@ function renderReader(id, shouldOpen = false) {
   });
 
   readerContent.replaceChildren(...nodes);
-  readerContent.scrollTop = 0;
+  resetReaderScroll();
   if (shouldOpen) {
     openReader();
   }
