@@ -159,6 +159,7 @@ function getSavedReaderSettings() {
     if (!localStorage.getItem("siteLanguage")) {
       delete saved.lang;
     }
+    saved.theme = "light";
     return saved;
   } catch {
     return {};
@@ -1811,7 +1812,8 @@ function applyReaderSettings() {
   readerWindow.dataset.lang = readerSettings.lang;
   readerWindow.dataset.size = readerSettings.size;
   readerWindow.dataset.spacing = readerSettings.spacing;
-  readerWindow.dataset.theme = readerSettings.theme;
+  readerSettings.theme = "light";
+  readerWindow.dataset.theme = "light";
 
   if (readerLang) readerLang.value = readerSettings.lang;
   if (readerSize) readerSize.value = readerSettings.size;

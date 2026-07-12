@@ -926,7 +926,7 @@ body.role-closing .role-panel.is-expanded .role-close {
 
 .identity-detail-portrait img {
   aspect-ratio: 4 / 5;
-  filter: grayscale(1) contrast(1.04);
+  filter: none;
   object-fit: cover;
   object-position: center 58%;
   width: 100%;
@@ -3790,6 +3790,18 @@ body[data-role-room] .pdf-window,
   body[data-role-room] .role-section-body {
     overflow: visible;
     padding-right: 0;
+  }
+
+  body[data-role-room="engineer"] .cv-list article,
+  body[data-role-room="engineer"] .cv-list button {
+    gap: clamp(12px, 3vw, 18px);
+    grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr);
+  }
+
+  body[data-role-room="engineer"] .engineer-scroll .role-items button,
+  body[data-role-room="engineer"] .cv-scroll .role-items button {
+    gap: clamp(12px, 3vw, 18px);
+    grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
   }
 
   body[data-role-room] .role-detail-layout-novel .role-section-body-novel {
