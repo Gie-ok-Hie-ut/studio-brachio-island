@@ -1,5 +1,5 @@
 window.CONTENT_INDEX = {
-  "generatedAt": "2026-07-11T20:14:08.243Z",
+  "generatedAt": "2026-07-12T16:06:10.209Z",
   "items": [
     {
       "id": "engineering-varco",
@@ -151,7 +151,7 @@ window.CONTENT_INDEX = {
       "titleEn": "Latent Murmuration",
       "order": 3,
       "topLevel": true,
-      "path": "content/gallery/03-project-06/index.md",
+      "path": "content/gallery/03-latent-murmuration/index.md",
       "meta": {
         "id": "visual-project-06",
         "title": "Latent Murmuration",
@@ -181,7 +181,7 @@ window.CONTENT_INDEX = {
       "titleEn": "He wept",
       "order": 4,
       "topLevel": true,
-      "path": "content/gallery/04-project-05/index.md",
+      "path": "content/gallery/04-he-wept/index.md",
       "meta": {
         "id": "visual-project-05",
         "title": "He wept",
@@ -210,7 +210,7 @@ window.CONTENT_INDEX = {
       "titleEn": "Root",
       "order": 5,
       "topLevel": true,
-      "path": "content/gallery/05-project-04/index.md",
+      "path": "content/gallery/05-root/index.md",
       "meta": {
         "id": "visual-project-04",
         "title": "Root",
@@ -234,17 +234,17 @@ window.CONTENT_INDEX = {
     {
       "id": "visual-project-03",
       "type": "gallery",
-      "title": "Downward Freedom",
-      "titleKo": "Downward Freedom",
-      "titleEn": "Downward Freedom",
+      "title": "DIED OGAMI",
+      "titleKo": "DIED OGAMI",
+      "titleEn": "DIED OGAMI",
       "order": 6,
       "topLevel": true,
-      "path": "content/gallery/06-project-03/index.md",
+      "path": "content/gallery/06-died-ogami/index.md",
       "meta": {
         "id": "visual-project-03",
-        "title": "Downward Freedom",
-        "titleKo": "Downward Freedom",
-        "titleEn": "Downward Freedom",
+        "title": "DIED OGAMI",
+        "titleKo": "DIED OGAMI",
+        "titleEn": "DIED OGAMI",
         "type": "gallery",
         "order": 6,
         "year": "2016",
@@ -256,9 +256,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "Downward Freedom",
-      "markdownKo": "Downward Freedom",
-      "markdownEn": "Downward Freedom"
+      "markdown": "DIED OGAMI",
+      "markdownKo": "DIED OGAMI",
+      "markdownEn": "DIED OGAMI"
     },
     {
       "id": "visual-project-02",
@@ -268,7 +268,7 @@ window.CONTENT_INDEX = {
       "titleEn": "BCAD",
       "order": 7,
       "topLevel": true,
-      "path": "content/gallery/07-project-02/index.md",
+      "path": "content/gallery/07-bcad/index.md",
       "meta": {
         "id": "visual-project-02",
         "title": "BCAD",
@@ -300,17 +300,17 @@ window.CONTENT_INDEX = {
     {
       "id": "visual-project-01",
       "type": "gallery",
-      "title": "Latent",
-      "titleKo": "Latent",
-      "titleEn": "Latent",
+      "title": "Latent Architect",
+      "titleKo": "Latent Architect",
+      "titleEn": "Latent Architect",
       "order": 8,
       "topLevel": true,
-      "path": "content/gallery/08-project-01/index.md",
+      "path": "content/gallery/08-latent-architect/index.md",
       "meta": {
         "id": "visual-project-01",
-        "title": "Latent",
-        "titleKo": "Latent",
-        "titleEn": "Latent",
+        "title": "Latent Architect",
+        "titleKo": "Latent Architect",
+        "titleEn": "Latent Architect",
         "type": "gallery",
         "order": 8,
         "year": "2017",
@@ -323,9 +323,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "Latent",
-      "markdownKo": "Latent",
-      "markdownEn": "Latent"
+      "markdown": "Latent Architect",
+      "markdownKo": "Latent Architect",
+      "markdownEn": "Latent Architect"
     },
     {
       "id": "9da96c11-8ced-4929-bfc1-58226efc8e9b",

@@ -215,20 +215,30 @@ function applyStaticCopy() {
   });
 }
 
-function refreshLocalizedContent() {
+function refreshLocalizedContent(options = {}) {
+  const scrollState = options.preserveReaderScroll
+    ? options.scrollState || getReaderScrollState()
+    : null;
   applyStaticCopy();
   renderRoleShells();
   renderRoleItems();
   bindNovelViewControls();
   if (currentReader.type === "content") {
-    renderMarkdownReader(currentReader.id);
+    renderMarkdownReader(currentReader.id, false, {
+      preserveLanguage: true,
+      scrollState,
+    });
   }
   if (currentReader.type === "chapter") {
     renderMarkdownFileReader(
       currentReader.path,
       currentReader.title,
       findContentById(currentReader.parentId),
-      false
+      false,
+      {
+        preserveLanguage: true,
+        scrollState,
+      }
     );
   }
   if (currentReader.type === "gallery" && currentGalleryProject.item && readerModal?.classList.contains("is-open")) {
@@ -246,9 +256,13 @@ function setReaderVariant(variant = "") {
 }
 
 function setLanguage(lang) {
+  const scrollState = getReaderScrollState();
   readerSettings.lang = lang === "ko" ? "ko" : "en";
   applyReaderSettings();
-  refreshLocalizedContent();
+  refreshLocalizedContent({
+    preserveReaderScroll: true,
+    scrollState,
+  });
 }
 
 function normalizeNotionId(value = "") {
@@ -333,6 +347,49 @@ function getLocalizedMarkdown(item) {
   if (!item) return "";
   if (readerSettings.lang === "en") return item.markdownEn || item.markdownKo || item.markdown || "";
   return item.markdownKo || item.markdown || item.markdownEn || "";
+}
+
+function hasLocalizedMarkdown(item, lang) {
+  if (!item) return false;
+  const markdown = lang === "en" ? item.markdownEn : item.markdownKo || item.markdown;
+  return Boolean(String(markdown || "").trim());
+}
+
+function getDefaultReaderLanguage(item) {
+  if (hasLocalizedMarkdown(item, "en")) return "en";
+  if (hasLocalizedMarkdown(item, "ko")) return "ko";
+  return readerSettings.lang === "ko" ? "ko" : "en";
+}
+
+function applyDefaultReaderLanguage(item) {
+  const nextLang = getDefaultReaderLanguage(item);
+  if (readerSettings.lang === nextLang) {
+    applyReaderSettings();
+    return;
+  }
+  readerSettings.lang = nextLang;
+  applyReaderSettings();
+  applyStaticCopy();
+}
+
+function getReaderScrollState() {
+  if (!readerContent || !readerModal?.classList.contains("is-open")) return null;
+  const max = Math.max(readerContent.scrollHeight - readerContent.clientHeight, 0);
+  return {
+    top: readerContent.scrollTop,
+    ratio: max > 0 ? readerContent.scrollTop / max : 0,
+  };
+}
+
+function restoreReaderScrollState(state) {
+  if (!state || !readerContent) return;
+  window.requestAnimationFrame(() => {
+    const max = Math.max(readerContent.scrollHeight - readerContent.clientHeight, 0);
+    const restoredTop = Math.min(max, Math.max(0, state.top));
+    readerContent.scrollTop = Number.isFinite(restoredTop)
+      ? restoredTop
+      : Math.round(max * state.ratio);
+  });
 }
 
 function getLocalizedResidentLabel(entry = {}) {
@@ -1832,7 +1889,6 @@ function bindReaderSetting(control, key) {
     }
     readerSettings[key] = control.value;
     applyReaderSettings();
-    refreshLocalizedContent();
   });
 }
 
@@ -2285,9 +2341,10 @@ function createNovelReaderMedia(item, title) {
   return gallery;
 }
 
-function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = false) {
+function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = false, options = {}) {
   if (!path || !readerTitle || !readerSource || !readerContent) return;
   setReaderVariant("");
+  if (shouldOpen && !options.preserveLanguage) applyDefaultReaderLanguage(parentItem);
   currentReader = {
     type: "chapter",
     id: path,
@@ -2316,7 +2373,8 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
         basePath: path,
       });
       readerContent.replaceChildren(...markdownNodes);
-      readerContent.scrollTop = 0;
+      if (options.scrollState) restoreReaderScrollState(options.scrollState);
+      else readerContent.scrollTop = 0;
       updateReaderBackState();
     })
     .catch(() => {
@@ -2330,10 +2388,11 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
     });
 }
 
-function renderMarkdownReader(id, shouldOpen = false) {
+function renderMarkdownReader(id, shouldOpen = false, options = {}) {
   const item = findContentById(id) || contentItems[0];
   if (!item || !readerTitle || !readerSource || !readerContent) return;
   setReaderVariant("");
+  if (shouldOpen && !options.preserveLanguage) applyDefaultReaderLanguage(item);
   currentReader = { type: "content", id: item.id };
 
   const title = getLocalizedTitle(item);
@@ -2352,7 +2411,8 @@ function renderMarkdownReader(id, shouldOpen = false) {
     novelMedia,
     ...markdownNodes,
   ].filter(Boolean));
-  readerContent.scrollTop = 0;
+  if (options.scrollState) restoreReaderScrollState(options.scrollState);
+  else readerContent.scrollTop = 0;
   updateReaderBackState();
   if (shouldOpen) {
     openReader();

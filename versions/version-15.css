@@ -3167,6 +3167,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 
   .identity-detail {
+    gap: 34px;
     grid-template-columns: 1fr;
     overflow: auto;
   }
@@ -3266,6 +3267,44 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     align-items: start;
     flex-direction: column;
     gap: 14px;
+  }
+
+  .reader-toolbar {
+    align-items: stretch;
+    display: grid;
+    gap: 18px;
+  }
+
+  .reader-toolbar .reader-actions {
+    align-items: end;
+    display: grid;
+    gap: 18px 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: stretch;
+    width: 100%;
+  }
+
+  .reader-toolbar .reader-actions label {
+    align-items: start;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+  }
+
+  .reader-toolbar .reader-actions select {
+    max-width: 100%;
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .reader-toolbar .reader-actions .modal-back {
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  .reader-toolbar .reader-actions .modal-close {
+    grid-column: 3;
+    justify-self: end;
   }
 
   .pdf-window {
@@ -3454,8 +3493,22 @@ body.is-v15-menu-open .v15-menu-icon span:nth-child(3) {
   transition:
     opacity 260ms var(--motion-ease),
     transform 260ms var(--motion-ease);
+  scrollbar-color: var(--ink) transparent;
+  scrollbar-width: thin;
   width: 100vw;
   z-index: 130;
+}
+
+.v15-role-menu::-webkit-scrollbar {
+  height: 6px;
+}
+
+.v15-role-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.v15-role-menu::-webkit-scrollbar-thumb {
+  background: var(--ink);
 }
 
 body.is-v15-menu-open .v15-role-menu {
@@ -3790,6 +3843,20 @@ body[data-role-room] .pdf-window,
   body[data-role-room] .role-section-body {
     overflow: visible;
     padding-right: 0;
+  }
+
+  body[data-role-room] .role-section-title h2,
+  body[data-role-room] .role-detail-layout-identity .role-section-title h2 {
+    font-size: clamp(32px, 12vw, 58px);
+    gap: 4px;
+    max-width: 100%;
+  }
+
+  body[data-role-room] .role-section-title h2 .role-heading-line,
+  body[data-role-room] .role-section-title h2 .role-heading-handle,
+  body[data-role-room] .role-detail-layout-identity .role-section-title h2 .role-heading-handle {
+    font-size: inherit;
+    line-height: inherit;
   }
 
   body[data-role-room="engineer"] .cv-list article,
