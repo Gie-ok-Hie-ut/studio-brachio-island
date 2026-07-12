@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lee Gunhee - Version 4</title>
+    <link rel="stylesheet" href="version-4.css">
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a href="../index.html">~/gunhee</a>
+      <a href="#intro">intro</a>
+      <a href="#education">education</a>
+      <a href="#career">career</a>
+      <a href="#projects">projects</a>
+      <a href="#gallery">gallery</a>
+      <a href="#writing">writing</a>
+      <a href="#links">links</a>
+    </nav>
+
+    <main class="slides">
+      <section id="intro" class="panel is-active">
+        <div class="panel-content terminal">
+          <p class="prompt">$ cat intro.txt</p>
+          <h1>Lee Gunhee<br>이건희</h1>
+          <div class="log-list large">
+            <p><span>identity</span> 기술과 예술, 신앙이라는 세 축을 중심으로 생각하고 창작하는 탐구자</p>
+            <p><span>role</span> 생성형 AI 연구 엔지니어</p>
+            <p><span>interest</span> 창작 과정에 도움을 줄 수 있는 AI 도구, 에세이, 소설</p>
+            <p><span>question</span> 수의 지배와 우수론의 흐름 속에서 인간의 존재적 위험, 의미, 목적, 고유한 가치</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="panel">
+        <div class="panel-content terminal">
+          <p class="prompt">$ cat education.md</p>
+          <h2>학력</h2>
+          <div class="log-list">
+            <p><span>2017-2019</span> 포항공과대학교 POSTECH, 컴퓨터 그래픽스 석사</p>
+            <p><span>thesis</span> Deep Image Recolorization using Histogram Analogy</p>
+            <p><span>2011-2017</span> 한동대학교 HGU, 컴퓨터공학 학사</p>
+            <p><span>record</span> Summa Cum Laude, GPA 4.08 / 4.50</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="career" class="panel">
+        <div class="panel-content terminal">
+          <p class="prompt">$ cat career.md</p>
+          <h2>경력</h2>
+          <div class="log-list">
+            <p><span>2025-now</span> NC AI, 비주얼 콘텐츠 서비스실, 생성형 AI 연구 엔지니어</p>
+            <p><span>2020-2025</span> NCSOFT, 이미지 생성팀, 생성형 AI 연구 엔지니어</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="panel">
+        <div class="panel-content terminal">
+          <p class="prompt">$ ls projects</p>
+          <h2>프로젝트</h2>
+          <div class="log-list large">
+            <p><span>VARCO</span> 확산 모델 기반 이미지 생성 AI SaaS</p>
+            <p><span>model</span> 기본 기초 모델 구축 및 관련 어댑터 개발을 위한 연구 수행</p>
+            <p><span>try-on</span> LoRA 기반 생성 모델의 멀티 GPU 학습을 활용한 가상 피팅 기술 개발 주도</p>
+            <p><span>pipeline</span> 데이터 정제, 모델 학습, AI 아키텍처 설계를 포함한 멀티뷰 이미지 생성 기능 설계 및 구현</p>
+            <p><span>volume</span> 조명 적응 및 자동 색상 적용이 가능한 볼륨 생성 기능 개발 주도</p>
+            <p><span>control</span> 제어 가능한 이미지 생성 연구</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="control" class="panel">
+        <div class="panel-content terminal">
+          <p class="prompt">$ cat projects/control.md</p>
+          <h2>제어 가능한 이미지 생성 연구</h2>
+          <div class="log-list large">
+            <p><span>landscape</span> 고해상도 풍경 이미지 합성을 위한 조건부 파이프라인 및 모델 아키텍처 설계</p>
+            <p><span>model</span> 사용자 제어가 가능하고 빠르고 세밀한 생성이 가능한 GAN 기반 모델 개발</p>
+            <p><span>face data</span> 단일 얼굴 이미지 입력을 활용한 합성 얼굴 데이터셋 자동 생성 파이프라인 구축</p>
+            <p><span>latent</span> GAN의 잠재 공간 조작을 통한 데이터 생성</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="panel">
+        <div class="panel-content terminal gallery-panel">
+          <p class="prompt">$ open image-gallery</p>
+          <h2>작품 이미지 소개</h2>
+          <div class="gallery">
+            <figure>
+              <img src="../assets/hero-workspace.png" alt="대표 이미지 작업.">
+              <figcaption>대표 이미지</figcaption>
+            </figure>
+            <figure><div></div><figcaption>이미지 02</figcaption></figure>
+            <figure><div></div><figcaption>이미지 03</figcaption></figure>
+            <figure><div></div><figcaption>이미지 04</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="writing" class="panel">
+        <div class="panel-content terminal">
+          <p class="prompt">$ ls writing</p>
+          <h2>작품 글 / 소설 소개</h2>
+          <div id="writing-list" class="log-list large writing-list">
+            <p><span>loading</span> Notion 글 데이터를 불러오는 중입니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="links" class="panel">
+        <div class="panel-content terminal contact">
+          <p class="prompt">$ cat links.txt</p>
+          <h2>링크 / 연락</h2>
+          <div class="log-list large">
+            <p><span>email</span><a href="mailto:ivagasm@naver.com">ivagasm@naver.com</a></p>
+            <p><span>VARCO 1</span><a href="https://www.youtube.com/watch?v=_4lfjJn5Pyg" target="_blank" rel="noreferrer">The Next Creativity at NC - VARCO Art</a></p>
+            <p><span>VARCO 2</span><a href="https://youtu.be/vgpX5jhPDGw?si=-5XU9hk2HyjSoiva" target="_blank" rel="noreferrer">YouTube link from CV</a></p>
+            <p><span>VARCO 3</span><a href="https://youtu.be/GJ04vdK9Gik?si=at3tDnItflMWBNhU&t=417" target="_blank" rel="noreferrer">YouTube link from CV</a></p>
+            <p><span>paper</span><a href="https://arxiv.org/abs/2205.06611" target="_blank" rel="noreferrer">StyLandGAN: A StyleGAN based Landscape Image Synthesis using Depth-map</a></p>
+            <p><span>paper</span><a href="https://cg.postech.ac.kr/papers/2020_CGI_JY.pdf" target="_blank" rel="noreferrer">Deep Image Recolorization using Histogram Analogy</a></p>
+            <p><span>paper</span><a href="https://openreview.net/pdf?id=rrm-1ze303" target="_blank" rel="noreferrer">Naturalness-Preserving Image Tone Enhancement Using GANs</a></p>
+            <p><span>portfolio</span><a href="https://drive.google.com/file/d/1X_NwmW-ir7aIRtNEv9osZfGxJPOnxOh1/view?usp=sharing" target="_blank" rel="noreferrer">Google Drive portfolio link from CV</a></p>
+            <p><span>writing</span><a href="https://sand-spell-417.notion.site/9da96c118ced4929bfc158226efc8e9b" target="_blank" rel="noreferrer">Notion writing link 01</a></p>
+            <p><span>writing</span><a href="https://sand-spell-417.notion.site/8e0b93a0bda04916ad4cf775a0632819" target="_blank" rel="noreferrer">Notion writing link 02</a></p>
+            <p><span>writing</span><a href="http://sand-spell-417.notion.site/2465ea918bb44de8ae8e9afb63cd0c50?pvs=74" target="_blank" rel="noreferrer">Notion writing link 03</a></p>
+            <p><span>writing</span><a href="https://sand-spell-417.notion.site/Pro-logos-16bb4c78b1644bc78c27c2e31ddf8a0d?pvs=74" target="_blank" rel="noreferrer">Pro-logos</a></p>
+            <p><span>writing</span><a href="https://sand-spell-417.notion.site/35f51218e64b47d68942418689946505" target="_blank" rel="noreferrer">Notion writing link 05</a></p>
+            <p><span>writing</span><a href="https://sand-spell-417.notion.site/7801718e1d654fab83731a198ab4f53f" target="_blank" rel="noreferrer">Notion writing link 06</a></p>
+            <p><span>writing</span><a href="https://sand-spell-417.notion.site/5c962dfce87b41d09825470de766ef76" target="_blank" rel="noreferrer">Notion writing link 07</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="reader-modal" class="reader-modal" aria-hidden="true">
+      <div class="reader-backdrop" data-close-reader></div>
+      <section class="reader-window terminal" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+        <div class="reader-toolbar">
+          <div>
+            <p class="prompt">$ read writing</p>
+            <h2 id="reader-title">글을 선택하세요</h2>
+          </div>
+          <div class="reader-actions">
+            <label>
+              size
+              <select id="reader-size" aria-label="글씨 크기">
+                <option value="small">small</option>
+                <option value="medium" selected>medium</option>
+                <option value="large">large</option>
+              </select>
+            </label>
+            <label>
+              spacing
+              <select id="reader-spacing" aria-label="줄간격">
+                <option value="tight">tight</option>
+                <option value="normal" selected>normal</option>
+                <option value="wide">wide</option>
+              </select>
+            </label>
+            <label>
+              theme
+              <select id="reader-theme" aria-label="읽기 테마">
+                <option value="dark" selected>night</option>
+                <option value="light">white</option>
+              </select>
+            </label>
+            <a id="reader-source" href="#writing">source</a>
+            <button type="button" data-close-reader>close</button>
+          </div>
+        </div>
+        <article id="reader-content" class="reader-content">
+          <p>writing 섹션에서 제목을 클릭하면 이곳에 본문이 렌더링됩니다.</p>
+        </article>
+      </section>
+    </div>
+
+    <script src="writing-data.js"></script>
+    <script src="version-4.js"></script>
+  </body>
+</html>

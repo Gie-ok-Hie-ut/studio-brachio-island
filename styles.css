@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fbfbf8;
+  color: #111111;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1080px;
+  min-height: 100vh;
+  padding: 56px 28px;
+}
+
+.intro {
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 56px;
+}
+
+.intro p,
+.intro span,
+.studies em,
+.studies span {
+  color: #777777;
+}
+
+.intro p {
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+h1 {
+  font-size: clamp(56px, 10vw, 132px);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.95;
+  margin: 0 0 28px;
+}
+
+.intro span {
+  display: block;
+  font-size: 16px;
+}
+
+.studies {
+  display: grid;
+}
+
+.studies a {
+  border-bottom: 1px solid #dddddd;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 72px minmax(180px, 0.45fr) minmax(0, 0.55fr);
+  padding: 30px 0;
+}
+
+.studies a:hover strong {
+  color: #777777;
+}
+
+.studies span,
+.studies em {
+  font-size: 14px;
+  font-style: normal;
+}
+
+.studies strong {
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+@media (max-width: 720px) {
+  main {
+    padding: 36px 20px;
+  }
+
+  .intro {
+    padding-bottom: 44px;
+  }
+
+  .studies a {
+    gap: 8px;
+    grid-template-columns: 1fr;
+    padding: 26px 0;
+  }
+}
