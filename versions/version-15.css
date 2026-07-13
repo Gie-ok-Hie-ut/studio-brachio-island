@@ -2540,7 +2540,7 @@ figcaption {
 .reader-kicker {
   color: var(--reader-muted, var(--muted));
   font-size: var(--text-xs);
-  font-weight: 900;
+  font-weight: 760;
   margin: 0 0 8px;
   text-transform: uppercase;
 }
@@ -2553,7 +2553,7 @@ figcaption {
 .pdf-toolbar h2 {
   color: var(--reader-ink, var(--ink));
   font-size: var(--text-xl);
-  font-weight: 900;
+  font-weight: 850;
   line-height: 1;
   margin: 0;
 }
@@ -2585,7 +2585,7 @@ figcaption {
 .reader-actions select {
   color: var(--reader-muted, var(--muted));
   font-size: var(--text-xs);
-  font-weight: 900;
+  font-weight: 760;
   text-transform: uppercase;
 }
 
@@ -2609,7 +2609,7 @@ figcaption {
   color: var(--reader-ink, var(--ink));
   display: inline-flex;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 650;
   justify-content: center;
   line-height: 1;
   min-height: 0;
@@ -2708,7 +2708,7 @@ figcaption {
 .reader-content h3,
 .reader-content h4 {
   color: var(--reader-ink);
-  font-weight: 900;
+  font-weight: 850;
   line-height: 1.15;
 }
 
@@ -2968,7 +2968,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 .gallery-project-viewer-meta {
   color: var(--reader-muted, var(--muted));
   font-size: var(--text-xs);
-  font-weight: 900;
+  font-weight: 760;
   line-height: 1;
   min-height: 1em;
   text-transform: uppercase;
@@ -3044,7 +3044,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   display: inline-flex;
   font-family: inherit;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 650;
   height: 48px;
   justify-content: center;
   justify-self: center;
@@ -3087,7 +3087,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   display: flex;
   font: inherit;
   font-size: var(--text-xs);
-  font-weight: 900;
+  font-weight: 760;
   justify-content: space-between;
   justify-self: start;
   line-height: 1;
@@ -3146,7 +3146,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 .gallery-asset-detail > span {
   color: var(--reader-muted, var(--muted));
   font-size: var(--text-xs);
-  font-weight: 900;
+  font-weight: 760;
   text-transform: uppercase;
 }
 
@@ -3201,7 +3201,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   cursor: pointer;
   font-family: inherit;
   font-size: 42px;
-  font-weight: 900;
+  font-weight: 650;
   line-height: 1;
   padding: 0;
   position: absolute;
