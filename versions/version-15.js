@@ -188,6 +188,8 @@ let currentGalleryProject = {
   item: null,
   index: 0,
 };
+let galleryOriginalModal = null;
+let galleryOriginalMedia = null;
 let roleReadyTimer = 0;
 let galleryMasonryColumnCount = 0;
 
@@ -1093,6 +1095,71 @@ function createGalleryMedia(asset, title, options = {}) {
   return media;
 }
 
+function ensureGalleryOriginalModal() {
+  if (galleryOriginalModal && galleryOriginalMedia) return galleryOriginalModal;
+
+  const modal = document.createElement("div");
+  const backdrop = document.createElement("button");
+  const frame = document.createElement("div");
+  const closeButton = document.createElement("button");
+  const mediaWrap = document.createElement("div");
+
+  modal.className = "gallery-original-modal";
+  modal.setAttribute("aria-hidden", "true");
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  backdrop.type = "button";
+  backdrop.className = "gallery-original-backdrop";
+  backdrop.setAttribute("aria-label", readerSettings.lang === "ko" ? "원본 이미지 닫기" : "Close original image");
+  frame.className = "gallery-original-frame";
+  closeButton.type = "button";
+  closeButton.className = "gallery-original-close";
+  closeButton.textContent = "×";
+  closeButton.setAttribute("aria-label", readerSettings.lang === "ko" ? "원본 이미지 닫기" : "Close original image");
+  mediaWrap.className = "gallery-original-media";
+
+  frame.append(closeButton, mediaWrap);
+  modal.append(backdrop, frame);
+  document.body.append(modal);
+
+  backdrop.addEventListener("click", closeGalleryOriginal);
+  closeButton.addEventListener("click", closeGalleryOriginal);
+
+  galleryOriginalModal = modal;
+  galleryOriginalMedia = mediaWrap;
+  return modal;
+}
+
+function openGalleryOriginal(asset, title) {
+  if (!asset) return;
+  ensureGalleryOriginalModal();
+
+  const src = getGalleryAssetPath(asset);
+  const isVideo = /\.(mov|mp4|webm)$/i.test(asset);
+  const media = document.createElement(isVideo ? "video" : "img");
+
+  media.src = src;
+  if (isVideo) {
+    media.controls = true;
+    media.playsInline = true;
+  } else {
+    media.alt = title;
+  }
+
+  galleryOriginalMedia.replaceChildren(media);
+  galleryOriginalModal.classList.add("is-open");
+  galleryOriginalModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("gallery-original-open");
+}
+
+function closeGalleryOriginal() {
+  if (!galleryOriginalModal || !galleryOriginalMedia) return;
+  galleryOriginalModal.classList.remove("is-open");
+  galleryOriginalModal.setAttribute("aria-hidden", "true");
+  galleryOriginalMedia.replaceChildren();
+  document.body.classList.remove("gallery-original-open");
+}
+
 function openGalleryProject(item, startIndex = 0) {
   if (!readerTitle || !readerSource || !readerContent) return;
   const title = getLocalizedTitle(item);
@@ -1113,6 +1180,8 @@ function openGalleryProject(item, startIndex = 0) {
   const meta = document.createElement("div");
   const stage = document.createElement("div");
   const figure = document.createElement("figure");
+  const navRow = document.createElement("div");
+  const navDivider = document.createElement("span");
   const previousButton = document.createElement("button");
   const nextButton = document.createElement("button");
   const info = document.createElement("section");
@@ -1123,6 +1192,9 @@ function openGalleryProject(item, startIndex = 0) {
   meta.className = "gallery-project-viewer-meta";
   stage.className = "gallery-project-viewer-stage";
   figure.className = "gallery-project-viewer-figure";
+  navRow.className = "gallery-project-nav-row";
+  navDivider.className = "gallery-project-nav-divider";
+  navDivider.setAttribute("aria-hidden", "true");
   previousButton.type = "button";
   previousButton.className = "gallery-project-nav gallery-project-nav-prev";
   previousButton.textContent = "←";
@@ -1153,6 +1225,19 @@ function openGalleryProject(item, startIndex = 0) {
     meta.textContent = total > 1 ? `${item.meta?.year || ""} / ${paddedIndex} OF ${paddedTotal}` : `${item.meta?.year || ""}`;
     readerSource.href = getGalleryAssetPath(asset);
     figure.replaceChildren(media);
+    if (media.tagName.toLowerCase() === "img") {
+      media.classList.add("gallery-project-open-original");
+      media.tabIndex = 0;
+      media.setAttribute("role", "button");
+      media.setAttribute("aria-label", readerSettings.lang === "ko" ? "원본 이미지 열기" : "Open original image");
+      media.addEventListener("click", () => openGalleryOriginal(asset, title));
+      media.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openGalleryOriginal(asset, title);
+        }
+      });
+    }
     wrapper.classList.toggle("is-single", total <= 1);
   };
 
@@ -1164,7 +1249,8 @@ function openGalleryProject(item, startIndex = 0) {
   });
 
   info.append(infoToggle, detailBody);
-  stage.append(previousButton, figure, nextButton);
+  navRow.append(previousButton, navDivider, nextButton);
+  stage.append(figure, navRow);
   wrapper.append(meta, stage, info);
   setActiveAsset(activeIndex);
   readerContent.replaceChildren(wrapper);
@@ -1927,6 +2013,7 @@ function bindReaderManualTouchScroll(scrollTarget) {
 
 function closeReader() {
   if (!readerModal) return;
+  closeGalleryOriginal();
   setReaderVariant("");
   readerHistory = [];
   updateReaderBackState();
@@ -2543,6 +2630,10 @@ if (readerContent) {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    if (galleryOriginalModal?.classList.contains("is-open")) {
+      closeGalleryOriginal();
+      return;
+    }
     setV15MenuState(false);
     closeReader();
     closePdf();
