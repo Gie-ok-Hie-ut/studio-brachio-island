@@ -2208,14 +2208,16 @@ body.role-closing .role-panel.is-expanded .role-close {
 }
 
 .role-novel-grid-stage {
+  --novel-grid-column-width: clamp(176px, 17vw, 248px);
   --novel-grid-column-gap: clamp(28px, 3vw, 48px);
   --novel-grid-row-gap: clamp(42px, 5vh, 72px);
   align-content: start;
-  align-items: start;
-  display: flex;
-  flex-wrap: wrap;
+  align-items: stretch;
+  display: grid;
   gap: var(--novel-grid-row-gap) var(--novel-grid-column-gap);
-  justify-content: flex-start;
+  grid-template-columns: repeat(auto-fill, minmax(var(--novel-grid-column-width), var(--novel-grid-column-width)));
+  justify-content: start;
+  justify-items: stretch;
   min-height: 0;
   overflow-anchor: none;
   overflow-y: auto;
@@ -2239,10 +2241,9 @@ body.role-closing .role-panel.is-expanded .role-close {
 .novel-grid-cell {
   aspect-ratio: 2 / 3;
   display: grid;
-  flex: 0 0 clamp(176px, 17vw, 248px);
   min-height: 0;
   position: relative;
-  width: clamp(176px, 17vw, 248px);
+  width: 100%;
 }
 
 .novel-grid-book,
@@ -2386,9 +2387,8 @@ body.role-closing .role-panel.is-expanded .role-close {
 }
 
 @media (max-width: 1200px) {
-  .novel-grid-cell {
-    flex-basis: clamp(170px, 24vw, 236px);
-    width: clamp(170px, 24vw, 236px);
+  .role-novel-grid-stage {
+    --novel-grid-column-width: clamp(170px, 24vw, 236px);
   }
 }
 
@@ -2565,6 +2565,10 @@ figcaption {
   flex-wrap: wrap;
   gap: 12px 18px;
   justify-content: flex-end;
+}
+
+.pdf-toolbar .reader-actions {
+  margin-left: auto;
 }
 
 .reader-actions .modal-source {
@@ -3357,16 +3361,19 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 
   .role-novel-grid-stage {
-    --novel-grid-row-gap: 30px;
+    --novel-grid-column-gap: clamp(18px, 4.8vw, 28px);
+    --novel-grid-row-gap: clamp(34px, 7vw, 52px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
     justify-content: stretch;
+    justify-items: stretch;
     max-height: none;
     overflow-y: visible;
-    padding: 18px 0 72px;
+    padding: clamp(18px, 4vw, 26px) 0 72px;
   }
 
   .novel-grid-cell {
-    flex: 1 1 calc(50% - 12px);
-    width: calc(50% - 12px);
+    width: 100%;
   }
 
   .role-novel-grid-stage .novel-card,
@@ -3395,6 +3402,16 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     align-items: start;
     flex-direction: column;
     gap: 14px;
+  }
+
+  .pdf-toolbar {
+    align-items: end;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .pdf-toolbar .reader-actions {
+    margin-left: auto;
   }
 
   .reader-toolbar {
@@ -3496,6 +3513,11 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   .novel-card:hover,
   .novel-card:focus-visible {
     flex-basis: 76vw;
+  }
+
+  .role-novel-grid-stage {
+    grid-template-columns: 1fr;
+    padding-bottom: 76px;
   }
 }
 

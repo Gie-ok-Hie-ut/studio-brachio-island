@@ -179,6 +179,7 @@ const readerSettings = {
   ...defaultReaderSettings,
   ...getSavedReaderSettings(),
 };
+let activeReaderLanguage = "";
 let currentReader = {
   type: "",
   id: "",
@@ -199,7 +200,7 @@ const staticCopy = {
 };
 
 function applyStaticCopy() {
-  const lang = readerSettings.lang === "ko" ? "ko" : "en";
+  const lang = getSiteLanguage();
   document.documentElement.lang = lang;
   Object.entries(staticCopy).forEach(([selector, copy]) => {
     if (selector === "#reader-title" && currentReader.type) return;
@@ -244,7 +245,10 @@ function refreshLocalizedContent(options = {}) {
     );
   }
   if (currentReader.type === "gallery" && currentGalleryProject.item && readerModal?.classList.contains("is-open")) {
-    openGalleryProject(currentGalleryProject.item, currentGalleryProject.index);
+    openGalleryProject(currentGalleryProject.item, currentGalleryProject.index, {
+      preserveLanguage: true,
+      scrollState,
+    });
   }
   if (currentReader.type === "pdf") {
     const item = findContentById(currentReader.id);
@@ -260,11 +264,24 @@ function setReaderVariant(variant = "") {
 function setLanguage(lang) {
   const scrollState = getReaderScrollState();
   readerSettings.lang = lang === "ko" ? "ko" : "en";
+  activeReaderLanguage = "";
   applyReaderSettings();
   refreshLocalizedContent({
     preserveReaderScroll: true,
     scrollState,
   });
+}
+
+function getSiteLanguage() {
+  return readerSettings.lang === "ko" ? "ko" : "en";
+}
+
+function getReaderLanguage() {
+  return activeReaderLanguage || getSiteLanguage();
+}
+
+function setActiveReaderLanguage(lang) {
+  activeReaderLanguage = lang === "ko" ? "ko" : "en";
 }
 
 function normalizeNotionId(value = "") {
@@ -339,15 +356,15 @@ function resolveMarkdownAssetHref(href = "", context = {}) {
   return projectHref(resolveContentRelativePath(href, context) || href);
 }
 
-function getLocalizedTitle(item) {
+function getLocalizedTitle(item, lang = getSiteLanguage()) {
   if (!item) return "";
-  if (readerSettings.lang === "en") return item.titleEn || item.titleKo || item.title;
+  if (lang === "en") return item.titleEn || item.titleKo || item.title;
   return item.titleKo || item.title || item.titleEn;
 }
 
-function getLocalizedMarkdown(item) {
+function getLocalizedMarkdown(item, lang = getSiteLanguage()) {
   if (!item) return "";
-  if (readerSettings.lang === "en") return item.markdownEn || item.markdownKo || item.markdown || "";
+  if (lang === "en") return item.markdownEn || item.markdownKo || item.markdown || "";
   return item.markdownKo || item.markdown || item.markdownEn || "";
 }
 
@@ -357,21 +374,18 @@ function hasLocalizedMarkdown(item, lang) {
   return Boolean(String(markdown || "").trim());
 }
 
-function getDefaultReaderLanguage(item) {
+function getDefaultReaderLanguage(item, preferredLang = getSiteLanguage()) {
+  const preferred = preferredLang === "ko" ? "ko" : "en";
+  if (hasLocalizedMarkdown(item, preferred)) return preferred;
   if (hasLocalizedMarkdown(item, "en")) return "en";
   if (hasLocalizedMarkdown(item, "ko")) return "ko";
-  return readerSettings.lang === "ko" ? "ko" : "en";
+  return preferred;
 }
 
-function applyDefaultReaderLanguage(item) {
-  const nextLang = getDefaultReaderLanguage(item);
-  if (readerSettings.lang === nextLang) {
-    applyReaderSettings();
-    return;
-  }
-  readerSettings.lang = nextLang;
-  applyReaderSettings();
-  applyStaticCopy();
+function prepareReaderLanguage(item, options = {}) {
+  const preferred = options.preserveLanguage ? getReaderLanguage() : getSiteLanguage();
+  setActiveReaderLanguage(getDefaultReaderLanguage(item, preferred));
+  applyReaderSettings({ persist: false });
 }
 
 function getReaderScrollState() {
@@ -1160,9 +1174,11 @@ function closeGalleryOriginal() {
   document.body.classList.remove("gallery-original-open");
 }
 
-function openGalleryProject(item, startIndex = 0) {
+function openGalleryProject(item, startIndex = 0, options = {}) {
   if (!readerTitle || !readerSource || !readerContent) return;
-  const title = getLocalizedTitle(item);
+  prepareReaderLanguage(item, { preserveLanguage: options.preserveLanguage });
+  const readerLanguage = getReaderLanguage();
+  const title = getLocalizedTitle(item, readerLanguage);
   const assets = getGalleryProjectAssets(item);
   const total = assets.length;
   let activeIndex = Math.min(Math.max(Number(startIndex) || 0, 0), Math.max(total - 1, 0));
@@ -1198,20 +1214,21 @@ function openGalleryProject(item, startIndex = 0) {
   previousButton.type = "button";
   previousButton.className = "gallery-project-nav gallery-project-nav-prev";
   previousButton.textContent = "←";
-  previousButton.setAttribute("aria-label", readerSettings.lang === "ko" ? "이전 이미지" : "Previous image");
+  previousButton.setAttribute("aria-label", readerLanguage === "ko" ? "이전 이미지" : "Previous image");
   nextButton.type = "button";
   nextButton.className = "gallery-project-nav gallery-project-nav-next";
   nextButton.textContent = "→";
-  nextButton.setAttribute("aria-label", readerSettings.lang === "ko" ? "다음 이미지" : "Next image");
+  nextButton.setAttribute("aria-label", readerLanguage === "ko" ? "다음 이미지" : "Next image");
   info.className = "gallery-project-info";
   infoToggle.type = "button";
   infoToggle.className = "gallery-project-info-toggle";
   infoToggle.textContent = "INFO";
   infoToggle.setAttribute("aria-expanded", "false");
   detailBody.className = "gallery-project-info-body gallery-asset-description";
-  detailBody.replaceChildren(...renderMarkdown(getLocalizedMarkdown(item), title, {
+  detailBody.replaceChildren(...renderMarkdown(getLocalizedMarkdown(item, readerLanguage), title, {
     item,
     basePath: item.path,
+    lang: readerLanguage,
   }));
 
   const setActiveAsset = (index) => {
@@ -1229,7 +1246,7 @@ function openGalleryProject(item, startIndex = 0) {
       media.classList.add("gallery-project-open-original");
       media.tabIndex = 0;
       media.setAttribute("role", "button");
-      media.setAttribute("aria-label", readerSettings.lang === "ko" ? "원본 이미지 열기" : "Open original image");
+      media.setAttribute("aria-label", readerLanguage === "ko" ? "원본 이미지 열기" : "Open original image");
       media.addEventListener("click", () => openGalleryOriginal(asset, title));
       media.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -1254,7 +1271,8 @@ function openGalleryProject(item, startIndex = 0) {
   wrapper.append(meta, stage, info);
   setActiveAsset(activeIndex);
   readerContent.replaceChildren(wrapper);
-  readerContent.scrollTop = 0;
+  if (options.scrollState) restoreReaderScrollState(options.scrollState);
+  else readerContent.scrollTop = 0;
   openReader();
 }
 
@@ -1950,27 +1968,64 @@ function openPdf() {
   document.body.classList.add("pdf-open");
 }
 
-function applyReaderSettings() {
+function applyReaderSettings(options = {}) {
   if (!readerWindow) return;
-  readerWindow.dataset.lang = readerSettings.lang;
+  const readerLanguage = getReaderLanguage();
+  readerWindow.dataset.lang = readerLanguage;
   readerWindow.dataset.size = readerSettings.size;
   readerWindow.dataset.spacing = readerSettings.spacing;
   readerSettings.theme = "light";
   readerWindow.dataset.theme = "light";
 
-  if (readerLang) readerLang.value = readerSettings.lang;
+  if (readerLang) readerLang.value = readerLanguage;
   if (readerSize) readerSize.value = readerSettings.size;
   if (readerSpacing) readerSpacing.value = readerSettings.spacing;
   if (readerTheme) readerTheme.value = readerSettings.theme;
 
-  saveReaderSettings();
+  if (options.persist !== false) saveReaderSettings();
+}
+
+function refreshCurrentReaderContent(scrollState = getReaderScrollState()) {
+  if (currentReader.type === "content") {
+    renderMarkdownReader(currentReader.id, false, {
+      preserveLanguage: true,
+      scrollState,
+    });
+    return;
+  }
+  if (currentReader.type === "chapter") {
+    renderMarkdownFileReader(
+      currentReader.path,
+      currentReader.title,
+      findContentById(currentReader.parentId),
+      false,
+      {
+        preserveLanguage: true,
+        scrollState,
+      }
+    );
+    return;
+  }
+  if (currentReader.type === "gallery" && currentGalleryProject.item) {
+    openGalleryProject(currentGalleryProject.item, currentGalleryProject.index, {
+      preserveLanguage: true,
+      scrollState,
+    });
+  }
+}
+
+function setReaderLanguage(lang) {
+  const scrollState = getReaderScrollState();
+  setActiveReaderLanguage(lang);
+  applyReaderSettings({ persist: false });
+  refreshCurrentReaderContent(scrollState);
 }
 
 function bindReaderSetting(control, key) {
   if (!control) return;
   control.addEventListener("change", () => {
     if (key === "lang") {
-      setLanguage(control.value);
+      setReaderLanguage(control.value);
       return;
     }
     readerSettings[key] = control.value;
@@ -2015,6 +2070,7 @@ function closeReader() {
   if (!readerModal) return;
   closeGalleryOriginal();
   setReaderVariant("");
+  activeReaderLanguage = "";
   readerHistory = [];
   updateReaderBackState();
   readerModal.classList.remove("is-open");
@@ -2277,7 +2333,7 @@ function getMarkdownListMatch(line) {
   return null;
 }
 
-function normalizeMarkdownSource(markdown = "") {
+function normalizeMarkdownSource(markdown = "", lang = getSiteLanguage()) {
   let source = markdown.replace(/\r\n/g, "\n");
 
   if (source.startsWith("---\n")) {
@@ -2297,11 +2353,12 @@ function normalizeMarkdownSource(markdown = "") {
     sections[lang] = source.slice(start, end).trim();
   });
 
-  return sections[readerSettings.lang] || sections.ko || sections.en || "";
+  const targetLang = lang === "ko" ? "ko" : "en";
+  return sections[targetLang] || sections.ko || sections.en || "";
 }
 
 function renderMarkdown(markdown = "", title = "", context = {}) {
-  const lines = normalizeMarkdownSource(markdown).split("\n");
+  const lines = normalizeMarkdownSource(markdown, context.lang || getSiteLanguage()).split("\n");
   const blocks = [];
   let paragraphLines = [];
   let quoteLines = [];
@@ -2431,7 +2488,9 @@ function createNovelReaderMedia(item, title) {
 function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = false, options = {}) {
   if (!path || !readerTitle || !readerSource || !readerContent) return;
   setReaderVariant("");
-  if (shouldOpen && !options.preserveLanguage) applyDefaultReaderLanguage(parentItem);
+  if (shouldOpen || options.preserveLanguage) {
+    prepareReaderLanguage(parentItem, { preserveLanguage: options.preserveLanguage });
+  }
   currentReader = {
     type: "chapter",
     id: path,
@@ -2458,6 +2517,7 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
       const markdownNodes = renderMarkdown(markdown, title, {
         item: parentItem,
         basePath: path,
+        lang: getReaderLanguage(),
       });
       readerContent.replaceChildren(...markdownNodes);
       if (options.scrollState) restoreReaderScrollState(options.scrollState);
@@ -2468,7 +2528,7 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
       if (currentReader.type !== "chapter" || currentReader.path !== path) return;
       const error = document.createElement("p");
       error.className = "markdown-block";
-      error.textContent = readerSettings.lang === "ko"
+      error.textContent = getReaderLanguage() === "ko"
         ? "파일을 불러올 수 없습니다."
         : "Unable to load this file.";
       readerContent.replaceChildren(error);
@@ -2479,19 +2539,23 @@ function renderMarkdownReader(id, shouldOpen = false, options = {}) {
   const item = findContentById(id) || contentItems[0];
   if (!item || !readerTitle || !readerSource || !readerContent) return;
   setReaderVariant("");
-  if (shouldOpen && !options.preserveLanguage) applyDefaultReaderLanguage(item);
+  if (shouldOpen || options.preserveLanguage) {
+    prepareReaderLanguage(item, { preserveLanguage: options.preserveLanguage });
+  }
   currentReader = { type: "content", id: item.id };
 
-  const title = getLocalizedTitle(item);
+  const readerLanguage = getReaderLanguage();
+  const title = getLocalizedTitle(item, readerLanguage);
   readerTitle.textContent = title;
   readerSource.href = projectHref(item.path);
   readerSource.textContent = "";
   readerSource.target = "_blank";
   readerSource.rel = "noreferrer";
 
-  const markdownNodes = renderMarkdown(getLocalizedMarkdown(item), title, {
+  const markdownNodes = renderMarkdown(getLocalizedMarkdown(item, readerLanguage), title, {
     item,
     basePath: item.path,
+    lang: readerLanguage,
   });
   const novelMedia = item.type === "novel" ? createNovelReaderMedia(item, title) : null;
   readerContent.replaceChildren(...[
