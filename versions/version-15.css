@@ -1468,6 +1468,48 @@ body.role-closing .role-panel.is-expanded .role-close {
   outline: 0;
 }
 
+.role-detail .role-essay-items button:hover,
+.role-detail .role-essay-items button:focus-visible,
+.role-essay-items button:hover,
+.role-essay-items button:focus-visible {
+  background: transparent;
+  color: var(--ink);
+  opacity: 1;
+  outline: 0;
+}
+
+.role-detail .role-essay-items button:hover *,
+.role-detail .role-essay-items button:focus-visible *,
+.role-essay-items button:hover *,
+.role-essay-items button:focus-visible * {
+  color: inherit;
+}
+
+.role-detail .role-essay-items button:hover > span,
+.role-detail .role-essay-items button:focus-visible > span,
+.role-detail .role-essay-items button:hover::after,
+.role-detail .role-essay-items button:focus-visible::after,
+.role-essay-items button:hover > span,
+.role-essay-items button:focus-visible > span,
+.role-essay-items button:hover::after,
+.role-essay-items button:focus-visible::after {
+  color: var(--muted);
+}
+
+.role-detail .role-essay-items button:hover .cv-entry-title,
+.role-detail .role-essay-items button:focus-visible .cv-entry-title,
+.role-essay-items button:hover .cv-entry-title,
+.role-essay-items button:focus-visible .cv-entry-title {
+  color: var(--ink);
+}
+
+.role-detail .role-essay-items button:hover .cv-entry-detail,
+.role-detail .role-essay-items button:focus-visible .cv-entry-detail,
+.role-essay-items button:hover .cv-entry-detail,
+.role-essay-items button:focus-visible .cv-entry-detail {
+  color: var(--muted);
+}
+
 .role-gallery-items {
   align-content: start;
   align-items: start;
