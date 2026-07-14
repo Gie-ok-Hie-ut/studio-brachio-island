@@ -3230,21 +3230,33 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 }
 
 .gallery-original-close {
+  align-items: center;
   appearance: none;
-  background: transparent;
+  aspect-ratio: 1;
+  background: rgba(5, 5, 5, 0.32);
   border: 0;
   color: var(--paper);
   cursor: pointer;
-  font-family: inherit;
-  font-size: 42px;
+  display: inline-flex;
+  font: inherit;
+  font-size: 24px;
   font-weight: 650;
+  justify-content: center;
   line-height: 1;
+  min-height: 0;
   padding: 0;
   position: absolute;
   right: 14px;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.64);
   top: 14px;
+  width: 40px;
   z-index: 2;
+}
+
+.gallery-original-close:hover,
+.gallery-original-close:focus-visible {
+  background: rgba(5, 5, 5, 0.44);
+  outline: 0;
 }
 
 .gallery-original-media {
