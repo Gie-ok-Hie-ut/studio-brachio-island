@@ -3701,6 +3701,9 @@ body.is-v15-menu-open .v15-menu-icon span:nth-child(3) {
 .v15-role-menu {
   align-items: center;
   background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
   border-bottom: 0;
   color: var(--ink);
   display: flex;
@@ -3884,7 +3887,10 @@ body[data-role-room] {
 }
 
 body[data-role-room] header.v15-topbar {
-  background: transparent;
+  background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
   display: block;
   height: 46px;
   left: 0;
