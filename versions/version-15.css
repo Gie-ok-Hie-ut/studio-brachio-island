@@ -3164,9 +3164,13 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 
 .gallery-project-info {
   display: grid;
-  gap: 8px;
+  gap: 0;
   min-height: 0;
   padding-top: 0;
+}
+
+.gallery-project-info.is-open {
+  gap: 8px;
 }
 
 .gallery-project-info-toggle {
@@ -3217,8 +3221,18 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   font-size: var(--text-xs);
   font-weight: 760;
   line-height: 1.2;
-  min-height: 1em;
+  max-height: 0;
+  min-height: 0;
+  opacity: 0;
+  overflow: hidden;
   text-transform: uppercase;
+  transition: max-height 180ms ease, opacity 160ms ease;
+}
+
+.gallery-project-info.is-open .gallery-project-info-meta {
+  max-height: 1.2em;
+  min-height: 1em;
+  opacity: 1;
 }
 
 .gallery-project-info-body {
