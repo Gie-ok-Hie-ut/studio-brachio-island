@@ -31,10 +31,10 @@
   --site-texture: url("../assets/background-texture.png");
   --site-texture-size: 1448px 1086px;
   --site-texture-surface:
-    linear-gradient(rgba(var(--paper-rgb), 0.82), rgba(var(--paper-rgb), 0.82)),
+    linear-gradient(rgba(var(--paper-rgb), 0.58), rgba(var(--paper-rgb), 0.58)),
     var(--site-texture);
   --site-texture-popup:
-    linear-gradient(rgba(var(--paper-rgb), 0.9), rgba(var(--paper-rgb), 0.9)),
+    linear-gradient(rgba(var(--paper-rgb), 0.72), rgba(var(--paper-rgb), 0.72)),
     var(--site-texture);
 }
 
