@@ -1,8 +1,8 @@
 ---
 id: "visual-project-05"
-title: "He wept"
-titleKo: "He wept"
-titleEn: "He wept"
+title: "He Wept"
+titleKo: "He Wept"
+titleEn: "He Wept"
 type: gallery
 order: 4
 year: "2026"
@@ -14,7 +14,7 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
-He wept
+He Wept
 
 <!-- en -->
-He wept
+He Wept

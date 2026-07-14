@@ -1,8 +1,8 @@
 ---
 id: "visual-project-01"
-title: "Latent Architect"
-titleKo: "Latent Architect"
-titleEn: "Latent Architect"
+title: "Theory of Mind"
+titleKo: "Theory of Mind"
+titleEn: "Theory of Mind"
 type: gallery
 order: 8
 year: "2017"
@@ -15,7 +15,7 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
-Latent Architect
+Theory of Mind
 
 <!-- en -->
-Latent Architect
+Theory of Mind
