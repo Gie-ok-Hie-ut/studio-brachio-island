@@ -1200,9 +1200,10 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   const previousButton = document.createElement("button");
   const nextButton = document.createElement("button");
   const info = document.createElement("section");
-  const infoToggle = document.createElement("div");
+  const infoToggle = document.createElement("button");
   const infoLabel = document.createElement("span");
   const infoMeta = document.createElement("span");
+  const detailBody = document.createElement("div");
 
   wrapper.className = "gallery-project-reader gallery-project-viewer";
   stage.className = "gallery-project-viewer-stage";
@@ -1218,10 +1219,18 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   nextButton.textContent = "→";
   nextButton.setAttribute("aria-label", readerLanguage === "ko" ? "다음 이미지" : "Next image");
   info.className = "gallery-project-info";
+  infoToggle.type = "button";
   infoToggle.className = "gallery-project-info-toggle";
+  infoToggle.setAttribute("aria-expanded", "false");
   infoLabel.className = "gallery-project-info-label";
   infoLabel.textContent = "INFO";
   infoMeta.className = "gallery-project-info-meta";
+  detailBody.className = "gallery-project-info-body gallery-asset-description";
+  detailBody.replaceChildren(...renderMarkdown(getLocalizedMarkdown(item, readerLanguage), title, {
+    item,
+    basePath: item.path,
+    lang: readerLanguage,
+  }));
   infoToggle.append(infoLabel);
 
   const setActiveAsset = (index) => {
@@ -1254,8 +1263,12 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
 
   previousButton.addEventListener("click", () => setActiveAsset(activeIndex - 1));
   nextButton.addEventListener("click", () => setActiveAsset(activeIndex + 1));
+  infoToggle.addEventListener("click", () => {
+    const isOpen = info.classList.toggle("is-open");
+    infoToggle.setAttribute("aria-expanded", String(isOpen));
+  });
 
-  info.append(infoToggle, infoMeta);
+  info.append(infoToggle, infoMeta, detailBody);
   navRow.append(previousButton, navCounter, nextButton);
   stage.append(figure, navRow);
   wrapper.append(stage, info);

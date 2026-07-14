@@ -3175,23 +3175,26 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   background: transparent;
   border: 0;
   color: var(--reader-ink, var(--ink));
-  cursor: default;
-  display: flex;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 8px;
   font: inherit;
   font-size: var(--text-xs);
   font-weight: 760;
-  justify-content: space-between;
+  justify-content: start;
+  justify-self: start;
   line-height: 1;
   padding: 0;
+  text-decoration: none;
   text-transform: uppercase;
-  width: 100%;
+  width: auto;
 }
 
 .gallery-project-info-toggle::after {
   content: "+";
-  font-size: 26px;
-  font-weight: 500;
-  line-height: 0.75;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1;
   text-decoration: none;
 }
 
@@ -3201,8 +3204,12 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 
 .gallery-project-info-toggle:hover,
 .gallery-project-info-toggle:focus-visible {
-  color: var(--reader-ink, var(--ink));
+  color: var(--reader-muted, var(--muted));
   outline: 0;
+}
+
+.reader-content .gallery-project-info-toggle {
+  border-bottom: 0;
 }
 
 .gallery-project-info-meta {
