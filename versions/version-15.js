@@ -1193,24 +1193,22 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   readerSource.rel = "noreferrer";
 
   const wrapper = document.createElement("div");
-  const meta = document.createElement("div");
   const stage = document.createElement("div");
   const figure = document.createElement("figure");
   const navRow = document.createElement("div");
-  const navDivider = document.createElement("span");
+  const navCounter = document.createElement("span");
   const previousButton = document.createElement("button");
   const nextButton = document.createElement("button");
   const info = document.createElement("section");
-  const infoToggle = document.createElement("button");
-  const detailBody = document.createElement("div");
+  const infoToggle = document.createElement("div");
+  const infoLabel = document.createElement("span");
+  const infoMeta = document.createElement("span");
 
   wrapper.className = "gallery-project-reader gallery-project-viewer";
-  meta.className = "gallery-project-viewer-meta";
   stage.className = "gallery-project-viewer-stage";
   figure.className = "gallery-project-viewer-figure";
   navRow.className = "gallery-project-nav-row";
-  navDivider.className = "gallery-project-nav-divider";
-  navDivider.setAttribute("aria-hidden", "true");
+  navCounter.className = "gallery-project-nav-counter";
   previousButton.type = "button";
   previousButton.className = "gallery-project-nav gallery-project-nav-prev";
   previousButton.textContent = "←";
@@ -1220,16 +1218,11 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   nextButton.textContent = "→";
   nextButton.setAttribute("aria-label", readerLanguage === "ko" ? "다음 이미지" : "Next image");
   info.className = "gallery-project-info";
-  infoToggle.type = "button";
   infoToggle.className = "gallery-project-info-toggle";
-  infoToggle.textContent = "INFO";
-  infoToggle.setAttribute("aria-expanded", "false");
-  detailBody.className = "gallery-project-info-body gallery-asset-description";
-  detailBody.replaceChildren(...renderMarkdown(getLocalizedMarkdown(item, readerLanguage), title, {
-    item,
-    basePath: item.path,
-    lang: readerLanguage,
-  }));
+  infoLabel.className = "gallery-project-info-label";
+  infoLabel.textContent = "INFO";
+  infoMeta.className = "gallery-project-info-meta";
+  infoToggle.append(infoLabel);
 
   const setActiveAsset = (index) => {
     activeIndex = (index + total) % total;
@@ -1239,7 +1232,8 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
     const media = createGalleryMedia(asset, title, { controls: true, muted: false });
     const paddedIndex = String(activeIndex + 1).padStart(2, "0");
     const paddedTotal = String(total).padStart(2, "0");
-    meta.textContent = total > 1 ? `${item.meta?.year || ""} / ${paddedIndex} OF ${paddedTotal}` : `${item.meta?.year || ""}`;
+    navCounter.textContent = total > 1 ? `${paddedIndex} OF ${paddedTotal}` : "";
+    infoMeta.textContent = item.meta?.year || "";
     readerSource.href = getGalleryAssetPath(asset);
     figure.replaceChildren(media);
     if (media.tagName.toLowerCase() === "img") {
@@ -1260,15 +1254,11 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
 
   previousButton.addEventListener("click", () => setActiveAsset(activeIndex - 1));
   nextButton.addEventListener("click", () => setActiveAsset(activeIndex + 1));
-  infoToggle.addEventListener("click", () => {
-    const isOpen = info.classList.toggle("is-open");
-    infoToggle.setAttribute("aria-expanded", String(isOpen));
-  });
 
-  info.append(infoToggle, detailBody);
-  navRow.append(previousButton, navDivider, nextButton);
+  info.append(infoToggle, infoMeta);
+  navRow.append(previousButton, navCounter, nextButton);
   stage.append(figure, navRow);
-  wrapper.append(meta, stage, info);
+  wrapper.append(stage, info);
   setActiveAsset(activeIndex);
   readerContent.replaceChildren(wrapper);
   if (options.scrollState) restoreReaderScrollState(options.scrollState);
