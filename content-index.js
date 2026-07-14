@@ -1,5 +1,5 @@
 window.CONTENT_INDEX = {
-  "generatedAt": "2026-07-12T16:06:10.209Z",
+  "generatedAt": "2026-07-14T12:51:30.672Z",
   "items": [
     {
       "id": "engineering-varco",
@@ -176,17 +176,17 @@ window.CONTENT_INDEX = {
     {
       "id": "visual-project-05",
       "type": "gallery",
-      "title": "He wept",
-      "titleKo": "He wept",
-      "titleEn": "He wept",
+      "title": "He Wept",
+      "titleKo": "He Wept",
+      "titleEn": "He Wept",
       "order": 4,
       "topLevel": true,
       "path": "content/gallery/04-he-wept/index.md",
       "meta": {
         "id": "visual-project-05",
-        "title": "He wept",
-        "titleKo": "He wept",
-        "titleEn": "He wept",
+        "title": "He Wept",
+        "titleKo": "He Wept",
+        "titleEn": "He Wept",
         "type": "gallery",
         "order": 4,
         "year": "2026",
@@ -198,9 +198,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "He wept",
-      "markdownKo": "He wept",
-      "markdownEn": "He wept"
+      "markdown": "He Wept",
+      "markdownKo": "He Wept",
+      "markdownEn": "He Wept"
     },
     {
       "id": "visual-project-04",
@@ -300,17 +300,17 @@ window.CONTENT_INDEX = {
     {
       "id": "visual-project-01",
       "type": "gallery",
-      "title": "Latent Architect",
-      "titleKo": "Latent Architect",
-      "titleEn": "Latent Architect",
+      "title": "Theory of Mind",
+      "titleKo": "Theory of Mind",
+      "titleEn": "Theory of Mind",
       "order": 8,
       "topLevel": true,
-      "path": "content/gallery/08-latent-architect/index.md",
+      "path": "content/gallery/08-theory-of-mind/index.md",
       "meta": {
         "id": "visual-project-01",
-        "title": "Latent Architect",
-        "titleKo": "Latent Architect",
-        "titleEn": "Latent Architect",
+        "title": "Theory of Mind",
+        "titleKo": "Theory of Mind",
+        "titleEn": "Theory of Mind",
         "type": "gallery",
         "order": 8,
         "year": "2017",
@@ -323,9 +323,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "Latent Architect",
-      "markdownKo": "Latent Architect",
-      "markdownEn": "Latent Architect"
+      "markdown": "Theory of Mind",
+      "markdownKo": "Theory of Mind",
+      "markdownEn": "Theory of Mind"
     },
     {
       "id": "9da96c11-8ced-4929-bfc1-58226efc8e9b",
