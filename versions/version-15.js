@@ -368,6 +368,13 @@ function getLocalizedMarkdown(item, lang = getSiteLanguage()) {
   return item.markdownKo || item.markdown || item.markdownEn || "";
 }
 
+function getLocalizedDetail(item, lang = getSiteLanguage()) {
+  if (!item) return "";
+  const meta = item.meta || {};
+  if (lang === "en") return meta.detailEn || meta.detailKo || meta.detail || "";
+  return meta.detailKo || meta.detail || meta.detailEn || "";
+}
+
 function hasLocalizedMarkdown(item, lang) {
   if (!item) return false;
   const markdown = lang === "en" ? item.markdownEn : item.markdownKo || item.markdown;
@@ -1202,7 +1209,6 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   const info = document.createElement("section");
   const infoToggle = document.createElement("button");
   const infoLabel = document.createElement("span");
-  const infoMeta = document.createElement("span");
   const detailBody = document.createElement("div");
 
   wrapper.className = "gallery-project-reader gallery-project-viewer";
@@ -1224,13 +1230,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   infoToggle.setAttribute("aria-expanded", "false");
   infoLabel.className = "gallery-project-info-label";
   infoLabel.textContent = "Detail";
-  infoMeta.className = "gallery-project-info-meta";
-  detailBody.className = "gallery-project-info-body gallery-asset-description";
-  detailBody.replaceChildren(...renderMarkdown(getLocalizedMarkdown(item, readerLanguage), title, {
-    item,
-    basePath: item.path,
-    lang: readerLanguage,
-  }));
+  detailBody.className = "gallery-project-info-body gallery-project-detail-body";
   infoToggle.append(infoLabel);
 
   const setActiveAsset = (index) => {
@@ -1242,7 +1242,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
     const paddedIndex = String(activeIndex + 1).padStart(2, "0");
     const paddedTotal = String(total).padStart(2, "0");
     navCounter.textContent = total > 1 ? `${paddedIndex} OF ${paddedTotal}` : "";
-    infoMeta.textContent = item.meta?.year || "";
+    detailBody.textContent = getLocalizedDetail(item, readerLanguage) || item.meta?.year || "";
     readerSource.href = getGalleryAssetPath(asset);
     figure.replaceChildren(media);
     if (media.tagName.toLowerCase() === "img") {
@@ -1268,7 +1268,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
     infoToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  info.append(infoToggle, infoMeta, detailBody);
+  info.append(infoToggle, detailBody);
   navRow.append(previousButton, navCounter, nextButton);
   stage.append(figure, navRow);
   wrapper.append(stage, info);
