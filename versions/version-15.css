@@ -28,7 +28,7 @@
   --motion-soft: 760ms;
   --motion-quick: 760ms;
   --font-sans: "Studio Pretendard", Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-  --site-texture: url("../assets/background-texture.png");
+  --site-texture: url("../assets/background-texture2.png");
   --site-texture-size: 1448px 1086px;
   --site-texture-surface:
     linear-gradient(rgba(var(--paper-rgb), 0.46), rgba(var(--paper-rgb), 0.46)),
