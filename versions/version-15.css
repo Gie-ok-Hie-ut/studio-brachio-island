@@ -9,6 +9,7 @@
 :root {
   --page: #5a5a5a;
   --paper: #f2f2f0;
+  --paper-rgb: 242, 242, 240;
   --blue: #064bb9;
   --ink: #050505;
   --muted: #5f5f5f;
@@ -27,6 +28,14 @@
   --motion-soft: 760ms;
   --motion-quick: 760ms;
   --font-sans: "Studio Pretendard", Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --site-texture: url("../assets/background-texture.png");
+  --site-texture-size: 1448px 1086px;
+  --site-texture-surface:
+    linear-gradient(rgba(var(--paper-rgb), 0.82), rgba(var(--paper-rgb), 0.82)),
+    var(--site-texture);
+  --site-texture-popup:
+    linear-gradient(rgba(var(--paper-rgb), 0.9), rgba(var(--paper-rgb), 0.9)),
+    var(--site-texture);
 }
 
 * { box-sizing: border-box; }
@@ -3562,6 +3571,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 :root {
   --page: #f4efe5;
   --paper: #f4efe5;
+  --paper-rgb: 244, 239, 229;
   --line: rgba(5, 5, 5, 0.16);
   --muted: rgba(5, 5, 5, 0.58);
   --inverse-muted: rgba(244, 239, 229, 0.66);
@@ -3569,6 +3579,9 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 
 body {
   background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
 }
 
 body.v15-home {
@@ -3577,6 +3590,9 @@ body.v15-home {
 
 .v15-landing {
   background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
   color: var(--ink);
   height: 100vh;
   margin: 0;
@@ -3882,6 +3898,9 @@ body[data-role-room] header.v15-topbar {
 
 body[data-role-room] main.role-room-main {
   background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
   margin: 0;
   max-width: none;
   min-height: 100vh;
@@ -3898,6 +3917,9 @@ body[data-role-room] [data-role-room-target] {
 body[data-role-room] .role-room-detail {
   animation: v15RoleRoomIn 420ms var(--motion-ease) both;
   background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
   box-shadow: none;
   gap: clamp(36px, 5vw, 84px);
   grid-template-columns: minmax(240px, 28vw) minmax(0, 1fr);
@@ -4032,6 +4054,9 @@ body[data-role-room] .pdf-window,
 .reader-window,
 .pdf-window {
   background: var(--paper);
+  background-image: var(--site-texture-popup);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
 }
 
 @media (max-width: 900px) {
