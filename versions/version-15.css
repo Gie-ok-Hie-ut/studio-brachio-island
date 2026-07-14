@@ -3038,7 +3038,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 .gallery-project-reader {
   display: grid;
   gap: clamp(14px, 1.8vw, 26px);
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   height: 100%;
   min-height: 0;
 }
@@ -3098,7 +3098,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 .gallery-project-nav-row {
   align-items: center;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   justify-self: center;
   max-width: 560px;
   min-height: 56px;
@@ -3110,6 +3110,16 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   display: block;
   height: 40px;
   width: 1px;
+}
+
+.gallery-project-nav-counter {
+  color: var(--reader-muted, var(--muted));
+  font-size: var(--text-xs);
+  font-weight: 760;
+  line-height: 1;
+  min-width: 86px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .gallery-project-nav {
@@ -3128,6 +3138,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   justify-self: center;
   line-height: 1;
   padding: 0;
+  text-decoration: none;
   transition: color 140ms ease, opacity 140ms ease;
   width: 48px;
 }
@@ -3148,11 +3159,10 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 }
 
 .gallery-project-info {
-  border-top: 1px solid var(--reader-line, var(--line));
   display: grid;
-  gap: 0;
+  gap: 8px;
   min-height: 0;
-  padding-top: 14px;
+  padding-top: 0;
 }
 
 .gallery-project-info-toggle {
@@ -3161,18 +3171,14 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   background: transparent;
   border: 0;
   color: var(--reader-ink, var(--ink));
-  cursor: pointer;
+  cursor: default;
   display: flex;
   font: inherit;
   font-size: var(--text-xs);
   font-weight: 760;
   justify-content: space-between;
-  justify-self: start;
   line-height: 1;
   padding: 0;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 6px;
   text-transform: uppercase;
   width: 100%;
 }
@@ -3191,8 +3197,17 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 
 .gallery-project-info-toggle:hover,
 .gallery-project-info-toggle:focus-visible {
-  color: var(--reader-muted, var(--muted));
+  color: var(--reader-ink, var(--ink));
   outline: 0;
+}
+
+.gallery-project-info-meta {
+  color: var(--reader-muted, var(--muted));
+  font-size: var(--text-xs);
+  font-weight: 760;
+  line-height: 1.2;
+  min-height: 1em;
+  text-transform: uppercase;
 }
 
 .gallery-project-info-body {
