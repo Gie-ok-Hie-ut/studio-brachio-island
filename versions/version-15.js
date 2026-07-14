@@ -1223,7 +1223,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   infoToggle.className = "gallery-project-info-toggle";
   infoToggle.setAttribute("aria-expanded", "false");
   infoLabel.className = "gallery-project-info-label";
-  infoLabel.textContent = "INFO";
+  infoLabel.textContent = "Detail";
   infoMeta.className = "gallery-project-info-meta";
   detailBody.className = "gallery-project-info-body gallery-asset-description";
   detailBody.replaceChildren(...renderMarkdown(getLocalizedMarkdown(item, readerLanguage), title, {
