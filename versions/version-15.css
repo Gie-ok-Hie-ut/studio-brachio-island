@@ -3143,6 +3143,10 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   width: 48px;
 }
 
+.reader-content .gallery-project-nav {
+  border-bottom: 0;
+}
+
 .gallery-project-nav:hover,
 .gallery-project-nav:focus-visible {
   color: var(--reader-muted, var(--muted));
