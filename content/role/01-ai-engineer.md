@@ -18,7 +18,7 @@ summary: "Builds the image systems and production pipelines that fund the island
 layout: "cv"
 linkedin: "https://www.linkedin.com/in/gunheeleeing/"
 scholar: "https://scholar.google.com/citations?user=_615IG0AAAAJ&hl=en"
-cvPdf: "../resource/ai_engineer/CV_이건희.pdf"
+cvPdf: "../resource/ai_engineer/CV_eng_1pg_2025.pdf"
 topLevel: true
 ---
 <!-- ko -->
