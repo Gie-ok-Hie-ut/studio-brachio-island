@@ -21,6 +21,9 @@
   --text-lg: 22px;
   --text-xl: 38px;
   --text-hero: 76px;
+  --role-intro-font-size: clamp(18px, 1.25vw, 24px);
+  --role-intro-font-weight: 800;
+  --role-intro-line-height: 1.38;
   --site-width: 1360px;
   --section-min-height: 760px;
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -931,9 +934,9 @@ body.role-closing .role-panel.is-expanded .role-close {
   color: var(--ink);
   display: grid;
   gap: 1em;
-  font-size: clamp(18px, 1.25vw, 24px);
-  font-weight: 800;
-  line-height: 1.38;
+  font-size: var(--role-intro-font-size);
+  font-weight: var(--role-intro-font-weight);
+  line-height: var(--role-intro-line-height);
   margin: 0;
   max-width: 760px;
   text-align: left;
@@ -1001,9 +1004,9 @@ body.role-closing .role-panel.is-expanded .role-close {
 .cv-intro,
 .role-intro {
   color: var(--ink);
-  font-size: clamp(18px, 1.25vw, 24px);
-  font-weight: 800;
-  line-height: 1.38;
+  font-size: var(--role-intro-font-size);
+  font-weight: var(--role-intro-font-weight);
+  line-height: var(--role-intro-line-height);
   margin: 0 0 clamp(34px, 4vh, 52px);
   max-width: 760px;
   text-transform: none;
@@ -3392,6 +3395,8 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     --text-hero: 48px;
     --text-xl: 30px;
     --text-base: 15px;
+    --role-intro-font-size: clamp(17px, 4.2vw, 20px);
+    --role-intro-line-height: 1.4;
   }
 
   main {
@@ -3461,8 +3466,8 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 
   .identity-statement {
-    font-size: clamp(18px, 4.8vw, 22px);
-    line-height: 1.42;
+    font-size: var(--role-intro-font-size);
+    line-height: var(--role-intro-line-height);
   }
 
   .identity-detail-portrait {
@@ -4330,8 +4335,8 @@ body[data-role-room] .pdf-window,
   }
 
   body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-intro {
-    font-size: clamp(18px, 5.2vw, 22px);
-    line-height: 1.38;
+    font-size: var(--role-intro-font-size);
+    line-height: var(--role-intro-line-height);
   }
 
   body[data-role-room="novel"] .role-detail-layout-novel .role-novel-controls {
