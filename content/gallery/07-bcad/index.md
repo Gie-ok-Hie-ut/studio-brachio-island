@@ -6,8 +6,6 @@ titleEn: "BCAD"
 type: gallery
 order: 7
 year: "2023"
-detailKo: "2023"
-detailEn: "2023"
 medium: "image series"
 layout: "series"
 image: "2-8.jpg"
@@ -24,7 +22,11 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
-BCAD
+2023
+
+프로젝트 설명은 추후 이 markdown에 작성합니다.
 
 <!-- en -->
-BCAD
+2023
+
+Project description will be written here.

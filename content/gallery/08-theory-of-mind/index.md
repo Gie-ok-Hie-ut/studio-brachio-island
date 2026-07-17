@@ -6,8 +6,6 @@ titleEn: "Theory of Mind"
 type: gallery
 order: 8
 year: "2017"
-detailKo: "2017"
-detailEn: "2017"
 medium: "image"
 layout: "pair"
 image: "1-0.PNG"
@@ -17,7 +15,11 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
-Theory of Mind
+2017
+
+프로젝트 설명은 추후 이 markdown에 작성합니다.
 
 <!-- en -->
-Theory of Mind
+2017
+
+Project description will be written here.

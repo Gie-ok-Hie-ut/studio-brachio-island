@@ -6,8 +6,6 @@ titleEn: "Latent Murmuration"
 type: gallery
 order: 3
 year: "2024"
-detailKo: "2024"
-detailEn: "2024"
 medium: "image"
 layout: "landscape"
 image: "6-0.JPG"
@@ -17,7 +15,11 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
+2024
+
 프로젝트 설명은 추후 이 markdown에 작성합니다.
 
 <!-- en -->
+2024
+
 Project description will be written here.
