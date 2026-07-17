@@ -4288,4 +4288,122 @@ body[data-role-room] .pdf-window,
   body[data-role-room] .role-detail-layout-novel .role-novel-grid-stage {
     max-height: none;
   }
+
+  body[data-role-room="novel"] .role-detail-layout-novel {
+    align-content: start;
+    gap: clamp(28px, 8vw, 42px);
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-title,
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel {
+    display: flex !important;
+    flex-direction: column;
+    gap: clamp(24px, 7vw, 36px);
+    height: auto !important;
+    min-height: 0;
+    overflow: visible !important;
+    padding: 0;
+    width: 100%;
+  }
+
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-note,
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .section-note,
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-intro {
+    align-self: stretch;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0;
+    max-width: min(100%, 720px);
+    padding: 0 !important;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-intro {
+    font-size: clamp(18px, 5.2vw, 22px);
+    line-height: 1.38;
+  }
+
+  body[data-role-room="novel"] .role-detail-layout-novel .role-novel-controls {
+    align-self: end;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    justify-self: auto;
+    margin: 0 !important;
+    position: relative;
+    z-index: 3;
+  }
+
+  body[data-role-room="novel"] .role-detail-layout-novel .role-novel-orbit-stage,
+  body[data-role-room="novel"] .role-detail-layout-novel .role-novel-grid-stage {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0;
+    max-height: none;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  body[data-role-room="novel"] .role-section-body-novel[data-novel-view-mode="grid"] > .role-novel-orbit-stage,
+  body[data-role-room="novel"] .role-section-body-novel[data-novel-view-mode="orbit"] > .role-novel-grid-stage {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+
+  body[data-role-room="novel"] .role-section-body-novel[data-novel-view-mode="grid"] > .role-novel-grid-stage {
+    display: grid !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+
+  body[data-role-room="novel"] .role-section-body-novel[data-novel-view-mode="orbit"] > .role-novel-orbit-stage {
+    display: flex !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+
+  body[data-role-room="novel"] .role-novel-grid-stage {
+    --novel-grid-column-gap: clamp(20px, 5vw, 30px);
+    --novel-grid-row-gap: clamp(32px, 7vw, 52px);
+    display: grid;
+    gap: var(--novel-grid-row-gap) var(--novel-grid-column-gap);
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+    justify-content: stretch;
+    justify-items: stretch;
+    overflow: visible;
+    padding: 0 0 72px;
+  }
+
+  body[data-role-room="novel"] .role-novel-grid-stage .novel-grid-cell {
+    aspect-ratio: 2 / 3;
+    height: auto;
+    width: 100%;
+  }
+
+  body[data-role-room="novel"] .role-novel-grid-stage .novel-card,
+  body[data-role-room="novel"] .role-novel-grid-stage .novel-card:hover,
+  body[data-role-room="novel"] .role-novel-grid-stage .novel-card:focus-visible {
+    aspect-ratio: 2 / 3;
+    height: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  body[data-role-room="novel"] .role-novel-grid-stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
