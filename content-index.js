@@ -1,5 +1,5 @@
 window.CONTENT_INDEX = {
-  "generatedAt": "2026-07-17T08:54:08.252Z",
+  "generatedAt": "2026-07-17T09:07:56.693Z",
   "items": [
     {
       "id": "engineering-varco",
@@ -169,9 +169,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "2024, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownKo": "2024, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownEn": "2024, Project description will be written here."
+      "markdown": "2024",
+      "markdownKo": "2024",
+      "markdownEn": "2024"
     },
     {
       "id": "visual-project-05",
@@ -198,9 +198,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "2026, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownKo": "2026, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownEn": "2026, Project description will be written here."
+      "markdown": "2026",
+      "markdownKo": "2026",
+      "markdownEn": "2026"
     },
     {
       "id": "visual-project-04",
@@ -227,9 +227,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "2026, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownKo": "2026, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownEn": "2026, Project description will be written here."
+      "markdown": "2026",
+      "markdownKo": "2026",
+      "markdownEn": "2026"
     },
     {
       "id": "visual-project-03",
@@ -250,15 +250,15 @@ window.CONTENT_INDEX = {
         "year": "2016",
         "medium": "image / motion",
         "layout": "mixed",
-        "image": "3-0.JPG",
+        "image": "3-0.png",
         "assets": [
-          "3-0.JPG"
+          "3-0.png"
         ],
         "topLevel": true
       },
-      "markdown": "2016, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownKo": "2016, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownEn": "2016, Project description will be written here."
+      "markdown": "2016",
+      "markdownKo": "2016",
+      "markdownEn": "2016"
     },
     {
       "id": "visual-project-02",
@@ -293,9 +293,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "2023, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownKo": "2023, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownEn": "2023, Project description will be written here."
+      "markdown": "2023",
+      "markdownKo": "2023",
+      "markdownEn": "2023"
     },
     {
       "id": "visual-project-01",
@@ -323,9 +323,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "2017, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownKo": "2017, 프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownEn": "2017, Project description will be written here."
+      "markdown": "2017",
+      "markdownKo": "2017",
+      "markdownEn": "2017"
     },
     {
       "id": "9da96c11-8ced-4929-bfc1-58226efc8e9b",

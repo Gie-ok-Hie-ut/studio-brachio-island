@@ -22,7 +22,7 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
-2023, 프로젝트 설명은 추후 이 markdown에 작성합니다.
+2023
 
 <!-- en -->
-2023, Project description will be written here.
+2023

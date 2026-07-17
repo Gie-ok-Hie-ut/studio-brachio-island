@@ -205,12 +205,20 @@ function withProjectAssets(filePath, data, type) {
 
   if (!["gallery", "novel"].includes(type)) return data;
 
+  const next = { ...data };
+  const listedAssets = normalizeList(next.assets);
+  if (listedAssets.length > 0) {
+    next.assets = listedAssets;
+    if (type === "novel" && !next.cover) {
+      next.cover = listedAssets.find((asset) => /^cover\./i.test(asset)) || "";
+    }
+    return next;
+  }
+
   const discoveredAssets = discoverProjectAssets(filePath);
   if (discoveredAssets.length === 0) return data;
 
-  const next = { ...data };
-  const listedAssets = normalizeList(next.assets);
-  next.assets = [...new Set([...listedAssets, ...discoveredAssets])];
+  next.assets = discoveredAssets;
 
   if (type === "novel" && !next.cover) {
     next.cover = discoveredAssets.find((asset) => /^cover\./i.test(asset)) || "";
