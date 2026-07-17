@@ -15,11 +15,7 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
-2017
-
-프로젝트 설명은 추후 이 markdown에 작성합니다.
+2017, 프로젝트 설명은 추후 이 markdown에 작성합니다.
 
 <!-- en -->
-2017
-
-Project description will be written here.
+2017, Project description will be written here.
