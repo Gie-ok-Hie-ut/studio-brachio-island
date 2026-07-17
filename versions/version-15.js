@@ -371,8 +371,7 @@ function getLocalizedMarkdown(item, lang = getSiteLanguage()) {
 function getLocalizedDetail(item, lang = getSiteLanguage()) {
   if (!item) return "";
   const meta = item.meta || {};
-  if (lang === "en") return meta.detailEn || meta.detailKo || meta.detail || "";
-  return meta.detailKo || meta.detail || meta.detailEn || "";
+  return lang === "en" ? meta.detailEn || "" : meta.detailKo || "";
 }
 
 function hasLocalizedMarkdown(item, lang) {
@@ -1250,7 +1249,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
         lang: readerLanguage,
       }));
     } else {
-      detailBody.textContent = item.meta?.year || "";
+      detailBody.replaceChildren();
     }
     readerSource.href = getGalleryAssetPath(asset);
     figure.replaceChildren(media);

@@ -6,6 +6,8 @@ titleEn: "Latent Murmuration"
 type: gallery
 order: 3
 year: "2024"
+detailKo: "2024"
+detailEn: "2024"
 medium: "image"
 layout: "landscape"
 image: "6-0.JPG"
