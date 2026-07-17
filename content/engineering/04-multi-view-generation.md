@@ -1,15 +1,25 @@
 ---
-id: "engineering-multi-view-generation"
-title: "Multi-view Generation"
-titleKo: "Multi-view Generation"
-titleEn: "Multi-view Generation"
+id: "engineering-talking-heads"
+title: "Realistic Video Talking-Heads Research"
+titleKo: "Realistic Video Talking-Heads Research"
+titleEn: "Realistic Video Talking-Heads Research"
 type: engineering
 order: 4
-label: "Pipeline"
+label: "Talking-Heads"
 topLevel: true
 ---
 <!-- ko -->
-Data refinement, model training, and AI architecture design for multi-view image generation.
+Entertainment platform을 위한 realistic video talking-heads와 안정적인 lip-sync animation을 연구했습니다.
+
+## Contributions
+- Landmark-based GAN model을 최적화해 안정적인 lip-sync animation을 구현했습니다.
+- Korean-speech dataset을 위한 specialized dataset을 구축했습니다.
+- Single-character 및 multi-character model training을 통해 talking-head generation 성능을 개선했습니다.
 
 <!-- en -->
-Data refinement, model training, and AI architecture design for multi-view image generation.
+Realistic video talking-heads and stable lip-sync animation research for entertainment platforms.
+
+## Contributions
+- Optimized landmark-based GAN models to ensure stable lip-sync animations for an entertainment platform.
+- Constructed specialized datasets for Korean speech.
+- Improved performance through single-character and multi-character model training.
