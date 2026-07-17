@@ -368,12 +368,6 @@ function getLocalizedMarkdown(item, lang = getSiteLanguage()) {
   return item.markdownKo || item.markdown || item.markdownEn || "";
 }
 
-function getLocalizedDetail(item, lang = getSiteLanguage()) {
-  if (!item) return "";
-  const meta = item.meta || {};
-  return lang === "en" ? meta.detailEn || "" : meta.detailKo || "";
-}
-
 function hasLocalizedMarkdown(item, lang) {
   if (!item) return false;
   const markdown = lang === "en" ? item.markdownEn : item.markdownKo || item.markdown;
@@ -1240,7 +1234,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
     const media = createGalleryMedia(asset, title, { controls: true, muted: false });
     const paddedIndex = String(activeIndex + 1).padStart(2, "0");
     const paddedTotal = String(total).padStart(2, "0");
-    const detail = String(getLocalizedDetail(item, readerLanguage) || "").trim();
+    const detail = String(getLocalizedMarkdown(item, readerLanguage) || "").trim();
     navCounter.textContent = total > 1 ? `${paddedIndex} OF ${paddedTotal}` : "";
     if (detail) {
       detailBody.replaceChildren(...renderMarkdown(detail, title, {

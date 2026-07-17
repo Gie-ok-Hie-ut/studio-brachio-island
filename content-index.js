@@ -1,5 +1,5 @@
 window.CONTENT_INDEX = {
-  "generatedAt": "2026-07-17T08:19:26.942Z",
+  "generatedAt": "2026-07-17T08:43:14.051Z",
   "items": [
     {
       "id": "engineering-varco",
@@ -160,8 +160,6 @@ window.CONTENT_INDEX = {
         "type": "gallery",
         "order": 3,
         "year": "2024",
-        "detailKo": "2024",
-        "detailEn": "2024",
         "medium": "image",
         "layout": "landscape",
         "image": "6-0.JPG",
@@ -171,9 +169,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownKo": "프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownEn": "Project description will be written here."
+      "markdown": "2024\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownKo": "2024\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownEn": "2024\n\nProject description will be written here."
     },
     {
       "id": "visual-project-05",
@@ -192,8 +190,6 @@ window.CONTENT_INDEX = {
         "type": "gallery",
         "order": 4,
         "year": "2026",
-        "detailKo": "2026",
-        "detailEn": "2026",
         "medium": "image",
         "layout": "portrait",
         "image": "5-0.PNG",
@@ -202,9 +198,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "He Wept",
-      "markdownKo": "He Wept",
-      "markdownEn": "He Wept"
+      "markdown": "2026\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownKo": "2026\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownEn": "2026\n\nProject description will be written here."
     },
     {
       "id": "visual-project-04",
@@ -223,8 +219,6 @@ window.CONTENT_INDEX = {
         "type": "gallery",
         "order": 5,
         "year": "2026",
-        "detailKo": "2026",
-        "detailEn": "2026",
         "medium": "image",
         "layout": "square",
         "image": "4-0.PNG",
@@ -233,9 +227,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownKo": "프로젝트 설명은 추후 이 markdown에 작성합니다.",
-      "markdownEn": "Project description will be written here."
+      "markdown": "2026\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownKo": "2026\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownEn": "2026\n\nProject description will be written here."
     },
     {
       "id": "visual-project-03",
@@ -254,8 +248,6 @@ window.CONTENT_INDEX = {
         "type": "gallery",
         "order": 6,
         "year": "2016",
-        "detailKo": "2016",
-        "detailEn": "2016",
         "medium": "image / motion",
         "layout": "mixed",
         "image": "3-0.JPG",
@@ -264,9 +256,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "DIED OGAMI",
-      "markdownKo": "DIED OGAMI",
-      "markdownEn": "DIED OGAMI"
+      "markdown": "2016\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownKo": "2016\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownEn": "2016\n\nProject description will be written here."
     },
     {
       "id": "visual-project-02",
@@ -285,8 +277,6 @@ window.CONTENT_INDEX = {
         "type": "gallery",
         "order": 7,
         "year": "2023",
-        "detailKo": "2023",
-        "detailEn": "2023",
         "medium": "image series",
         "layout": "series",
         "image": "2-8.jpg",
@@ -303,9 +293,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "BCAD",
-      "markdownKo": "BCAD",
-      "markdownEn": "BCAD"
+      "markdown": "2023\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownKo": "2023\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownEn": "2023\n\nProject description will be written here."
     },
     {
       "id": "visual-project-01",
@@ -324,8 +314,6 @@ window.CONTENT_INDEX = {
         "type": "gallery",
         "order": 8,
         "year": "2017",
-        "detailKo": "2017",
-        "detailEn": "2017",
         "medium": "image",
         "layout": "pair",
         "image": "1-0.PNG",
@@ -335,9 +323,9 @@ window.CONTENT_INDEX = {
         ],
         "topLevel": true
       },
-      "markdown": "Theory of Mind",
-      "markdownKo": "Theory of Mind",
-      "markdownEn": "Theory of Mind"
+      "markdown": "2017\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownKo": "2017\n\n프로젝트 설명은 추후 이 markdown에 작성합니다.",
+      "markdownEn": "2017\n\nProject description will be written here."
     },
     {
       "id": "9da96c11-8ced-4929-bfc1-58226efc8e9b",

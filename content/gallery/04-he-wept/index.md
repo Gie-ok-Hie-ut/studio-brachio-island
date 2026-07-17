@@ -6,8 +6,6 @@ titleEn: "He Wept"
 type: gallery
 order: 4
 year: "2026"
-detailKo: "2026"
-detailEn: "2026"
 medium: "image"
 layout: "portrait"
 image: "5-0.PNG"
@@ -16,7 +14,11 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
-He Wept
+2026
+
+프로젝트 설명은 추후 이 markdown에 작성합니다.
 
 <!-- en -->
-He Wept
+2026
+
+Project description will be written here.

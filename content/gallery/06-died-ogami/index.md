@@ -6,8 +6,6 @@ titleEn: "DIED OGAMI"
 type: gallery
 order: 6
 year: "2016"
-detailKo: "2016"
-detailEn: "2016"
 medium: "image / motion"
 layout: "mixed"
 image: "3-0.JPG"
@@ -16,7 +14,11 @@ assets:
 topLevel: true
 ---
 <!-- ko -->
-DIED OGAMI
+2016
+
+프로젝트 설명은 추후 이 markdown에 작성합니다.
 
 <!-- en -->
-DIED OGAMI
+2016
+
+Project description will be written here.
