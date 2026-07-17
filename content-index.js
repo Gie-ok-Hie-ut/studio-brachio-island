@@ -1,5 +1,5 @@
 window.CONTENT_INDEX = {
-  "generatedAt": "2026-07-17T09:19:21.952Z",
+  "generatedAt": "2026-07-17T12:06:29.282Z",
   "items": [
     {
       "id": "engineering-varco",
@@ -165,7 +165,13 @@ window.CONTENT_INDEX = {
         "image": "6-0.JPG",
         "assets": [
           "6-0.JPG",
-          "IMG_5730.MOV"
+          "20260717_205204_fin.png",
+          "20260717_205218_fin.png",
+          "20260717_205558_fin.png",
+          "20260717_205629_fin.png",
+          "20260717_205654_fin.png",
+          "20260717_205720_fin.png",
+          "20260717_205738_fin.png"
         ],
         "topLevel": true
       },
