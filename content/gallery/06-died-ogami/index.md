@@ -7,7 +7,7 @@ type: gallery
 order: 6
 year: "2016"
 medium: "image / motion"
-layout: "mixed"
+layout: "portrait"
 image: "3-0.png"
 assets:
   - "3-0.png"
