@@ -1700,11 +1700,13 @@ function renderCvRole(item, body) {
       list.id = "role-engineer-paper-items";
       list.className = "role-items role-paper-items cv-list";
     } else {
+      const isActionSection = sectionKey === "article / media";
       section.rows.forEach((row) => {
         const article = document.createElement("article");
         const label = document.createElement("span");
         const text = document.createElement("p");
         const title = document.createElement("span");
+        const actions = document.createElement("span");
         label.textContent = row.label;
         title.className = "cv-entry-title";
         appendMarkdownInline(title, row.text, {
@@ -1712,7 +1714,15 @@ function renderCvRole(item, body) {
           basePath: item.path,
         });
         text.append(title);
-        if (row.detail) {
+        if (row.detail && isActionSection) {
+          article.classList.add("cv-link-row");
+          actions.className = "cv-entry-actions";
+          appendMarkdownInline(actions, row.detail, {
+            item,
+            basePath: item.path,
+          });
+          article.append(label, text, actions);
+        } else if (row.detail) {
           const detail = document.createElement("small");
           detail.className = "cv-entry-detail";
           appendMarkdownInline(detail, row.detail, {
@@ -1720,8 +1730,10 @@ function renderCvRole(item, body) {
             basePath: item.path,
           });
           text.append(detail);
+          article.append(label, text);
+        } else {
+          article.append(label, text);
         }
-        article.append(label, text);
         list.append(article);
       });
     }

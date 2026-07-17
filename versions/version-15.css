@@ -1081,6 +1081,10 @@ body.role-closing .role-panel.is-expanded .role-close {
   width: 100%;
 }
 
+.cv-list article.cv-link-row {
+  grid-template-columns: 132px minmax(0, 1fr) auto;
+}
+
 .cv-list article > span,
 .cv-list button > span {
   align-self: start;
@@ -1093,6 +1097,24 @@ body.role-closing .role-panel.is-expanded .role-close {
   padding: 2px 0 0;
   text-transform: uppercase;
   width: auto;
+}
+
+.cv-list .cv-entry-actions {
+  display: flex;
+  gap: 12px;
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.cv-list .cv-entry-actions a {
+  border-bottom: 1px solid currentColor;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.cv-list .cv-entry-actions a:hover,
+.cv-list .cv-entry-actions a:focus-visible {
+  color: var(--ink);
 }
 
 .cv-list p,
@@ -4205,6 +4227,10 @@ body[data-role-room] .pdf-window,
   body[data-role-room="engineer"] .cv-list button {
     gap: clamp(12px, 3vw, 18px);
     grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr);
+  }
+
+  body[data-role-room="engineer"] .cv-list article.cv-link-row {
+    grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
   }
 
   body[data-role-room="engineer"] .engineer-scroll .role-items button,
