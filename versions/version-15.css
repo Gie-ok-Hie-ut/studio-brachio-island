@@ -4149,6 +4149,30 @@ body[data-role-room] .role-section-body {
   padding: 0 clamp(18px, 2vw, 34px) 0 0;
 }
 
+body[data-role-room="visual"] .role-section-body-gallery {
+  align-content: start;
+  display: grid;
+  gap: clamp(34px, 5vh, 64px);
+  grid-template-columns: minmax(0, 1fr);
+  overflow-y: auto;
+}
+
+body[data-role-room="visual"] .role-section-body-gallery > .visual-role-intro {
+  display: grid;
+  margin: 0;
+  max-width: min(760px, 100%);
+  opacity: 1;
+  position: relative;
+  visibility: visible;
+  z-index: 2;
+}
+
+body[data-role-room="visual"] .role-section-body-gallery > .role-gallery-items {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
 body[data-role-room] .cv-scroll {
   border-top: 0;
   padding-top: 0;

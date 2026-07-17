@@ -1746,14 +1746,38 @@ function renderCvRole(item, body) {
 }
 
 function renderGalleryRole(item, body) {
-  renderRoleMarkdownNote(getLocalizedMarkdown(item), body, {
-    item,
-    basePath: item.path,
-  });
+  const markdown = getLocalizedMarkdown(item);
+  const introParagraphs = getRecordIntro(markdown);
+  const children = [];
+
+  if (introParagraphs.length > 0) {
+    const intro = document.createElement(introParagraphs.length > 1 ? "div" : "p");
+    intro.className = introParagraphs.length > 1
+      ? "role-intro cv-intro cv-intro-stack visual-role-intro"
+      : "role-intro cv-intro visual-role-intro";
+    if (introParagraphs.length > 1) {
+      introParagraphs.forEach((paragraph) => {
+        const text = document.createElement("p");
+        appendMarkdownText(text, paragraph, {
+          item,
+          basePath: item.path,
+        });
+        intro.append(text);
+      });
+    } else {
+      appendMarkdownText(intro, introParagraphs[0], {
+        item,
+        basePath: item.path,
+      });
+    }
+    children.push(intro);
+  }
+
   const target = document.createElement("div");
   target.id = "role-visual-items";
   target.className = "role-items role-gallery-items";
-  body.append(target);
+  children.push(target);
+  body.replaceChildren(...children);
 }
 
 function renderNovelRole(item, body) {
