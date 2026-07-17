@@ -6,6 +6,8 @@ titleEn: "Theory of Mind"
 type: gallery
 order: 8
 year: "2017"
+detailKo: "2017"
+detailEn: "2017"
 medium: "image"
 layout: "pair"
 image: "1-0.PNG"

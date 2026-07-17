@@ -6,6 +6,8 @@ titleEn: "BCAD"
 type: gallery
 order: 7
 year: "2023"
+detailKo: "2023"
+detailEn: "2023"
 medium: "image series"
 layout: "series"
 image: "2-8.jpg"

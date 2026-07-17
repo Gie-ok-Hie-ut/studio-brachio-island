@@ -6,6 +6,8 @@ titleEn: "He Wept"
 type: gallery
 order: 4
 year: "2026"
+detailKo: "2026"
+detailEn: "2026"
 medium: "image"
 layout: "portrait"
 image: "5-0.PNG"

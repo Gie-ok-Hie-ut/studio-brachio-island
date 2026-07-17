@@ -6,6 +6,8 @@ titleEn: "Root"
 type: gallery
 order: 5
 year: "2026"
+detailKo: "2026"
+detailEn: "2026"
 medium: "image"
 layout: "square"
 image: "4-0.PNG"

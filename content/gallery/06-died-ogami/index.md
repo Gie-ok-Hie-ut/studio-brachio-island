@@ -6,6 +6,8 @@ titleEn: "DIED OGAMI"
 type: gallery
 order: 6
 year: "2016"
+detailKo: "2016"
+detailEn: "2016"
 medium: "image / motion"
 layout: "mixed"
 image: "3-0.JPG"
