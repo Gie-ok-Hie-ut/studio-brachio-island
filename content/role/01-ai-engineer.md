@@ -41,8 +41,8 @@ Research Interest: World Model, Generative AI
 ## Paper
 
 ## Article / Media
-- 2026.02 | DBR 434호 개인 아티클 / 인터뷰 | [Article](https://dbr.donga.com/article/view/1904/article_no/12003/ac/search) / [Image](../../resource/ai_engineer/DBR_202602.png)
-- 2025.12 | VARCO Fashion 소개 영상 | [Video](https://youtu.be/GJ04vdK9Gik?si=iMobWDWAYlKU5G_5&t=416)
+- 2026.02 | DBR 434호 기고 / 인터뷰 | [Article](https://dbr.donga.com/article/view/1904/article_no/12003/ac/search) / [Image](../../resource/ai_engineer/DBR_202602.png)
+- 2025.12 | VARCO Fashion 영상 | [Video](https://youtu.be/GJ04vdK9Gik?si=iMobWDWAYlKU5G_5&t=416)
 
 <!-- en -->
 As a Generative AI researcher, I am at the forefront of Visual AI technology.
@@ -65,4 +65,4 @@ Research Interest: World Model, Generative AI
 
 ## Article / Media
 - 2026.02 | DBR Issue 434 article / interview | [Article](https://dbr.donga.com/article/view/1904/article_no/12003/ac/search) / [Image](../../resource/ai_engineer/DBR_202602.png)
-- 2025.12 | VARCO Fashion demo video | [Video](https://youtu.be/GJ04vdK9Gik?si=iMobWDWAYlKU5G_5&t=416)
+- 2025.12 | VARCO Fashion video | [Video](https://youtu.be/GJ04vdK9Gik?si=iMobWDWAYlKU5G_5&t=416)
