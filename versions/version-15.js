@@ -1241,8 +1241,17 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
     const media = createGalleryMedia(asset, title, { controls: true, muted: false });
     const paddedIndex = String(activeIndex + 1).padStart(2, "0");
     const paddedTotal = String(total).padStart(2, "0");
+    const detail = String(getLocalizedDetail(item, readerLanguage) || "").trim();
     navCounter.textContent = total > 1 ? `${paddedIndex} OF ${paddedTotal}` : "";
-    detailBody.textContent = getLocalizedDetail(item, readerLanguage) || item.meta?.year || "";
+    if (detail) {
+      detailBody.replaceChildren(...renderMarkdown(detail, title, {
+        item,
+        basePath: item.path,
+        lang: readerLanguage,
+      }));
+    } else {
+      detailBody.textContent = item.meta?.year || "";
+    }
     readerSource.href = getGalleryAssetPath(asset);
     figure.replaceChildren(media);
     if (media.tagName.toLowerCase() === "img") {
