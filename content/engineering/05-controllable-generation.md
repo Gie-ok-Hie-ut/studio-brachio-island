@@ -1,12 +1,12 @@
 ---
-id: "engineering-controllable-generation"
-title: "Controllable Generation"
-titleKo: "Controllable Generation"
-titleEn: "Controllable Generation"
+id: "engineering-controllable-generation-legacy"
+title: "Controllable Generation Legacy"
+titleKo: "Controllable Generation Legacy"
+titleEn: "Controllable Generation Legacy"
 type: engineering
 order: 5
 label: "Control"
-topLevel: true
+topLevel: false
 ---
 <!-- ko -->
 Conditional pipelines for high-resolution landscape and controllable image synthesis.

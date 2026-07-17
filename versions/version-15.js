@@ -1899,7 +1899,7 @@ function renderRoleItems() {
       ...topLevelEngineeringItems.map((item) =>
         createRoleItemButton(getLocalizedTitle(item), () => renderMarkdownReader(item.id, true), {
           kicker: item.meta?.label || "project",
-          description: getLocalizedMarkdown(item),
+          description: getRecordIntro(getLocalizedMarkdown(item))[0] || getLocalizedMarkdown(item),
         })
       )
     );
