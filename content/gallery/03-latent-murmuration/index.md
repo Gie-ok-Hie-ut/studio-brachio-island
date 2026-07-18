@@ -8,9 +8,8 @@ order: 3
 year: "2024"
 medium: "image"
 layout: "landscape"
-image: "6-0.JPG"
+image: "20260717_205204_fin.png"
 assets:
-  - "6-0.JPG"
   - "20260717_205204_fin.png"
   - "20260717_205218_fin.png"
   - "20260717_205558_fin.png"

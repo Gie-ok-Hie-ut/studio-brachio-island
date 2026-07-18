@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build:pages": "node scripts/build-pages.js",
+    "build:content": "node scripts/build-content-index.js",
+    "build": "npm run build:content && npm run build:pages",
+    "check:pages": "node scripts/build-pages.js --check",
+    "check:content": "node scripts/build-content-index.js --check",
+    "check:content-structure": "node scripts/check-content.js",
+    "check:js": "node --check versions/version-15.js && node --check scripts/build-content-index.js && node --check scripts/build-pages.js && node --check scripts/check-content.js",
+    "check": "npm run check:content && npm run check:content-structure && npm run check:pages && npm run check:js"
+  }
+}
