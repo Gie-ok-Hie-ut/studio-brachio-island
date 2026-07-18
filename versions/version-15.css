@@ -3727,7 +3727,11 @@ body.v15-home {
   background-image: var(--site-texture-surface);
   background-repeat: repeat;
   background-size: auto, var(--site-texture-size);
+  margin: 0;
+  max-width: none;
   min-height: 200vh;
+  padding: 0;
+  width: 100%;
 }
 
 .v15-landing {
@@ -3749,7 +3753,7 @@ body.v15-home {
 }
 
 .v15-landing-title {
-  left: clamp(28px, 6.2vw, 112px);
+  left: clamp(18px, 3vw, 56px);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -3761,7 +3765,7 @@ body.v15-home {
 
 .v15-landing-title h1 {
   color: var(--ink);
-  font-size: clamp(42px, 6.8vw, 108px);
+  font-size: clamp(42px, 5.6vw, 88px);
   font-weight: 900;
   letter-spacing: 0;
   line-height: 0.84;
@@ -4151,6 +4155,10 @@ body.v15-home {
 }
 
 @media (max-width: 520px) {
+  .v15-landing-title {
+    left: 18px;
+  }
+
   .v15-scroll-hint {
     bottom: 24px;
   }
