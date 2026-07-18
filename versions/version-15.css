@@ -4490,8 +4490,13 @@ body[data-role-room] .role-room-detail .role-close:focus-visible {
   color: var(--muted);
 }
 
+body[data-role-room] .role-room-detail > .role-section-title {
+  align-self: center;
+  margin-left: clamp(-20px, -1vw, -10px);
+}
+
 body[data-role-room] .role-section-title h2 {
-  font-size: clamp(30px, 3.35vw, 58px);
+  font-size: clamp(28px, 2.85vw, 50px);
   max-width: 100%;
 }
 
@@ -4621,6 +4626,11 @@ body[data-role-room] .pdf-window,
     min-height: 100vh;
     overflow: visible;
     padding: 78px 22px 46px;
+  }
+
+  body[data-role-room] .role-room-detail > .role-section-title {
+    align-self: start;
+    margin-left: 0;
   }
 
   body[data-role-room] .role-section-body {
