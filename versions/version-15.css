@@ -22,7 +22,7 @@
   --text-xl: 38px;
   --text-hero: 76px;
   --role-intro-font-size: clamp(18px, 1.25vw, 24px);
-  --role-intro-font-weight: 800;
+  --role-intro-font-weight: 560;
   --role-intro-line-height: 1.38;
   --site-width: 1360px;
   --section-min-height: 760px;
@@ -2008,6 +2008,10 @@ body.role-closing .role-panel.is-expanded .role-close {
   overflow: hidden;
 }
 
+.role-section-body-novel[data-novel-view-mode="grid"] > .role-novel-grid-stage {
+  border-top: 1px solid var(--line);
+}
+
 .role-detail-layout-novel .role-section-body-novel[data-novel-view-mode="grid"] > .role-note {
   grid-column: 2;
   grid-row: 1;
@@ -3714,7 +3718,16 @@ body {
 }
 
 body.v15-home {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.v15-home-main {
+  background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
+  min-height: 200vh;
 }
 
 .v15-landing {
@@ -3768,6 +3781,383 @@ body.v15-home {
   display: table;
   line-height: 0.95;
   padding: 0 0.08em 0.04em 0.08em;
+}
+
+.v15-scroll-hint {
+  border-bottom: 0;
+  bottom: clamp(28px, 5.4vh, 64px);
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  left: 50%;
+  letter-spacing: 0;
+  line-height: 1;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  transition:
+    color 180ms var(--motion-ease),
+    opacity 240ms var(--motion-ease),
+    transform 180ms var(--motion-ease);
+  z-index: 3;
+}
+
+.v15-scroll-hint:hover,
+.v15-scroll-hint:focus-visible {
+  color: var(--ink);
+  outline: 0;
+  transform: translate(-50%, 3px);
+}
+
+.todays-signal {
+  align-items: center;
+  background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
+  display: grid;
+  justify-items: center;
+  min-height: 100vh;
+  padding: clamp(92px, 12vh, 140px) clamp(28px, 6.2vw, 112px);
+}
+
+.todays-signal-placeholder {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.todays-signal-card {
+  align-items: center;
+  column-gap: clamp(12px, 1.4vw, 24px);
+  border-bottom: 0;
+  color: var(--ink);
+  display: grid;
+  opacity: 0;
+  row-gap: clamp(24px, 3.8vh, 44px);
+  grid-template-columns: minmax(280px, 680px) minmax(160px, 260px);
+  grid-template-areas:
+    "heading heading"
+    "media meta";
+  justify-content: center;
+  max-width: var(--site-width);
+  text-decoration: none;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms var(--motion-ease),
+    transform 900ms var(--motion-ease);
+  width: 100%;
+}
+
+.todays-signal-card-text {
+  grid-template-columns: minmax(300px, 680px) minmax(210px, 320px);
+  grid-template-areas:
+    "heading heading"
+    "copy meta";
+}
+
+.todays-signal-heading {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: nowrap;
+  color: var(--ink);
+  font-size: clamp(18px, 1.6vw, 28px);
+  font-weight: 900;
+  gap: 0.24em;
+  grid-area: heading;
+  justify-self: stretch;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+  padding-bottom: clamp(12px, 1.7vw, 22px);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.todays-signal-heading span {
+  display: inline-flex;
+}
+
+.todays-signal-heading > span:first-child {
+  color: var(--ink);
+}
+
+.todays-signal-heading-box {
+  background: transparent;
+  color: inherit;
+  line-height: 1;
+  padding: 0;
+}
+
+.todays-signal-meta {
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.1vw, 13px);
+  grid-area: meta;
+  justify-self: start;
+  min-width: 0;
+}
+
+.todays-signal-category {
+  background: transparent;
+  color: inherit;
+  display: inline-flex;
+  font-size: clamp(11px, 0.82vw, 14px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-right: 0;
+  padding: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.todays-signal-handle {
+  background: transparent;
+  color: inherit;
+  display: inline-flex;
+  font-size: clamp(11px, 0.82vw, 14px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.todays-signal-title {
+  display: block;
+  font-size: clamp(11px, 0.82vw, 14px);
+  font-weight: 900;
+  justify-self: start;
+  letter-spacing: 0;
+  line-height: 1;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.todays-signal-media {
+  align-self: center;
+  grid-area: media;
+  justify-self: end;
+  margin: 0;
+  max-height: min(58vh, 540px);
+  max-width: min(62vw, 680px);
+  overflow: hidden;
+  width: fit-content;
+}
+
+.todays-signal-media > img {
+  display: block;
+  height: auto;
+  max-height: min(58vh, 540px);
+  max-width: min(62vw, 680px);
+  object-fit: contain;
+  width: auto;
+}
+
+.todays-signal-novel-media {
+  --signal-novel-book-width: clamp(240px, 24vw, 360px);
+  aspect-ratio: 2 / 3;
+  height: auto;
+  max-height: min(62vh, 540px);
+  max-width: var(--signal-novel-book-width);
+  overflow: visible;
+  width: var(--signal-novel-book-width);
+}
+
+.todays-signal-novel-book,
+.todays-signal-novel-book:hover,
+.todays-signal-novel-book:focus-visible {
+  aspect-ratio: 2 / 3;
+  cursor: default;
+  height: 100%;
+  pointer-events: none;
+  transform: none;
+  width: 100%;
+}
+
+.todays-signal-novel-book .novel-grid-book-cover img,
+.todays-signal-novel-book:hover .novel-grid-book-cover img,
+.todays-signal-novel-book:focus-visible .novel-grid-book-cover img {
+  display: block;
+  height: 100%;
+  max-height: none;
+  max-width: none;
+  object-fit: cover;
+  opacity: 1;
+  transform: none;
+  width: 100%;
+}
+
+.todays-signal-novel-book .novel-grid-book-overlay,
+.todays-signal-novel-book:hover .novel-grid-book-overlay,
+.todays-signal-novel-book:focus-visible .novel-grid-book-overlay {
+  opacity: 0;
+}
+
+.todays-signal-copy {
+  font-size: clamp(18px, 2vw, 32px);
+  font-weight: 560;
+  grid-area: copy;
+  justify-self: start;
+  letter-spacing: 0;
+  line-height: 1.22;
+  margin: 0;
+  max-width: 720px;
+}
+
+.todays-signal-copy-paper {
+  font-size: clamp(17px, 1.7vw, 28px);
+}
+
+.todays-signal-copy-document {
+  font-size: clamp(20px, 2.2vw, 34px);
+  max-width: 620px;
+}
+
+.todays-signal-cta {
+  background: transparent;
+  border-bottom: 0;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: clamp(11px, 0.82vw, 14px);
+  font-weight: 900;
+  grid-area: cta;
+  justify-self: start;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-top: clamp(12px, 1.8vw, 22px);
+  padding: 0.18em 0.28em 0.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color 160ms var(--motion-ease),
+    color 160ms var(--motion-ease);
+  white-space: nowrap;
+}
+
+.todays-signal-cta:hover,
+.todays-signal-cta:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.todays-signal-cta:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+}
+
+.is-signal-highlight {
+  outline: 0;
+  position: relative;
+}
+
+.is-signal-highlight::before {
+  animation: signalTargetPulse 1700ms var(--motion-ease) both;
+  border: 2px solid var(--ink);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 20;
+}
+
+@keyframes signalTargetPulse {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  18%,
+  72% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .todays-signal {
+    align-items: start;
+    padding: clamp(72px, 10vh, 96px) clamp(24px, 7vw, 52px);
+  }
+
+  .todays-signal-card,
+  .todays-signal-card-image,
+  .todays-signal-card-text {
+    column-gap: 14px;
+    row-gap: 18px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "heading"
+      "media"
+      "meta"
+      "copy";
+    justify-content: stretch;
+  }
+
+  .todays-signal-heading {
+    font-size: clamp(16px, 4.8vw, 22px);
+  }
+
+  .todays-signal-title {
+    font-size: clamp(11px, 3vw, 13px);
+    justify-self: start;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .todays-signal-meta {
+    align-items: flex-start;
+    justify-self: start;
+  }
+
+  .todays-signal-category,
+  .todays-signal-handle {
+    white-space: nowrap;
+  }
+
+  .todays-signal-media {
+    max-height: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .todays-signal-media > img {
+    aspect-ratio: 4 / 5;
+    height: auto;
+    max-height: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .todays-signal-novel-media {
+    --signal-novel-book-width: min(100%, 320px);
+    justify-self: center;
+    max-height: none;
+    max-width: var(--signal-novel-book-width);
+  }
+
+  .todays-signal-copy {
+    font-size: clamp(18px, 5.8vw, 28px);
+  }
+}
+
+@media (max-width: 520px) {
+  .v15-scroll-hint {
+    bottom: 24px;
+  }
+
+  .todays-signal {
+    padding-inline: 22px;
+  }
 }
 
 .v15-menu-toggle {

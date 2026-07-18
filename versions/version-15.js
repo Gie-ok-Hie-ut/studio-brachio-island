@@ -16,6 +16,10 @@ const closeReaderControls = document.querySelectorAll("[data-close-reader]");
 const closePdfControls = document.querySelectorAll("[data-close-pdf]");
 const v15MenuToggle = document.querySelector("[data-v15-menu-toggle]");
 const v15RoleMenu = document.querySelector("#v15-role-menu");
+const todaysSignalTarget = document.querySelector("[data-todays-signal]");
+const homeLanding = document.querySelector(".v15-landing");
+const homeLandingTitle = document.querySelector(".v15-landing-title");
+const homeScrollHint = document.querySelector(".v15-scroll-hint");
 const ROLE_FADE_MS = 760;
 const ROLE_DETAIL_READY_MS = 360;
 const introScreen = document.querySelector(".intro-screen");
@@ -89,6 +93,7 @@ function clamp(value, min = 0, max = 1) {
 }
 
 function updateIntroScroll() {
+  updateHomeScrollMotion();
   if (!introScreen) {
     document.documentElement.style.setProperty("--intro-title-opacity", "0");
     document.documentElement.style.setProperty("--header-opacity", "1");
@@ -106,6 +111,37 @@ function updateIntroScroll() {
   document.documentElement.style.setProperty("--header-opacity", headerOpacity.toFixed(3));
   document.documentElement.style.setProperty("--role-page-opacity", rolePageOpacity.toFixed(3));
   document.body.classList.toggle("is-header-visible", headerOpacity > 0.08);
+}
+
+function updateHomeScrollMotion() {
+  if (!homeLandingTitle && !todaysSignalTarget) return;
+  const viewportHeight = Math.max(window.innerHeight, 1);
+  const landingHeight = homeLanding ? Math.max(homeLanding.offsetHeight, viewportHeight) : viewportHeight;
+  const scrollY = Math.max(window.scrollY, 0);
+  const titleProgress = clamp(scrollY / (landingHeight * 0.72));
+  const titleOpacity = 1 - clamp((titleProgress - 0.05) / 0.7);
+  const titleShift = -18 * clamp(titleProgress / 0.8);
+
+  if (homeLandingTitle) {
+    const titleShiftAbs = Math.abs(titleShift);
+    homeLandingTitle.style.opacity = titleOpacity.toFixed(3);
+    homeLandingTitle.style.transform = `translateY(calc(-50% - ${titleShiftAbs.toFixed(1)}px))`;
+  }
+
+  if (homeScrollHint) {
+    const hintOpacity = 1 - clamp(scrollY / (landingHeight * 0.28));
+    homeScrollHint.style.opacity = hintOpacity.toFixed(3);
+    homeScrollHint.style.pointerEvents = hintOpacity > 0.08 ? "" : "none";
+  }
+
+  const signalCard = todaysSignalTarget?.querySelector(".todays-signal-card");
+  if (!signalCard || !todaysSignalTarget) return;
+  const signalRect = todaysSignalTarget.getBoundingClientRect();
+  const signalProgress = clamp((viewportHeight - signalRect.top) / (viewportHeight * 0.72));
+  const signalOpacity = clamp((signalProgress - 0.08) / 0.62);
+  const signalShift = (1 - signalOpacity) * 20;
+  signalCard.style.opacity = signalOpacity.toFixed(3);
+  signalCard.style.transform = `translateY(${signalShift.toFixed(1)}px)`;
 }
 
 function restoreExploreHash() {
@@ -147,6 +183,12 @@ function projectHref(path = "") {
   if (/^(https?:|mailto:|tel:|#)/i.test(path)) return path;
   return `${projectRoot}${String(path).replace(/^\.\.\//, "")}`;
 }
+
+function getContentAnchorId(itemOrId) {
+  const rawId = typeof itemOrId === "string" ? itemOrId : itemOrId?.id || "";
+  return `item-${String(rawId).replace(/[^a-z0-9_-]+/gi, "-")}`;
+}
+
 const defaultReaderSettings = {
   lang: "en",
   size: "medium",
@@ -254,6 +296,8 @@ function refreshLocalizedContent(options = {}) {
     const item = findContentById(currentReader.id);
     if (item && pdfTitle) pdfTitle.textContent = getLocalizedTitle(item);
   }
+  renderTodaysSignal();
+  revealDeepLinkedContent();
 }
 
 function setReaderVariant(variant = "") {
@@ -667,9 +711,21 @@ function createNovelGridBook(item) {
   return book;
 }
 
+function createTodaysSignalNovelBook(item) {
+  const sourceBook = createNovelGridBook(item);
+  const book = sourceBook.cloneNode(true);
+  book.classList.add("todays-signal-novel-book");
+  book.removeAttribute("role");
+  book.removeAttribute("tabindex");
+  book.setAttribute("aria-hidden", "true");
+  return book;
+}
+
 function createNovelGridCell(item) {
   const cell = document.createElement("div");
   cell.className = "novel-grid-cell";
+  cell.id = getContentAnchorId(item);
+  cell.dataset.contentId = item.id;
   cell.append(createNovelGridBook(item));
   return cell;
 }
@@ -892,6 +948,8 @@ function createNovelViewButton(mode, label) {
 function createRoleItemButton(label, onClick, options = {}) {
   const button = document.createElement("button");
   button.type = "button";
+  if (options.anchorId) button.id = options.anchorId;
+  if (options.contentId) button.dataset.contentId = options.contentId;
   if (options.image) {
     const image = document.createElement("img");
     image.src = projectHref(options.image);
@@ -1292,6 +1350,8 @@ function createGalleryProjectButton(item) {
   const mainAsset = assets[0] || "";
 
   group.className = "gallery-project-card";
+  group.id = getContentAnchorId(item);
+  group.dataset.contentId = item.id;
   group.dataset.galleryLayout = item.meta?.layout || "default";
   group.dataset.assetCount = String(assets.length);
   group.setAttribute("aria-label", projectTitle);
@@ -1539,6 +1599,239 @@ function getRecordIntro(markdown = "") {
         .join(" ")
     )
     .filter(Boolean);
+}
+
+function stripSignalMarkdown(markdown = "") {
+  return normalizeMarkdownSource(markdown)
+    .replace(/!\[[^\]]*]\([^)]*\)/g, "")
+    .replace(/\[([^\]]+)]\([^)]*\)/g, "$1")
+    .replace(/^\s*[-+]\s+/gm, "")
+    .replace(/[`*_#>~]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getKstDateParts(date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date).reduce((acc, part) => {
+    if (part.type !== "literal") acc[part.type] = part.value;
+    return acc;
+  }, {});
+  const year = parts.year || "2026";
+  const month = parts.month || "01";
+  const day = parts.day || "01";
+  return {
+    year,
+    month,
+    day,
+    key: `${year}-${month}-${day}`,
+    display: `${year}.${month}.${day}`,
+  };
+}
+
+function hashString(value = "") {
+  return String(value).split("").reduce((hash, char) => {
+    const next = ((hash << 5) - hash + char.charCodeAt(0)) | 0;
+    return next >>> 0;
+  }, 2166136261);
+}
+
+function getSignalNumber(dateParts) {
+  const start = Date.UTC(2026, 0, 1);
+  const today = Date.UTC(Number(dateParts.year), Number(dateParts.month) - 1, Number(dateParts.day));
+  const dayIndex = Math.max(1, Math.floor((today - start) / 86400000) + 1);
+  return String(dayIndex).padStart(3, "0");
+}
+
+function getSignalRoleMeta(item) {
+  const roleMeta = {
+    gallery: { role: "visual", category: "VISUAL ART", handle: "@NEOHEE" },
+    novel: { role: "novel", category: "NOVEL", handle: "@ILLI" },
+    essay: { role: "aesthetics", category: "ESSAY", handle: "@ALL" },
+    paper: { role: "engineer", category: "PAPER", handle: "@LEE GUNHEE" },
+  };
+  return roleMeta[item?.type] || { role: "", category: String(item?.type || "WORK").toUpperCase(), handle: "" };
+}
+
+function getSignalImage(item) {
+  if (!item) return "";
+  if (item.type === "gallery") {
+    const asset = getGalleryProjectAssets(item)[0];
+    return asset ? getGalleryAssetPath(asset) : "";
+  }
+  if (item.type === "novel") {
+    return getNovelCoverAsset(item);
+  }
+  return item.meta?.image || item.meta?.cover || "";
+}
+
+function isPdfSignal(item) {
+  return item?.meta?.format === "pdf" || Boolean(item?.meta?.pdf);
+}
+
+function getPaperDescription(item) {
+  const lines = normalizeMarkdownSource(getLocalizedMarkdown(item))
+    .split("\n")
+    .map((line) => stripSignalMarkdown(line))
+    .filter(Boolean);
+  return lines[lines.length - 1] || getLocalizedTitle(item);
+}
+
+function getTodaysSignalPreviewMode() {
+  const params = new URLSearchParams(window.location.search);
+  const value = params.get("signal") || params.get("todays");
+  return String(value || "").trim().toLowerCase();
+}
+
+function pickTodaysSignalItem(candidates, dateParts) {
+  const previewMode = getTodaysSignalPreviewMode();
+  let pool = candidates;
+
+  if (previewMode === "pdf") {
+    const pdfItems = candidates.filter(isPdfSignal);
+    if (pdfItems.length > 0) pool = pdfItems;
+  } else if (previewMode) {
+    const matchingItems = candidates.filter((item) => String(item.type || "").toLowerCase() === previewMode);
+    if (matchingItems.length > 0) pool = matchingItems;
+  }
+
+  return pool[hashString(dateParts.key) % pool.length];
+}
+
+function getSignalDescription(item) {
+  if (!item) return "";
+  if (item.type === "paper") return getPaperDescription(item);
+
+  const metaSummary = getMetaText(item, "summary", "");
+  if (metaSummary) return stripSignalMarkdown(metaSummary);
+
+  const intro = getRecordIntro(getLocalizedMarkdown(item))[0] || getLocalizedMarkdown(item);
+  const clean = stripSignalMarkdown(intro);
+  if (!clean) return getLocalizedTitle(item);
+  const sentence = clean.match(/^(.+?[.!?。])\s/)?.[1] || clean;
+  return sentence.length > 180 ? `${sentence.slice(0, 177).trim()}...` : sentence;
+}
+
+function getTodaysSignalCandidates() {
+  return [
+    ...topLevelGalleryItems,
+    ...topLevelNovelItems,
+    ...topLevelPaperItems,
+    ...topLevelEssayItems,
+  ]
+    .filter((item) => item && item.topLevel !== false)
+    .sort((a, b) => {
+      const typeCompare = String(a.type).localeCompare(String(b.type));
+      if (typeCompare) return typeCompare;
+      const orderCompare = Number(a.order || 0) - Number(b.order || 0);
+      if (orderCompare) return orderCompare;
+      return String(a.id).localeCompare(String(b.id));
+    });
+}
+
+function getSignalHref(item) {
+  const roleMeta = getSignalRoleMeta(item);
+  const rolePath = roleRoomPaths[roleMeta.role];
+  if (!rolePath) return "#";
+  return `${rolePath}#${getContentAnchorId(item)}`;
+}
+
+function renderTodaysSignal() {
+  if (!todaysSignalTarget) return;
+  const candidates = getTodaysSignalCandidates();
+  if (candidates.length === 0) return;
+
+  const dateParts = getKstDateParts();
+  const item = pickTodaysSignalItem(candidates, dateParts);
+  const roleMeta = getSignalRoleMeta(item);
+  const title = getLocalizedTitle(item);
+  const image = getSignalImage(item);
+  const description = getSignalDescription(item);
+  const isPdf = isPdfSignal(item);
+  const card = document.createElement("article");
+  const heading = document.createElement("h2");
+  const headingLabel = document.createElement("span");
+  const headingBox = document.createElement("span");
+  const meta = document.createElement("div");
+  const category = document.createElement("span");
+  const handle = document.createElement("span");
+  const titleNode = document.createElement("strong");
+  const cta = document.createElement("a");
+  const href = getSignalHref(item);
+
+  card.className = image
+    ? "todays-signal-card todays-signal-card-image"
+    : `todays-signal-card todays-signal-card-text${isPdf ? " todays-signal-card-document" : ""}`;
+  card.setAttribute("aria-label", `${title} - ${roleMeta.category}`);
+
+  heading.className = "todays-signal-heading";
+  headingLabel.textContent = "TODAY'S";
+  headingBox.className = "todays-signal-heading-box";
+  headingBox.textContent = "SIGNAL";
+  heading.append(headingLabel, headingBox);
+
+  category.className = "todays-signal-category";
+  category.textContent = roleMeta.category;
+  handle.className = "todays-signal-handle";
+  handle.textContent = roleMeta.handle;
+
+  titleNode.className = "todays-signal-title";
+  titleNode.textContent = `"${title}"`;
+
+  if (item.type === "novel") {
+    const figure = document.createElement("figure");
+    figure.className = "todays-signal-media todays-signal-novel-media";
+    figure.append(createTodaysSignalNovelBook(item));
+    card.append(figure);
+  } else if (image) {
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    figure.className = "todays-signal-media";
+    img.src = projectHref(image);
+    img.alt = title;
+    img.loading = "lazy";
+    figure.append(img);
+    card.append(figure);
+  } else {
+    const copy = document.createElement("p");
+    copy.className = isPdf
+      ? "todays-signal-copy todays-signal-copy-document"
+      : item.type === "paper"
+        ? "todays-signal-copy todays-signal-copy-paper"
+        : "todays-signal-copy";
+    copy.textContent = description;
+    card.append(copy);
+  }
+
+  cta.className = "todays-signal-cta";
+  cta.href = href;
+  cta.textContent = "VIEW →";
+  meta.className = "todays-signal-meta";
+  meta.append(category, handle, titleNode, cta);
+
+  card.prepend(heading);
+  card.append(meta);
+  todaysSignalTarget.replaceChildren(card);
+  updateHomeScrollMotion();
+}
+
+function revealDeepLinkedContent() {
+  if (!isRoleRoomPage || !window.location.hash.startsWith("#item-")) return;
+  const targetId = window.location.hash.slice(1);
+  if (activeRoleRoom === "novel") setNovelViewMode("grid");
+  requestAnimationFrame(() => {
+    window.setTimeout(() => {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      target.scrollIntoView({ block: "center", inline: "nearest" });
+      target.classList.add("is-signal-highlight");
+      window.setTimeout(() => target.classList.remove("is-signal-highlight"), 1800);
+    }, 80);
+  });
 }
 
 function appendMarkdownText(parent, text, context = {}) {
@@ -1934,6 +2227,8 @@ function renderRoleItems() {
     engineerTarget.replaceChildren(
       ...topLevelEngineeringItems.map((item) =>
         createRoleItemButton(getLocalizedTitle(item), () => renderMarkdownReader(item.id, true), {
+          anchorId: getContentAnchorId(item),
+          contentId: item.id,
           kicker: item.meta?.label || "project",
           description: getRecordIntro(getLocalizedMarkdown(item))[0] || getLocalizedMarkdown(item),
         })
@@ -1951,8 +2246,10 @@ function renderRoleItems() {
             renderMarkdownReader(item.id, true);
           }
         }, {
+          anchorId: getContentAnchorId(item),
+          contentId: item.id,
           kicker: item.meta?.year || "Paper",
-          description: getLocalizedMarkdown(item),
+          description: getPaperDescription(item),
         })
       )
     );
@@ -1983,6 +2280,8 @@ function renderRoleItems() {
             renderMarkdownReader(item.id, true);
           }
         }, {
+          anchorId: getContentAnchorId(item),
+          contentId: item.id,
           kicker: item.meta?.year || `Essay ${String(index + 1).padStart(2, "0")}`,
           description: getMetaText(item, "summary", ""),
         })
@@ -2748,7 +3047,10 @@ document.addEventListener("keydown", (event) => {
 window.addEventListener("scroll", updateIntroScroll, { passive: true });
 window.addEventListener("resize", updateIntroScroll);
 window.addEventListener("resize", refreshGalleryMasonryOnResize);
-window.addEventListener("hashchange", restoreExploreHash);
+window.addEventListener("hashchange", () => {
+  restoreExploreHash();
+  revealDeepLinkedContent();
+});
 
 bindReaderSetting(readerLang, "lang");
 bindReaderSetting(readerSize, "size");

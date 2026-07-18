@@ -180,18 +180,24 @@ function homePage() {
 <html lang="en">
 ${head({ title: siteName, urlPath: "", cssHref: "versions/version-15.css", includeCanonical: true })}
   <body class="v15-home">
-    <main class="v15-landing" aria-label="${siteName}">
-      <section class="v15-landing-title" aria-label="${siteName}">
-        <h1>
-          <span>STUDIO</span>
-          <span class="v15-landing-title-invert">BRACHIO</span>
-          <span class="v15-landing-title-invert">ISLAND</span>
-        </h1>
+    <main class="v15-home-main" aria-label="${siteName}">
+      <section class="v15-landing" aria-label="${siteName}">
+        <div class="v15-landing-title" aria-label="${siteName}">
+          <h1>
+            <span>STUDIO</span>
+            <span class="v15-landing-title-invert">BRACHIO</span>
+            <span class="v15-landing-title-invert">ISLAND</span>
+          </h1>
+        </div>
+        <a class="v15-scroll-hint" href="#todays-signal" aria-label="Go to today's signal">TODAY'S SIGNAL ↓</a>
+
+${menuToggle("        ")}
+
+        ${nav("home")}
       </section>
-
-${menuToggle("      ")}
-
-      ${nav("home")}
+      <section id="todays-signal" class="todays-signal" data-todays-signal aria-label="Today's Signal">
+        <p class="todays-signal-placeholder">Tuning today's signal...</p>
+      </section>
     </main>
 
 ${readerModal("\n          <p>writing 섹션에서 제목을 클릭하면 이곳에 본문이 렌더링됩니다.</p>\n        ")}
