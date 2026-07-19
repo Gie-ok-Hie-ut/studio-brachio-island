@@ -2630,6 +2630,59 @@ function createMarkdownMediaBlock(line, context = {}) {
   return figure;
 }
 
+function getYouTubeEmbedUrl(rawUrl = "") {
+  let url;
+  try {
+    url = new URL(rawUrl);
+  } catch {
+    return "";
+  }
+
+  const host = url.hostname.replace(/^www\./, "").toLowerCase();
+  let videoId = "";
+
+  if (host === "youtu.be") {
+    videoId = url.pathname.split("/").filter(Boolean)[0] || "";
+  } else if (host === "youtube.com" || host === "m.youtube.com" || host === "music.youtube.com") {
+    const pathParts = url.pathname.split("/").filter(Boolean);
+    if (url.pathname === "/watch") videoId = url.searchParams.get("v") || "";
+    else if (pathParts[0] === "shorts" || pathParts[0] === "embed") videoId = pathParts[1] || "";
+  }
+
+  if (!/^[\w-]{6,}$/.test(videoId)) return "";
+
+  const embedUrl = new URL(`https://www.youtube.com/embed/${videoId}`);
+  const start = url.searchParams.get("start") || url.searchParams.get("t");
+  const startSeconds = parseYouTubeStartTime(start);
+  if (startSeconds > 0) embedUrl.searchParams.set("start", String(startSeconds));
+  return embedUrl.toString();
+}
+
+function parseYouTubeStartTime(value = "") {
+  if (!value) return 0;
+  if (/^\d+$/.test(value)) return Number(value);
+  const match = String(value).match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/i);
+  if (!match) return 0;
+  return (Number(match[1] || 0) * 3600) + (Number(match[2] || 0) * 60) + Number(match[3] || 0);
+}
+
+function createMarkdownYouTubeBlock(url) {
+  const embedUrl = getYouTubeEmbedUrl(url);
+  if (!embedUrl) return null;
+
+  const figure = document.createElement("figure");
+  figure.className = "notion-media markdown-media markdown-video";
+
+  const iframe = document.createElement("iframe");
+  iframe.src = embedUrl;
+  iframe.title = "Embedded YouTube video";
+  iframe.loading = "lazy";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+  figure.append(iframe);
+  return figure;
+}
+
 function createMarkdownList(items, ordered, context = {}) {
   const list = document.createElement(ordered ? "ol" : "ul");
   list.className = "markdown-list";
@@ -2791,6 +2844,13 @@ function renderMarkdown(markdown = "", title = "", context = {}) {
     if (/^!\[[^\]]*\]\([^)]+\)$/.test(trimmed)) {
       flushTextBlocks();
       blocks.push(createMarkdownMediaBlock(trimmed, context));
+      return;
+    }
+
+    const youtubeBlock = createMarkdownYouTubeBlock(trimmed);
+    if (youtubeBlock) {
+      flushTextBlocks();
+      blocks.push(youtubeBlock);
       return;
     }
 
