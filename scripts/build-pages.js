@@ -140,6 +140,11 @@ function readerModal(defaultBody = "") {
               </select>
             </label>
             <a id="reader-source" class="modal-source" href="#" hidden></a>
+            <button class="modal-share" type="button" data-share-popup aria-label="Share this popup">
+              <span class="modal-share-label">SHARE</span>
+              <span class="modal-share-icon" aria-hidden="true">↗</span>
+              <span class="modal-share-status" aria-hidden="true">COPIED</span>
+            </button>
             <button class="modal-back" type="button" data-reader-back aria-label="Back" disabled>←</button>
             <button class="modal-close" type="button" data-close-reader aria-label="Close reader">×</button>
           </div>
@@ -160,6 +165,11 @@ function pdfModal() {
           </div>
           <div class="reader-actions">
             <a id="pdf-source" class="modal-source" href="#" hidden></a>
+            <button class="modal-share" type="button" data-share-popup aria-label="Share this popup">
+              <span class="modal-share-label">SHARE</span>
+              <span class="modal-share-icon" aria-hidden="true">↗</span>
+              <span class="modal-share-status" aria-hidden="true">COPIED</span>
+            </button>
             <button class="modal-close" type="button" data-close-pdf aria-label="Close PDF">×</button>
           </div>
         </div>
