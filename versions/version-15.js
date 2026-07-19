@@ -3,6 +3,8 @@ const readerSource = document.querySelector("#reader-source");
 const readerContent = document.querySelector("#reader-content");
 const readerModal = document.querySelector("#reader-modal");
 const readerWindow = document.querySelector(".reader-window");
+const readerScrollIndicator = document.querySelector("[data-reader-scroll-indicator]");
+const readerScrollThumb = document.querySelector("[data-reader-scroll-thumb]");
 const pdfModal = document.querySelector("#pdf-modal");
 const pdfTitle = document.querySelector("#pdf-title");
 const pdfSource = document.querySelector("#pdf-source");
@@ -88,6 +90,7 @@ const novelOrbit = {
   lastTime: 0,
   bound: false,
 };
+let readerScrollIndicatorFrame = null;
 
 function clamp(value, min = 0, max = 1) {
   return Math.min(Math.max(value, min), max);
@@ -688,6 +691,35 @@ function restoreReaderScrollState(state) {
     readerContent.scrollTop = Number.isFinite(restoredTop)
       ? restoredTop
       : Math.round(max * state.ratio);
+    updateReaderScrollIndicator();
+  });
+}
+
+function updateReaderScrollIndicator() {
+  if (!readerContent || !readerWindow || !readerScrollIndicator || !readerScrollThumb) return;
+  const maxScroll = Math.max(readerContent.scrollHeight - readerContent.clientHeight, 0);
+  const hasScroll = maxScroll > 2;
+  readerWindow.classList.toggle("has-reader-scroll", hasScroll);
+  if (!hasScroll) {
+    readerScrollThumb.style.height = "";
+    readerScrollThumb.style.transform = "";
+    return;
+  }
+
+  const trackHeight = Math.max(readerScrollIndicator.clientHeight, 1);
+  const visibleRatio = clamp(readerContent.clientHeight / Math.max(readerContent.scrollHeight, 1));
+  const thumbHeight = clamp(trackHeight * visibleRatio, 44, trackHeight);
+  const thumbTravel = Math.max(trackHeight - thumbHeight, 0);
+  const thumbTop = maxScroll > 0 ? (readerContent.scrollTop / maxScroll) * thumbTravel : 0;
+  readerScrollThumb.style.height = `${thumbHeight.toFixed(2)}px`;
+  readerScrollThumb.style.transform = `translateY(${thumbTop.toFixed(2)}px)`;
+}
+
+function scheduleReaderScrollIndicatorUpdate() {
+  if (readerScrollIndicatorFrame) cancelAnimationFrame(readerScrollIndicatorFrame);
+  readerScrollIndicatorFrame = requestAnimationFrame(() => {
+    readerScrollIndicatorFrame = null;
+    updateReaderScrollIndicator();
   });
 }
 
@@ -1271,6 +1303,7 @@ function openGalleryAsset(filename) {
   readerContent.replaceChildren(wrapper);
   readerContent.scrollTop = 0;
   openReader();
+  scheduleReaderScrollIndicatorUpdate();
 
   fetch(descriptionPath)
     .then((response) => (response.ok ? response.text() : ""))
@@ -1279,6 +1312,7 @@ function openGalleryAsset(filename) {
       detailBody.replaceChildren(...renderMarkdown(markdown, "", {
         basePath: `content/gallery/assets/${filename.replace(/\.[^.]+$/, ".md")}`,
       }));
+      scheduleReaderScrollIndicatorUpdate();
     })
     .catch(() => {
       // Description markdown is optional and can be added later.
@@ -1558,6 +1592,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
       });
     }
     wrapper.classList.toggle("is-single", total <= 1);
+    scheduleReaderScrollIndicatorUpdate();
     if (!options.skipUrl && readerModal?.classList.contains("is-open")) {
       updatePopupHash({ replace: true });
     }
@@ -1568,6 +1603,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   infoToggle.addEventListener("click", () => {
     const isOpen = info.classList.toggle("is-open");
     infoToggle.setAttribute("aria-expanded", String(isOpen));
+    scheduleReaderScrollIndicatorUpdate();
   });
 
   info.append(infoToggle, detailBody);
@@ -1579,6 +1615,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   if (options.scrollState) restoreReaderScrollState(options.scrollState);
   else readerContent.scrollTop = 0;
   openReader({ skipUrl: options.skipUrl });
+  scheduleReaderScrollIndicatorUpdate();
 }
 
 function createGalleryProjectButton(item) {
@@ -2540,6 +2577,7 @@ function openReader(options = {}) {
   readerModal.classList.add("is-open");
   readerModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("reader-open");
+  scheduleReaderScrollIndicatorUpdate();
   if (!options.skipUrl) updatePopupHash();
 }
 
@@ -2569,6 +2607,7 @@ function applyReaderSettings(options = {}) {
   if (readerTheme) readerTheme.value = readerSettings.theme;
 
   if (options.persist !== false) saveReaderSettings();
+  scheduleReaderScrollIndicatorUpdate();
 }
 
 function refreshCurrentReaderContent(scrollState = getReaderScrollState()) {
@@ -2648,6 +2687,7 @@ function bindReaderManualTouchScroll(scrollTarget) {
     const deltaY = lastTouchY - nextTouchY;
     lastTouchY = nextTouchY;
     scrollTarget.scrollTop += deltaY;
+    updateReaderScrollIndicator();
     event.preventDefault();
   }, { passive: false });
 }
@@ -2663,6 +2703,7 @@ function closeReader(options = {}) {
   readerModal.classList.remove("is-open");
   readerModal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("reader-open");
+  readerWindow?.classList.remove("has-reader-scroll");
   if (!options.preserveUrl) clearPopupHash({ replace: true });
 }
 
@@ -3173,6 +3214,7 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
       if (options.scrollState) restoreReaderScrollState(options.scrollState);
       else readerContent.scrollTop = 0;
       updateReaderBackState();
+      scheduleReaderScrollIndicatorUpdate();
     })
     .catch(() => {
       if (currentReader.type !== "chapter" || currentReader.path !== path) return;
@@ -3182,6 +3224,7 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
         ? "파일을 불러올 수 없습니다."
         : "Unable to load this file.";
       readerContent.replaceChildren(error);
+      scheduleReaderScrollIndicatorUpdate();
     });
 }
 
@@ -3215,6 +3258,7 @@ function renderMarkdownReader(id, shouldOpen = false, options = {}) {
   if (options.scrollState) restoreReaderScrollState(options.scrollState);
   else readerContent.scrollTop = 0;
   updateReaderBackState();
+  scheduleReaderScrollIndicatorUpdate();
   if (shouldOpen) {
     openReader({ skipUrl: options.skipUrl });
   }
@@ -3277,6 +3321,7 @@ function renderReader(id, shouldOpen = false) {
 
   readerContent.replaceChildren(...nodes);
   readerContent.scrollTop = 0;
+  scheduleReaderScrollIndicatorUpdate();
   if (shouldOpen) {
     openReader();
   }
@@ -3344,6 +3389,7 @@ if (readerContent) {
   ["copy", "cut", "contextmenu"].forEach((eventName) => {
     readerContent.addEventListener(eventName, (event) => event.preventDefault());
   });
+  readerContent.addEventListener("scroll", updateReaderScrollIndicator, { passive: true });
 }
 
 document.addEventListener("keydown", (event) => {
@@ -3361,6 +3407,7 @@ document.addEventListener("keydown", (event) => {
 window.addEventListener("scroll", updateIntroScroll, { passive: true });
 window.addEventListener("resize", updateIntroScroll);
 window.addEventListener("resize", refreshGalleryMasonryOnResize);
+window.addEventListener("resize", scheduleReaderScrollIndicatorUpdate);
 window.addEventListener("hashchange", () => {
   if (syncPopupFromUrl()) return;
   restoreExploreHash();

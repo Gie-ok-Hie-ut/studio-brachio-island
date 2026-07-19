@@ -142,7 +142,7 @@ function readerModal(defaultBody = "") {
             <a id="reader-source" class="modal-source" href="#" hidden></a>
             <button class="modal-share" type="button" data-share-popup aria-label="Share this popup">
               <span class="modal-share-label">SHARE</span>
-              <span class="modal-share-icon" aria-hidden="true">↗</span>
+              <span class="modal-share-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 15V3"></path><path d="M7.5 7.5 12 3l4.5 4.5"></path><path d="M6 11v8h12v-8"></path></svg></span>
               <span class="modal-share-status" aria-hidden="true">COPIED</span>
             </button>
             <button class="modal-back" type="button" data-reader-back aria-label="Back" disabled>←</button>
@@ -150,6 +150,9 @@ function readerModal(defaultBody = "") {
           </div>
         </div>
         <article id="reader-content" class="reader-content">${defaultBody}</article>
+        <div class="reader-scroll-indicator" data-reader-scroll-indicator aria-hidden="true">
+          <span data-reader-scroll-thumb></span>
+        </div>
       </section>
     </div>`;
 }
@@ -167,7 +170,7 @@ function pdfModal() {
             <a id="pdf-source" class="modal-source" href="#" hidden></a>
             <button class="modal-share" type="button" data-share-popup aria-label="Share this popup">
               <span class="modal-share-label">SHARE</span>
-              <span class="modal-share-icon" aria-hidden="true">↗</span>
+              <span class="modal-share-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 15V3"></path><path d="M7.5 7.5 12 3l4.5 4.5"></path><path d="M6 11v8h12v-8"></path></svg></span>
               <span class="modal-share-status" aria-hidden="true">COPIED</span>
             </button>
             <button class="modal-close" type="button" data-close-pdf aria-label="Close PDF">×</button>
