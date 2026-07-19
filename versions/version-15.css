@@ -4499,8 +4499,8 @@ body[data-role-room] .role-room-detail .role-close:focus-visible {
 }
 
 body[data-role-room] .role-room-detail > .role-section-title {
-  align-self: center;
-  margin-left: clamp(-20px, -1vw, -10px);
+  align-self: start;
+  margin-left: 0;
 }
 
 body[data-role-room] .role-section-title h2 {
