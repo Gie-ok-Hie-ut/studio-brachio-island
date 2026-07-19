@@ -134,7 +134,7 @@ window.CONTENT_INDEX = {
         "type": "essay",
         "order": 1,
         "format": "pdf",
-        "pdf": "../assets/pdf/complete-artist-linear-art-250923.pdf",
+        "pdf": "../assets/pdf/온전한_예술가와_직선적_예술.pdf",
         "year": "2025",
         "summaryKo": "현대 예술을 향한 동시대의 부정적 평가를 극복하기 위하여, 개혁주의 신앙에 기반한 규범적인 관점에서 현대 미술을 비판적으로 고찰한 글",
         "summaryEn": "A critical study of contemporary art from a normative Reformed perspective, written to move beyond today's largely negative verdict on contemporary art",
