@@ -25,6 +25,11 @@
   --role-intro-font-weight: 560;
   --role-intro-line-height: 1.38;
   --site-width: 1360px;
+  --site-frame-max: 2040px;
+  --site-frame-gutter: clamp(22px, 4.6vw, 96px);
+  --site-frame-width: min(calc(100vw - var(--site-frame-gutter) - var(--site-frame-gutter)), var(--site-frame-max));
+  --role-rail-width: clamp(280px, 16vw, 420px);
+  --role-frame-gap: clamp(36px, 4vw, 84px);
   --section-min-height: 760px;
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-panel: 760ms;
@@ -161,13 +166,13 @@ a {
 }
 
 main {
-  max-width: var(--site-width);
+  max-width: none;
   margin: 0 auto;
   min-height: auto;
   opacity: var(--role-page-opacity, 0);
   padding: 42px 0;
   transition: opacity 120ms linear;
-  width: min(var(--site-width), calc(100vw - 84px));
+  width: var(--site-frame-width);
 }
 
 header {
@@ -2716,7 +2721,8 @@ figcaption {
 
 .reader-actions .modal-share {
   align-items: center;
-  border-bottom: 1px solid var(--reader-line, var(--line));
+  aspect-ratio: 1;
+  border-bottom: 0;
   color: var(--reader-control-color);
   display: inline-flex;
   font-size: var(--reader-control-font-size);
@@ -2724,9 +2730,10 @@ figcaption {
   justify-content: center;
   line-height: var(--reader-control-line-height);
   min-height: 0;
-  padding: 0 0 2px;
+  padding: 0;
   position: relative;
   text-transform: uppercase;
+  width: 32px;
 }
 
 .reader-actions .modal-share:hover,
@@ -2736,6 +2743,23 @@ figcaption {
 }
 
 .modal-share-icon {
+  display: inline-flex;
+  height: 24px;
+  width: 24px;
+}
+
+.modal-share-icon svg {
+  display: block;
+  fill: none;
+  height: 100%;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 100%;
+}
+
+.modal-share-label {
   display: none;
 }
 
@@ -2829,6 +2853,32 @@ figcaption {
   user-select: text;
   -webkit-user-select: text;
   word-break: keep-all;
+}
+
+.reader-scroll-indicator {
+  bottom: 24px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  top: 132px;
+  transition: opacity 160ms ease;
+  width: 4px;
+  z-index: 4;
+}
+
+.reader-window.has-reader-scroll .reader-scroll-indicator {
+  opacity: 1;
+}
+
+.reader-scroll-indicator span {
+  background: var(--reader-ink, var(--ink));
+  border-radius: 999px;
+  display: block;
+  height: 44px;
+  min-height: 44px;
+  transform: translateY(0);
+  width: 100%;
 }
 
 .reader-window.reader-window-gallery {
@@ -3698,19 +3748,15 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     aspect-ratio: 1;
     border-bottom: 0;
     color: var(--reader-ink, var(--ink));
-    font-size: 20px;
     justify-self: center;
     min-height: 0;
     padding: 0;
     width: 30px;
   }
 
-  .reader-toolbar .modal-share-label {
-    display: none;
-  }
-
   .reader-toolbar .modal-share-icon {
-    display: inline;
+    height: 23px;
+    width: 23px;
   }
 
   .reader-toolbar .modal-share-status {
@@ -3747,6 +3793,13 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     max-height: none;
     min-height: 0;
     padding: 20px 4px 8px 0;
+  }
+
+  .reader-scroll-indicator {
+    bottom: 16px;
+    right: 7px;
+    top: 160px;
+    width: 4px;
   }
 
 }
@@ -3838,7 +3891,7 @@ body.v15-home {
 }
 
 .v15-landing-title {
-  left: clamp(18px, 3vw, 56px);
+  left: max(var(--site-frame-gutter), calc((100vw - var(--site-frame-max)) / 2));
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -3907,7 +3960,7 @@ body.v15-home {
   display: grid;
   justify-items: center;
   min-height: 100vh;
-  padding: clamp(92px, 12vh, 140px) clamp(28px, 6.2vw, 112px);
+  padding: clamp(92px, 12vh, 140px) 0;
 }
 
 .todays-signal-placeholder {
@@ -3931,13 +3984,13 @@ body.v15-home {
     "heading heading"
     "media meta";
   justify-content: center;
-  max-width: var(--site-width);
+  max-width: none;
   text-decoration: none;
   transform: translateY(18px);
   transition:
     opacity 700ms var(--motion-ease),
     transform 900ms var(--motion-ease);
-  width: 100%;
+  width: var(--site-frame-width);
 }
 
 .todays-signal-card-text {
@@ -4241,7 +4294,7 @@ body.v15-home {
 
 @media (max-width: 520px) {
   .v15-landing-title {
-    left: 18px;
+    left: var(--site-frame-gutter);
   }
 
   .v15-scroll-hint {
@@ -4539,19 +4592,19 @@ body[data-role-room] .role-room-detail {
   background-repeat: repeat;
   background-size: auto, var(--site-texture-size);
   box-shadow: none;
-  gap: clamp(36px, 5vw, 84px);
-  grid-template-columns: minmax(240px, 28vw) minmax(0, 1fr);
+  gap: var(--role-frame-gap);
+  grid-template-columns: var(--role-rail-width) minmax(0, 1fr);
   height: 100vh;
   left: auto;
-  margin: 0;
+  margin: 0 auto;
   min-height: 100vh;
   opacity: 1;
-  padding: clamp(86px, 8vh, 126px) clamp(28px, 4.6vw, 90px) clamp(42px, 5vh, 72px);
+  padding: clamp(86px, 8vh, 126px) 0 clamp(42px, 5vh, 72px);
   pointer-events: auto;
   position: relative;
   top: auto;
   transform: none;
-  width: 100%;
+  width: var(--site-frame-width);
   z-index: 1;
 }
 
@@ -4672,12 +4725,12 @@ body[data-role-room] .cv-scroll {
 }
 
 body[data-role-room] .role-detail-layout-novel {
-  grid-template-columns: minmax(210px, 28vw) minmax(0, 1fr);
+  grid-template-columns: var(--role-rail-width) minmax(0, 1fr);
   padding-bottom: 0;
 }
 
 body[data-role-room] .role-detail-layout-novel .role-section-body-novel {
-  grid-template-columns: minmax(210px, 28vw) minmax(0, 1fr);
+  grid-template-columns: var(--role-rail-width) minmax(0, 1fr);
 }
 
 body[data-role-room] .role-detail-layout-novel .role-novel-stage.novel-deck {
@@ -4716,9 +4769,11 @@ body[data-role-room] .pdf-window,
     gap: 34px;
     grid-template-columns: 1fr;
     height: auto;
+    margin: 0;
     min-height: 100vh;
     overflow: visible;
     padding: 78px 22px 46px;
+    width: 100%;
   }
 
   body[data-role-room] .role-room-detail > .role-section-title {
