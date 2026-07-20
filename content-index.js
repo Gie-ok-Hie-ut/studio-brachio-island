@@ -334,6 +334,36 @@ window.CONTENT_INDEX = {
       "markdownEn": "2017"
     },
     {
+      "id": "visual-project-09",
+      "type": "gallery",
+      "title": "Frame",
+      "titleKo": "Frame",
+      "titleEn": "Frame",
+      "order": 9,
+      "topLevel": true,
+      "path": "content/gallery/09-frame/index.md",
+      "meta": {
+        "id": "visual-project-09",
+        "title": "Frame",
+        "titleKo": "Frame",
+        "titleEn": "Frame",
+        "type": "gallery",
+        "order": 9,
+        "year": "2017",
+        "medium": "image",
+        "layout": "pair",
+        "image": "9-0.png",
+        "assets": [
+          "9-0.png",
+          "9-1.png"
+        ],
+        "topLevel": true
+      },
+      "markdown": "2017",
+      "markdownKo": "2017",
+      "markdownEn": "2017"
+    },
+    {
       "id": "9da96c11-8ced-4929-bfc1-58226efc8e9b",
       "type": "novel",
       "title": "산스장",
