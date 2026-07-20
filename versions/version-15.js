@@ -2041,9 +2041,10 @@ function renderTodaysSignal() {
   const titleNode = document.createElement("strong");
   const cta = document.createElement("a");
   const href = getSignalHref(item);
+  let novelFigure = null;
 
   card.className = image
-    ? "todays-signal-card todays-signal-card-image"
+    ? `todays-signal-card todays-signal-card-image${item.type === "novel" ? " todays-signal-card-novel" : ""}`
     : `todays-signal-card todays-signal-card-text${isPdf ? " todays-signal-card-document" : ""}`;
   card.setAttribute("aria-label", `${title} - ${roleMeta.category}`);
 
@@ -2065,7 +2066,9 @@ function renderTodaysSignal() {
     const figure = document.createElement("figure");
     figure.className = "todays-signal-media todays-signal-novel-media";
     figure.append(createTodaysSignalNovelBook(item));
+    makeTodaysSignalMediaClickable(figure, href, title);
     card.append(figure);
+    novelFigure = figure;
   } else if (image) {
     const figure = document.createElement("figure");
     const img = document.createElement("img");
@@ -2074,6 +2077,7 @@ function renderTodaysSignal() {
     img.alt = title;
     img.loading = "lazy";
     figure.append(img);
+    makeTodaysSignalMediaClickable(figure, href, title);
     card.append(figure);
   } else {
     const copy = document.createElement("p");
@@ -2088,14 +2092,41 @@ function renderTodaysSignal() {
 
   cta.className = "todays-signal-cta";
   cta.href = href;
-  cta.textContent = "VIEW →";
+  cta.textContent = "VIEW→";
   meta.className = "todays-signal-meta";
   meta.append(category, handle, titleNode, cta);
+
+  if (novelFigure) {
+    const mobileMeta = meta.cloneNode(true);
+    meta.classList.add("todays-signal-meta-desktop");
+    mobileMeta.classList.add("todays-signal-meta-mobile");
+    novelFigure.append(mobileMeta);
+  }
 
   card.prepend(heading);
   card.append(meta);
   todaysSignalTarget.replaceChildren(card);
   updateHomeScrollMotion();
+}
+
+function makeTodaysSignalMediaClickable(media, href, title) {
+  if (!media || !href) return;
+  media.classList.add("todays-signal-media-link");
+  media.setAttribute("role", "link");
+  media.setAttribute("tabindex", "0");
+  media.setAttribute("aria-label", `${title} view`);
+
+  const openSignal = (event) => {
+    if (event.target.closest("a, button")) return;
+    window.location.href = href;
+  };
+
+  media.addEventListener("click", openSignal);
+  media.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    window.location.href = href;
+  });
 }
 
 function revealDeepLinkedContent() {

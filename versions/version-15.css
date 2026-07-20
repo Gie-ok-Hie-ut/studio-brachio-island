@@ -4044,6 +4044,10 @@ body.v15-home {
   min-width: 0;
 }
 
+.todays-signal-meta-mobile {
+  display: none;
+}
+
 .todays-signal-category {
   background: transparent;
   color: inherit;
@@ -4106,8 +4110,20 @@ body.v15-home {
   width: auto;
 }
 
-.todays-signal-novel-media {
+.todays-signal-media-link {
+  cursor: pointer;
+}
+
+.todays-signal-media-link:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 8px;
+}
+
+.todays-signal-card-novel {
   --signal-novel-book-width: clamp(240px, 24vw, 360px);
+}
+
+.todays-signal-novel-media {
   aspect-ratio: 2 / 3;
   height: auto;
   max-height: min(62vh, 540px);
@@ -4167,8 +4183,9 @@ body.v15-home {
 }
 
 .todays-signal-cta {
+  align-self: flex-start;
   background: transparent;
-  border-bottom: 0;
+  border-bottom: 1px solid currentColor;
   color: var(--ink);
   display: inline-flex;
   font-size: clamp(11px, 0.82vw, 14px);
@@ -4178,20 +4195,24 @@ body.v15-home {
   letter-spacing: 0;
   line-height: 1;
   margin-top: clamp(12px, 1.8vw, 22px);
-  padding: 0.18em 0.28em 0.2em;
+  padding: 0.18em 0 0.2em;
   text-decoration: none;
   text-transform: uppercase;
   transition:
     background-color 160ms var(--motion-ease),
     color 160ms var(--motion-ease);
   white-space: nowrap;
+  width: max-content;
 }
 
 .todays-signal-cta:hover,
 .todays-signal-cta:focus-visible {
   background: var(--ink);
+  border-bottom-color: var(--ink);
   color: var(--paper);
   text-decoration: none;
+  padding-left: 0.28em;
+  padding-right: 0.28em;
 }
 
 .todays-signal-cta:focus-visible {
@@ -4261,6 +4282,40 @@ body.v15-home {
     justify-self: start;
   }
 
+  .todays-signal-card-novel {
+    --signal-novel-book-width: min(100%, 320px);
+    grid-template-areas:
+      "heading"
+      "media";
+  }
+
+  .todays-signal-card-novel > .todays-signal-meta-desktop {
+    display: none;
+  }
+
+  .todays-signal-card-novel .todays-signal-meta-mobile {
+    box-sizing: border-box;
+    display: flex;
+    margin-top: 18px;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-category,
+  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-handle,
+  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-title,
+  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-cta {
+    font-size: clamp(13px, 3.2vw, 16px);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
+  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-title {
+    text-align: left;
+    text-transform: none;
+  }
+
   .todays-signal-category,
   .todays-signal-handle {
     white-space: nowrap;
@@ -4281,10 +4336,21 @@ body.v15-home {
   }
 
   .todays-signal-novel-media {
-    --signal-novel-book-width: min(100%, 320px);
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    height: auto;
     justify-self: center;
     max-height: none;
     max-width: var(--signal-novel-book-width);
+    overflow: visible;
+    width: var(--signal-novel-book-width);
+  }
+
+  .todays-signal-card-novel .todays-signal-novel-book,
+  .todays-signal-card-novel .todays-signal-novel-book:hover,
+  .todays-signal-card-novel .todays-signal-novel-book:focus-visible {
+    height: auto;
   }
 
   .todays-signal-copy {
