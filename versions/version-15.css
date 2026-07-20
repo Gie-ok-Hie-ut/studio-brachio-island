@@ -4090,6 +4090,16 @@ body.v15-home {
   white-space: nowrap;
 }
 
+.todays-signal-year {
+  display: inline-flex;
+  font-size: clamp(11px, 0.82vw, 14px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .todays-signal-media {
   align-self: center;
   grid-area: media;
@@ -4249,7 +4259,7 @@ body.v15-home {
 @media (max-width: 900px) {
   .todays-signal {
     align-items: start;
-    padding: clamp(72px, 10vh, 96px) clamp(24px, 7vw, 52px);
+    padding: clamp(54px, 8vh, 72px) clamp(24px, 7vw, 52px);
   }
 
   .todays-signal-card,
@@ -4264,6 +4274,14 @@ body.v15-home {
       "meta"
       "copy";
     justify-content: stretch;
+  }
+
+  .todays-signal-card-image {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 2.6vh, 18px);
+    grid-template-areas: none;
   }
 
   .todays-signal-heading {
@@ -4284,54 +4302,62 @@ body.v15-home {
 
   .todays-signal-card-novel {
     --signal-novel-book-width: min(100%, 320px);
-    grid-template-areas:
-      "heading"
-      "media";
   }
 
-  .todays-signal-card-novel > .todays-signal-meta-desktop {
+  .todays-signal-card-image > .todays-signal-meta-desktop {
     display: none;
   }
 
-  .todays-signal-card-novel .todays-signal-meta-mobile {
+  .todays-signal-media .todays-signal-meta-mobile {
     box-sizing: border-box;
     display: flex;
-    margin-top: 18px;
+    gap: clamp(6px, 1.7vw, 9px);
+    margin-top: clamp(8px, 2vw, 12px);
     padding-left: 0;
     width: 100%;
   }
 
-  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-category,
-  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-handle,
-  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-title,
-  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-cta {
+  .todays-signal-media .todays-signal-meta-mobile .todays-signal-category,
+  .todays-signal-media .todays-signal-meta-mobile .todays-signal-handle,
+  .todays-signal-media .todays-signal-meta-mobile .todays-signal-title,
+  .todays-signal-media .todays-signal-meta-mobile .todays-signal-year,
+  .todays-signal-media .todays-signal-meta-mobile .todays-signal-cta {
     font-size: clamp(13px, 3.2vw, 16px);
     font-weight: 900;
     letter-spacing: 0;
     line-height: 1;
   }
 
-  .todays-signal-card-novel .todays-signal-meta-mobile .todays-signal-title {
+  .todays-signal-media .todays-signal-meta-mobile .todays-signal-title {
     text-align: left;
-    text-transform: none;
+    text-transform: uppercase;
+  }
+
+  .todays-signal-media .todays-signal-meta-mobile .todays-signal-cta {
+    margin-top: clamp(8px, 2vw, 12px);
   }
 
   .todays-signal-category,
-  .todays-signal-handle {
+  .todays-signal-handle,
+  .todays-signal-year {
     white-space: nowrap;
   }
 
   .todays-signal-media {
+    align-self: stretch;
+    justify-self: stretch;
     max-height: none;
     max-width: 100%;
+    overflow: visible;
     width: 100%;
   }
 
   .todays-signal-media > img {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: auto;
     height: auto;
     max-height: none;
     max-width: 100%;
+    object-fit: contain;
     width: 100%;
   }
 
@@ -4368,7 +4394,15 @@ body.v15-home {
   }
 
   .todays-signal {
-    padding-inline: 22px;
+    padding: 48px 22px 58px;
+  }
+
+  .todays-signal-card-image {
+    gap: 12px;
+  }
+
+  .todays-signal-media .todays-signal-meta-mobile {
+    margin-top: 8px;
   }
 }
 

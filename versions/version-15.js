@@ -2033,15 +2033,13 @@ function renderTodaysSignal() {
   const isPdf = isPdfSignal(item);
   const card = document.createElement("article");
   const heading = document.createElement("h2");
-  const headingLabel = document.createElement("span");
-  const headingBox = document.createElement("span");
   const meta = document.createElement("div");
-  const category = document.createElement("span");
   const handle = document.createElement("span");
   const titleNode = document.createElement("strong");
+  const yearNode = document.createElement("span");
   const cta = document.createElement("a");
   const href = getSignalHref(item);
-  let novelFigure = null;
+  let mobileMetaHost = null;
 
   card.className = image
     ? `todays-signal-card todays-signal-card-image${item.type === "novel" ? " todays-signal-card-novel" : ""}`
@@ -2049,18 +2047,16 @@ function renderTodaysSignal() {
   card.setAttribute("aria-label", `${title} - ${roleMeta.category}`);
 
   heading.className = "todays-signal-heading";
-  headingLabel.textContent = "TODAY'S";
-  headingBox.className = "todays-signal-heading-box";
-  headingBox.textContent = "SIGNAL";
-  heading.append(headingLabel, headingBox);
+  heading.textContent = `TODAY'S SIGNAL - ${roleMeta.category}`;
 
-  category.className = "todays-signal-category";
-  category.textContent = roleMeta.category;
   handle.className = "todays-signal-handle";
   handle.textContent = roleMeta.handle;
 
   titleNode.className = "todays-signal-title";
-  titleNode.textContent = `"${title}"`;
+  titleNode.textContent = title;
+
+  yearNode.className = "todays-signal-year";
+  yearNode.textContent = item.year || item.meta?.year || "";
 
   if (item.type === "novel") {
     const figure = document.createElement("figure");
@@ -2068,7 +2064,7 @@ function renderTodaysSignal() {
     figure.append(createTodaysSignalNovelBook(item));
     makeTodaysSignalMediaClickable(figure, href, title);
     card.append(figure);
-    novelFigure = figure;
+    mobileMetaHost = figure;
   } else if (image) {
     const figure = document.createElement("figure");
     const img = document.createElement("img");
@@ -2079,6 +2075,7 @@ function renderTodaysSignal() {
     figure.append(img);
     makeTodaysSignalMediaClickable(figure, href, title);
     card.append(figure);
+    mobileMetaHost = figure;
   } else {
     const copy = document.createElement("p");
     copy.className = isPdf
@@ -2092,15 +2089,17 @@ function renderTodaysSignal() {
 
   cta.className = "todays-signal-cta";
   cta.href = href;
-  cta.textContent = "VIEW→";
+  cta.textContent = "VIEW →";
   meta.className = "todays-signal-meta";
-  meta.append(category, handle, titleNode, cta);
+  meta.append(handle, titleNode);
+  if (yearNode.textContent) meta.append(yearNode);
+  meta.append(cta);
 
-  if (novelFigure) {
+  if (mobileMetaHost) {
     const mobileMeta = meta.cloneNode(true);
     meta.classList.add("todays-signal-meta-desktop");
     mobileMeta.classList.add("todays-signal-meta-mobile");
-    novelFigure.append(mobileMeta);
+    mobileMetaHost.append(mobileMeta);
   }
 
   card.prepend(heading);
