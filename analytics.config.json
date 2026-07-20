@@ -1,0 +1,6 @@
+{
+  "provider": "umami",
+  "enabled": true,
+  "scriptUrl": "https://cloud.umami.is/script.js",
+  "websiteId": "30aee87f-ef6c-4dab-afc4-410fb3c9ae21"
+}

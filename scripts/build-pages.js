@@ -8,6 +8,25 @@ const siteName = "Studio Brachio Island";
 const description = "Studio Brachio Island gathers AI research, fiction, visual art, essays, and identity into one studio archive.";
 const shareImageUrl = `${publicBaseUrl}/assets/share-thumbnail.png`;
 
+function readAnalyticsConfig() {
+  const configPath = path.join(root, "analytics.config.json");
+  if (!fs.existsSync(configPath)) return null;
+
+  const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+  if (!config.enabled) return null;
+  if (config.provider !== "umami") return null;
+  if (!config.websiteId || !config.scriptUrl) return null;
+
+  return config;
+}
+
+function analyticsScript() {
+  const config = readAnalyticsConfig();
+  if (!config) return "";
+
+  return `    <script defer src="${config.scriptUrl}" data-website-id="${config.websiteId}"></script>\n`;
+}
+
 function fileVersion(relativePath) {
   const buffer = fs.readFileSync(path.join(root, relativePath));
   return crypto.createHash("sha256").update(buffer).digest("hex").slice(0, 10);
@@ -103,6 +122,7 @@ function head({ title, urlPath, cssHref, includeCanonical = false }) {
     <meta name="twitter:image" content="${shareImageUrl}">
     <meta name="description" content="${description}">
 ${includeCanonical ? '    <link rel="canonical" href="./">\n' : ""}    <link rel="stylesheet" href="${cssHref}?v=${versions.css}">
+${analyticsScript().trimEnd()}
   </head>`;
 }
 
