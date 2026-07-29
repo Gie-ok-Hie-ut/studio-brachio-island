@@ -1821,11 +1821,23 @@ function createProfileIcon(type) {
 }
 
 function renderRoleMarkdownNote(markdown = "", body, context = {}) {
+  const intro = createRoleIntroNode(markdown, context);
+  if (!intro) return;
+  body.append(intro);
+}
+
+function createRoleIntroNode(markdown = "", context = {}, extraClasses = []) {
   const introParagraphs = getRecordIntro(markdown);
-  if (introParagraphs.length === 0) return;
+  if (introParagraphs.length === 0) return null;
 
   const intro = document.createElement(introParagraphs.length > 1 ? "div" : "p");
-  intro.className = introParagraphs.length > 1 ? "role-intro cv-intro cv-intro-stack" : "role-intro cv-intro";
+  intro.className = [
+    "role-intro",
+    introParagraphs.length > 1 ? "role-intro-stack" : "",
+    ...extraClasses,
+  ]
+    .filter(Boolean)
+    .join(" ");
   if (introParagraphs.length > 1) {
     introParagraphs.forEach((paragraph) => {
       const text = document.createElement("p");
@@ -1835,7 +1847,7 @@ function renderRoleMarkdownNote(markdown = "", body, context = {}) {
   } else {
     appendMarkdownText(intro, introParagraphs[0], context);
   }
-  body.append(intro);
+  return intro;
 }
 
 function parseRecordSections(markdown = "") {
@@ -2186,26 +2198,20 @@ function renderProfileLinks(item, titleTarget, titleText) {
 }
 
 function renderIdentityRole(item, body) {
-  const statement = document.createElement("div");
   const figure = document.createElement("figure");
   const image = document.createElement("img");
   const caption = document.createElement("figcaption");
-  const introLines = getRecordIntro(getLocalizedMarkdown(item));
+  const statement =
+    createRoleIntroNode(getLocalizedMarkdown(item), { item, basePath: item.path }, [
+      "identity-statement",
+    ]) || document.createElement("div");
   const residentImages = Array.isArray(item.meta?.residentImages) ? item.meta.residentImages : [];
   let activeResidentIndex = -1;
 
   body.classList.add("identity-detail");
-  statement.className = "identity-statement role-intro cv-intro";
-  statement.replaceChildren(
-    ...introLines.map((line) => {
-      const paragraph = document.createElement("p");
-      appendMarkdownText(paragraph, line, {
-        item,
-        basePath: item.path,
-      });
-      return paragraph;
-    })
-  );
+  if (!statement.classList.contains("identity-statement")) {
+    statement.className = "role-intro identity-statement";
+  }
 
   figure.className = "identity-detail-portrait";
   image.alt = item.meta?.caption || getMetaText(item, "detailTitle", item.title);
@@ -2262,27 +2268,13 @@ function renderIdentityRole(item, body) {
 
 function renderCvRole(item, body) {
   const wrapper = document.createElement("div");
-  const introParagraphs = getRecordIntro(getLocalizedMarkdown(item));
   wrapper.className = "engineer-scroll cv-scroll";
 
-  if (introParagraphs.length > 0) {
-    const intro = document.createElement(introParagraphs.length > 1 ? "div" : "p");
-    intro.className = introParagraphs.length > 1 ? "cv-intro cv-intro-stack" : "cv-intro";
-    if (introParagraphs.length > 1) {
-      introParagraphs.forEach((paragraph) => {
-        const text = document.createElement("p");
-        appendMarkdownText(text, paragraph, {
-          item,
-          basePath: item.path,
-        });
-        intro.append(text);
-      });
-    } else {
-      appendMarkdownText(intro, introParagraphs[0], {
-        item,
-        basePath: item.path,
-      });
-    }
+  const intro = createRoleIntroNode(getLocalizedMarkdown(item), {
+    item,
+    basePath: item.path,
+  });
+  if (intro) {
     wrapper.append(intro);
   }
 
@@ -2353,26 +2345,11 @@ function renderGalleryRole(item, body) {
   const children = [];
 
   if (introParagraphs.length > 0) {
-    const intro = document.createElement(introParagraphs.length > 1 ? "div" : "p");
-    intro.className = introParagraphs.length > 1
-      ? "role-intro cv-intro cv-intro-stack visual-role-intro"
-      : "role-intro cv-intro visual-role-intro";
-    if (introParagraphs.length > 1) {
-      introParagraphs.forEach((paragraph) => {
-        const text = document.createElement("p");
-        appendMarkdownText(text, paragraph, {
-          item,
-          basePath: item.path,
-        });
-        intro.append(text);
-      });
-    } else {
-      appendMarkdownText(intro, introParagraphs[0], {
-        item,
-        basePath: item.path,
-      });
-    }
-    children.push(intro);
+    const intro = createRoleIntroNode(markdown, {
+      item,
+      basePath: item.path,
+    });
+    if (intro) children.push(intro);
   }
 
   const target = document.createElement("div");
