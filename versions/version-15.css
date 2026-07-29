@@ -936,17 +936,9 @@ body.role-closing .role-panel.is-expanded .role-close {
 .identity-statement,
 .role-panel[data-role-panel="identity"] .identity-statement {
   align-self: start;
-  color: var(--ink);
   display: grid;
   gap: 1em;
-  font-size: var(--role-intro-font-size);
-  font-weight: var(--role-intro-font-weight);
-  line-height: var(--role-intro-line-height);
   margin: 0;
-  max-width: 760px;
-  text-align: left;
-  text-transform: none;
-  word-break: keep-all;
 }
 
 .identity-statement p {
@@ -1006,7 +998,6 @@ body.role-closing .role-panel.is-expanded .role-close {
   text-align: left;
 }
 
-.cv-intro,
 .role-intro {
   color: var(--ink);
   font-size: var(--role-intro-font-size);
@@ -1018,33 +1009,29 @@ body.role-closing .role-panel.is-expanded .role-close {
   word-break: keep-all;
 }
 
-.cv-scroll > .cv-intro {
+.cv-scroll > .role-intro {
   max-width: none;
   width: 100%;
 }
 
-.cv-intro-stack {
+.role-intro-stack {
   display: grid;
   gap: 1em;
 }
 
-.cv-intro-stack p {
+.role-intro-stack p {
   margin: 0;
 }
 
-.identity-statement .is-bold,
 .role-intro .is-bold,
 .cv-scroll .is-bold { font-weight: 900; }
 
-.identity-statement .is-italic,
 .role-intro .is-italic,
 .cv-scroll .is-italic { font-style: italic; }
 
-.identity-statement .is-struck,
 .role-intro .is-struck,
 .cv-scroll .is-struck { text-decoration: line-through; }
 
-.identity-statement .is-code,
 .role-intro .is-code,
 .cv-scroll .is-code {
   border: 1px solid var(--line);
@@ -3569,11 +3556,6 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     overflow: auto;
   }
 
-  .identity-statement {
-    font-size: var(--role-intro-font-size);
-    line-height: var(--role-intro-line-height);
-  }
-
   .identity-detail-portrait {
     max-width: min(420px, 100%);
   }
@@ -4803,7 +4785,7 @@ body[data-role-room="visual"] .role-section-body-gallery {
   overflow-y: auto;
 }
 
-body[data-role-room="visual"] .role-section-body-gallery > .visual-role-intro {
+body[data-role-room="visual"] .role-section-body-gallery > .role-intro {
   display: grid;
   margin: 0;
   max-width: min(760px, 100%);
