@@ -23,6 +23,10 @@ npm run build:pages
 CSS, JavaScript, and content-index cache query strings are generated from file
 content hashes. Do not bump cache versions by hand.
 
+Active CSS and JavaScript source lives in `versions/src/` and is bundled into
+`versions/version-15.css` and `versions/version-15.js`. The root `styles.css`
+and `script.js` files are not used by the current generated pages.
+
 Before committing, run:
 
 ```sh

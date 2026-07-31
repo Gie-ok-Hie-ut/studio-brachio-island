@@ -1,12 +1,14 @@
 {
   "scripts": {
-    "build:pages": "node scripts/build-pages.js",
+    "build:assets": "node scripts/build-assets.js",
+    "build:pages": "npm run build:assets && node scripts/build-pages.js",
     "build:content": "node scripts/build-content-index.js",
     "build": "npm run build:content && npm run build:pages",
+    "check:assets": "node scripts/build-assets.js --check",
     "check:pages": "node scripts/build-pages.js --check",
     "check:content": "node scripts/build-content-index.js --check",
     "check:content-structure": "node scripts/check-content.js",
-    "check:js": "node --check versions/version-15.js && node --check scripts/build-content-index.js && node --check scripts/build-pages.js && node --check scripts/check-content.js",
-    "check": "npm run check:content && npm run check:content-structure && npm run check:pages && npm run check:js"
+    "check:js": "node --check versions/version-15.js && node --check versions/src/js/*.js && node --check scripts/build-assets.js && node --check scripts/build-content-index.js && node --check scripts/build-pages.js && node --check scripts/check-content.js",
+    "check": "npm run check:assets && npm run check:content && npm run check:content-structure && npm run check:pages && npm run check:js"
   }
 }

@@ -1,0 +1,589 @@
+.role-detail-layout-novel {
+  gap: 0;
+  grid-template-columns: minmax(220px, 340px) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  padding-bottom: 0;
+}
+
+.role-detail-layout-gallery {
+  gap: 48px;
+  grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+}
+
+.role-detail-layout-novel .role-close {
+  z-index: 60;
+}
+
+.role-detail-layout-novel .role-section-title {
+  grid-column: 1;
+  grid-row: 1;
+  pointer-events: none;
+  position: relative;
+  z-index: 16;
+}
+
+.role-detail-layout-novel .role-section-body-novel {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  grid-template-columns: minmax(220px, 340px) minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding-right: 0;
+}
+
+.role-detail-layout-novel .role-section-body-novel > .role-note {
+  align-self: start;
+  border-top: 0;
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  max-width: 760px;
+  padding: 0 168px 0 0;
+  position: relative;
+  z-index: 14;
+}
+
+.role-detail-layout-novel .role-section-body-novel > .section-note {
+  align-self: start;
+  grid-column: 2;
+  grid-row: 1;
+  margin: 44px 168px 0 0;
+  max-width: 840px;
+  position: relative;
+  z-index: 14;
+}
+
+.role-detail-layout-novel .role-section-body-novel > .role-intro {
+  align-self: start;
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  max-width: 760px;
+  padding: 0 168px 0 0;
+  position: relative;
+  z-index: 14;
+}
+
+.role-section-body > .role-note {
+  border-top: 0;
+  color: var(--muted);
+  margin: 0 0 38px;
+  padding-top: 0;
+}
+
+.role-section-body > .section-note {
+  color: var(--muted);
+  margin-bottom: 34px;
+  max-width: 680px;
+}
+
+.role-detail-layout-identity {
+  gap: clamp(42px, 5vw, 88px);
+  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.22fr);
+}
+
+.role-detail-layout-identity .role-section-title h2 {
+  font-size: clamp(34px, 3.4vw, 64px);
+  max-width: 600px;
+}
+
+.role-detail-layout-identity .role-section-title h2 .role-heading-handle {
+  font-size: 0.9em;
+  line-height: 0.98;
+  max-width: min(560px, 100%);
+}
+
+.identity-detail {
+  align-items: start;
+  align-self: stretch;
+  display: grid;
+  gap: clamp(28px, 3.2vw, 60px);
+  grid-template-columns: minmax(320px, 0.9fr) minmax(280px, 0.58fr);
+  min-height: 0;
+  overflow: hidden;
+  padding-top: clamp(4px, 1.2vh, 18px);
+}
+
+.identity-detail > .role-intro {
+  align-self: start;
+  display: grid;
+  gap: 1em;
+  margin: 0;
+}
+
+.identity-detail > .role-intro p {
+  margin: 0;
+}
+
+.identity-detail-portrait {
+  align-self: start;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  max-width: 460px;
+  width: 100%;
+}
+
+.identity-detail-portrait[role="button"] {
+  cursor: pointer;
+}
+
+.identity-detail-portrait[role="button"]:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 8px;
+}
+
+.identity-detail-portrait img {
+  aspect-ratio: 4 / 5;
+  filter: none;
+  object-fit: cover;
+  object-position: center 58%;
+  width: 100%;
+}
+
+.identity-detail-portrait figcaption {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.engineer-scroll {
+  display: grid;
+  gap: 0;
+  max-height: none;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.cv-scroll {
+  align-content: start;
+  border-top: 0;
+  justify-items: stretch;
+  padding-top: 0;
+  text-align: left;
+}
+
+.cv-scroll * {
+  text-align: left;
+}
+
+.role-intro {
+  color: var(--ink);
+  font-size: var(--role-intro-font-size);
+  font-weight: var(--role-intro-font-weight);
+  line-height: var(--role-intro-line-height);
+  margin: 0 0 clamp(34px, 4vh, 52px);
+  max-width: 760px;
+  text-transform: none;
+  word-break: keep-all;
+}
+
+.cv-scroll > .role-intro {
+  max-width: none;
+  width: 100%;
+}
+
+.role-intro-stack {
+  display: grid;
+  gap: 1em;
+}
+
+.role-intro-stack p {
+  margin: 0;
+}
+
+.role-intro .is-bold,
+.cv-scroll .is-bold { font-weight: 900; }
+
+.role-intro .is-italic,
+.cv-scroll .is-italic { font-style: italic; }
+
+.role-intro .is-struck,
+.cv-scroll .is-struck { text-decoration: line-through; }
+
+.role-intro .is-code,
+.cv-scroll .is-code {
+  border: 1px solid var(--line);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.9em;
+  padding: 0 0.25em;
+}
+
+.cv-block {
+  display: grid;
+  gap: 24px;
+  justify-items: stretch;
+  margin-bottom: 58px;
+}
+
+.cv-block h3 {
+  color: var(--ink);
+  font-size: clamp(22px, 1.8vw, 30px);
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cv-list {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0;
+}
+
+.cv-list article,
+.cv-list button {
+  align-items: start;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 132px minmax(0, 1fr);
+  min-height: 66px;
+  padding: 18px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.cv-list article.cv-link-row {
+  grid-template-columns: 132px minmax(0, 1fr) auto;
+}
+
+.cv-list article > span,
+.cv-list button > span {
+  align-self: start;
+  border: 0;
+  color: var(--muted);
+  display: block;
+  font-size: clamp(12px, 0.72vw, 13px);
+  font-weight: 700;
+  line-height: 1.25;
+  padding: 2px 0 0;
+  text-transform: uppercase;
+  width: auto;
+}
+
+.cv-list .cv-entry-actions {
+  display: flex;
+  gap: 12px;
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.cv-list .cv-entry-actions a {
+  border-bottom: 1px solid currentColor;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.cv-list .cv-entry-actions a:hover,
+.cv-list .cv-entry-actions a:focus-visible {
+  color: var(--ink);
+}
+
+.cv-list p,
+.cv-list button strong {
+  color: var(--ink);
+  font-size: clamp(15px, 1.02vw, 19px);
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 980px;
+  text-transform: none;
+  text-align: left;
+}
+
+.cv-entry-title {
+  color: var(--ink);
+  display: block;
+  font: inherit;
+  font-weight: 650;
+}
+
+.cv-entry-detail {
+  color: var(--muted);
+  display: block;
+  font-size: clamp(12px, 0.78vw, 14px);
+  font-weight: 500;
+  line-height: 1.35;
+  margin-top: 6px;
+  text-transform: none;
+}
+
+.cv-entry-detail span {
+  display: block;
+}
+
+.cv-entry-detail span + span {
+  margin-top: 2px;
+}
+
+.cv-list button::after {
+  display: none;
+}
+
+.cv-list button:hover,
+.cv-list button:focus-visible {
+  background: transparent;
+  color: var(--ink);
+}
+
+.engineer-block {
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 132px minmax(0, 1fr);
+  padding: 26px 0;
+}
+
+.engineer-block > span,
+.engineer-list strong {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.engineer-block h3 {
+  color: var(--ink);
+  font-size: var(--text-base);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.engineer-block p {
+  color: var(--ink);
+  margin: 0;
+  max-width: 760px;
+}
+
+.engineer-identity > div {
+  min-width: 0;
+}
+
+.engineer-list {
+  display: grid;
+  gap: 0;
+}
+
+.engineer-list article {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 132px minmax(0, 1fr);
+  padding: 0 0 16px;
+}
+
+.engineer-list article:last-child {
+  padding-bottom: 0;
+}
+
+.role-items {
+  display: grid;
+  border-top: 1px solid var(--line);
+  gap: 0;
+  grid-template-columns: 1fr;
+  max-height: 48vh;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.engineer-scroll .role-items {
+  max-height: none;
+  overflow: visible;
+  padding-right: 0;
+}
+
+.engineer-scroll .role-items button {
+  gap: 28px;
+  grid-template-columns: 132px minmax(0, 1fr) auto;
+}
+
+.cv-scroll .role-items {
+  border-top: 1px solid var(--line);
+}
+
+.cv-scroll .role-items button {
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+  gap: 30px;
+  grid-template-columns: 132px minmax(0, 1fr) auto;
+  min-height: 66px;
+  padding: 18px 0;
+}
+
+.cv-scroll .role-items button > span {
+  border: 0;
+  color: var(--muted);
+  display: block;
+  font-size: clamp(12px, 0.72vw, 13px);
+  font-weight: 700;
+  line-height: 1.25;
+  padding: 2px 0 0;
+  width: auto;
+}
+
+.cv-scroll .role-items button strong {
+  color: var(--ink);
+  font-size: clamp(15px, 1.02vw, 19px);
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.cv-scroll .role-items button strong .cv-entry-title {
+  color: var(--ink);
+  display: block;
+  font: inherit;
+  font-weight: 650;
+  padding: 0;
+  text-transform: none;
+}
+
+.cv-scroll .role-items button strong .cv-entry-detail {
+  color: var(--muted);
+  display: block;
+  font-size: clamp(12px, 0.78vw, 14px);
+  font-weight: 500;
+  line-height: 1.35;
+  margin-top: 6px;
+  max-width: 620px;
+  text-transform: none;
+}
+
+.cv-scroll .role-items button strong .cv-entry-detail span {
+  color: inherit;
+  display: block;
+  font: inherit;
+  padding: 0;
+  text-transform: none;
+}
+
+.cv-scroll .role-items button strong .cv-entry-detail span + span {
+  margin-top: 2px;
+}
+
+.cv-scroll .role-items button::after {
+  align-self: start;
+  border-bottom: 1px solid currentColor;
+  color: var(--muted);
+  content: "OPEN";
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.role-detail button:not(.role-close),
+.role-items button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  font-size: var(--text-xs);
+  font-weight: 900;
+  gap: 24px;
+  grid-template-columns: 150px 1fr auto;
+  max-width: 100%;
+  min-height: 72px;
+  padding: 18px 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.role-items button img {
+  aspect-ratio: 16 / 10;
+  filter: grayscale(1) contrast(1.06);
+  object-fit: cover;
+  width: 100%;
+}
+
+.role-items button span {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.role-items button strong {
+  color: var(--muted);
+  font-size: var(--text-base);
+  font-weight: 900;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.role-items button::after {
+  align-self: start;
+  border-bottom: 1px solid currentColor;
+  color: var(--muted);
+  content: "OPEN";
+  font-size: var(--text-xs);
+  font-weight: 900;
+}
+
+.role-essay-items {
+  border-top: 0;
+  max-height: none;
+  overflow: visible;
+  padding-right: 0;
+}
+
+.role-detail .role-essay-items button,
+.role-essay-items button {
+  align-items: start;
+  border-bottom: 0;
+  gap: clamp(22px, 3vw, 54px);
+  grid-template-columns: minmax(88px, 130px) minmax(0, 1fr) auto;
+  min-height: 88px;
+  padding: 22px 0;
+}
+
+.role-essay-items button > span {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.2;
+  padding-top: 2px;
+  text-transform: uppercase;
+}
+
+.role-essay-items button strong {
+  color: var(--ink);
+  font-size: clamp(18px, 1.3vw, 24px);
+  font-weight: 900;
+  line-height: 1.18;
+  max-width: 820px;
+  text-transform: none;
+}
+
+.role-essay-items .cv-entry-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.role-essay-items .cv-entry-detail {
+  color: var(--muted);
+  font-size: clamp(13px, 0.9vw, 16px);
+  font-weight: 650;
+  line-height: 1.35;
+  margin-top: 8px;
+  max-width: 680px;
+}
+
+.role-essay-items button::after {
+  align-self: start;
+  color: var(--muted);
+  margin-top: 2px;
+}

@@ -183,6 +183,7 @@ function bindV15Menu() {
 }
 
 function projectHref(path = "") {
+
   if (!path) return "";
   if (/^(https?:|mailto:|tel:|#)/i.test(path)) return path;
   return `${projectRoot}${String(path).replace(/^\.\.\//, "")}`;
@@ -1258,6 +1259,7 @@ function createRoleItemButton(label, onClick, options = {}) {
   return button;
 }
 
+
 function openGalleryAsset(filename) {
   if (!readerTitle || !readerSource || !readerContent) return;
   const src = projectHref(`content/gallery/assets/${filename}`);
@@ -1817,6 +1819,7 @@ function createProfileIcon(type) {
   };
 
   icon.innerHTML = icons[type] || icons.cv;
+
   return icon;
 }
 
@@ -2202,15 +2205,14 @@ function renderIdentityRole(item, body) {
   const image = document.createElement("img");
   const caption = document.createElement("figcaption");
   const statement =
-    createRoleIntroNode(getLocalizedMarkdown(item), { item, basePath: item.path }, [
-      "identity-statement",
-    ]) || document.createElement("div");
+    createRoleIntroNode(getLocalizedMarkdown(item), { item, basePath: item.path }) ||
+    document.createElement("div");
   const residentImages = Array.isArray(item.meta?.residentImages) ? item.meta.residentImages : [];
   let activeResidentIndex = -1;
 
   body.classList.add("identity-detail");
-  if (!statement.classList.contains("identity-statement")) {
-    statement.className = "role-intro identity-statement";
+  if (!statement.classList.contains("role-intro")) {
+    statement.className = "role-intro";
   }
 
   figure.className = "identity-detail-portrait";
@@ -2394,17 +2396,25 @@ function renderReadingRole(item, body) {
   body.append(target);
 }
 
-function renderRoleBody(item, body) {
-  const layout = item.meta?.layout || "note";
-  if (layout === "identity") renderIdentityRole(item, body);
-  else if (layout === "cv") renderCvRole(item, body);
-  else if (layout === "gallery") renderGalleryRole(item, body);
-  else if (layout === "novel") renderNovelRole(item, body);
-  else if (layout === "reading") renderReadingRole(item, body);
-  else body.replaceChildren(...renderMarkdown(getLocalizedMarkdown(item), getLocalizedTitle(item), {
+function renderDefaultRole(item, body) {
+  body.replaceChildren(...renderMarkdown(getLocalizedMarkdown(item), getLocalizedTitle(item), {
     item,
     basePath: item.path,
   }));
+}
+
+const ROLE_BODY_RENDERERS = {
+  identity: renderIdentityRole,
+  cv: renderCvRole,
+  gallery: renderGalleryRole,
+  novel: renderNovelRole,
+  reading: renderReadingRole,
+};
+
+function renderRoleBody(item, body) {
+  const layout = item.meta?.layout || "note";
+  const renderer = ROLE_BODY_RENDERERS[layout] || renderDefaultRole;
+  renderer(item, body);
 }
 
 function closeRolePanels() {
@@ -2576,27 +2586,88 @@ function renderRoleItems() {
   }
 }
 
-function openReader(options = {}) {
-  if (!readerModal) return;
+function bindRolePanels() {
+  rolePanels.forEach((panel) => {
+    let hoverFrame = null;
+    panel.addEventListener("pointerenter", () => {
+      if (hoverFrame) cancelAnimationFrame(hoverFrame);
+      if (!document.body.classList.contains("role-focus")) {
+        rolePanels.forEach((item) => item.classList.remove("is-hovered"));
+        rolePanels.forEach((item) => item.classList.toggle("is-hovered", item === panel));
+      }
+    });
+    panel.addEventListener("pointerleave", () => {
+      hoverFrame = requestAnimationFrame(() => {
+        rolePanels.forEach((item) => item.classList.remove("is-hovered"));
+        panel.querySelector(".role-hit")?.blur();
+        hoverFrame = null;
+      });
+    });
+    panel.addEventListener("click", (event) => {
+      if (event.target.closest(".role-detail")) return;
+      if (document.body.classList.contains("reader-open") || document.body.classList.contains("pdf-open")) return;
+      if (document.body.classList.contains("role-closing")) return;
+      if (!isRoleRoomPage) {
+        const roomPath = roleRoomPaths[panel.dataset.rolePanel];
+        if (roomPath) {
+          window.location.href = roomPath;
+          return;
+        }
+      }
+      window.clearTimeout(roleReadyTimer);
+      rolePanels.forEach((item) => item.classList.remove("is-hovered", "is-detail-ready"));
+      document.body.classList.remove("role-closing");
+      rolePanels.forEach((item) => item.classList.toggle("is-expanded", item === panel));
+      document.body.classList.add("role-focus");
+      roleReadyTimer = window.setTimeout(() => {
+        if (!panel.classList.contains("is-expanded") || !document.body.classList.contains("role-focus")) return;
+        panel.classList.add("is-detail-ready");
+        positionNovelOrbitCards();
+      }, ROLE_DETAIL_READY_MS);
+      requestAnimationFrame(positionNovelOrbitCards);
+    });
+  });
+
+}
+
+function normalizePopupOptions(options = {}) {
+  return options instanceof Event ? {} : options;
+}
+
+function resetPopupChromeState() {
   rolePanels.forEach((panel) => panel.classList.remove("is-hovered"));
   document.body.classList.remove("role-closing");
   sharePopupControls.forEach((control) => setPopupShareFeedback(control, ""));
-  readerModal.classList.add("is-open");
-  readerModal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("reader-open");
+}
+
+function openPopupModal(modal, bodyClass, options = {}) {
+  const normalizedOptions = normalizePopupOptions(options);
+  if (!modal) return false;
+  resetPopupChromeState();
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add(bodyClass);
+  if (!normalizedOptions.skipUrl) updatePopupHash();
+  return true;
+}
+
+function closePopupModal(modal, bodyClass, options = {}) {
+  const normalizedOptions = normalizePopupOptions(options);
+  if (!modal) return false;
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove(bodyClass);
+  if (!normalizedOptions.preserveUrl) clearPopupHash({ replace: true });
+  return true;
+}
+
+function openReader(options = {}) {
+  if (!openPopupModal(readerModal, "reader-open", options)) return;
   scheduleReaderScrollIndicatorUpdate();
-  if (!options.skipUrl) updatePopupHash();
 }
 
 function openPdf(options = {}) {
-  if (!pdfModal) return;
-  rolePanels.forEach((panel) => panel.classList.remove("is-hovered"));
-  document.body.classList.remove("role-closing");
-  sharePopupControls.forEach((control) => setPopupShareFeedback(control, ""));
-  pdfModal.classList.add("is-open");
-  pdfModal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("pdf-open");
-  if (!options.skipUrl) updatePopupHash();
+  openPopupModal(pdfModal, "pdf-open", options);
 }
 
 function applyReaderSettings(options = {}) {
@@ -2700,32 +2771,24 @@ function bindReaderManualTouchScroll(scrollTarget) {
 }
 
 function closeReader(options = {}) {
-  if (options instanceof Event) options = {};
   if (!readerModal) return;
   closeGalleryOriginal();
   setReaderVariant("");
   activeReaderLanguage = "";
   readerHistory = [];
   updateReaderBackState();
-  readerModal.classList.remove("is-open");
-  readerModal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("reader-open");
+  closePopupModal(readerModal, "reader-open", options);
   readerWindow?.classList.remove("has-reader-scroll");
-  if (!options.preserveUrl) clearPopupHash({ replace: true });
 }
 
 function closePdf(options = {}) {
-  if (options instanceof Event) options = {};
   if (!pdfModal) return;
-  pdfModal.classList.remove("is-open");
-  pdfModal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("pdf-open");
+  closePopupModal(pdfModal, "pdf-open", options);
   if (pdfFrame) pdfFrame.removeAttribute("src");
   if (pdfSource) {
     pdfSource.hidden = true;
     pdfSource.textContent = "";
   }
-  if (!options.preserveUrl) clearPopupHash({ replace: true });
 }
 
 function isMobilePdfViewport() {
@@ -2776,12 +2839,12 @@ function setPdfViewerSource(title, pdfPath) {
     }
     return;
   }
-
   pdfFrame.hidden = false;
   pdfFrame.src = href;
   if (fallback) fallback.hidden = true;
 }
 
+/* Markdown parsing and reader content rendering. */
 function normalizeMarkdownTextLine(line) {
   const italicSentence = line.match(/^\*\s+(.+)\*$/);
   return italicSentence ? `*${italicSentence[1]}*` : line;
@@ -3334,114 +3397,75 @@ function renderReader(id, shouldOpen = false) {
   }
 }
 
-function bindRolePanels() {
-  rolePanels.forEach((panel) => {
-    let hoverFrame = null;
-    panel.addEventListener("pointerenter", () => {
-      if (hoverFrame) cancelAnimationFrame(hoverFrame);
-      if (!document.body.classList.contains("role-focus")) {
-        rolePanels.forEach((item) => item.classList.remove("is-hovered"));
-        rolePanels.forEach((item) => item.classList.toggle("is-hovered", item === panel));
-      }
-    });
-    panel.addEventListener("pointerleave", () => {
-      hoverFrame = requestAnimationFrame(() => {
-        rolePanels.forEach((item) => item.classList.remove("is-hovered"));
-        panel.querySelector(".role-hit")?.blur();
-        hoverFrame = null;
-      });
-    });
-    panel.addEventListener("click", (event) => {
-      if (event.target.closest(".role-detail")) return;
-      if (document.body.classList.contains("reader-open") || document.body.classList.contains("pdf-open")) return;
-      if (document.body.classList.contains("role-closing")) return;
-      if (!isRoleRoomPage) {
-        const roomPath = roleRoomPaths[panel.dataset.rolePanel];
-        if (roomPath) {
-          window.location.href = roomPath;
-          return;
-        }
-      }
-      window.clearTimeout(roleReadyTimer);
-      rolePanels.forEach((item) => item.classList.remove("is-hovered", "is-detail-ready"));
-      document.body.classList.remove("role-closing");
-      rolePanels.forEach((item) => item.classList.toggle("is-expanded", item === panel));
-      document.body.classList.add("role-focus");
-      roleReadyTimer = window.setTimeout(() => {
-        if (!panel.classList.contains("is-expanded") || !document.body.classList.contains("role-focus")) return;
-        panel.classList.add("is-detail-ready");
-        positionNovelOrbitCards();
-      }, ROLE_DETAIL_READY_MS);
-      requestAnimationFrame(positionNovelOrbitCards);
-    });
+/* Page-level event binding and startup sequence. */
+function initializeStudioPage() {
+  closeReaderControls.forEach((control) => {
+    control.addEventListener("click", closeReader);
   });
 
-}
+  readerBackControl?.addEventListener("click", goBackReader);
 
-closeReaderControls.forEach((control) => {
-  control.addEventListener("click", closeReader);
-});
-
-readerBackControl?.addEventListener("click", goBackReader);
-
-sharePopupControls.forEach((control) => {
-  control.addEventListener("click", shareCurrentPopup);
-});
-
-closePdfControls.forEach((control) => {
-  control.addEventListener("click", closePdf);
-});
-
-if (readerContent) {
-  ["copy", "cut", "contextmenu"].forEach((eventName) => {
-    readerContent.addEventListener(eventName, (event) => event.preventDefault());
+  sharePopupControls.forEach((control) => {
+    control.addEventListener("click", shareCurrentPopup);
   });
-  readerContent.addEventListener("scroll", updateReaderScrollIndicator, { passive: true });
-}
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    if (galleryOriginalModal?.classList.contains("is-open")) {
-      closeGalleryOriginal();
-      return;
-    }
-    setV15MenuState(false);
-    closeReader();
-    closePdf();
+  closePdfControls.forEach((control) => {
+    control.addEventListener("click", closePdf);
+  });
+
+  if (readerContent) {
+    ["copy", "cut", "contextmenu"].forEach((eventName) => {
+      readerContent.addEventListener(eventName, (event) => event.preventDefault());
+    });
+    readerContent.addEventListener("scroll", updateReaderScrollIndicator, { passive: true });
   }
-});
 
-window.addEventListener("scroll", updateIntroScroll, { passive: true });
-window.addEventListener("resize", updateIntroScroll);
-window.addEventListener("resize", refreshGalleryMasonryOnResize);
-window.addEventListener("resize", scheduleReaderScrollIndicatorUpdate);
-window.addEventListener("hashchange", () => {
-  if (syncPopupFromUrl()) return;
-  restoreExploreHash();
-  revealDeepLinkedContent();
-});
-window.addEventListener("popstate", () => {
-  if (syncPopupFromUrl()) return;
-  restoreExploreHash();
-  revealDeepLinkedContent();
-});
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      if (galleryOriginalModal?.classList.contains("is-open")) {
+        closeGalleryOriginal();
+        return;
+      }
+      setV15MenuState(false);
+      closeReader();
+      closePdf();
+    }
+  });
 
-bindReaderSetting(readerLang, "lang");
-bindReaderSetting(readerSize, "size");
-bindReaderSetting(readerSpacing, "spacing");
-bindReaderSetting(readerTheme, "theme");
-bindModalTouchScrollGuard(readerModal, readerContent);
-bindReaderManualTouchScroll(readerContent);
-languageControls.forEach((control) => {
-  control.addEventListener("click", () => setLanguage(control.dataset.language));
-});
-applyReaderSettings();
-refreshLocalizedContent();
-bindV15Menu();
-bindRolePanels();
-updateIntroScroll();
-restoreExploreHash();
-const openedPopupFromUrl = syncPopupFromUrl();
-if (!openedPopupFromUrl && contentItems[0]) {
-  renderMarkdownReader(contentItems[0].id);
+  window.addEventListener("scroll", updateIntroScroll, { passive: true });
+  window.addEventListener("resize", updateIntroScroll);
+  window.addEventListener("resize", refreshGalleryMasonryOnResize);
+  window.addEventListener("resize", scheduleReaderScrollIndicatorUpdate);
+  window.addEventListener("hashchange", () => {
+    if (syncPopupFromUrl()) return;
+    restoreExploreHash();
+    revealDeepLinkedContent();
+  });
+  window.addEventListener("popstate", () => {
+    if (syncPopupFromUrl()) return;
+    restoreExploreHash();
+    revealDeepLinkedContent();
+  });
+
+  bindReaderSetting(readerLang, "lang");
+  bindReaderSetting(readerSize, "size");
+  bindReaderSetting(readerSpacing, "spacing");
+  bindReaderSetting(readerTheme, "theme");
+  bindModalTouchScrollGuard(readerModal, readerContent);
+  bindReaderManualTouchScroll(readerContent);
+  languageControls.forEach((control) => {
+    control.addEventListener("click", () => setLanguage(control.dataset.language));
+  });
+  applyReaderSettings();
+  refreshLocalizedContent();
+  bindV15Menu();
+  bindRolePanels();
+  updateIntroScroll();
+  restoreExploreHash();
+  const openedPopupFromUrl = syncPopupFromUrl();
+  if (!openedPopupFromUrl && contentItems[0]) {
+    renderMarkdownReader(contentItems[0].id);
+  }
 }
+
+initializeStudioPage();
