@@ -256,9 +256,9 @@ window.CONTENT_INDEX = {
         "year": "2016",
         "medium": "image / motion",
         "layout": "portrait",
-        "image": "3-0-3x4.png",
+        "image": "3-0-3x4-padded.png",
         "assets": [
-          "3-0-3x4.png"
+          "3-0-3x4-padded.png"
         ],
         "topLevel": true
       },
