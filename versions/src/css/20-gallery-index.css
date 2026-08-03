@@ -92,15 +92,6 @@ figcaption {
   opacity: 0.72;
 }
 
-.role-detail button:hover,
-.role-detail button:focus-visible,
-.role-items button:hover,
-.role-items button:focus-visible {
-  background: currentColor;
-  color: var(--paper);
-  outline: 0;
-}
-
 .role-detail .role-gallery-items button:hover,
 .role-detail .role-gallery-items button:focus-visible,
 .role-gallery-items button:hover,
@@ -109,48 +100,6 @@ figcaption {
   color: var(--ink);
   opacity: 0.72;
   outline: 0;
-}
-
-.role-detail .role-essay-items button:hover,
-.role-detail .role-essay-items button:focus-visible,
-.role-essay-items button:hover,
-.role-essay-items button:focus-visible {
-  background: transparent;
-  color: var(--ink);
-  opacity: 1;
-  outline: 0;
-}
-
-.role-detail .role-essay-items button:hover *,
-.role-detail .role-essay-items button:focus-visible *,
-.role-essay-items button:hover *,
-.role-essay-items button:focus-visible * {
-  color: inherit;
-}
-
-.role-detail .role-essay-items button:hover > span,
-.role-detail .role-essay-items button:focus-visible > span,
-.role-detail .role-essay-items button:hover::after,
-.role-detail .role-essay-items button:focus-visible::after,
-.role-essay-items button:hover > span,
-.role-essay-items button:focus-visible > span,
-.role-essay-items button:hover::after,
-.role-essay-items button:focus-visible::after {
-  color: var(--muted);
-}
-
-.role-detail .role-essay-items button:hover .cv-entry-title,
-.role-detail .role-essay-items button:focus-visible .cv-entry-title,
-.role-essay-items button:hover .cv-entry-title,
-.role-essay-items button:focus-visible .cv-entry-title {
-  color: var(--ink);
-}
-
-.role-detail .role-essay-items button:hover .cv-entry-detail,
-.role-detail .role-essay-items button:focus-visible .cv-entry-detail,
-.role-essay-items button:hover .cv-entry-detail,
-.role-essay-items button:focus-visible .cv-entry-detail {
-  color: var(--muted);
 }
 
 .role-gallery-items {
@@ -344,131 +293,44 @@ figcaption {
   width: 100%;
 }
 
-.cv-scroll .role-items button:hover,
-.cv-scroll .role-items button:focus-visible {
-  background: transparent;
-  color: var(--ink);
+@media (max-width: 900px) {
+  .gallery {
+    gap: 34px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .role-gallery-items {
+    grid-auto-rows: clamp(82px, 12vw, 132px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .role-detail .role-gallery-items .gallery-project-card,
+  .role-gallery-items .gallery-project-card {
+    gap: 16px;
+    min-height: 0;
+  }
+
+  .role-gallery-items .gallery-project-card[data-gallery-layout="landscape"],
+  .role-gallery-items .gallery-project-card[data-gallery-layout="pair"],
+  .role-gallery-items .gallery-project-card[data-gallery-layout="mixed"],
+  .role-gallery-items .gallery-project-card[data-gallery-layout="series"] {
+    grid-column: span 2;
+  }
 }
 
-.role-detail .role-profile-links a,
-.role-detail .role-profile-links button {
-  align-items: center;
-  background: transparent;
-  border: 0;
-  color: var(--ink);
-  display: inline-flex;
-  font: inherit;
-  gap: 0;
-  grid-template-columns: none;
-  height: 34px;
-  justify-content: center;
-  line-height: 0;
-  min-height: 0;
-  padding: 0;
-  text-align: center;
-  width: 34px;
-}
+@media (max-width: 520px) {
+  .gallery { grid-template-columns: 1fr; }
 
-.role-detail .role-profile-links a:hover,
-.role-detail .role-profile-links a:focus-visible,
-.role-detail .role-profile-links button:hover,
-.role-detail .role-profile-links button:focus-visible {
-  background: transparent;
-  color: var(--muted);
-  outline: 0;
-}
+  .role-gallery-items {
+    grid-auto-rows: clamp(92px, 24vw, 136px);
+    grid-template-columns: 1fr;
+  }
 
-.role-note {
-  border-top: 0;
-  margin: 0 0 28px;
-  padding-top: 0;
-}
-
-.section-note {
-  font-size: var(--text-xs);
-  font-weight: 800;
-  line-height: 1.5;
-  margin: 0 0 44px;
-  max-width: 620px;
-  text-transform: uppercase;
-  word-break: keep-all;
-}
-
-.section-note code {
-  border: 1px solid var(--line);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.88em;
-  padding: 0 0.25em;
-  text-transform: none;
-}
-
-.list {
-  border-top: 1px solid var(--line);
-}
-
-.list article {
-  border-bottom: 1px solid var(--line);
-  display: grid;
-  gap: 24px;
-  grid-template-columns: 150px 1fr;
-  min-height: 58px;
-  padding: 16px 0;
-}
-
-.list span {
-  font-size: var(--text-xs);
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.list p {
-  font-size: var(--text-base);
-  font-weight: 700;
-  line-height: 1.45;
-  margin: 0;
-  max-width: 780px;
-  word-break: keep-all;
-}
-
-.writing-list article {
-  align-items: baseline;
-}
-
-.writing-list p {
-  align-items: baseline;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-}
-
-.writing-title {
-  color: var(--ink);
-  flex: 1 1 260px;
-}
-
-.source-options {
-  align-items: center;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 12px;
-}
-
-.writing-list button {
-  appearance: none;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid currentColor;
-  color: inherit;
-  cursor: pointer;
-  font: inherit;
-  font-size: var(--text-xs);
-  font-weight: 900;
-  line-height: 1.45;
-  padding: 0;
-  text-align: left;
-  text-transform: uppercase;
-}
-
-.source-options button {
-  color: var(--muted);
+  .role-gallery-items .gallery-project-card,
+  .role-gallery-items .gallery-project-card[data-gallery-layout="landscape"],
+  .role-gallery-items .gallery-project-card[data-gallery-layout="pair"],
+  .role-gallery-items .gallery-project-card[data-gallery-layout="mixed"],
+  .role-gallery-items .gallery-project-card[data-gallery-layout="series"] {
+    grid-column: span 1;
+  }
 }

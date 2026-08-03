@@ -291,3 +291,126 @@
   font-family: inherit;
   padding: 0 14px 2px 0;
 }
+
+@media (max-width: 900px) {
+  .reader-window {
+    align-self: stretch;
+    height: calc(100dvh - 20px);
+    max-height: calc(100dvh - 20px);
+    padding: 16px;
+    width: calc(100vw - 20px);
+  }
+
+  .reader-toolbar,
+  .pdf-toolbar {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .pdf-toolbar {
+    align-items: end;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .pdf-toolbar .reader-actions {
+    margin-left: auto;
+  }
+
+  .reader-toolbar {
+    align-items: stretch;
+    display: flex;
+    gap: 22px;
+    padding-bottom: 20px;
+  }
+
+  .reader-toolbar .reader-actions {
+    align-items: end;
+    display: grid;
+    column-gap: clamp(4px, 1.6vw, 9px);
+    grid-template-columns:
+      minmax(42px, 0.7fr)
+      minmax(58px, 0.9fr)
+      minmax(72px, 1fr)
+      30px
+      30px
+      30px;
+    justify-content: stretch;
+    width: 100%;
+  }
+
+  .reader-toolbar .reader-actions label {
+    align-items: start;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .reader-toolbar .reader-actions label + label {
+    border-left: 1px solid var(--reader-line, var(--line));
+    padding-left: clamp(8px, 2vw, 12px);
+  }
+
+  .reader-toolbar .reader-actions select {
+    background-image:
+      linear-gradient(45deg, transparent 50%, currentColor 50%),
+      linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position:
+      calc(100% - 8px) calc(50% + 2px),
+      calc(100% - 2px) calc(50% + 2px);
+    background-repeat: no-repeat;
+    background-size: 6px 6px;
+    border-bottom: 0;
+    max-width: 100%;
+    padding: 0 18px 0 0;
+    width: 100%;
+  }
+
+  .reader-toolbar .reader-actions .modal-share {
+    align-self: end;
+    aspect-ratio: 1;
+    border-bottom: 0;
+    color: var(--reader-ink, var(--ink));
+    justify-self: center;
+    min-height: 0;
+    padding: 0;
+    width: 30px;
+  }
+
+  .reader-toolbar .modal-share-icon {
+    height: 23px;
+    width: 23px;
+  }
+
+  .reader-toolbar .modal-share-status {
+    top: calc(100% + 7px);
+  }
+
+  .reader-toolbar .reader-actions .modal-back {
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .reader-toolbar .reader-actions .modal-close {
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .reader-toolbar .reader-actions .modal-back,
+  .reader-toolbar .reader-actions .modal-close {
+    font-size: 22px;
+    width: 30px;
+  }
+
+  .pdf-window {
+    height: calc(100dvh - 16px);
+    padding: 12px;
+    width: calc(100vw - 16px);
+  }
+
+  .pdf-toolbar .reader-actions .modal-share {
+    min-height: 30px;
+  }
+}

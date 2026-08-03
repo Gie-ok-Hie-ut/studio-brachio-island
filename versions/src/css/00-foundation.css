@@ -823,3 +823,77 @@ body.role-closing .role-panel.is-expanded .role-close {
   overflow: auto;
   padding-right: 8px;
 }
+
+@media (max-width: 900px) {
+  :root {
+    --text-hero: 48px;
+    --text-xl: 30px;
+    --text-base: 15px;
+    --role-intro-font-size: clamp(17px, 4.2vw, 20px);
+    --role-intro-line-height: 1.4;
+  }
+
+  main {
+    padding: 0 18px;
+  }
+
+  header {
+    left: 18px;
+    top: 18px;
+  }
+
+  .hero,
+  .row {
+    margin: 28px 0 48px;
+    min-height: auto;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .role-panels,
+  body.role-focus .role-panels:has(.role-panel:nth-child(1).is-expanded),
+  body.role-focus .role-panels:has(.role-panel:nth-child(2).is-expanded),
+  body.role-focus .role-panels:has(.role-panel:nth-child(3).is-expanded),
+  body.role-focus .role-panels:has(.role-panel:nth-child(4).is-expanded),
+  body.role-focus .role-panels:has(.role-panel:nth-child(5).is-expanded),
+  .role-panels:has(.role-panel:nth-child(2).is-expanded),
+  .role-panels:has(.role-panel:nth-child(3).is-expanded),
+  .role-panels:has(.role-panel:nth-child(4).is-expanded),
+  .role-panels:has(.role-panel:nth-child(5).is-expanded) {
+    height: auto;
+    min-height: auto;
+  }
+
+  .role-panel {
+    border-top: 1px solid var(--line);
+    height: auto;
+    left: auto !important;
+    min-height: 240px;
+    position: relative;
+    top: auto;
+    width: 100% !important;
+  }
+
+  body.role-focus .role-panel:not(.is-expanded) {
+    min-height: 74px;
+  }
+
+  .role-hit strong,
+  .role-panel.is-expanded .role-hit strong,
+  body.role-focus .role-panel:not(.is-expanded) .role-hit strong {
+    font-size: clamp(32px, 12vw, 58px);
+    transform: none;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --text-hero: 38px;
+    --text-xl: 25px;
+    --text-base: 15px;
+  }
+}
