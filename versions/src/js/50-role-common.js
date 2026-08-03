@@ -1,6 +1,3 @@
-  return icon;
-}
-
 function renderRoleMarkdownNote(markdown = "", body, context = {}) {
   const intro = createRoleIntroNode(markdown, context);
   if (!intro) return;
