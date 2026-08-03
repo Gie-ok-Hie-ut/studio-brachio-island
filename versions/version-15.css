@@ -2043,6 +2043,18 @@ figcaption {
   padding-top: 0;
 }
 
+.role-gallery-items[data-gallery-masonry-columns="1"] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.role-gallery-items[data-gallery-masonry-columns="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.role-gallery-items[data-gallery-masonry-columns="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .gallery-project-column {
   align-content: start;
   align-items: stretch;
@@ -2066,37 +2078,6 @@ figcaption {
   padding: 0;
   text-align: left;
   width: 100%;
-}
-
-.role-gallery-items .gallery-project-card[data-gallery-layout="landscape"],
-.role-gallery-items .gallery-project-card[data-gallery-layout="pair"],
-.role-gallery-items .gallery-project-card[data-gallery-layout="mixed"] {
-  grid-column: auto;
-  grid-row: auto;
-}
-
-.role-gallery-items .gallery-project-card[data-gallery-layout="portrait"],
-.role-gallery-items .gallery-project-card[data-gallery-layout="series"] {
-  grid-row: auto;
-}
-
-.role-gallery-items .gallery-project-card[data-gallery-layout="series"] {
-  grid-column: auto;
-}
-
-.role-gallery-items .gallery-project-card[data-asset-count="1"] {
-  grid-template-rows: none;
-}
-
-.role-gallery-items .gallery-project-card[data-asset-count="2"],
-.role-gallery-items .gallery-project-card[data-asset-count="3"],
-.role-gallery-items .gallery-project-card[data-asset-count="4"],
-.role-gallery-items .gallery-project-card[data-asset-count="5"],
-.role-gallery-items .gallery-project-card[data-asset-count="6"],
-.role-gallery-items .gallery-project-card[data-asset-count="7"],
-.role-gallery-items .gallery-project-card[data-asset-count="8"],
-.role-gallery-items .gallery-project-card[data-asset-count="9"] {
-  grid-template-rows: none;
 }
 
 .role-detail .role-gallery-items .gallery-project-card::after,
@@ -2228,41 +2209,10 @@ figcaption {
     gap: 34px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .role-gallery-items {
-    grid-auto-rows: clamp(82px, 12vw, 132px);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .role-detail .role-gallery-items .gallery-project-card,
-  .role-gallery-items .gallery-project-card {
-    gap: 16px;
-    min-height: 0;
-  }
-
-  .role-gallery-items .gallery-project-card[data-gallery-layout="landscape"],
-  .role-gallery-items .gallery-project-card[data-gallery-layout="pair"],
-  .role-gallery-items .gallery-project-card[data-gallery-layout="mixed"],
-  .role-gallery-items .gallery-project-card[data-gallery-layout="series"] {
-    grid-column: span 2;
-  }
 }
 
 @media (max-width: 520px) {
   .gallery { grid-template-columns: 1fr; }
-
-  .role-gallery-items {
-    grid-auto-rows: clamp(92px, 24vw, 136px);
-    grid-template-columns: 1fr;
-  }
-
-  .role-gallery-items .gallery-project-card,
-  .role-gallery-items .gallery-project-card[data-gallery-layout="landscape"],
-  .role-gallery-items .gallery-project-card[data-gallery-layout="pair"],
-  .role-gallery-items .gallery-project-card[data-gallery-layout="mixed"],
-  .role-gallery-items .gallery-project-card[data-gallery-layout="series"] {
-    grid-column: span 1;
-  }
 }
 
 .novel-controls {
@@ -4820,8 +4770,13 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 
   body[data-role-room] .role-section-body {
+    height: auto;
     overflow: visible;
     padding-right: 0;
+  }
+
+  body[data-role-room="visual"] .role-section-body-gallery {
+    overflow: visible;
   }
 
   body[data-role-room] .role-section-title h2,
