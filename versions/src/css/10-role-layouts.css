@@ -183,8 +183,8 @@
 }
 
 .cv-scroll > .role-intro {
-  max-width: none;
   width: 100%;
+  max-width: 66.666%;
 }
 
 .role-intro-stack {
@@ -781,5 +781,9 @@
 
   .identity-detail-portrait {
     max-width: min(420px, 100%);
+  }
+
+  .cv-scroll > .role-intro {
+    max-width: none;
   }
 }

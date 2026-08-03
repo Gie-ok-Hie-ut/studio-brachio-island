@@ -1324,8 +1324,8 @@ body.is-v15-leaving .v15-role-menu {
 }
 
 .cv-scroll > .role-intro {
-  max-width: none;
   width: 100%;
+  max-width: 66.666%;
 }
 
 .role-intro-stack {
@@ -1922,6 +1922,10 @@ body.is-v15-leaving .v15-role-menu {
 
   .identity-detail-portrait {
     max-width: min(420px, 100%);
+  }
+
+  .cv-scroll > .role-intro {
+    max-width: none;
   }
 }
 
