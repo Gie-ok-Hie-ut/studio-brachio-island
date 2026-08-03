@@ -1,7 +1,3 @@
-function appendMarkdownText(parent, text, context = {}) {
-  text.split("\n").forEach((line, index) => appendMarkdownLine(parent, line, index, context));
-}
-
 function renderProfileLinks(item, titleTarget, titleText) {
   const links = document.createElement("div");
   links.className = "role-profile-links";
