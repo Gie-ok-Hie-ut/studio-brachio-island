@@ -1,4 +1,5 @@
-/* Reader/PDF modal shell, toolbar, and controls. */
+/* Shared popup shell, toolbar, and controls. */
+.popup-modal,
 .reader-modal,
 .pdf-modal {
   display: grid;
@@ -13,12 +14,14 @@
 .reader-modal { z-index: 300; }
 .pdf-modal { z-index: 320; }
 
+.popup-modal.is-open,
 .reader-modal.is-open,
 .pdf-modal.is-open {
   opacity: 1;
   pointer-events: auto;
 }
 
+.popup-backdrop,
 .reader-backdrop,
 .pdf-backdrop {
   background: rgba(3, 3, 3, 0.72);
@@ -27,6 +30,7 @@
   touch-action: none;
 }
 
+.popup-window,
 .reader-window,
 .pdf-window {
   align-self: center;
@@ -46,11 +50,13 @@
   overflow: hidden;
 }
 
+.popup-window-pdf,
 .pdf-window {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
 }
 
+.popup-window-reader,
 .reader-window {
   --reader-bg: var(--paper);
   --reader-ink: var(--ink);
@@ -65,18 +71,21 @@
   width: min(calc(100vw - 36px), 1180px);
 }
 
+.popup-window-pdf,
 .pdf-window {
   height: min(96vh, 1100px);
   padding: 18px;
   width: min(calc(100vw - 28px), 1320px);
 }
 
+.popup-modal.is-open .popup-window,
 .reader-modal.is-open .reader-window,
 .pdf-modal.is-open .pdf-window {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
+.popup-window-reader[data-theme="dark"],
 .reader-window[data-theme="dark"] {
   --reader-bg: #10110f;
   --reader-ink: #d8d8d0;
@@ -86,13 +95,20 @@
   color: var(--reader-ink);
 }
 
+.popup-window-reader[data-size="small"],
 .reader-window[data-size="small"] { --reader-size: 16px; }
+.popup-window-reader[data-size="medium"],
 .reader-window[data-size="medium"] { --reader-size: 18px; }
+.popup-window-reader[data-size="large"],
 .reader-window[data-size="large"] { --reader-size: 21px; }
+.popup-window-reader[data-spacing="tight"],
 .reader-window[data-spacing="tight"] { --reader-leading: 1.55; }
+.popup-window-reader[data-spacing="normal"],
 .reader-window[data-spacing="normal"] { --reader-leading: 1.9; }
+.popup-window-reader[data-spacing="wide"],
 .reader-window[data-spacing="wide"] { --reader-leading: 2.25; }
 
+.popup-toolbar,
 .reader-toolbar,
 .pdf-toolbar {
   align-items: end;
@@ -104,6 +120,7 @@
   padding-bottom: 14px;
 }
 
+.popup-kicker,
 .reader-kicker {
   color: var(--reader-muted, var(--muted));
   font-size: var(--text-xs);
@@ -112,10 +129,12 @@
   text-transform: uppercase;
 }
 
+.reader-modal .popup-kicker,
 .reader-modal .reader-kicker {
   display: none;
 }
 
+.popup-title,
 .reader-toolbar h2,
 .pdf-toolbar h2 {
   color: var(--reader-ink, var(--ink));
@@ -125,6 +144,7 @@
   margin: 0;
 }
 
+.popup-actions,
 .reader-actions {
   align-items: center;
   --reader-control-color: var(--reader-muted, var(--muted));
@@ -138,14 +158,17 @@
   justify-content: flex-end;
 }
 
+.popup-window-pdf .popup-actions,
 .pdf-toolbar .reader-actions {
   margin-left: auto;
 }
 
+.popup-actions .modal-source,
 .reader-actions .modal-source {
   display: none !important;
 }
 
+.popup-window-pdf .popup-actions .modal-source,
 .pdf-toolbar .reader-actions .modal-source {
   align-items: center;
   border: 1px solid currentColor;
@@ -154,6 +177,10 @@
   padding: 0 10px;
 }
 
+.popup-actions a,
+.popup-actions button,
+.popup-actions label,
+.popup-actions select,
 .reader-actions a,
 .reader-actions button,
 .reader-actions label,
@@ -167,6 +194,7 @@
   text-transform: uppercase;
 }
 
+.popup-actions button,
 .reader-actions button,
 .reader-content button {
   appearance: none;
@@ -178,6 +206,7 @@
   padding: 0;
 }
 
+.popup-actions .modal-share,
 .reader-actions .modal-share {
   align-items: center;
   aspect-ratio: 1;
@@ -195,6 +224,8 @@
   width: 32px;
 }
 
+.popup-actions .modal-share:hover,
+.popup-actions .modal-share:focus-visible,
 .reader-actions .modal-share:hover,
 .reader-actions .modal-share:focus-visible {
   color: var(--reader-ink, var(--ink));
@@ -240,6 +271,8 @@
   opacity: 1;
 }
 
+.popup-actions .modal-back,
+.popup-actions .modal-close,
 .reader-actions .modal-back,
 .reader-actions .modal-close {
   align-items: center;
@@ -257,10 +290,15 @@
   width: 40px;
 }
 
+.popup-actions .modal-back,
 .reader-actions .modal-back {
   font-size: 22px;
 }
 
+.popup-actions .modal-close:hover,
+.popup-actions .modal-close:focus-visible,
+.popup-actions .modal-back:hover,
+.popup-actions .modal-back:focus-visible,
 .reader-actions .modal-close:hover,
 .reader-actions .modal-close:focus-visible,
 .reader-actions .modal-back:hover,
@@ -270,18 +308,21 @@
   outline: 0;
 }
 
+.popup-actions .modal-back:disabled,
 .reader-actions .modal-back:disabled {
   color: var(--reader-muted, var(--muted));
   cursor: default;
   opacity: 0.28;
 }
 
+.popup-actions label,
 .reader-actions label {
   align-items: center;
   display: inline-flex;
   gap: 7px;
 }
 
+.popup-actions select,
 .reader-actions select {
   appearance: none;
   background: transparent;
@@ -292,7 +333,60 @@
   padding: 0 14px 2px 0;
 }
 
+.pdf-frame {
+  border: 1px solid var(--line);
+  display: block;
+  height: 100%;
+  margin-top: 14px;
+  min-height: 0;
+  width: 100%;
+}
+
+.pdf-frame[hidden] {
+  display: none;
+}
+
+.pdf-mobile-fallback {
+  align-items: center;
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  margin-top: 14px;
+  min-height: 0;
+  padding: 28px;
+  text-align: center;
+}
+
+.pdf-mobile-fallback[hidden] {
+  display: none !important;
+}
+
+.pdf-mobile-fallback p {
+  color: var(--muted);
+  font-size: var(--text-base);
+  font-weight: 800;
+  line-height: 1.45;
+  margin: 0;
+  max-width: 420px;
+}
+
+.pdf-mobile-fallback a {
+  align-items: center;
+  background: var(--ink);
+  border: 0;
+  color: var(--paper);
+  display: inline-flex;
+  font-size: var(--text-xs);
+  font-weight: 900;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  text-transform: uppercase;
+}
+
 @media (max-width: 900px) {
+  .popup-window-reader,
   .reader-window {
     align-self: stretch;
     height: calc(100dvh - 20px);
@@ -301,6 +395,7 @@
     width: calc(100vw - 20px);
   }
 
+  .popup-toolbar,
   .reader-toolbar,
   .pdf-toolbar {
     align-items: start;
@@ -308,16 +403,19 @@
     gap: 14px;
   }
 
+  .popup-window-pdf .popup-toolbar,
   .pdf-toolbar {
     align-items: end;
     flex-direction: row;
     justify-content: space-between;
   }
 
+  .popup-window-pdf .popup-actions,
   .pdf-toolbar .reader-actions {
     margin-left: auto;
   }
 
+  .popup-window-reader .popup-toolbar,
   .reader-toolbar {
     align-items: stretch;
     display: flex;
@@ -325,6 +423,7 @@
     padding-bottom: 20px;
   }
 
+  .popup-window-reader .popup-actions,
   .reader-toolbar .reader-actions {
     align-items: end;
     display: grid;
@@ -340,6 +439,7 @@
     width: 100%;
   }
 
+  .popup-window-reader .popup-actions label,
   .reader-toolbar .reader-actions label {
     align-items: start;
     flex-direction: column;
@@ -348,11 +448,13 @@
     white-space: nowrap;
   }
 
+  .popup-window-reader .popup-actions label + label,
   .reader-toolbar .reader-actions label + label {
     border-left: 1px solid var(--reader-line, var(--line));
     padding-left: clamp(8px, 2vw, 12px);
   }
 
+  .popup-window-reader .popup-actions select,
   .reader-toolbar .reader-actions select {
     background-image:
       linear-gradient(45deg, transparent 50%, currentColor 50%),
@@ -368,6 +470,7 @@
     width: 100%;
   }
 
+  .popup-window-reader .popup-actions .modal-share,
   .reader-toolbar .reader-actions .modal-share {
     align-self: end;
     aspect-ratio: 1;
@@ -379,37 +482,45 @@
     width: 30px;
   }
 
+  .popup-window-reader .modal-share-icon,
   .reader-toolbar .modal-share-icon {
     height: 23px;
     width: 23px;
   }
 
+  .popup-window-reader .modal-share-status,
   .reader-toolbar .modal-share-status {
     top: calc(100% + 7px);
   }
 
+  .popup-window-reader .popup-actions .modal-back,
   .reader-toolbar .reader-actions .modal-back {
     grid-column: auto;
     justify-self: center;
   }
 
+  .popup-window-reader .popup-actions .modal-close,
   .reader-toolbar .reader-actions .modal-close {
     grid-column: auto;
     justify-self: center;
   }
 
+  .popup-window-reader .popup-actions .modal-back,
+  .popup-window-reader .popup-actions .modal-close,
   .reader-toolbar .reader-actions .modal-back,
   .reader-toolbar .reader-actions .modal-close {
     font-size: 22px;
     width: 30px;
   }
 
+  .popup-window-pdf,
   .pdf-window {
     height: calc(100dvh - 16px);
     padding: 12px;
     width: calc(100vw - 16px);
   }
 
+  .popup-window-pdf .popup-actions .modal-share,
   .pdf-toolbar .reader-actions .modal-share {
     min-height: 30px;
   }

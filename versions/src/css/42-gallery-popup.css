@@ -1,4 +1,29 @@
-/* Gallery media inside reader popups and full-size original viewer. */
+/* Gallery media inside popup viewers and full-size original viewer. */
+.popup-window-gallery,
+.reader-window.reader-window-gallery {
+  --reader-size: 15px;
+  --reader-leading: 1.55;
+  height: min(94vh, 1040px);
+  width: min(calc(100vw - 36px), 1360px);
+}
+
+.popup-window-gallery .reader-setting-control {
+  display: none;
+}
+
+.popup-window-gallery .popup-title {
+  font-size: clamp(30px, 2vw, 38px);
+}
+
+.popup-window-gallery .reader-content {
+  align-items: center;
+  display: grid;
+  max-width: none;
+  min-height: 0;
+  overflow: auto;
+  padding: 0;
+}
+
 .role-items button video,
 .gallery-asset-button video {
   aspect-ratio: 16 / 10;
@@ -31,11 +56,13 @@
 }
 
 .gallery-project-reader {
+  align-content: center;
   display: grid;
-  gap: clamp(14px, 1.8vw, 26px);
-  grid-template-rows: minmax(0, 1fr) auto;
-  height: 100%;
-  min-height: 0;
+  gap: clamp(12px, 1.4vw, 20px);
+  grid-template-rows: auto auto;
+  height: auto;
+  justify-self: stretch;
+  min-height: 100%;
 }
 
 .gallery-project-viewer-meta {
@@ -51,17 +78,17 @@
   align-items: center;
   display: grid;
   gap: clamp(18px, 2vw, 30px);
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
   min-height: 0;
 }
 
 .gallery-project-viewer-figure {
   align-items: center;
   display: flex;
-  height: 100%;
   justify-content: center;
   margin: 0;
   min-height: 0;
+  max-height: min(62vh, 720px);
   width: 100%;
 }
 
@@ -75,7 +102,7 @@
   border: 0;
   display: block;
   filter: none;
-  max-height: min(62vh, 720px);
+  max-height: inherit;
   max-width: 100%;
   object-fit: contain;
   width: auto;
@@ -159,13 +186,16 @@
 
 .gallery-project-info {
   display: grid;
-  gap: 0;
+  gap: 10px;
+  justify-self: center;
   min-height: 0;
+  max-width: min(100%, 620px);
   padding-top: 0;
+  width: min(100%, 620px);
 }
 
 .gallery-project-info.is-open {
-  gap: 8px;
+  gap: 12px;
 }
 
 .gallery-project-info-toggle {
@@ -173,7 +203,7 @@
   appearance: none;
   background: transparent;
   border: 0;
-  color: var(--reader-ink, var(--ink));
+  color: var(--reader-muted, var(--muted));
   cursor: pointer;
   display: inline-flex;
   gap: 8px;
@@ -185,8 +215,12 @@
   line-height: 1;
   padding: 0;
   text-decoration: none;
-  text-transform: none;
+  text-transform: uppercase;
   width: auto;
+}
+
+.gallery-project-info:not(.has-detail) .gallery-project-info-toggle {
+  display: none;
 }
 
 .gallery-project-info-toggle::after {
@@ -203,7 +237,7 @@
 
 .gallery-project-info-toggle:hover,
 .gallery-project-info-toggle:focus-visible {
-  color: var(--reader-muted, var(--muted));
+  color: var(--reader-ink, var(--ink));
   outline: 0;
 }
 
@@ -215,23 +249,24 @@
   color: var(--reader-muted, var(--muted));
   font-size: var(--text-xs);
   font-weight: 760;
-  line-height: 1.2;
-  max-height: 0;
+  line-height: 1.25;
+  margin: 0;
+  max-height: none;
   min-height: 0;
-  opacity: 0;
-  overflow: hidden;
+  opacity: 1;
+  overflow: visible;
   text-transform: uppercase;
-  transition: max-height 180ms ease, opacity 160ms ease;
 }
 
-.gallery-project-info.is-open .gallery-project-info-meta {
-  max-height: 1.2em;
-  min-height: 1em;
-  opacity: 1;
+.reader-content .gallery-project-info-meta {
+  margin: 0;
 }
 
 .gallery-project-info-body {
   color: var(--reader-ink, var(--ink));
+  font-size: var(--reader-size);
+  font-weight: 500;
+  line-height: var(--reader-leading);
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -251,10 +286,36 @@
 
 .gallery-project-detail-body {
   color: var(--reader-ink, var(--ink));
-  font-size: var(--reader-size);
-  font-weight: 500;
-  line-height: var(--reader-leading);
   text-transform: none;
+}
+
+@media (max-width: 900px) {
+  .popup-window-gallery .popup-toolbar {
+    align-items: end;
+    flex-direction: row;
+  }
+
+  .popup-window-gallery .popup-actions {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    width: auto;
+  }
+
+  .popup-window-gallery .popup-actions .modal-share,
+  .popup-window-gallery .popup-actions .modal-back,
+  .popup-window-gallery .popup-actions .modal-close {
+    justify-self: auto;
+  }
+
+  .popup-window-gallery .gallery-project-reader {
+    min-height: 100%;
+  }
+
+  .popup-window-gallery .gallery-project-viewer-figure {
+    max-height: min(56vh, 620px);
+  }
 }
 
 .gallery-asset-detail {

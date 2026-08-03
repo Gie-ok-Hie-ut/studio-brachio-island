@@ -246,12 +246,40 @@ function closeGalleryOriginal() {
   document.body.classList.remove("gallery-original-open");
 }
 
+function getGalleryProjectMetaText(item) {
+  return [item.meta?.year, item.meta?.medium]
+    .map((value) => String(value || "").trim())
+    .filter(Boolean)
+    .join(" / ");
+}
+
+function normalizeGalleryDetailText(value = "") {
+  return String(value)
+    .replace(/[#*_`>\[\]()]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function getGalleryProjectDetailMarkdown(item, lang) {
+  const detail = String(getLocalizedMarkdown(item, lang) || "").trim();
+  if (!detail) return "";
+
+  const normalizedDetail = normalizeGalleryDetailText(detail);
+  const metadataValues = [item.meta?.year, item.meta?.medium]
+    .map(normalizeGalleryDetailText)
+    .filter(Boolean);
+
+  return metadataValues.includes(normalizedDetail) ? "" : detail;
+}
+
 function openGalleryProject(item, startIndex = 0, options = {}) {
   if (!readerTitle || !readerSource || !readerContent) return;
   prepareReaderLanguage(item, { preserveLanguage: options.preserveLanguage });
   const readerLanguage = getReaderLanguage();
   const title = getLocalizedTitle(item, readerLanguage);
   const assets = getGalleryProjectAssets(item);
+  const metadataText = getGalleryProjectMetaText(item);
   const total = assets.length;
   let activeIndex = Math.min(Math.max(Number(startIndex) || 0, 0), Math.max(total - 1, 0));
 
@@ -272,6 +300,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   const previousButton = document.createElement("button");
   const nextButton = document.createElement("button");
   const info = document.createElement("section");
+  const infoMeta = document.createElement("p");
   const infoToggle = document.createElement("button");
   const infoLabel = document.createElement("span");
   const detailBody = document.createElement("div");
@@ -290,6 +319,8 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   nextButton.textContent = "→";
   nextButton.setAttribute("aria-label", readerLanguage === "ko" ? "다음 이미지" : "Next image");
   info.className = "gallery-project-info";
+  infoMeta.className = "gallery-project-info-meta";
+  infoMeta.textContent = metadataText;
   infoToggle.type = "button";
   infoToggle.className = "gallery-project-info-toggle";
   infoToggle.setAttribute("aria-expanded", "false");
@@ -306,8 +337,13 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
     const media = createGalleryMedia(asset, title, { controls: true, muted: false });
     const paddedIndex = String(activeIndex + 1).padStart(2, "0");
     const paddedTotal = String(total).padStart(2, "0");
-    const detail = String(getLocalizedMarkdown(item, readerLanguage) || "").trim();
+    const detail = getGalleryProjectDetailMarkdown(item, readerLanguage);
+    const hasDetail = Boolean(detail);
     navCounter.textContent = total > 1 ? `${paddedIndex} OF ${paddedTotal}` : "";
+    info.hidden = !metadataText && !hasDetail;
+    info.classList.toggle("has-detail", hasDetail);
+    infoToggle.hidden = !hasDetail;
+    detailBody.hidden = !hasDetail;
     if (detail) {
       detailBody.replaceChildren(...renderMarkdown(detail, title, {
         item,
@@ -315,6 +351,8 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
         lang: readerLanguage,
       }));
     } else {
+      info.classList.remove("is-open");
+      infoToggle.setAttribute("aria-expanded", "false");
       detailBody.replaceChildren();
     }
     readerSource.href = getGalleryAssetPath(asset);
@@ -347,7 +385,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
     scheduleReaderScrollIndicatorUpdate();
   });
 
-  info.append(infoToggle, detailBody);
+  info.append(infoMeta, infoToggle, detailBody);
   navRow.append(previousButton, navCounter, nextButton);
   stage.append(figure, navRow);
   wrapper.append(stage, info);
