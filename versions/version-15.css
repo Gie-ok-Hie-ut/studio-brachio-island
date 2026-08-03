@@ -2442,6 +2442,11 @@ figcaption {
   z-index: var(--orbit-layer, 1);
 }
 
+.novel-card,
+.novel-grid-book {
+  container-type: inline-size;
+}
+
 .novel-card > :not(.novel-card-cover) {
   position: relative;
   z-index: 1;
@@ -2569,14 +2574,6 @@ figcaption {
 .novel-card-tags {
   display: block;
   opacity: 0.68;
-}
-
-.novel-card strong {
-  font-size: clamp(28px, 4vw, 52px);
-  font-weight: 900;
-  line-height: 0.95;
-  overflow-wrap: anywhere;
-  text-transform: uppercase;
 }
 
 .novel-card-actions {
@@ -2813,12 +2810,28 @@ figcaption {
   opacity: 0.68;
 }
 
-.novel-grid-book strong {
+.novel-card .novel-book-title,
+.novel-grid-book .novel-book-title {
   font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(28px, 20cqw, 52px);
   font-weight: 900;
+  hyphens: manual;
   line-height: 0.95;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
   text-transform: uppercase;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.novel-card .novel-book-title[data-title-flow="solid"],
+.novel-grid-book .novel-book-title[data-title-flow="solid"] {
+  white-space: nowrap;
+}
+
+.novel-card .novel-book-title[data-title-fit="compact"],
+.novel-grid-book .novel-book-title[data-title-fit="compact"] {
+  font-size: clamp(26px, 3.4vw, 46px);
+  font-size: clamp(26px, 17cqw, 46px);
 }
 
 .novel-grid-book-actions {
@@ -2929,6 +2942,18 @@ figcaption {
   .novel-grid-book:hover,
   .novel-grid-book:focus-visible {
     height: 100%;
+  }
+
+  .novel-card .novel-book-title,
+  .novel-grid-book .novel-book-title {
+    font-size: clamp(36px, 12vw, 52px);
+    font-size: clamp(28px, 20cqw, 52px);
+  }
+
+  .novel-card .novel-book-title[data-title-fit="compact"],
+  .novel-grid-book .novel-book-title[data-title-fit="compact"] {
+    font-size: clamp(32px, 10vw, 46px);
+    font-size: clamp(26px, 17cqw, 46px);
   }
 }
 
