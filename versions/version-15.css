@@ -1173,6 +1173,7 @@ body.is-v15-leaving .v15-role-menu {
   min-height: 0;
   overflow: hidden;
   padding-right: 0;
+  row-gap: 0;
 }
 
 .role-detail-layout-novel .role-section-body-novel > .role-note {
@@ -1197,7 +1198,7 @@ body.is-v15-leaving .v15-role-menu {
   z-index: 14;
 }
 
-.role-detail-layout-novel .role-section-body-novel > .role-overview {
+.role-detail-layout-novel .role-section-body-novel > .role-overview-stack {
   align-self: start;
   grid-column: 2;
   grid-row: 1;
@@ -1216,6 +1217,13 @@ body.is-v15-leaving .v15-role-menu {
   color: var(--muted);
   margin-bottom: 34px;
   max-width: 680px;
+}
+
+.role-section-body {
+  --role-overview-flow-gap: clamp(34px, 4vh, 52px);
+  align-content: start;
+  display: grid;
+  row-gap: var(--role-overview-flow-gap);
 }
 
 .role-detail-layout-identity {
@@ -1309,6 +1317,10 @@ body.is-v15-leaving .v15-role-menu {
   text-align: left;
 }
 
+.cv-scroll > .role-overview-stack {
+  margin-bottom: var(--role-overview-flow-gap, clamp(34px, 4vh, 52px));
+}
+
 .role-intro {
   color: var(--ink);
   font-size: var(--role-intro-font-size);
@@ -1323,8 +1335,17 @@ body.is-v15-leaving .v15-role-menu {
 .role-overview {
   --role-overview-max-width: 980px;
   --role-overview-width: 66.666%;
+  margin: 0;
   max-width: min(100%, var(--role-overview-max-width));
   width: var(--role-overview-width);
+}
+
+.role-overview-stack {
+  align-content: start;
+  display: grid;
+  justify-items: start;
+  margin: 0;
+  min-width: 0;
 }
 
 .role-intro-stack {
@@ -1972,16 +1993,6 @@ figcaption {
   text-transform: uppercase;
 }
 
-.role-gallery-items {
-  border-top: 0;
-  column-count: 4;
-  column-gap: 16px;
-  display: block;
-  max-height: none;
-  overflow: visible;
-  padding-right: 0;
-}
-
 .role-detail .role-gallery-items button,
 .role-gallery-items button {
   background: transparent;
@@ -2012,15 +2023,6 @@ figcaption {
   height: auto;
   object-fit: contain;
   width: 100%;
-}
-
-.role-detail .role-gallery-items button:hover,
-.role-detail .role-gallery-items button:focus-visible,
-.role-gallery-items button:hover,
-.role-gallery-items button:focus-visible {
-  background: transparent;
-  color: var(--ink);
-  opacity: 0.72;
 }
 
 .role-detail .role-gallery-items button:hover,
@@ -2433,7 +2435,7 @@ figcaption {
   grid-row: 1;
 }
 
-.role-detail-layout-novel .role-section-body-novel[data-novel-view-mode="grid"] > .role-overview {
+.role-detail-layout-novel .role-section-body-novel[data-novel-view-mode="grid"] > .role-overview-stack {
   grid-column: 2;
   grid-row: 1;
 }
@@ -4734,12 +4736,12 @@ body[data-role-room] .role-section-body {
 body[data-role-room="visual"] .role-section-body-gallery {
   align-content: start;
   display: grid;
-  gap: clamp(34px, 5vh, 64px);
+  gap: var(--role-overview-flow-gap);
   grid-template-columns: minmax(0, 1fr);
   overflow-y: auto;
 }
 
-body[data-role-room="visual"] .role-section-body-gallery > .role-overview {
+body[data-role-room="visual"] .role-section-body-gallery > .role-overview-stack {
   display: grid;
   margin: 0;
   opacity: 1;
@@ -4795,6 +4797,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 
   body[data-role-room] .role-room-detail {
+    align-content: start;
     display: grid;
     gap: 34px;
     grid-template-columns: 1fr;
@@ -4860,6 +4863,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   body[data-role-room] .role-detail-layout-novel .role-section-body-novel,
   body[data-role-room] .role-detail-layout-novel .role-section-body-novel > .role-note,
   body[data-role-room] .role-detail-layout-novel .role-section-body-novel > .section-note,
+  body[data-role-room] .role-detail-layout-novel .role-section-body-novel > .role-overview-stack,
   body[data-role-room] .role-detail-layout-novel .role-novel-controls,
   body[data-role-room] .role-detail-layout-novel .role-novel-stage.novel-deck,
   body[data-role-room] .role-detail-layout-novel .role-novel-grid-stage {
@@ -4890,7 +4894,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel {
     display: flex !important;
     flex-direction: column;
-    gap: clamp(24px, 7vw, 36px);
+    gap: var(--role-overview-flow-gap);
     height: auto !important;
     min-height: 0;
     overflow: visible !important;
@@ -4900,7 +4904,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 
   body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-note,
   body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .section-note,
-  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-overview {
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-overview-stack {
     align-self: stretch;
     grid-column: auto !important;
     grid-row: auto !important;
@@ -4912,7 +4916,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     z-index: 2;
   }
 
-  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-overview {
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-overview-stack > .role-overview {
     font-size: var(--role-intro-font-size);
     line-height: var(--role-intro-line-height);
   }

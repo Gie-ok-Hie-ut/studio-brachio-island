@@ -32,6 +32,7 @@
   min-height: 0;
   overflow: hidden;
   padding-right: 0;
+  row-gap: 0;
 }
 
 .role-detail-layout-novel .role-section-body-novel > .role-note {
@@ -56,7 +57,7 @@
   z-index: 14;
 }
 
-.role-detail-layout-novel .role-section-body-novel > .role-overview {
+.role-detail-layout-novel .role-section-body-novel > .role-overview-stack {
   align-self: start;
   grid-column: 2;
   grid-row: 1;
@@ -75,6 +76,13 @@
   color: var(--muted);
   margin-bottom: 34px;
   max-width: 680px;
+}
+
+.role-section-body {
+  --role-overview-flow-gap: clamp(34px, 4vh, 52px);
+  align-content: start;
+  display: grid;
+  row-gap: var(--role-overview-flow-gap);
 }
 
 .role-detail-layout-identity {
@@ -168,6 +176,10 @@
   text-align: left;
 }
 
+.cv-scroll > .role-overview-stack {
+  margin-bottom: var(--role-overview-flow-gap, clamp(34px, 4vh, 52px));
+}
+
 .role-intro {
   color: var(--ink);
   font-size: var(--role-intro-font-size);
@@ -182,8 +194,17 @@
 .role-overview {
   --role-overview-max-width: 980px;
   --role-overview-width: 66.666%;
+  margin: 0;
   max-width: min(100%, var(--role-overview-max-width));
   width: var(--role-overview-width);
+}
+
+.role-overview-stack {
+  align-content: start;
+  display: grid;
+  justify-items: start;
+  margin: 0;
+  min-width: 0;
 }
 
 .role-intro-stack {

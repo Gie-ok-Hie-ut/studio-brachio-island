@@ -110,17 +110,18 @@ function renderIdentityRole(item, body) {
 
 function renderCvRole(item, body) {
   const wrapper = document.createElement("div");
+  const markdown = getLocalizedMarkdown(item);
   wrapper.className = "engineer-scroll cv-scroll";
 
-  const intro = createRoleIntroNode(getLocalizedMarkdown(item), {
+  const overview = createRoleOverviewNode(markdown, {
     item,
     basePath: item.path,
-  }, [ROLE_OVERVIEW_CLASS]);
-  if (intro) {
-    wrapper.append(intro);
+  });
+  if (overview) {
+    wrapper.append(overview);
   }
 
-  parseRecordSections(getLocalizedMarkdown(item)).forEach((section) => {
+  parseRecordSections(markdown).forEach((section) => {
     const block = document.createElement("section");
     const heading = document.createElement("h3");
     const list = document.createElement("div");
@@ -183,16 +184,12 @@ function renderCvRole(item, body) {
 
 function renderGalleryRole(item, body) {
   const markdown = getLocalizedMarkdown(item);
-  const introParagraphs = getRecordIntro(markdown);
   const children = [];
-
-  if (introParagraphs.length > 0) {
-    const intro = createRoleIntroNode(markdown, {
-      item,
-      basePath: item.path,
-    }, [ROLE_OVERVIEW_CLASS]);
-    if (intro) children.push(intro);
-  }
+  const overview = createRoleOverviewNode(markdown, {
+    item,
+    basePath: item.path,
+  });
+  if (overview) children.push(overview);
 
   const target = document.createElement("div");
   target.id = "role-visual-items";
@@ -202,10 +199,11 @@ function renderGalleryRole(item, body) {
 }
 
 function renderNovelRole(item, body) {
-  renderRoleMarkdownNote(getLocalizedMarkdown(item), body, {
+  const markdown = getLocalizedMarkdown(item);
+  appendRoleOverview(markdown, body, {
     item,
     basePath: item.path,
-  }, [ROLE_OVERVIEW_CLASS]);
+  });
   const controls = document.createElement("div");
   const orbit = createNovelViewButton("orbit", readerSettings.lang === "ko" ? "회전 보기" : "Rotation view");
   const grid = createNovelViewButton("grid", readerSettings.lang === "ko" ? "그리드 보기" : "Grid view");
@@ -226,10 +224,11 @@ function renderNovelRole(item, body) {
 }
 
 function renderReadingRole(item, body) {
-  renderRoleMarkdownNote(getLocalizedMarkdown(item), body, {
+  const markdown = getLocalizedMarkdown(item);
+  appendRoleOverview(markdown, body, {
     item,
     basePath: item.path,
-  }, [ROLE_OVERVIEW_CLASS]);
+  });
   const target = document.createElement("div");
   target.id = "role-aesthetics-items";
   target.className = "role-items role-paper-items role-essay-items";
