@@ -230,8 +230,13 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 
   body[data-role-room] .role-section-body {
+    height: auto;
     overflow: visible;
     padding-right: 0;
+  }
+
+  body[data-role-room="visual"] .role-section-body-gallery {
+    overflow: visible;
   }
 
   body[data-role-room] .role-section-title h2,
