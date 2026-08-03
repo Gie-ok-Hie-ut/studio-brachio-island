@@ -1,3 +1,22 @@
+function setNovelBookTitle(titleNode, item) {
+  const titleText = getLocalizedTitle(item);
+  const solidLength = Array.from(titleText.replace(/[\s-]/g, "")).length;
+  const hasNaturalBreak = /[\s-]/.test(titleText);
+
+  titleNode.className = "novel-book-title";
+  titleNode.dataset.titleFlow = hasNaturalBreak ? "natural" : "solid";
+  if (!hasNaturalBreak && solidLength >= 5) {
+    titleNode.dataset.titleFit = "compact";
+  }
+
+  titleNode.replaceChildren();
+  titleText.split(/(-)/).forEach((part) => {
+    if (!part) return;
+    titleNode.append(document.createTextNode(part));
+    if (part === "-") titleNode.append(document.createElement("wbr"));
+  });
+}
+
 function createNovelCard(item, index) {
   const originalIndex = topLevelNovelItems.findIndex((novel) => novel.id === item.id);
   const notionItem = findWritingByContent(item);
@@ -49,7 +68,7 @@ function createNovelCard(item, index) {
   });
   label.textContent = String(originalIndex + 1).padStart(2, "0");
   copy.className = "novel-card-copy";
-  title.textContent = getLocalizedTitle(item);
+  setNovelBookTitle(title, item);
   tags.className = "novel-card-tags";
   tags.textContent = (item.meta?.tags || []).join(" ");
   options.className = "novel-card-actions";
@@ -114,7 +133,7 @@ function createNovelGridBook(item) {
 
   label.textContent = String(originalIndex + 1).padStart(2, "0");
   copy.className = "novel-grid-book-copy";
-  title.textContent = getLocalizedTitle(item);
+  setNovelBookTitle(title, item);
   tags.className = "novel-grid-book-tags";
   tags.textContent = (item.meta?.tags || []).join(" ");
   options.className = "novel-grid-book-actions";
