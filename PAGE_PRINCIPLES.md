@@ -6,8 +6,9 @@
 
 - 역할 페이지의 제목 영역은 `role-section-title` 구조를 따른다.
 - 역할 이름과 닉네임의 타이포그래피는 공통 CSS에서만 조절한다.
-- 역할 소개글은 반드시 `createRoleIntroNode()`가 만들고, CSS는 `.role-intro`만 사용한다.
+- 역할 소개글은 반드시 `createRoleIntroNode()`가 만들고, 기본 타이포그래피는 `.role-intro`에서만 조절한다.
 - 역할 소개글을 위한 역할별 별칭 class를 새로 만들지 않는다. 위치 예외가 필요하면 부모 layout selector 아래에서 `.role-intro`를 조절한다.
+- AI Research, Novel, Visual Art, Essay의 상단 소개 영역은 공통 `.role-overview` class를 사용하고 폭 기준은 `.role-overview`에서만 조절한다.
 - 역할별 본문 렌더링은 `ROLE_BODY_RENDERERS` registry에서만 추가한다. `renderRoleBody()`에 새 `if/else` 분기를 늘리지 않는다.
 - 팝업 열기/닫기 상태 변경은 `openPopupModal()` / `closePopupModal()`을 통한다. Reader, PDF, Gallery마다 다른 것은 내용 렌더링과 정리 작업만 별도 함수에 둔다.
 

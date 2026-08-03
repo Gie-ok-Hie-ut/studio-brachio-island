@@ -56,13 +56,10 @@
   z-index: 14;
 }
 
-.role-detail-layout-novel .role-section-body-novel > .role-intro {
+.role-detail-layout-novel .role-section-body-novel > .role-overview {
   align-self: start;
   grid-column: 2;
   grid-row: 1;
-  margin: 0;
-  max-width: 760px;
-  padding: 0 168px 0 0;
   position: relative;
   z-index: 14;
 }
@@ -182,9 +179,11 @@
   word-break: keep-all;
 }
 
-.cv-scroll > .role-intro {
-  width: 100%;
-  max-width: 66.666%;
+.role-overview {
+  --role-overview-max-width: 980px;
+  --role-overview-width: 66.666%;
+  max-width: min(100%, var(--role-overview-max-width));
+  width: var(--role-overview-width);
 }
 
 .role-intro-stack {
@@ -783,7 +782,8 @@
     max-width: min(420px, 100%);
   }
 
-  .cv-scroll > .role-intro {
+  .role-overview {
     max-width: none;
+    width: 100%;
   }
 }

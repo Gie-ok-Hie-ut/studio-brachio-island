@@ -115,7 +115,7 @@ function renderCvRole(item, body) {
   const intro = createRoleIntroNode(getLocalizedMarkdown(item), {
     item,
     basePath: item.path,
-  });
+  }, [ROLE_OVERVIEW_CLASS]);
   if (intro) {
     wrapper.append(intro);
   }
@@ -190,7 +190,7 @@ function renderGalleryRole(item, body) {
     const intro = createRoleIntroNode(markdown, {
       item,
       basePath: item.path,
-    });
+    }, [ROLE_OVERVIEW_CLASS]);
     if (intro) children.push(intro);
   }
 
@@ -205,7 +205,7 @@ function renderNovelRole(item, body) {
   renderRoleMarkdownNote(getLocalizedMarkdown(item), body, {
     item,
     basePath: item.path,
-  });
+  }, [ROLE_OVERVIEW_CLASS]);
   const controls = document.createElement("div");
   const orbit = createNovelViewButton("orbit", readerSettings.lang === "ko" ? "회전 보기" : "Rotation view");
   const grid = createNovelViewButton("grid", readerSettings.lang === "ko" ? "그리드 보기" : "Grid view");
@@ -229,7 +229,7 @@ function renderReadingRole(item, body) {
   renderRoleMarkdownNote(getLocalizedMarkdown(item), body, {
     item,
     basePath: item.path,
-  });
+  }, [ROLE_OVERVIEW_CLASS]);
   const target = document.createElement("div");
   target.id = "role-aesthetics-items";
   target.className = "role-items role-paper-items role-essay-items";
