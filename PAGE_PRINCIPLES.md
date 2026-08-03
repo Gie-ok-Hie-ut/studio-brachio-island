@@ -22,6 +22,8 @@
 - `05-site-chrome.css`는 v15 메뉴, 언어 스위처, page transition chrome만 둔다.
 - `10-role-layouts.css`는 공통 role detail, intro, CV/engineering list 구조를 둔다.
 - `.role-detail`, `.role-section-title`, `.role-profile-links`, `.role-section-body` 같은 role shell 기본값은 `10-role-layouts.css`에 둔다.
+- Role body의 스크롤 동작은 `.role-scroll-region`에서만 관리한다. 개별 역할 CSS에서 같은 overflow를 다시 선언하지 않는다.
+- `role-items`는 CV/Essay 같은 리스트형 항목에만 쓴다. Visual Art masonry gallery에는 붙이지 않는다.
 - `40-popup-shell.css`는 reader/PDF modal shell, toolbar, control chrome만 둔다.
 - `41-reader-content.css`는 reader markdown, Notion-style content, PDF fallback 표시만 둔다.
 - `42-gallery-popup.css`는 popup 안의 gallery media와 full-size original viewer만 둔다.
