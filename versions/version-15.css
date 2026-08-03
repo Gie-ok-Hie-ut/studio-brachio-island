@@ -957,6 +957,10 @@ body.is-v15-leaving .v15-role-menu {
   transform: translateX(102%);
 }
 
+:root {
+  --site-footer-block-size: calc(13px + clamp(20px, 3vh, 32px));
+}
+
 .site-footer {
   color: var(--muted);
   display: flex;
@@ -983,6 +987,10 @@ body[data-role-room] > .site-footer {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --site-footer-block-size: 37px;
+  }
+
   body[data-role-room] > .site-footer {
     padding: 0 22px 24px;
   }
@@ -4716,12 +4724,19 @@ body.v15-home {
 
 /* Standalone role-room page layout and room-only responsive rules. */
 body[data-role-room] {
+  --role-room-page-height: calc(100vh - var(--site-footer-block-size));
   background: var(--page);
   background-image: var(--site-texture-surface);
   background-repeat: repeat;
   background-size: auto, var(--site-texture-size);
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+@supports (height: 100dvh) {
+  body[data-role-room] {
+    --role-room-page-height: calc(100dvh - var(--site-footer-block-size));
+  }
 }
 
 body[data-role-room] header.v15-topbar {
@@ -4747,14 +4762,14 @@ body[data-role-room] main.role-room-main {
   background-size: auto, var(--site-texture-size);
   margin: 0;
   max-width: none;
-  min-height: 100vh;
+  min-height: var(--role-room-page-height);
   opacity: 1;
   padding: 0;
   width: 100%;
 }
 
 body[data-role-room] [data-role-room-target] {
-  min-height: 100vh;
+  min-height: var(--role-room-page-height);
   width: 100%;
 }
 
@@ -4764,10 +4779,10 @@ body[data-role-room] .role-room-detail {
   box-shadow: none;
   gap: var(--role-frame-gap);
   grid-template-columns: var(--role-rail-width) minmax(0, 1fr);
-  height: 100vh;
+  height: var(--role-room-page-height);
   left: auto;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: var(--role-room-page-height);
   opacity: 1;
   padding: clamp(86px, 8vh, 126px) 0 clamp(42px, 5vh, 72px);
   pointer-events: auto;
@@ -4933,7 +4948,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     grid-template-columns: 1fr;
     height: auto;
     margin: 0;
-    min-height: 100vh;
+    min-height: var(--role-room-page-height);
     overflow: visible;
     padding: 78px 22px 46px;
     width: 100%;

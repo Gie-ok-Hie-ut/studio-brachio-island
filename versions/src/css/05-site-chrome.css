@@ -239,6 +239,10 @@ body.is-v15-leaving .v15-role-menu {
   transform: translateX(102%);
 }
 
+:root {
+  --site-footer-block-size: calc(13px + clamp(20px, 3vh, 32px));
+}
+
 .site-footer {
   color: var(--muted);
   display: flex;
@@ -265,6 +269,10 @@ body[data-role-room] > .site-footer {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --site-footer-block-size: 37px;
+  }
+
   body[data-role-room] > .site-footer {
     padding: 0 22px 24px;
   }
