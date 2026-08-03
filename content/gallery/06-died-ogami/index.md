@@ -8,6 +8,8 @@ order: 6
 year: "2016"
 medium: "image / motion"
 layout: "portrait"
+displayFrame: "standard-4x3"
+displayPosition: "center 70%"
 image: "3-0.png"
 assets:
   - "3-0.png"
