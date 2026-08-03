@@ -1,3 +1,46 @@
+.gallery {
+  display: grid;
+  gap: 84px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+figure { margin: 0; }
+
+.gallery figure {
+  cursor: pointer;
+}
+
+.gallery button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: 16px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.gallery figure img,
+.gallery figure div {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #f4f4f0, #d8d8d2);
+  filter: grayscale(1) contrast(1.05);
+  object-fit: cover;
+  width: 100%;
+}
+
+figcaption {
+  color: var(--ink);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .role-gallery-items {
   border-top: 0;
   column-count: 4;

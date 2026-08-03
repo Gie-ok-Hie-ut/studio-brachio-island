@@ -558,3 +558,5 @@ function createProfileIcon(type) {
   };
 
   icon.innerHTML = icons[type] || icons.cv;
+  return icon;
+}

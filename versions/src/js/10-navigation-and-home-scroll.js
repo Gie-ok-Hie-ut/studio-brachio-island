@@ -89,3 +89,7 @@ function bindV15Menu() {
 }
 
 function projectHref(path = "") {
+  if (!path) return "";
+  if (/^(https?:|mailto:|tel:|#)/i.test(path)) return path;
+  return `${projectRoot}${String(path).replace(/^\.\.\//, "")}`;
+}

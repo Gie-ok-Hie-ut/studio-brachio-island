@@ -1655,6 +1655,49 @@ body.is-v15-leaving .v15-role-menu {
   margin-top: 2px;
 }
 
+.gallery {
+  display: grid;
+  gap: 84px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+figure { margin: 0; }
+
+.gallery figure {
+  cursor: pointer;
+}
+
+.gallery button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: 16px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.gallery figure img,
+.gallery figure div {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #f4f4f0, #d8d8d2);
+  filter: grayscale(1) contrast(1.05);
+  object-fit: cover;
+  width: 100%;
+}
+
+figcaption {
+  color: var(--ink);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .role-gallery-items {
   border-top: 0;
   column-count: 4;
@@ -2727,49 +2770,7 @@ body.is-v15-leaving .v15-role-menu {
   }
 }
 
-.gallery {
-  display: grid;
-  gap: 84px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-figure { margin: 0; }
-
-.gallery figure {
-  cursor: pointer;
-}
-
-.gallery button {
-  appearance: none;
-  background: transparent;
-  border: 0;
-  color: inherit;
-  cursor: pointer;
-  display: grid;
-  font: inherit;
-  gap: 16px;
-  padding: 0;
-  text-align: left;
-  width: 100%;
-}
-
-.gallery figure img,
-.gallery figure div {
-  aspect-ratio: 1 / 1;
-  background: linear-gradient(135deg, #f4f4f0, #d8d8d2);
-  filter: grayscale(1) contrast(1.05);
-  object-fit: cover;
-  width: 100%;
-}
-
-figcaption {
-  color: var(--ink);
-  font-size: var(--text-xs);
-  font-weight: 900;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
+/* Reader/PDF modal shell, toolbar, and controls. */
 .reader-modal,
 .pdf-modal {
   display: grid;
@@ -3063,6 +3064,7 @@ figcaption {
   padding: 0 14px 2px 0;
 }
 
+/* Reader markdown, Notion-style content, and PDF fallback presentation. */
 .reader-content {
   align-self: stretch;
   color: var(--reader-ink);
@@ -3293,6 +3295,7 @@ figcaption {
   text-transform: uppercase;
 }
 
+/* Gallery media inside reader popups and full-size original viewer. */
 .role-items button video,
 .gallery-asset-button video {
   aspect-ratio: 16 / 10;

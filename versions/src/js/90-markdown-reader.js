@@ -1,4 +1,71 @@
 /* Markdown parsing and reader content rendering. */
+function renderInlinePart(part) {
+  const internalWriting = part.href ? findWritingByHref(part.href) : null;
+  const wrapper = part.href ? document.createElement(internalWriting ? "button" : "a") : document.createElement("span");
+  if (part.href) {
+    if (internalWriting) {
+      wrapper.type = "button";
+      wrapper.addEventListener("click", () => renderReader(internalWriting.id, true));
+    } else {
+      wrapper.href = part.href;
+      wrapper.target = "_blank";
+      wrapper.rel = "noreferrer";
+    }
+  }
+
+  (part.text || "").split("\n").forEach((line, index) => {
+    if (index > 0) wrapper.append(document.createElement("br"));
+    wrapper.append(document.createTextNode(line));
+  });
+
+  (part.marks || []).forEach((mark) => {
+    if (mark === "b") wrapper.classList.add("is-bold");
+    if (mark === "i") wrapper.classList.add("is-italic");
+    if (mark === "s") wrapper.classList.add("is-struck");
+    if (mark === "c") wrapper.classList.add("is-code");
+    if (mark.startsWith("h:")) wrapper.classList.add("is-highlighted");
+  });
+
+  return wrapper;
+}
+
+function renderMediaBlock(block) {
+  const figure = document.createElement("figure");
+  figure.className = `notion-media ${block.type}`;
+
+  if (block.type === "video") {
+    const iframe = document.createElement("iframe");
+    iframe.src = block.src;
+    iframe.title = block.caption || "Embedded video";
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    figure.append(iframe);
+  } else {
+    const image = document.createElement("img");
+    image.src = block.src;
+    image.alt = block.caption || "Notion image";
+    image.loading = "lazy";
+    image.addEventListener("error", () => {
+      figure.classList.add("is-unavailable");
+    });
+    figure.append(image);
+  }
+
+  const caption = document.createElement("figcaption");
+  const source = document.createElement("a");
+  caption.textContent = block.caption || block.type;
+  if (block.originalSrc) {
+    source.href = block.originalSrc;
+    source.target = "_blank";
+    source.rel = "noreferrer";
+    source.textContent = " original";
+    caption.append(source);
+  }
+  figure.append(caption);
+  return figure;
+}
+
 function normalizeMarkdownTextLine(line) {
   const italicSentence = line.match(/^\*\s+(.+)\*$/);
   return italicSentence ? `*${italicSentence[1]}*` : line;
