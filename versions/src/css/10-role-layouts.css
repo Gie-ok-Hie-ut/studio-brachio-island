@@ -265,13 +265,8 @@ body.role-closing .role-detail * {
 
 .role-scroll-region {
   overflow: auto;
-  scrollbar-width: none;
-}
-
-.role-scroll-region::-webkit-scrollbar {
-  display: none;
-  height: 0;
-  width: 0;
+  scrollbar-color: var(--ink) transparent;
+  scrollbar-width: thin;
 }
 
 .role-detail-layout-identity {
