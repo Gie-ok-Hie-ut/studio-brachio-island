@@ -24,9 +24,9 @@
 - `.role-detail`, `.role-section-title`, `.role-profile-links`, `.role-section-body` 같은 role shell 기본값은 `10-role-layouts.css`에 둔다.
 - Role body의 스크롤 동작과 보이는 scrollbar는 `.role-scroll-region`에서만 관리한다. 개별 역할 CSS에서 같은 overflow를 다시 선언하거나 scrollbar를 숨기지 않는다.
 - `role-items`는 CV/Essay 같은 리스트형 항목에만 쓴다. Visual Art masonry gallery에는 붙이지 않는다.
-- `40-popup-shell.css`는 reader/PDF modal shell, toolbar, control chrome만 둔다.
-- `41-reader-content.css`는 reader markdown, Notion-style content, PDF fallback 표시만 둔다.
-- `42-gallery-popup.css`는 popup 안의 gallery media와 full-size original viewer만 둔다.
+- `40-popup-shell.css`는 `popup-*` 공통 modal shell, toolbar, action chrome, PDF frame/fallback만 둔다.
+- `41-reader-content.css`는 reader markdown, Notion-style content, reader scroll 표시만 둔다.
+- `42-gallery-popup.css`는 gallery popup window variant, gallery media/detail, full-size original viewer만 둔다.
 - `60-home-signal.css`는 home landing과 Today's Signal만 둔다.
 - `70-role-room.css`는 standalone room page(`body[data-role-room]`) 레이아웃과 room-only responsive 예외만 둔다.
 - JS는 `20-reader-state.js`에 reader/popup mutable state, `21-content-lookup.js`에 content/path/localized field lookup, `22-popup-url-and-share.js`에 popup hash/share, `23-localization-refresh.js`에 language switch refresh, `24-reader-scroll-and-history.js`에 reader scroll/back history만 둔다.

@@ -55,18 +55,6 @@
   width: 100%;
 }
 
-.reader-window.reader-window-gallery {
-  height: min(94vh, 1040px);
-  width: min(calc(100vw - 36px), 1360px);
-}
-
-.reader-window.reader-window-gallery .reader-content {
-  max-width: none;
-  min-height: 0;
-  overflow: auto;
-  padding: 0;
-}
-
 .reader-content .novel-project-media,
 .reader-content .novel-project-media * {
   touch-action: pan-y;
@@ -184,58 +172,6 @@
 }
 
 .notion-media.is-unavailable img { display: none; }
-
-.pdf-frame {
-  border: 1px solid var(--line);
-  display: block;
-  height: 100%;
-  margin-top: 14px;
-  min-height: 0;
-  width: 100%;
-}
-
-.pdf-frame[hidden] {
-  display: none;
-}
-
-.pdf-mobile-fallback {
-  align-items: center;
-  border: 1px solid var(--line);
-  display: grid;
-  gap: 20px;
-  justify-items: center;
-  margin-top: 14px;
-  min-height: 0;
-  padding: 28px;
-  text-align: center;
-}
-
-.pdf-mobile-fallback[hidden] {
-  display: none !important;
-}
-
-.pdf-mobile-fallback p {
-  color: var(--muted);
-  font-size: var(--text-base);
-  font-weight: 800;
-  line-height: 1.45;
-  margin: 0;
-  max-width: 420px;
-}
-
-.pdf-mobile-fallback a {
-  align-items: center;
-  background: var(--ink);
-  border: 0;
-  color: var(--paper);
-  display: inline-flex;
-  font-size: var(--text-xs);
-  font-weight: 900;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0 18px;
-  text-transform: uppercase;
-}
 
 @media (max-width: 900px) {
   .reader-content {
