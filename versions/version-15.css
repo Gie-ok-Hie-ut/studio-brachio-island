@@ -3423,11 +3423,19 @@ figcaption {
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 24px 18px 8px 0;
+  scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
   touch-action: pan-y;
   user-select: text;
   -webkit-user-select: text;
   word-break: keep-all;
+}
+
+.reader-content::-webkit-scrollbar {
+  display: none;
+  height: 0;
+  width: 0;
 }
 
 .reader-scroll-indicator {
