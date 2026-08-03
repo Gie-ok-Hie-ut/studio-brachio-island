@@ -1197,13 +1197,10 @@ body.is-v15-leaving .v15-role-menu {
   z-index: 14;
 }
 
-.role-detail-layout-novel .role-section-body-novel > .role-intro {
+.role-detail-layout-novel .role-section-body-novel > .role-overview {
   align-self: start;
   grid-column: 2;
   grid-row: 1;
-  margin: 0;
-  max-width: 760px;
-  padding: 0 168px 0 0;
   position: relative;
   z-index: 14;
 }
@@ -1323,9 +1320,11 @@ body.is-v15-leaving .v15-role-menu {
   word-break: keep-all;
 }
 
-.cv-scroll > .role-intro {
-  width: 100%;
-  max-width: 66.666%;
+.role-overview {
+  --role-overview-max-width: 980px;
+  --role-overview-width: 66.666%;
+  max-width: min(100%, var(--role-overview-max-width));
+  width: var(--role-overview-width);
 }
 
 .role-intro-stack {
@@ -1924,8 +1923,9 @@ body.is-v15-leaving .v15-role-menu {
     max-width: min(420px, 100%);
   }
 
-  .cv-scroll > .role-intro {
+  .role-overview {
     max-width: none;
+    width: 100%;
   }
 }
 
@@ -2433,7 +2433,7 @@ figcaption {
   grid-row: 1;
 }
 
-.role-detail-layout-novel .role-section-body-novel[data-novel-view-mode="grid"] > .role-intro {
+.role-detail-layout-novel .role-section-body-novel[data-novel-view-mode="grid"] > .role-overview {
   grid-column: 2;
   grid-row: 1;
 }
@@ -4739,10 +4739,9 @@ body[data-role-room="visual"] .role-section-body-gallery {
   overflow-y: auto;
 }
 
-body[data-role-room="visual"] .role-section-body-gallery > .role-intro {
+body[data-role-room="visual"] .role-section-body-gallery > .role-overview {
   display: grid;
   margin: 0;
-  max-width: min(760px, 100%);
   opacity: 1;
   position: relative;
   visibility: visible;
@@ -4901,19 +4900,19 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 
   body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-note,
   body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .section-note,
-  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-intro {
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-overview {
     align-self: stretch;
     grid-column: auto !important;
     grid-row: auto !important;
     margin: 0;
-    max-width: min(100%, 720px);
+    max-width: none;
     padding: 0 !important;
     position: relative;
     width: 100%;
     z-index: 2;
   }
 
-  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-intro {
+  body[data-role-room="novel"] .role-detail-layout-novel .role-section-body-novel > .role-overview {
     font-size: var(--role-intro-font-size);
     line-height: var(--role-intro-line-height);
   }

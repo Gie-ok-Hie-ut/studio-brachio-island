@@ -1,5 +1,7 @@
-function renderRoleMarkdownNote(markdown = "", body, context = {}) {
-  const intro = createRoleIntroNode(markdown, context);
+const ROLE_OVERVIEW_CLASS = "role-overview";
+
+function renderRoleMarkdownNote(markdown = "", body, context = {}, extraClasses = []) {
+  const intro = createRoleIntroNode(markdown, context, extraClasses);
   if (!intro) return;
   body.append(intro);
 }
