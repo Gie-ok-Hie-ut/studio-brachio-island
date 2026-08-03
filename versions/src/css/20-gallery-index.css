@@ -41,16 +41,6 @@ figcaption {
   text-transform: uppercase;
 }
 
-.role-gallery-items {
-  border-top: 0;
-  column-count: 4;
-  column-gap: 16px;
-  display: block;
-  max-height: none;
-  overflow: visible;
-  padding-right: 0;
-}
-
 .role-detail .role-gallery-items button,
 .role-gallery-items button {
   background: transparent;
@@ -81,15 +71,6 @@ figcaption {
   height: auto;
   object-fit: contain;
   width: 100%;
-}
-
-.role-detail .role-gallery-items button:hover,
-.role-detail .role-gallery-items button:focus-visible,
-.role-gallery-items button:hover,
-.role-gallery-items button:focus-visible {
-  background: transparent;
-  color: var(--ink);
-  opacity: 0.72;
 }
 
 .role-detail .role-gallery-items button:hover,

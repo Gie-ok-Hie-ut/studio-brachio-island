@@ -1,4 +1,5 @@
 const ROLE_OVERVIEW_CLASS = "role-overview";
+const ROLE_OVERVIEW_STACK_CLASS = "role-overview-stack";
 
 function renderRoleMarkdownNote(markdown = "", body, context = {}, extraClasses = []) {
   const intro = createRoleIntroNode(markdown, context, extraClasses);
@@ -28,6 +29,23 @@ function createRoleIntroNode(markdown = "", context = {}, extraClasses = []) {
     appendMarkdownText(intro, introParagraphs[0], context);
   }
   return intro;
+}
+
+function createRoleOverviewNode(markdown = "", context = {}) {
+  const intro = createRoleIntroNode(markdown, context, [ROLE_OVERVIEW_CLASS]);
+  if (!intro) return null;
+
+  const stack = document.createElement("div");
+  stack.className = ROLE_OVERVIEW_STACK_CLASS;
+  stack.append(intro);
+  return stack;
+}
+
+function appendRoleOverview(markdown = "", target, context = {}) {
+  const overview = createRoleOverviewNode(markdown, context);
+  if (!overview) return null;
+  target.append(overview);
+  return overview;
 }
 
 function parseRecordSections(markdown = "") {
