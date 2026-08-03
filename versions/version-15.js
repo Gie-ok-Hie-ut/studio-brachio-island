@@ -1583,15 +1583,11 @@ function createGalleryProjectButton(item) {
   const projectTitle = getLocalizedTitle(item);
   const projectYear = String(item.meta?.year || "");
   const mainAsset = assets[0] || "";
-  const displayFrame = item.meta?.displayFrame || "";
-  const displayPosition = item.meta?.displayPosition || "";
 
   group.className = "gallery-project-card";
   group.id = getContentAnchorId(item);
   group.dataset.contentId = item.id;
   group.dataset.galleryLayout = item.meta?.layout || "default";
-  if (displayFrame) group.dataset.galleryFrame = displayFrame;
-  if (displayPosition) group.style.setProperty("--gallery-frame-position", displayPosition);
   group.dataset.assetCount = String(assets.length);
   group.setAttribute("aria-label", projectTitle);
 
@@ -1641,11 +1637,7 @@ function getGalleryMasonryColumnCount() {
 
 function getGalleryProjectMasonryWeight(item) {
   const layout = item.meta?.layout || "default";
-  const displayFrame = item.meta?.displayFrame || "";
   const assets = getGalleryProjectAssets(item);
-  const displayFrameWeights = {
-    "standard-4x3": 0.78,
-  };
   const layoutWeights = {
     landscape: 0.78,
     mixed: 1.05,
@@ -1655,7 +1647,7 @@ function getGalleryProjectMasonryWeight(item) {
     single: 1.12,
     square: 1.0,
   };
-  return (displayFrameWeights[displayFrame] || layoutWeights[layout] || 1.0) + (assets.length > 1 ? 0.24 : 0);
+  return (layoutWeights[layout] || 1.0) + (assets.length > 1 ? 0.24 : 0);
 }
 
 function renderGalleryProjectMasonry(target, items) {
