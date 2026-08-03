@@ -259,9 +259,19 @@ body.role-closing .role-detail * {
   display: grid;
   height: 100%;
   min-width: 0;
-  overflow: auto;
   padding-right: 8px;
   row-gap: var(--role-overview-flow-gap);
+}
+
+.role-scroll-region {
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.role-scroll-region::-webkit-scrollbar {
+  display: none;
+  height: 0;
+  width: 0;
 }
 
 .role-detail-layout-identity {

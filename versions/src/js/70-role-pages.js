@@ -189,7 +189,7 @@ function renderGalleryRole(item, body) {
 
   const target = document.createElement("div");
   target.id = "role-visual-items";
-  target.className = "role-items role-gallery-items";
+  target.className = "role-gallery-items";
   children.push(target);
   body.replaceChildren(...children);
 }
@@ -252,6 +252,10 @@ function renderRoleBody(item, body) {
   renderer(item, body);
 }
 
+function getRoleBodyClass(layout) {
+  return `role-section-body role-scroll-region role-section-body-${layout || "note"}`;
+}
+
 function closeRolePanels() {
   window.clearTimeout(roleReadyTimer);
   rolePanels.forEach((panel) => panel.classList.remove("is-hovered", "is-detail-ready"));
@@ -281,7 +285,7 @@ function renderRoleRoom() {
   title.append(createRoleHeading(detailText, handle, "h2"));
   renderProfileLinks(item, title, detailText);
 
-  body.className = `role-section-body role-section-body-${item.meta?.layout || "note"}`;
+  body.className = getRoleBodyClass(item.meta?.layout);
   body.dataset.roleBody = activeRoleRoom;
   renderRoleBody(item, body);
 
@@ -337,7 +341,7 @@ function renderRoleShells() {
     title.append(createRoleHeading(detailText, handle, "h2"));
     renderProfileLinks(item, title, detailText);
 
-    body.className = `role-section-body role-section-body-${item.meta?.layout || "note"}`;
+    body.className = getRoleBodyClass(item.meta?.layout);
     body.dataset.roleBody = panel.dataset.rolePanel;
     renderRoleBody(item, body);
 

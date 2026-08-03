@@ -1218,9 +1218,19 @@ body.role-closing .role-detail * {
   display: grid;
   height: 100%;
   min-width: 0;
-  overflow: auto;
   padding-right: 8px;
   row-gap: var(--role-overview-flow-gap);
+}
+
+.role-scroll-region {
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.role-scroll-region::-webkit-scrollbar {
+  display: none;
+  height: 0;
+  width: 0;
 }
 
 .role-detail-layout-identity {
@@ -2040,6 +2050,9 @@ figcaption {
   gap: clamp(16px, 1.8vw, 30px);
   grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-items: stretch;
+  max-height: none;
+  overflow: visible;
+  padding-right: 0;
   padding-top: 0;
 }
 
@@ -4684,7 +4697,6 @@ body[data-role-room] .role-section-title h2 .role-heading-handle-multiline .role
 }
 
 body[data-role-room] .role-section-body {
-  overflow-y: auto;
   padding: 0 clamp(18px, 2vw, 34px) 0 0;
 }
 
@@ -4693,7 +4705,6 @@ body[data-role-room="visual"] .role-section-body-gallery {
   display: grid;
   gap: var(--role-overview-flow-gap);
   grid-template-columns: minmax(0, 1fr);
-  overflow-y: auto;
 }
 
 body[data-role-room="visual"] .role-section-body-gallery > .role-overview-stack {
