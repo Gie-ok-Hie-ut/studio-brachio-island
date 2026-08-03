@@ -21,15 +21,19 @@
 - `00-foundation.css`는 토큰, 폰트, 전역 base, legacy role panel shell만 둔다.
 - `05-site-chrome.css`는 v15 메뉴, 언어 스위처, page transition chrome만 둔다.
 - `10-role-layouts.css`는 공통 role detail, intro, CV/engineering list 구조를 둔다.
+- `.role-detail`, `.role-section-title`, `.role-profile-links`, `.role-section-body` 같은 role shell 기본값은 `10-role-layouts.css`에 둔다.
 - `40-popup-shell.css`는 reader/PDF modal shell, toolbar, control chrome만 둔다.
 - `41-reader-content.css`는 reader markdown, Notion-style content, PDF fallback 표시만 둔다.
 - `42-gallery-popup.css`는 popup 안의 gallery media와 full-size original viewer만 둔다.
 - `60-home-signal.css`는 home landing과 Today's Signal만 둔다.
 - `70-role-room.css`는 standalone room page(`body[data-role-room]`) 레이아웃과 room-only responsive 예외만 둔다.
 - JS는 `20-reader-state.js`에 reader/popup mutable state, `21-content-lookup.js`에 content/path/localized field lookup, `22-popup-url-and-share.js`에 popup hash/share, `23-localization-refresh.js`에 language switch refresh, `24-reader-scroll-and-history.js`에 reader scroll/back history만 둔다.
+- JS는 `50-role-common.js`에 role 공통 helper만 둔다. Gallery, Novel, Essay, CV 어디서나 쓰는 role heading, meta text, profile icon, role item button 생성은 여기서 관리한다.
+- JS는 `30-novel.js`에 Novel 카드/오빗/그리드 동작만 두고, `40-gallery.js`에는 Gallery asset/project/rendering만 둔다.
 - JS는 `70-role-pages.js`에 role shell/render/bind, `80-reader-modal.js`에 modal open/close와 PDF viewer, `90-markdown-reader.js`에 markdown/reader content rendering, `99-bootstrap.js`에 전역 이벤트 바인딩과 초기화만 둔다.
 - `50-responsive.css`, `90-page-overrides.css`처럼 책임이 넓은 override 파일을 다시 만들지 않는다. 반응형 예외도 해당 기능 partial의 부모 selector 아래에 둔다.
 - 분리된 selector도 공통 토큰(`--role-intro-font-size`, `--site-frame-width` 등)을 우선 사용한다.
+- Reader 스크롤은 실제 스크롤 컨테이너 `.reader-content`와 표시 UI `.reader-scroll-indicator` 하나로 유지한다. Native scrollbar를 다시 노출하지 않는다.
 
 ## 반응형
 
