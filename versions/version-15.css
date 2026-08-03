@@ -2133,29 +2133,6 @@ figcaption {
   width: 100%;
 }
 
-.gallery-project-card[data-gallery-frame="standard-4x3"] .gallery-project-main {
-  --gallery-frame-padding-y: clamp(8px, 1.1vw, 16px);
-  aspect-ratio: 4 / 3;
-  background: #fff;
-  box-sizing: border-box;
-  display: block;
-  padding: 0;
-  position: relative;
-}
-
-.gallery-project-card[data-gallery-frame="standard-4x3"] .gallery-project-main img,
-.gallery-project-card[data-gallery-frame="standard-4x3"] .gallery-project-main video {
-  background: #fff;
-  display: block;
-  height: calc(100% - (var(--gallery-frame-padding-y) * 2));
-  inset: var(--gallery-frame-padding-y) 0;
-  max-width: none;
-  object-fit: cover;
-  object-position: var(--gallery-frame-position, center);
-  position: absolute;
-  width: 100%;
-}
-
 .gallery-project-main:hover,
 .gallery-project-main:focus-visible,
 .gallery-project-preview:hover,
@@ -2233,15 +2210,6 @@ figcaption {
   height: auto;
   object-fit: contain;
   width: 100%;
-}
-
-.role-detail .role-gallery-items .gallery-project-card[data-gallery-frame="standard-4x3"] .gallery-project-main img,
-.role-detail .role-gallery-items .gallery-project-card[data-gallery-frame="standard-4x3"] .gallery-project-main video,
-.role-gallery-items .gallery-project-card[data-gallery-frame="standard-4x3"] .gallery-project-main img,
-.role-gallery-items .gallery-project-card[data-gallery-frame="standard-4x3"] .gallery-project-main video {
-  height: calc(100% - (var(--gallery-frame-padding-y) * 2));
-  object-fit: cover;
-  object-position: var(--gallery-frame-position, center);
 }
 
 @media (max-width: 900px) {
