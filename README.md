@@ -34,8 +34,9 @@ npm run check
 ```
 
 This verifies that `content-index.js` matches the markdown source, referenced
-content assets exist, active HTML pages match the shared page template, and the
-active JavaScript files parse correctly.
+content assets exist, active HTML pages match the shared page template, active
+asset partials are listed in the bundle, and the active JavaScript files parse
+correctly.
 
 ## GitHub Pages
 

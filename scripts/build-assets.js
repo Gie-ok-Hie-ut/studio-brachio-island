@@ -15,7 +15,6 @@ const bundles = [
       "versions/src/css/40-popup-shell.css",
       "versions/src/css/41-reader-content.css",
       "versions/src/css/42-gallery-popup.css",
-      "versions/src/css/50-responsive.css",
       "versions/src/css/60-home-signal.css",
       "versions/src/css/70-role-room.css",
     ],
@@ -41,8 +40,6 @@ const bundles = [
     ],
   },
 ];
-
-const checkOnly = process.argv.includes("--check");
 
 function stripCssCommentsAndStrings(source) {
   return source
@@ -80,25 +77,37 @@ function buildBundle(bundle) {
   return bundle.sources.map(readSource).join("\n");
 }
 
-let hasMismatch = false;
+function run() {
+  const checkOnly = process.argv.includes("--check");
+  let hasMismatch = false;
 
-for (const bundle of bundles) {
-  const outputPath = path.join(rootDir, bundle.output);
-  const nextContent = buildBundle(bundle);
+  for (const bundle of bundles) {
+    const outputPath = path.join(rootDir, bundle.output);
+    const nextContent = buildBundle(bundle);
 
-  if (checkOnly) {
-    const currentContent = fs.readFileSync(outputPath, "utf8");
-    if (currentContent !== nextContent) {
-      hasMismatch = true;
-      console.error(`${bundle.output} is not built from source partials.`);
+    if (checkOnly) {
+      const currentContent = fs.readFileSync(outputPath, "utf8");
+      if (currentContent !== nextContent) {
+        hasMismatch = true;
+        console.error(`${bundle.output} is not built from source partials.`);
+      }
+      continue;
     }
-    continue;
+
+    fs.writeFileSync(outputPath, nextContent);
+    console.log(`Built ${bundle.output}`);
   }
 
-  fs.writeFileSync(outputPath, nextContent);
-  console.log(`Built ${bundle.output}`);
+  if (hasMismatch) {
+    process.exit(1);
+  }
 }
 
-if (hasMismatch) {
-  process.exit(1);
+if (require.main === module) {
+  run();
 }
+
+module.exports = {
+  bundles,
+  assertBalancedCssBraces,
+};

@@ -26,7 +26,7 @@
 - `70-role-room.css`는 standalone room page(`body[data-role-room]`) 레이아웃과 room-only responsive 예외만 둔다.
 - JS는 `20-reader-state.js`에 reader/popup mutable state, `21-content-lookup.js`에 content/path/localized field lookup, `22-popup-url-and-share.js`에 popup hash/share, `23-localization-refresh.js`에 language switch refresh, `24-reader-scroll-and-history.js`에 reader scroll/back history만 둔다.
 - JS는 `70-role-pages.js`에 role shell/render/bind, `80-reader-modal.js`에 modal open/close와 PDF viewer, `90-markdown-reader.js`에 markdown/reader content rendering, `99-bootstrap.js`에 전역 이벤트 바인딩과 초기화만 둔다.
-- `90-page-overrides.css`처럼 책임이 넓은 override 파일을 다시 만들지 않는다. 예외는 해당 기능 partial의 부모 selector 아래에 둔다.
+- `50-responsive.css`, `90-page-overrides.css`처럼 책임이 넓은 override 파일을 다시 만들지 않는다. 반응형 예외도 해당 기능 partial의 부모 selector 아래에 둔다.
 - 분리된 selector도 공통 토큰(`--role-intro-font-size`, `--site-frame-width` 등)을 우선 사용한다.
 
 ## 반응형
@@ -38,5 +38,5 @@
 ## 검증
 
 - 수정 후 `npm run build:pages`로 CSS/JS와 HTML을 다시 생성한다.
-- `node --check versions/version-15.js`, `node scripts/check-js-source.js`, `npm run check`, `git diff --check`를 통과시킨다.
+- `node --check versions/version-15.js`, `node scripts/check-js-source.js`, `node scripts/check-asset-structure.js`, `npm run check`, `git diff --check`를 통과시킨다.
 - 확인 페이지는 Home, Who We Are, AI Research, Novel, Visual Art, Essay를 모두 본다.
