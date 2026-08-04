@@ -45,6 +45,13 @@ function assertNoDuplicateSources(sources, output) {
   });
 }
 
+function assertNoPattern(relativePath, pattern, message) {
+  const source = fs.readFileSync(path.join(rootDir, relativePath), "utf8");
+  if (pattern.test(source)) {
+    fail(`${relativePath}: ${message}`);
+  }
+}
+
 function assertSourceSetMatchesDirectory(extension, listedSources) {
   const actualSources = listSourceFiles(sourceRoots[extension], extension);
   const listedSet = new Set(listedSources);
@@ -89,6 +96,31 @@ listSourceFiles(sourceRoots[".css"], ".css").forEach((source) => {
   const absolutePath = path.join(rootDir, source);
   assertBalancedCssBraces(toRelative(absolutePath), fs.readFileSync(absolutePath, "utf8"));
 });
+
+const cssSourceFiles = listSourceFiles(sourceRoots[".css"], ".css");
+cssSourceFiles.forEach((source) => {
+  assertNoPattern(
+    source,
+    /\.role-detail-layout-[\w-]+[^{]*\.role-section-title h2[^{]*{[^}]*\b(?:font|font-size|line-height)\s*:/gs,
+    "role heading typography must stay in the shared role-section-title rules."
+  );
+  assertNoPattern(
+    source,
+    /\.(?:engineer-scroll|cv-scroll|role-items|identity-detail)\b[^{]*{[^}]*\boverflow(?:-[xy])?\s*:/gs,
+    "role list/body scroll must stay on .role-scroll-region unless a new documented exception is added."
+  );
+  assertNoPattern(
+    source,
+    /\.reader-content\s+\.gallery-|\.popup-window-gallery\s+\.reader-content|\.popup-window-gallery\s+\.reader-setting-control/g,
+    "gallery popup styles must target gallery popup classes instead of reader content/control classes."
+  );
+});
+
+assertNoPattern(
+  "versions/src/js/23-localization-refresh.js",
+  /reader-window-gallery/g,
+  "gallery popup variant must use the shared popup-window-gallery class."
+);
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(rootDir, "package.json"), "utf8"));
 const checkJs = packageJson.scripts?.["check:js"] || "";

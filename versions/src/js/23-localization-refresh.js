@@ -65,8 +65,9 @@ function refreshLocalizedContent(options = {}) {
 
 function setReaderVariant(variant = "") {
   if (!readerWindow) return;
-  readerWindow.classList.toggle("reader-window-gallery", variant === "gallery");
-  readerWindow.classList.toggle("popup-window-gallery", variant === "gallery");
+  const isGallery = variant === "gallery";
+  readerWindow.classList.toggle("popup-window-gallery", isGallery);
+  readerContent?.classList.toggle("popup-content-gallery", isGallery);
   readerWindow.dataset.popupVariant = variant || "reader";
 }
 
