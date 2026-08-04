@@ -44,13 +44,10 @@ function applyReaderSettings(options = {}) {
   readerWindow.dataset.lang = readerLanguage;
   readerWindow.dataset.size = readerSettings.size;
   readerWindow.dataset.spacing = readerSettings.spacing;
-  readerSettings.theme = "light";
-  readerWindow.dataset.theme = "light";
 
   if (readerLang) readerLang.value = readerLanguage;
   if (readerSize) readerSize.value = readerSettings.size;
   if (readerSpacing) readerSpacing.value = readerSettings.spacing;
-  if (readerTheme) readerTheme.value = readerSettings.theme;
 
   if (options.persist !== false) saveReaderSettings();
   scheduleReaderScrollIndicatorUpdate();

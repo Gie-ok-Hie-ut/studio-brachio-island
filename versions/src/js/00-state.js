@@ -12,7 +12,6 @@ const pdfFrame = document.querySelector("#pdf-frame");
 const readerLang = document.querySelector("#reader-lang");
 const readerSize = document.querySelector("#reader-size");
 const readerSpacing = document.querySelector("#reader-spacing");
-const readerTheme = document.querySelector("#reader-theme");
 const readerBackControl = document.querySelector("[data-reader-back]");
 const closeReaderControls = document.querySelectorAll("[data-close-reader]");
 const closePdfControls = document.querySelectorAll("[data-close-pdf]");
@@ -40,26 +39,6 @@ const roleRoomPaths = {
   visual: `${roleRoomRoot}visual-art.html`,
   aesthetics: `${roleRoomRoot}essay.html`,
 };
-const galleryAssetFiles = [
-  "IMG_9630.jpg",
-  "2-8.jpg",
-  "2-0.PNG",
-  "2-1.PNG",
-  "2-3.PNG",
-  "2-2.PNG",
-  "4-0.PNG",
-  "2-6.jpg",
-  "2-7.jpg",
-  "2-5.jpg",
-  "2-4.jpg",
-  "6-0.JPG",
-  "1-1.jpg",
-  "1-0.PNG",
-  "3-0.JPG",
-  "7-0.PNG",
-  "5-0.PNG",
-  "IMG_5730.MOV",
-];
 const languageControls = document.querySelectorAll("[data-language]");
 const writings = window.WRITING_DATA?.items || [];
 const contentItems = window.CONTENT_INDEX?.items || [];

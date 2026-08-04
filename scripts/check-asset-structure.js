@@ -114,6 +114,30 @@ cssSourceFiles.forEach((source) => {
     /\.reader-content\s+\.gallery-|\.popup-window-gallery\s+\.reader-content|\.popup-window-gallery\s+\.reader-setting-control/g,
     "gallery popup styles must target gallery popup classes instead of reader content/control classes."
   );
+  assertNoPattern(
+    source,
+    /\.(?:list|writing-list|writing-title|source-options)\b/g,
+    "legacy writing/list selectors have been retired. Use role-items or a focused component class."
+  );
+  assertNoPattern(
+    source,
+    /\.gallery-asset(?:-|\b)/g,
+    "legacy gallery asset selectors have been retired. Use gallery-project popup classes."
+  );
+});
+
+const jsSourceFiles = listSourceFiles(sourceRoots[".js"], ".js");
+jsSourceFiles.forEach((source) => {
+  assertNoPattern(
+    source,
+    /\b(?:galleryAssetFiles|openGalleryAsset|createGalleryAssetButton|createGalleryMarkdownButton)\b/g,
+    "legacy gallery asset helpers have been retired. Use gallery project helpers."
+  );
+  assertNoPattern(
+    source,
+    /\breaderTheme\b|#reader-theme|readerSettings\.theme|dataset\.theme/g,
+    "reader theme controls have been retired. Reader settings are limited to lang, size, and spacing."
+  );
 });
 
 assertNoPattern(

@@ -51,7 +51,6 @@ function initializeStudioPage() {
   bindReaderSetting(readerLang, "lang");
   bindReaderSetting(readerSize, "size");
   bindReaderSetting(readerSpacing, "spacing");
-  bindReaderSetting(readerTheme, "theme");
   bindModalTouchScrollGuard(readerModal, readerContent);
   bindReaderManualTouchScroll(readerContent);
   languageControls.forEach((control) => {
