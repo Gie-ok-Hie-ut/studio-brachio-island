@@ -25,6 +25,7 @@
 - Role body의 스크롤 동작과 보이는 scrollbar는 `.role-scroll-region`에서만 관리한다. 개별 역할 CSS에서 같은 overflow를 다시 선언하거나 scrollbar를 숨기지 않는다.
 - `role-items`는 CV/Essay 같은 리스트형 항목에만 쓴다. Visual Art masonry gallery에는 붙이지 않는다.
 - `40-popup-shell.css`는 `popup-*` 공통 modal shell, toolbar, action chrome, PDF frame/fallback만 둔다.
+- 팝업 DOM/CSS class는 `popup-*` shell과 `popup-window-reader/pdf/gallery` variant만 사용한다. `reader-window`, `pdf-toolbar` 같은 이전 alias class를 다시 만들지 않는다.
 - `41-reader-content.css`는 reader markdown, Notion-style content, reader scroll 표시만 둔다.
 - `42-gallery-popup.css`는 gallery popup window variant, gallery media/detail, full-size original viewer만 둔다.
 - `60-home-signal.css`는 home landing과 Today's Signal만 둔다.
@@ -35,7 +36,7 @@
 - JS는 `70-role-pages.js`에 role shell/render/bind, `80-reader-modal.js`에 modal open/close와 PDF viewer, `90-markdown-reader.js`에 markdown/reader content rendering, `99-bootstrap.js`에 전역 이벤트 바인딩과 초기화만 둔다.
 - `50-responsive.css`, `90-page-overrides.css`처럼 책임이 넓은 override 파일을 다시 만들지 않는다. 반응형 예외도 해당 기능 partial의 부모 selector 아래에 둔다.
 - 분리된 selector도 공통 토큰(`--role-intro-font-size`, `--site-frame-width` 등)을 우선 사용한다.
-- Reader 스크롤은 실제 스크롤 컨테이너 `.reader-content`와 표시 UI `.reader-scroll-indicator` 하나로 유지한다. Native scrollbar를 다시 노출하지 않는다.
+- Reader 스크롤은 실제 스크롤 컨테이너 `.popup-content-reader`와 표시 UI `.reader-scroll-indicator` 하나로 유지한다. Native scrollbar를 다시 노출하지 않는다.
 
 ## 반응형
 

@@ -127,23 +127,23 @@ ${analyticsScript().trimEnd()}
 }
 
 function readerModal(defaultBody = "") {
-  return `    <div id="reader-modal" class="popup-modal reader-modal" aria-hidden="true">
-      <div class="popup-backdrop reader-backdrop" data-close-reader></div>
-      <section class="popup-window popup-window-reader reader-window" role="dialog" aria-modal="true" aria-labelledby="reader-title">
-        <div class="popup-toolbar reader-toolbar">
+  return `    <div id="reader-modal" class="popup-modal popup-modal-reader" aria-hidden="true">
+      <div class="popup-backdrop" data-close-reader></div>
+      <section class="popup-window popup-window-reader" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+        <div class="popup-toolbar">
           <div class="popup-title-block">
-            <p class="popup-kicker reader-kicker">Read</p>
+            <p class="popup-kicker">Read</p>
             <h2 id="reader-title" class="popup-title">Select a text</h2>
           </div>
-          <div class="popup-actions reader-actions">
-            <label class="popup-setting-control reader-setting-control">
+          <div class="popup-actions">
+            <label class="popup-setting-control">
               lang
               <select id="reader-lang" aria-label="Language">
                 <option value="en" selected>en</option>
                 <option value="ko">ko</option>
               </select>
             </label>
-            <label class="popup-setting-control reader-setting-control">
+            <label class="popup-setting-control">
               size
               <select id="reader-size" aria-label="Text size">
                 <option value="small">small</option>
@@ -151,7 +151,7 @@ function readerModal(defaultBody = "") {
                 <option value="large">large</option>
               </select>
             </label>
-            <label class="popup-setting-control reader-setting-control">
+            <label class="popup-setting-control">
               spacing
               <select id="reader-spacing" aria-label="Line spacing">
                 <option value="tight">tight</option>
@@ -169,7 +169,7 @@ function readerModal(defaultBody = "") {
             <button class="modal-close" type="button" data-close-reader aria-label="Close reader">×</button>
           </div>
         </div>
-        <article id="reader-content" class="popup-content popup-content-reader reader-content">${defaultBody}</article>
+        <article id="reader-content" class="popup-content popup-content-reader">${defaultBody}</article>
         <div class="reader-scroll-indicator" data-reader-scroll-indicator aria-hidden="true">
           <span data-reader-scroll-thumb></span>
         </div>
@@ -178,15 +178,15 @@ function readerModal(defaultBody = "") {
 }
 
 function pdfModal() {
-  return `    <div id="pdf-modal" class="popup-modal pdf-modal" aria-hidden="true">
-      <div class="popup-backdrop pdf-backdrop" data-close-pdf></div>
-      <section class="popup-window popup-window-pdf pdf-window" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
-        <div class="popup-toolbar pdf-toolbar">
+  return `    <div id="pdf-modal" class="popup-modal popup-modal-pdf" aria-hidden="true">
+      <div class="popup-backdrop" data-close-pdf></div>
+      <section class="popup-window popup-window-pdf" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
+        <div class="popup-toolbar">
           <div class="popup-title-block">
-            <p class="popup-kicker reader-kicker">PDF</p>
+            <p class="popup-kicker">PDF</p>
             <h2 id="pdf-title" class="popup-title">Select a PDF</h2>
           </div>
-          <div class="popup-actions reader-actions">
+          <div class="popup-actions">
             <a id="pdf-source" class="modal-source" href="#" hidden></a>
             <button class="modal-share" type="button" data-share-popup aria-label="Share this popup">
               <span class="modal-share-label">SHARE</span>

@@ -51,15 +51,17 @@ body[data-role-room] [data-role-room-target] {
 
 body[data-role-room] .role-room-detail {
   animation: v15RoleRoomIn 420ms var(--motion-ease) both;
+  align-content: start;
   background: transparent;
   box-shadow: none;
   gap: var(--role-frame-gap);
   grid-template-columns: var(--role-rail-width) minmax(0, 1fr);
-  height: var(--role-room-page-height);
+  height: auto;
   left: auto;
   margin: 0 auto;
   min-height: var(--role-room-page-height);
   opacity: 1;
+  overflow: visible;
   padding: clamp(86px, 8vh, 126px) 0 clamp(42px, 5vh, 72px);
   pointer-events: auto;
   position: relative;
@@ -152,7 +154,13 @@ body[data-role-room] .role-section-title h2 .role-heading-handle-multiline .role
 }
 
 body[data-role-room] .role-section-body {
+  height: auto;
+  overflow: visible;
   padding: 0 clamp(18px, 2vw, 34px) 0 0;
+}
+
+body[data-role-room] .role-scroll-region {
+  overflow: visible;
 }
 
 body[data-role-room="visual"] .role-section-body-gallery {
@@ -189,6 +197,8 @@ body[data-role-room] .role-detail-layout-novel {
 
 body[data-role-room] .role-detail-layout-novel .role-section-body-novel {
   grid-template-columns: var(--role-rail-width) minmax(0, 1fr);
+  height: auto;
+  overflow: visible;
 }
 
 body[data-role-room] .role-detail-layout-novel .role-novel-stage.novel-deck {
@@ -202,9 +212,10 @@ body[data-role-room] .role-detail-layout-novel .role-section-body-novel[data-nov
 body[data-role-room] .role-detail-layout-novel .role-novel-grid-stage {
   grid-column: 2;
   grid-row: 3;
-  height: 100%;
+  height: auto;
   margin-top: 0;
-  max-height: 100%;
+  max-height: none;
+  overflow: visible;
 }
 
 

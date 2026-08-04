@@ -253,8 +253,7 @@ main { padding-bottom: 42px; }
 .hero p,
 h2,
 figcaption,
-.section-note,
-.reader-kicker {
+.section-note {
   color: var(--muted);
 }
 
