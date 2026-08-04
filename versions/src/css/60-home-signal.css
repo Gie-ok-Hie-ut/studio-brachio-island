@@ -160,6 +160,19 @@ body.v15-home {
     "copy meta";
 }
 
+.todays-signal-card-image {
+  grid-template-columns: auto max-content;
+  grid-template-areas:
+    "heading heading"
+    "media meta";
+  max-width: var(--site-frame-width);
+  width: fit-content;
+}
+
+.todays-signal-card-image > .todays-signal-meta-desktop {
+  max-width: min(22vw, 260px);
+}
+
 .todays-signal-heading {
   align-items: center;
   border-bottom: 1px solid var(--line);
@@ -442,6 +455,8 @@ body.v15-home {
     flex-direction: column;
     gap: clamp(12px, 2.6vh, 18px);
     grid-template-areas: none;
+    max-width: none;
+    width: 100%;
   }
 
   .todays-signal-heading {

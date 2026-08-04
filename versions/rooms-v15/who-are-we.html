@@ -21,7 +21,7 @@
     <meta name="twitter:description" content="Studio Brachio Island gathers AI research, fiction, visual art, essays, and identity into one studio archive.">
     <meta name="twitter:image" content="https://gie-ok-hie-ut.github.io/studio-brachio-island/assets/share-thumbnail.png">
     <meta name="description" content="Studio Brachio Island gathers AI research, fiction, visual art, essays, and identity into one studio archive.">
-    <link rel="stylesheet" href="../version-15.css?v=01fc95c473">
+    <link rel="stylesheet" href="../version-15.css?v=747597fe5e">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="30aee87f-ef6c-4dab-afc4-410fb3c9ae21"></script>
   </head>
   <body data-role-room="identity">
@@ -61,23 +61,23 @@
     <footer class="site-footer" aria-label="Copyright">
       <p>&copy; 2026 Studio Brachio Island. All rights reserved.</p>
     </footer>
-    <div id="reader-modal" class="popup-modal reader-modal" aria-hidden="true">
-      <div class="popup-backdrop reader-backdrop" data-close-reader></div>
-      <section class="popup-window popup-window-reader reader-window" role="dialog" aria-modal="true" aria-labelledby="reader-title">
-        <div class="popup-toolbar reader-toolbar">
+    <div id="reader-modal" class="popup-modal popup-modal-reader" aria-hidden="true">
+      <div class="popup-backdrop" data-close-reader></div>
+      <section class="popup-window popup-window-reader" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+        <div class="popup-toolbar">
           <div class="popup-title-block">
-            <p class="popup-kicker reader-kicker">Read</p>
+            <p class="popup-kicker">Read</p>
             <h2 id="reader-title" class="popup-title">Select a text</h2>
           </div>
-          <div class="popup-actions reader-actions">
-            <label class="popup-setting-control reader-setting-control">
+          <div class="popup-actions">
+            <label class="popup-setting-control">
               lang
               <select id="reader-lang" aria-label="Language">
                 <option value="en" selected>en</option>
                 <option value="ko">ko</option>
               </select>
             </label>
-            <label class="popup-setting-control reader-setting-control">
+            <label class="popup-setting-control">
               size
               <select id="reader-size" aria-label="Text size">
                 <option value="small">small</option>
@@ -85,7 +85,7 @@
                 <option value="large">large</option>
               </select>
             </label>
-            <label class="popup-setting-control reader-setting-control">
+            <label class="popup-setting-control">
               spacing
               <select id="reader-spacing" aria-label="Line spacing">
                 <option value="tight">tight</option>
@@ -103,21 +103,21 @@
             <button class="modal-close" type="button" data-close-reader aria-label="Close reader">×</button>
           </div>
         </div>
-        <article id="reader-content" class="popup-content popup-content-reader reader-content"></article>
+        <article id="reader-content" class="popup-content popup-content-reader"></article>
         <div class="reader-scroll-indicator" data-reader-scroll-indicator aria-hidden="true">
           <span data-reader-scroll-thumb></span>
         </div>
       </section>
     </div>
-    <div id="pdf-modal" class="popup-modal pdf-modal" aria-hidden="true">
-      <div class="popup-backdrop pdf-backdrop" data-close-pdf></div>
-      <section class="popup-window popup-window-pdf pdf-window" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
-        <div class="popup-toolbar pdf-toolbar">
+    <div id="pdf-modal" class="popup-modal popup-modal-pdf" aria-hidden="true">
+      <div class="popup-backdrop" data-close-pdf></div>
+      <section class="popup-window popup-window-pdf" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
+        <div class="popup-toolbar">
           <div class="popup-title-block">
-            <p class="popup-kicker reader-kicker">PDF</p>
+            <p class="popup-kicker">PDF</p>
             <h2 id="pdf-title" class="popup-title">Select a PDF</h2>
           </div>
-          <div class="popup-actions reader-actions">
+          <div class="popup-actions">
             <a id="pdf-source" class="modal-source" href="#" hidden></a>
             <button class="modal-share" type="button" data-share-popup aria-label="Share this popup">
               <span class="modal-share-label">SHARE</span>
@@ -132,6 +132,6 @@
     </div>
     <script src="../writing-data.js"></script>
     <script src="../../content-index.js?v=9de1d8235d"></script>
-    <script src="../version-15.js?v=b561f8287d"></script>
+    <script src="../version-15.js?v=3bdf797593"></script>
   </body>
 </html>

@@ -116,6 +116,11 @@ cssSourceFiles.forEach((source) => {
   );
   assertNoPattern(
     source,
+    /\.(?:reader|pdf)-(?:modal|backdrop|window|toolbar|actions)\b|\.reader-content\b|\.reader-setting-control\b|\.reader-kicker\b/g,
+    "legacy popup alias classes have been retired. Use popup-* shell and variant classes."
+  );
+  assertNoPattern(
+    source,
     /\.(?:list|writing-list|writing-title|source-options)\b/g,
     "legacy writing/list selectors have been retired. Use role-items or a focused component class."
   );
@@ -144,6 +149,12 @@ assertNoPattern(
   "versions/src/js/23-localization-refresh.js",
   /reader-window-gallery/g,
   "gallery popup variant must use the shared popup-window-gallery class."
+);
+
+assertNoPattern(
+  "scripts/build-pages.js",
+  /class="[^"]*\b(?:reader-(?:modal|backdrop|window|toolbar|actions|content|setting-control|kicker)|pdf-(?:modal|backdrop|window|toolbar))\b/g,
+  "active page template must not emit legacy popup alias classes."
 );
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(rootDir, "package.json"), "utf8"));

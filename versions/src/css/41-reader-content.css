@@ -1,5 +1,5 @@
 /* Reader markdown, Notion-style content, and PDF fallback presentation. */
-.reader-content {
+.popup-content-reader {
   align-self: stretch;
   color: var(--reader-ink);
   flex: 1 1 auto;
@@ -23,7 +23,7 @@
   word-break: keep-all;
 }
 
-.reader-content::-webkit-scrollbar {
+.popup-content-reader::-webkit-scrollbar {
   display: none;
   height: 0;
   width: 0;
@@ -41,7 +41,7 @@
   z-index: 4;
 }
 
-.reader-window.has-reader-scroll .reader-scroll-indicator {
+.popup-window-reader.has-reader-scroll .reader-scroll-indicator {
   opacity: 1;
 }
 
@@ -55,52 +55,52 @@
   width: 100%;
 }
 
-.reader-content .novel-project-media,
-.reader-content .novel-project-media * {
+.popup-content-reader .novel-project-media,
+.popup-content-reader .novel-project-media * {
   touch-action: pan-y;
 }
 
-.reader-content p,
-.reader-content h2,
-.reader-content h3,
-.reader-content h4,
-.reader-content ul,
-.reader-content ol,
-.reader-content blockquote,
-.reader-content pre,
-.reader-content figure,
-.reader-content hr {
+.popup-content-reader p,
+.popup-content-reader h2,
+.popup-content-reader h3,
+.popup-content-reader h4,
+.popup-content-reader ul,
+.popup-content-reader ol,
+.popup-content-reader blockquote,
+.popup-content-reader pre,
+.popup-content-reader figure,
+.popup-content-reader hr {
   margin: 0 0 18px;
 }
 
-.reader-content h2,
-.reader-content h3,
-.reader-content h4 {
+.popup-content-reader h2,
+.popup-content-reader h3,
+.popup-content-reader h4 {
   color: var(--reader-ink);
   font-weight: 850;
   line-height: 1.15;
 }
 
-.reader-content h2 { font-size: calc(var(--reader-size) * 1.55); }
-.reader-content h3 { font-size: calc(var(--reader-size) * 1.35); }
-.reader-content h4 { font-size: calc(var(--reader-size) * 1.15); }
+.popup-content-reader h2 { font-size: calc(var(--reader-size) * 1.55); }
+.popup-content-reader h3 { font-size: calc(var(--reader-size) * 1.35); }
+.popup-content-reader h4 { font-size: calc(var(--reader-size) * 1.15); }
 
-.reader-content ul,
-.reader-content ol {
+.popup-content-reader ul,
+.popup-content-reader ol {
   padding-left: 1.35em;
 }
 
-.reader-content li {
+.popup-content-reader li {
   margin: 0 0 0.45em;
 }
 
-.reader-content blockquote {
+.popup-content-reader blockquote {
   border-left: 2px solid var(--reader-line, var(--line));
   color: var(--reader-muted);
   padding-left: 18px;
 }
 
-.reader-content pre {
+.popup-content-reader pre {
   border: 1px solid var(--reader-line, var(--line));
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.9em;
@@ -110,30 +110,30 @@
   white-space: pre;
 }
 
-.reader-content hr {
+.popup-content-reader hr {
   border: 0;
   border-top: 1px solid var(--reader-line, var(--line));
 }
 
-.reader-content a,
-.reader-content button {
+.popup-content-reader a,
+.popup-content-reader button {
   color: inherit;
   text-align: left;
 }
 
-.reader-content .depth-1 { margin-left: 18px; }
-.reader-content .depth-2,
-.reader-content .depth-3 { margin-left: 36px; }
-.reader-content .is-bold { font-weight: 700; }
-.reader-content .is-italic { font-style: italic; }
-.reader-content .is-struck { text-decoration: line-through; }
-.reader-content .is-code {
+.popup-content-reader .depth-1 { margin-left: 18px; }
+.popup-content-reader .depth-2,
+.popup-content-reader .depth-3 { margin-left: 36px; }
+.popup-content-reader .is-bold { font-weight: 700; }
+.popup-content-reader .is-italic { font-style: italic; }
+.popup-content-reader .is-struck { text-decoration: line-through; }
+.popup-content-reader .is-code {
   border: 1px solid var(--reader-line);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.92em;
   padding: 0 0.3em;
 }
-.reader-content .is-highlighted { background: rgba(120, 120, 120, 0.16); }
+.popup-content-reader .is-highlighted { background: rgba(120, 120, 120, 0.16); }
 
 .notion-page-link::before {
   color: var(--reader-muted);
@@ -174,7 +174,7 @@
 .notion-media.is-unavailable img { display: none; }
 
 @media (max-width: 900px) {
-  .reader-content {
+  .popup-content-reader {
     max-height: none;
     min-height: 0;
     padding: 20px 4px 8px 0;
