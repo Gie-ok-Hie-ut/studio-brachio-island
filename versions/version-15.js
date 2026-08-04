@@ -1658,6 +1658,11 @@ function createRoleHeading(title, handle = "", tagName = "strong") {
       .split("//")
       .map((line) => line.trim())
       .filter(Boolean);
+    handleNode.dataset.handleFlat = handleLines.map((line, index) => {
+      const cleanLine = line.replace(/^@/, "").trim();
+      if (index === 0 && line.startsWith("@")) return `@${cleanLine}`;
+      return cleanLine;
+    }).join(" ");
 
     if (handleLines.length > 1) {
       handleNode.classList.add("role-heading-handle-multiline");

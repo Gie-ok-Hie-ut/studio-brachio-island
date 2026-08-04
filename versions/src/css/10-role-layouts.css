@@ -877,6 +877,23 @@ body.role-closing .role-detail * {
   text-transform: none;
 }
 
+@media (max-width: 1180px) {
+  .identity-detail {
+    gap: clamp(28px, 4vw, 46px);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .identity-detail-portrait {
+    justify-self: start;
+    max-width: min(420px, 100%);
+  }
+
+  .role-overview {
+    max-width: 760px;
+    width: 100%;
+  }
+}
+
 @media (max-width: 900px) {
   .identity-detail {
     gap: 34px;

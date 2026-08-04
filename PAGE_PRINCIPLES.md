@@ -10,6 +10,8 @@
 - 역할 상단 소개 블록은 반드시 `createRoleOverviewNode()` / `appendRoleOverview()`가 만들고, 흐름은 `.role-overview-stack`, 폭은 `.role-overview`에서만 조절한다.
 - 역할 소개글을 위한 역할별 별칭 class를 새로 만들지 않는다. 위치 예외가 필요하면 부모 layout selector 아래에서 `.role-intro`를 조절한다.
 - AI Research, Novel, Visual Art, Essay의 상단 소개 영역은 공통 `.role-overview-stack > .role-overview` 구조를 사용한다. Essay처럼 소개글이 비어 있는 경우에는 빈 spacer를 만들지 않고 첫 본문이 같은 flow 기준으로 올라온다.
+- 역할 페이지의 화면 크기별 title/handle/intro 크기와 breakpoint는 `70-role-room.css`의 공통 role-room 기준에서 먼저 조절한다. 개별 역할 CSS는 콘텐츠/미디어 배치가 실제로 다른 경우에만 최소 보정한다.
+- 긴 role handle은 `//` 원문 줄바꿈을 보존하되, 넓은 모바일에서는 `createRoleHeading()`이 만든 `data-handle-flat`을 사용해 한 줄 표시를 허용한다.
 - 역할별 본문 렌더링은 `ROLE_BODY_RENDERERS` registry에서만 추가한다. `renderRoleBody()`에 새 `if/else` 분기를 늘리지 않는다.
 - 팝업 열기/닫기 상태 변경은 `openPopupModal()` / `closePopupModal()`을 통한다. Reader, PDF, Gallery마다 다른 것은 내용 렌더링과 정리 작업만 별도 함수에 둔다.
 
