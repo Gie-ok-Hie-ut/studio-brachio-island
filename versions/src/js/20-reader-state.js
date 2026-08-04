@@ -3,16 +3,18 @@ const defaultReaderSettings = {
   lang: "en",
   size: "medium",
   spacing: "normal",
-  theme: "light",
 };
 function getSavedReaderSettings() {
   try {
     const saved = JSON.parse(localStorage.getItem("readerSettings") || "{}");
+    const settings = {};
+    ["lang", "size", "spacing"].forEach((key) => {
+      if (saved[key]) settings[key] = saved[key];
+    });
     if (!localStorage.getItem("siteLanguage")) {
-      delete saved.lang;
+      delete settings.lang;
     }
-    saved.theme = "light";
-    return saved;
+    return settings;
   } catch {
     return {};
   }

@@ -85,16 +85,6 @@
   transform: translateY(0) scale(1);
 }
 
-.popup-window-reader[data-theme="dark"],
-.reader-window[data-theme="dark"] {
-  --reader-bg: #10110f;
-  --reader-ink: #d8d8d0;
-  --reader-muted: #969990;
-  --reader-line: #343631;
-  background: var(--reader-bg);
-  color: var(--reader-ink);
-}
-
 .popup-window-reader[data-size="small"],
 .reader-window[data-size="small"] { --reader-size: 16px; }
 .popup-window-reader[data-size="medium"],

@@ -12,7 +12,6 @@ const pdfFrame = document.querySelector("#pdf-frame");
 const readerLang = document.querySelector("#reader-lang");
 const readerSize = document.querySelector("#reader-size");
 const readerSpacing = document.querySelector("#reader-spacing");
-const readerTheme = document.querySelector("#reader-theme");
 const readerBackControl = document.querySelector("[data-reader-back]");
 const closeReaderControls = document.querySelectorAll("[data-close-reader]");
 const closePdfControls = document.querySelectorAll("[data-close-pdf]");
@@ -40,26 +39,6 @@ const roleRoomPaths = {
   visual: `${roleRoomRoot}visual-art.html`,
   aesthetics: `${roleRoomRoot}essay.html`,
 };
-const galleryAssetFiles = [
-  "IMG_9630.jpg",
-  "2-8.jpg",
-  "2-0.PNG",
-  "2-1.PNG",
-  "2-3.PNG",
-  "2-2.PNG",
-  "4-0.PNG",
-  "2-6.jpg",
-  "2-7.jpg",
-  "2-5.jpg",
-  "2-4.jpg",
-  "6-0.JPG",
-  "1-1.jpg",
-  "1-0.PNG",
-  "3-0.JPG",
-  "7-0.PNG",
-  "5-0.PNG",
-  "IMG_5730.MOV",
-];
 const languageControls = document.querySelectorAll("[data-language]");
 const writings = window.WRITING_DATA?.items || [];
 const contentItems = window.CONTENT_INDEX?.items || [];
@@ -193,16 +172,18 @@ const defaultReaderSettings = {
   lang: "en",
   size: "medium",
   spacing: "normal",
-  theme: "light",
 };
 function getSavedReaderSettings() {
   try {
     const saved = JSON.parse(localStorage.getItem("readerSettings") || "{}");
+    const settings = {};
+    ["lang", "size", "spacing"].forEach((key) => {
+      if (saved[key]) settings[key] = saved[key];
+    });
     if (!localStorage.getItem("siteLanguage")) {
-      delete saved.lang;
+      delete settings.lang;
     }
-    saved.theme = "light";
-    return saved;
+    return settings;
   } catch {
     return {};
   }
@@ -1176,93 +1157,6 @@ function createNovelViewButton(mode, label) {
   return button;
 }
 
-
-function openGalleryAsset(filename) {
-  if (!readerTitle || !readerSource || !readerContent) return;
-  const src = projectHref(`content/gallery/assets/${filename}`);
-  const descriptionPath = projectHref(`content/gallery/assets/${filename.replace(/\.[^.]+$/, ".md")}`);
-  const isVideo = /\.(mov|mp4|webm)$/i.test(filename);
-  setReaderVariant("");
-  currentReader = { type: "asset", id: filename };
-
-  readerTitle.textContent = readerSettings.lang === "ko" ? "이미지" : "Visual Asset";
-  readerSource.href = src;
-  readerSource.textContent = "";
-  readerSource.target = "_blank";
-  readerSource.rel = "noreferrer";
-
-  const wrapper = document.createElement("div");
-  const figure = document.createElement("figure");
-  const media = document.createElement(isVideo ? "video" : "img");
-  const detail = document.createElement("section");
-  const detailLabel = document.createElement("span");
-  const detailBody = document.createElement("div");
-
-  wrapper.className = "gallery-asset-reader";
-  figure.className = "notion-media gallery-asset-preview";
-  media.src = src;
-  if (isVideo) {
-    media.controls = true;
-    media.playsInline = true;
-  } else {
-    media.alt = filename;
-    media.loading = "lazy";
-  }
-
-  detail.className = "gallery-asset-detail";
-  detailLabel.textContent = readerSettings.lang === "ko" ? "설명" : "Description";
-  detailBody.className = "gallery-asset-description";
-  detailBody.textContent = readerSettings.lang === "ko"
-    ? "추후 같은 이름의 markdown 파일을 연결합니다."
-    : "A markdown description can be added with the same filename.";
-
-  figure.append(media);
-  detail.append(detailLabel, detailBody);
-  wrapper.append(figure, detail);
-  readerContent.replaceChildren(wrapper);
-  readerContent.scrollTop = 0;
-  openReader();
-  scheduleReaderScrollIndicatorUpdate();
-
-  fetch(descriptionPath)
-    .then((response) => (response.ok ? response.text() : ""))
-    .then((markdown) => {
-      if (currentReader.type !== "asset" || currentReader.id !== filename || !markdown.trim()) return;
-      detailBody.replaceChildren(...renderMarkdown(markdown, "", {
-        basePath: `content/gallery/assets/${filename.replace(/\.[^.]+$/, ".md")}`,
-      }));
-      scheduleReaderScrollIndicatorUpdate();
-    })
-    .catch(() => {
-      // Description markdown is optional and can be added later.
-    });
-}
-
-function createGalleryAssetButton(filename) {
-  const button = document.createElement("button");
-  const isVideo = /\.(mov|mp4|webm)$/i.test(filename);
-  const media = document.createElement(isVideo ? "video" : "img");
-
-  button.type = "button";
-  button.className = "gallery-asset-button";
-  button.setAttribute("aria-label", filename);
-  media.src = projectHref(`content/gallery/assets/${filename}`);
-  if (isVideo) {
-    media.muted = true;
-    media.playsInline = true;
-    media.preload = "metadata";
-  } else {
-    media.alt = filename;
-    media.loading = "lazy";
-  }
-  button.append(media);
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-    openGalleryAsset(filename);
-  });
-  return button;
-}
-
 function getGalleryAssetPath(asset = "") {
   const clean = String(asset).trim().replace(/^["']|["']$/g, "");
   if (!clean) return "";
@@ -1678,24 +1572,6 @@ function refreshGalleryMasonryOnResize() {
   const nextColumnCount = getGalleryMasonryColumnCount();
   if (nextColumnCount === galleryMasonryColumnCount) return;
   renderGalleryProjectMasonry(target, sortGalleryProjects(topLevelGalleryItems));
-}
-
-function createGalleryMarkdownButton(item) {
-  const button = document.createElement("button");
-  const image = document.createElement("img");
-  const title = getLocalizedTitle(item);
-  button.type = "button";
-  button.className = "gallery-asset-button gallery-markdown-button";
-  button.setAttribute("aria-label", title);
-  image.src = projectHref(item.meta?.image || "../assets/hero-workspace.png");
-  image.alt = title;
-  image.loading = "lazy";
-  button.append(image);
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-    renderMarkdownReader(item.id, true);
-  });
-  return button;
 }
 
 const ROLE_OVERVIEW_CLASS = "role-overview";
@@ -2695,13 +2571,10 @@ function applyReaderSettings(options = {}) {
   readerWindow.dataset.lang = readerLanguage;
   readerWindow.dataset.size = readerSettings.size;
   readerWindow.dataset.spacing = readerSettings.spacing;
-  readerSettings.theme = "light";
-  readerWindow.dataset.theme = "light";
 
   if (readerLang) readerLang.value = readerLanguage;
   if (readerSize) readerSize.value = readerSettings.size;
   if (readerSpacing) readerSpacing.value = readerSettings.spacing;
-  if (readerTheme) readerTheme.value = readerSettings.theme;
 
   if (options.persist !== false) saveReaderSettings();
   scheduleReaderScrollIndicatorUpdate();
@@ -3536,7 +3409,6 @@ function initializeStudioPage() {
   bindReaderSetting(readerLang, "lang");
   bindReaderSetting(readerSize, "size");
   bindReaderSetting(readerSpacing, "spacing");
-  bindReaderSetting(readerTheme, "theme");
   bindModalTouchScrollGuard(readerModal, readerContent);
   bindReaderManualTouchScroll(readerContent);
   languageControls.forEach((control) => {
