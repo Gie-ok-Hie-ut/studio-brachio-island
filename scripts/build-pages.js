@@ -136,14 +136,14 @@ function readerModal(defaultBody = "") {
             <h2 id="reader-title" class="popup-title">Select a text</h2>
           </div>
           <div class="popup-actions reader-actions">
-            <label class="reader-setting-control">
+            <label class="popup-setting-control reader-setting-control">
               lang
               <select id="reader-lang" aria-label="Language">
                 <option value="en" selected>en</option>
                 <option value="ko">ko</option>
               </select>
             </label>
-            <label class="reader-setting-control">
+            <label class="popup-setting-control reader-setting-control">
               size
               <select id="reader-size" aria-label="Text size">
                 <option value="small">small</option>
@@ -151,7 +151,7 @@ function readerModal(defaultBody = "") {
                 <option value="large">large</option>
               </select>
             </label>
-            <label class="reader-setting-control">
+            <label class="popup-setting-control reader-setting-control">
               spacing
               <select id="reader-spacing" aria-label="Line spacing">
                 <option value="tight">tight</option>

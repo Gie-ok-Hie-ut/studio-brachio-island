@@ -1,13 +1,12 @@
 /* Gallery media inside popup viewers and full-size original viewer. */
-.popup-window-gallery,
-.reader-window.reader-window-gallery {
+.popup-window-gallery {
   --reader-size: 15px;
   --reader-leading: 1.55;
   height: min(94vh, 1040px);
   width: min(calc(100vw - 36px), 1360px);
 }
 
-.popup-window-gallery .reader-setting-control {
+.popup-window-gallery .popup-setting-control {
   display: none;
 }
 
@@ -15,7 +14,7 @@
   font-size: clamp(30px, 2vw, 38px);
 }
 
-.popup-window-gallery .reader-content {
+.popup-content-gallery {
   align-items: center;
   display: grid;
   max-width: none;
@@ -92,7 +91,7 @@
   width: 100%;
 }
 
-.reader-content .gallery-project-viewer-figure {
+.popup-content-gallery .gallery-project-viewer-figure {
   margin: 0;
 }
 
@@ -165,7 +164,7 @@
   width: 48px;
 }
 
-.reader-content .gallery-project-nav {
+.popup-content-gallery .gallery-project-nav {
   border-bottom: 0;
 }
 
@@ -241,7 +240,7 @@
   outline: 0;
 }
 
-.reader-content .gallery-project-info-toggle {
+.popup-content-gallery .gallery-project-info-toggle {
   border-bottom: 0;
 }
 
@@ -258,7 +257,7 @@
   text-transform: uppercase;
 }
 
-.reader-content .gallery-project-info-meta {
+.popup-content-gallery .gallery-project-info-meta {
   margin: 0;
 }
 
