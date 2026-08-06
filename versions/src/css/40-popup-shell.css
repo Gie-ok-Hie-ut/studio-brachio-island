@@ -72,9 +72,11 @@
   transform: translateY(0) scale(1);
 }
 
+.popup-window-reader[data-size="xsmall"] { --reader-size: 14px; }
 .popup-window-reader[data-size="small"] { --reader-size: 16px; }
 .popup-window-reader[data-size="medium"] { --reader-size: 18px; }
 .popup-window-reader[data-size="large"] { --reader-size: 21px; }
+.popup-window-reader[data-size="xlarge"] { --reader-size: 24px; }
 .popup-window-reader[data-spacing="tight"] { --reader-leading: 1.55; }
 .popup-window-reader[data-spacing="normal"] { --reader-leading: 1.9; }
 .popup-window-reader[data-spacing="wide"] { --reader-leading: 2.25; }

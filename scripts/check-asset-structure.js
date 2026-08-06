@@ -152,6 +152,30 @@ assertNoPattern(
 );
 
 assertNoPattern(
+  "versions/src/css/42-gallery-popup.css",
+  /\.role-items\s+button\s+video/g,
+  "role list video thumbnail styles belong in 20-gallery-index.css, not gallery popup CSS."
+);
+
+assertNoPattern(
+  "versions/src/css/70-role-room.css",
+  /body\[data-role-room=["']/g,
+  "role-specific standalone room variants belong in 71-role-room-variants.css."
+);
+
+assertNoPattern(
+  "versions/src/js/70-role-pages.js",
+  /role-engineer-(?:paper-)?items|topLevelEngineeringItems|topLevelPaperItems/g,
+  "AI Research Projects/Paper content must be explicit CV rows in content/role/01-ai-engineer.md, not hidden JS collection injection."
+);
+
+assertNoPattern(
+  "versions/src/js/70-role-pages.js",
+  /article\s*\/\s*media/gi,
+  "CV row actions must come from markdown table Links cells, not hard-coded section names."
+);
+
+assertNoPattern(
   "scripts/build-pages.js",
   /class="[^"]*\b(?:reader-(?:modal|backdrop|window|toolbar|actions|content|setting-control|kicker)|pdf-(?:modal|backdrop|window|toolbar))\b/g,
   "active page template must not emit legacy popup alias classes."

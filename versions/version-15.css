@@ -1394,6 +1394,12 @@ body.role-closing .role-detail * {
 .role-intro .is-struck,
 .cv-scroll .is-struck { text-decoration: line-through; }
 
+.role-intro .is-underlined,
+.cv-scroll .is-underlined {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 .role-intro .is-code,
 .cv-scroll .is-code {
   border: 1px solid var(--line);
@@ -1579,87 +1585,6 @@ body.role-closing .role-detail * {
   border-top: 1px solid var(--line);
   gap: 0;
   grid-template-columns: 1fr;
-}
-
-.engineer-scroll .role-items button {
-  gap: 28px;
-  grid-template-columns: 132px minmax(0, 1fr) auto;
-}
-
-.cv-scroll .role-items {
-  border-top: 1px solid var(--line);
-}
-
-.cv-scroll .role-items button {
-  align-items: start;
-  border-bottom: 1px solid var(--line);
-  gap: 30px;
-  grid-template-columns: 132px minmax(0, 1fr) auto;
-  min-height: 66px;
-  padding: 18px 0;
-}
-
-.cv-scroll .role-items button > span {
-  border: 0;
-  color: var(--muted);
-  display: block;
-  font-size: clamp(12px, 0.72vw, 13px);
-  font-weight: 700;
-  line-height: 1.25;
-  padding: 2px 0 0;
-  width: auto;
-}
-
-.cv-scroll .role-items button strong {
-  color: var(--ink);
-  font-size: clamp(15px, 1.02vw, 19px);
-  font-weight: 500;
-  line-height: 1.35;
-  text-transform: none;
-}
-
-.cv-scroll .role-items button strong .cv-entry-title {
-  color: var(--ink);
-  display: block;
-  font: inherit;
-  font-weight: 650;
-  padding: 0;
-  text-transform: none;
-}
-
-.cv-scroll .role-items button strong .cv-entry-detail {
-  color: var(--muted);
-  display: block;
-  font-size: clamp(12px, 0.78vw, 14px);
-  font-weight: 500;
-  line-height: 1.35;
-  margin-top: 6px;
-  max-width: 620px;
-  text-transform: none;
-}
-
-.cv-scroll .role-items button strong .cv-entry-detail span {
-  color: inherit;
-  display: block;
-  font: inherit;
-  padding: 0;
-  text-transform: none;
-}
-
-.cv-scroll .role-items button strong .cv-entry-detail span + span {
-  margin-top: 2px;
-}
-
-.cv-scroll .role-items button::after {
-  align-self: start;
-  border-bottom: 1px solid currentColor;
-  color: var(--muted);
-  content: "OPEN";
-  display: block;
-  font-size: var(--text-xs);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-top: 2px;
 }
 
 .role-detail button:not(.role-close),
@@ -2167,6 +2092,13 @@ figcaption {
 .role-gallery-items .gallery-project-preview video {
   height: auto;
   object-fit: contain;
+  width: 100%;
+}
+
+.role-items button video {
+  aspect-ratio: 16 / 10;
+  filter: grayscale(1) contrast(1.06);
+  object-fit: cover;
   width: 100%;
 }
 
@@ -3002,9 +2934,11 @@ figcaption {
   transform: translateY(0) scale(1);
 }
 
+.popup-window-reader[data-size="xsmall"] { --reader-size: 14px; }
 .popup-window-reader[data-size="small"] { --reader-size: 16px; }
 .popup-window-reader[data-size="medium"] { --reader-size: 18px; }
 .popup-window-reader[data-size="large"] { --reader-size: 21px; }
+.popup-window-reader[data-size="xlarge"] { --reader-size: 24px; }
 .popup-window-reader[data-spacing="tight"] { --reader-leading: 1.55; }
 .popup-window-reader[data-spacing="normal"] { --reader-leading: 1.9; }
 .popup-window-reader[data-spacing="wide"] { --reader-leading: 2.25; }
@@ -3509,6 +3443,10 @@ figcaption {
 .popup-content-reader .is-bold { font-weight: 700; }
 .popup-content-reader .is-italic { font-style: italic; }
 .popup-content-reader .is-struck { text-decoration: line-through; }
+.popup-content-reader .is-underlined {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
 .popup-content-reader .is-code {
   border: 1px solid var(--reader-line);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
@@ -3593,13 +3531,6 @@ figcaption {
   min-height: 0;
   overflow: auto;
   padding: 0;
-}
-
-.role-items button video {
-  aspect-ratio: 16 / 10;
-  filter: grayscale(1) contrast(1.06);
-  object-fit: cover;
-  width: 100%;
 }
 
 .gallery-project-reader {
@@ -4699,6 +4630,92 @@ body[data-role-room] .role-scroll-region {
   overflow: visible;
 }
 
+@media (max-width: 1180px) {
+  :root {
+    --role-rail-width: clamp(220px, 24vw, 300px);
+    --role-frame-gap: clamp(28px, 3.4vw, 44px);
+    --role-intro-font-size: clamp(17px, 1.7vw, 21px);
+    --role-intro-line-height: 1.36;
+  }
+
+  body[data-role-room] .role-room-detail {
+    padding-top: clamp(78px, 8vh, 108px);
+  }
+
+  body[data-role-room] .role-section-title h2 {
+    font-size: clamp(28px, 3.8vw, 44px);
+  }
+}
+
+@media (max-width: 900px) {
+  body[data-role-room] {
+    overflow: auto;
+  }
+
+  body[data-role-room] .role-room-detail {
+    align-content: start;
+    display: grid;
+    gap: 34px;
+    grid-template-columns: 1fr;
+    height: auto;
+    margin: 0;
+    min-height: var(--role-room-page-height);
+    overflow: visible;
+    padding: 78px 22px 46px;
+    width: 100%;
+  }
+
+  body[data-role-room] .role-room-detail > .role-section-title {
+    align-self: start;
+    margin-left: 0;
+  }
+
+  body[data-role-room] .role-section-body {
+    height: auto;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  body[data-role-room] .role-section-title h2 {
+    font-size: clamp(30px, 6.4vw, 46px);
+    gap: 4px;
+    max-width: 100%;
+  }
+
+  body[data-role-room] .role-section-title h2 .role-heading-line,
+  body[data-role-room] .role-section-title h2 .role-heading-handle {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 900px) {
+  body[data-role-room] .role-section-title h2 .role-heading-handle.role-heading-handle-multiline {
+    background: var(--ink);
+    color: var(--paper);
+    display: inline-block;
+    max-width: 100%;
+    padding: 0 0.12em 0.04em 0.08em;
+    width: max-content;
+  }
+
+  body[data-role-room] .role-section-title h2 .role-heading-handle.role-heading-handle-multiline::before {
+    display: inline;
+    white-space: nowrap;
+  }
+
+  body[data-role-room] .role-section-title h2 .role-heading-handle.role-heading-handle-multiline .role-heading-handle-row {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  body[data-role-room] .role-section-title h2 {
+    font-size: clamp(34px, 10.4vw, 44px);
+  }
+}
+
+/* Standalone role-room variants. Shared shell stays in 70-role-room.css. */
 body[data-role-room="visual"] .role-section-body-gallery {
   align-content: start;
   display: grid;
@@ -4754,71 +4771,13 @@ body[data-role-room] .role-detail-layout-novel .role-novel-grid-stage {
   overflow: visible;
 }
 
-
 body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-card {
   top: calc(100% + 330px);
 }
 
-@media (max-width: 1180px) {
-  :root {
-    --role-rail-width: clamp(220px, 24vw, 300px);
-    --role-frame-gap: clamp(28px, 3.4vw, 44px);
-    --role-intro-font-size: clamp(17px, 1.7vw, 21px);
-    --role-intro-line-height: 1.36;
-  }
-
-  body[data-role-room] .role-room-detail {
-    padding-top: clamp(78px, 8vh, 108px);
-  }
-
-  body[data-role-room] .role-section-title h2 {
-    font-size: clamp(28px, 3.8vw, 44px);
-  }
-}
-
 @media (max-width: 900px) {
-  body[data-role-room] {
-    overflow: auto;
-  }
-
-  body[data-role-room] .role-room-detail {
-    align-content: start;
-    display: grid;
-    gap: 34px;
-    grid-template-columns: 1fr;
-    height: auto;
-    margin: 0;
-    min-height: var(--role-room-page-height);
-    overflow: visible;
-    padding: 78px 22px 46px;
-    width: 100%;
-  }
-
-  body[data-role-room] .role-room-detail > .role-section-title {
-    align-self: start;
-    margin-left: 0;
-  }
-
-  body[data-role-room] .role-section-body {
-    height: auto;
-    overflow: visible;
-    padding-right: 0;
-  }
-
   body[data-role-room="visual"] .role-section-body-gallery {
     overflow: visible;
-  }
-
-  body[data-role-room] .role-section-title h2 {
-    font-size: clamp(30px, 6.4vw, 46px);
-    gap: 4px;
-    max-width: 100%;
-  }
-
-  body[data-role-room] .role-section-title h2 .role-heading-line,
-  body[data-role-room] .role-section-title h2 .role-heading-handle {
-    font-size: inherit;
-    line-height: inherit;
   }
 
   body[data-role-room="engineer"] .cv-list article,
@@ -4828,12 +4787,6 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 
   body[data-role-room="engineer"] .cv-list article.cv-link-row {
-    grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
-  }
-
-  body[data-role-room="engineer"] .engineer-scroll .role-items button,
-  body[data-role-room="engineer"] .cv-scroll .role-items button {
-    gap: clamp(12px, 3vw, 18px);
     grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
   }
 
@@ -4955,31 +4908,7 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
   }
 }
 
-@media (min-width: 640px) and (max-width: 900px) {
-  body[data-role-room] .role-section-title h2 .role-heading-handle.role-heading-handle-multiline {
-    background: var(--ink);
-    color: var(--paper);
-    display: inline-block;
-    max-width: 100%;
-    padding: 0 0.12em 0.04em 0.08em;
-    width: max-content;
-  }
-
-  body[data-role-room] .role-section-title h2 .role-heading-handle.role-heading-handle-multiline::before {
-    display: inline;
-    white-space: nowrap;
-  }
-
-  body[data-role-room] .role-section-title h2 .role-heading-handle.role-heading-handle-multiline .role-heading-handle-row {
-    display: none;
-  }
-}
-
 @media (max-width: 520px) {
-  body[data-role-room] .role-section-title h2 {
-    font-size: clamp(34px, 10.4vw, 44px);
-  }
-
   body[data-role-room="novel"] .role-novel-grid-stage {
     grid-template-columns: minmax(0, 1fr);
   }

@@ -70,12 +70,40 @@ function isPdfSignal(item) {
   return item?.meta?.format === "pdf" || Boolean(item?.meta?.pdf);
 }
 
-function getPaperDescription(item) {
-  const lines = normalizeMarkdownSource(getLocalizedMarkdown(item))
-    .split("\n")
+function getCvRowSignalDescription(detail = "") {
+  const lines = String(detail)
+    .split(/<br\s*\/?>/i)
     .map((line) => stripSignalMarkdown(line))
     .filter(Boolean);
-  return lines[lines.length - 1] || getLocalizedTitle(item);
+  return lines[lines.length - 1] || stripSignalMarkdown(detail);
+}
+
+function getEngineerPaperSignalItems() {
+  const engineer = getRoleItem("engineer");
+  if (!engineer) return [];
+
+  const section = parseRecordSections(getLocalizedMarkdown(engineer))
+    .find((entry) => entry.title.toLowerCase() === "paper");
+  if (!section) return [];
+
+  return section.rows.map((row, index) => ({
+    id: getCvRowId(section.title, row, index),
+    type: "paper",
+    title: row.text,
+    titleKo: row.text,
+    titleEn: row.text,
+    order: index + 1,
+    topLevel: true,
+    meta: {
+      year: row.label,
+      summary: getCvRowSignalDescription(row.detail),
+      cvRoleId: "engineer",
+      cvSection: section.title,
+    },
+    markdown: row.detail,
+    markdownKo: row.detail,
+    markdownEn: row.detail,
+  }));
 }
 
 function getTodaysSignalPreviewMode() {
@@ -101,7 +129,6 @@ function pickTodaysSignalItem(candidates, dateParts) {
 
 function getSignalDescription(item) {
   if (!item) return "";
-  if (item.type === "paper") return getPaperDescription(item);
 
   const metaSummary = getMetaText(item, "summary", "");
   if (metaSummary) return stripSignalMarkdown(metaSummary);
@@ -117,7 +144,7 @@ function getTodaysSignalCandidates() {
   return [
     ...topLevelGalleryItems,
     ...topLevelNovelItems,
-    ...topLevelPaperItems,
+    ...getEngineerPaperSignalItems(),
     ...topLevelEssayItems,
   ]
     .filter((item) => item && item.topLevel !== false)
@@ -198,9 +225,7 @@ function renderTodaysSignal() {
     const copy = document.createElement("p");
     copy.className = isPdf
       ? "todays-signal-copy todays-signal-copy-document"
-      : item.type === "paper"
-        ? "todays-signal-copy todays-signal-copy-paper"
-        : "todays-signal-copy";
+      : "todays-signal-copy";
     copy.textContent = description;
     card.append(copy);
   }

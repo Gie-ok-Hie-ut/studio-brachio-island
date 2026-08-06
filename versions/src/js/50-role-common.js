@@ -61,6 +61,78 @@ function getMetaText(item, key, fallback = "") {
   return item?.meta?.[`${key}${lang}`] || item?.meta?.[key] || fallback;
 }
 
+function slugifyText(value = "") {
+  const slug = String(value)
+    .trim()
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^a-z0-9\s_-]+/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return slug || "item";
+}
+
+function getCvRowId(sectionTitle = "", row = {}, index = 0) {
+  return `cv-${slugifyText(sectionTitle)}-${slugifyText(row.label)}-${slugifyText(row.text)}-${index + 1}`;
+}
+
+function splitMarkdownTableRow(line = "") {
+  let source = String(line).trim();
+  if (!source.includes("|")) return [];
+  if (source.startsWith("|")) source = source.slice(1);
+  if (source.endsWith("|")) source = source.slice(0, -1);
+
+  const cells = [];
+  let cell = "";
+  let escaped = false;
+  for (const char of source) {
+    if (escaped) {
+      cell += char;
+      escaped = false;
+      continue;
+    }
+    if (char === "\\") {
+      escaped = true;
+      continue;
+    }
+    if (char === "|") {
+      cells.push(cell.trim());
+      cell = "";
+      continue;
+    }
+    cell += char;
+  }
+  cells.push(cell.trim());
+  return cells;
+}
+
+function isMarkdownTableDivider(cells = []) {
+  return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell.replace(/\s+/g, "")));
+}
+
+function normalizeTableHeader(value = "") {
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/[`*_~[\]()]/g, "")
+    .replace(/\s+/g, " ");
+}
+
+function getTableCell(headers = [], cells = [], names = [], fallbackIndex = -1) {
+  const index = headers.findIndex((header) => names.includes(normalizeTableHeader(header)));
+  const targetIndex = index >= 0 ? index : fallbackIndex;
+  return targetIndex >= 0 ? cells[targetIndex]?.trim() || "" : "";
+}
+
+function createTableRecordRow(headers = [], cells = []) {
+  return {
+    label: getTableCell(headers, cells, ["label", "date", "year", "period"], 0),
+    text: getTableCell(headers, cells, ["title", "name", "work"], 1),
+    detail: getTableCell(headers, cells, ["detail", "details", "description", "body", "content"], 2),
+    actions: getTableCell(headers, cells, ["links", "link", "actions", "action", "source", "sources"], 3),
+  };
+}
+
 function createRoleHeading(title, handle = "", tagName = "strong") {
   const heading = document.createElement(tagName);
   heading.className = "role-heading";
@@ -181,6 +253,8 @@ function createRoleItemButton(label, onClick, options = {}) {
 function parseRecordSections(markdown = "") {
   const sections = [];
   let current = null;
+  let pendingTableHeader = null;
+  let activeTableHeader = null;
 
   normalizeMarkdownSource(markdown).split("\n").forEach((rawLine) => {
     const line = rawLine.trim();
@@ -188,9 +262,32 @@ function parseRecordSections(markdown = "") {
     if (line.startsWith("## ")) {
       current = { title: line.slice(3).trim(), rows: [] };
       sections.push(current);
+      pendingTableHeader = null;
+      activeTableHeader = null;
       return;
     }
     if (!current) return;
+
+    if (line.startsWith("|")) {
+      const cells = splitMarkdownTableRow(line);
+      if (cells.length > 1) {
+        if (!pendingTableHeader && !activeTableHeader) {
+          pendingTableHeader = cells;
+          return;
+        }
+        if (pendingTableHeader && isMarkdownTableDivider(cells)) {
+          activeTableHeader = pendingTableHeader;
+          pendingTableHeader = null;
+          return;
+        }
+        if (activeTableHeader) {
+          const row = createTableRecordRow(activeTableHeader, cells);
+          if (row.label || row.text || row.detail || row.actions) current.rows.push(row);
+          return;
+        }
+      }
+    }
+
     const clean = line.replace(/^[-*]\s+/, "");
     const [label, ...rest] = clean.split("|");
     if (!label || rest.length === 0) return;
@@ -198,6 +295,7 @@ function parseRecordSections(markdown = "") {
       label: label.trim(),
       text: rest[0].trim(),
       detail: rest.slice(1).join("|").trim(),
+      actions: "",
     });
   });
 

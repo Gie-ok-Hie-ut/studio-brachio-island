@@ -123,7 +123,7 @@ function appendMarkdownImage(parent, alt, src, context = {}) {
 }
 
 function appendMarkdownInline(parent, text, context = {}) {
-  const pattern = /(!?\[[^\]]*\]\([^)]+\)|`[^`\n]+`|\*\*[^*\n]+?\*\*|__[^_\n]+?__|~~[^~\n]+?~~|\*[^*\n]+?\*|_[^_\n]+?_|<br\s*\/?>)/gi;
+  const pattern = /(!?\[[^\]]*\]\([^)]+\)|`[^`\n]+`|\*\*[^*\n]+?\*\*|__[^_\n]+?__|~~[^~\n]+?~~|\*[^*\n]+?\*|_[^_\n]+?_|<u>[^<\n]+?<\/u>|<br\s*\/?>)/gi;
   let cursor = 0;
   let match = pattern.exec(text);
 
@@ -172,6 +172,11 @@ function appendMarkdownInline(parent, text, context = {}) {
       emphasis.className = "is-italic";
       appendMarkdownInline(emphasis, token.slice(1, -1), context);
       parent.append(emphasis);
+    } else if (/^<u>[\s\S]+<\/u>$/i.test(token)) {
+      const underline = document.createElement("span");
+      underline.className = "is-underlined";
+      appendMarkdownInline(underline, token.replace(/^<u>|<\/u>$/gi, ""), context);
+      parent.append(underline);
     } else {
       parent.append(document.createTextNode(token));
     }

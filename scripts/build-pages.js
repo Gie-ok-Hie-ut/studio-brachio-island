@@ -146,9 +146,11 @@ function readerModal(defaultBody = "") {
             <label class="popup-setting-control">
               size
               <select id="reader-size" aria-label="Text size">
+                <option value="xsmall">x-small</option>
                 <option value="small">small</option>
                 <option value="medium" selected>medium</option>
                 <option value="large">large</option>
+                <option value="xlarge">x-large</option>
               </select>
             </label>
             <label class="popup-setting-control">
