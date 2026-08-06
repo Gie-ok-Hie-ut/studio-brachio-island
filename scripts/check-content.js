@@ -4,7 +4,7 @@ const vm = require("vm");
 
 const root = path.resolve(__dirname, "..");
 const indexPath = path.join(root, "content-index.js");
-const allowedTypes = new Set(["engineering", "essay", "gallery", "novel", "paper", "role"]);
+const allowedTypes = new Set(["essay", "gallery", "novel", "role"]);
 const assetKeys = ["image", "cover"];
 
 function loadContentIndex() {
@@ -61,6 +61,64 @@ function markdownLinks(markdown = "") {
   return links;
 }
 
+function getMarkdownSectionRows(markdown = "", sectionTitle = "") {
+  const normalized = String(markdown || "").replace(/\r\n/g, "\n");
+  const rows = [];
+  let active = false;
+  let pendingHeader = false;
+  let inTable = false;
+
+  normalized.split("\n").forEach((rawLine) => {
+    const line = rawLine.trim();
+    if (line.startsWith("## ")) {
+      active = line.slice(3).trim().toLowerCase() === sectionTitle.toLowerCase();
+      pendingHeader = false;
+      inTable = false;
+      return;
+    }
+    if (!active || !line) return;
+    if (line.startsWith("|")) {
+      const cells = line
+        .replace(/^\|/, "")
+        .replace(/\|$/, "")
+        .split("|")
+        .map((cell) => cell.trim());
+      if (!pendingHeader && !inTable) {
+        pendingHeader = cells.length >= 3;
+        return;
+      }
+      const isDivider = cells.length >= 3 && cells.every((cell) => /^:?-{3,}:?$/.test(cell.replace(/\s+/g, "")));
+      if (pendingHeader && isDivider) {
+        inTable = true;
+        pendingHeader = false;
+        return;
+      }
+      if (inTable && cells.length >= 3 && cells[0] && cells[1] && cells[2]) rows.push(line);
+      return;
+    }
+    if (!/^[-*]\s+/.test(line)) return;
+    const clean = line.replace(/^[-*]\s+/, "");
+    const parts = clean.split("|").map((part) => part.trim());
+    if (parts.length >= 3 && parts[0] && parts[1] && parts[2]) rows.push(clean);
+  });
+
+  return rows;
+}
+
+function checkEngineerCvSource(errors, item) {
+  if (item.type !== "role" || item.meta?.roleId !== "engineer") return;
+
+  ["markdownKo", "markdownEn"].forEach((key) => {
+    const markdown = item[key] || "";
+    ["Projects", "Paper"].forEach((sectionTitle) => {
+      const rows = getMarkdownSectionRows(markdown, sectionTitle);
+      if (rows.length === 0) {
+        errors.push(`${item.id} ${key} section "${sectionTitle}" must contain explicit markdown table rows.`);
+      }
+    });
+  });
+}
+
 function checkContent() {
   const payload = loadContentIndex();
   const items = payload?.items || [];
@@ -99,6 +157,8 @@ function checkContent() {
     }
 
     const markdown = [item.markdownKo, item.markdownEn].filter(Boolean).join("\n");
+    checkEngineerCvSource(errors, item);
+
     markdownLinks(markdown).forEach((href) => {
       const clean = String(href).replace(/^chapter:/i, "").split("#")[0];
       if (!clean || isExternal(clean) || !/\.md$/i.test(clean)) return;

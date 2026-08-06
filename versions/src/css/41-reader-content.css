@@ -127,6 +127,10 @@
 .popup-content-reader .is-bold { font-weight: 700; }
 .popup-content-reader .is-italic { font-style: italic; }
 .popup-content-reader .is-struck { text-decoration: line-through; }
+.popup-content-reader .is-underlined {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
 .popup-content-reader .is-code {
   border: 1px solid var(--reader-line);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;

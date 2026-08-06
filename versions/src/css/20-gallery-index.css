@@ -258,6 +258,13 @@ figcaption {
   width: 100%;
 }
 
+.role-items button video {
+  aspect-ratio: 16 / 10;
+  filter: grayscale(1) contrast(1.06);
+  object-fit: cover;
+  width: 100%;
+}
+
 @media (max-width: 900px) {
   .gallery {
     gap: 34px;

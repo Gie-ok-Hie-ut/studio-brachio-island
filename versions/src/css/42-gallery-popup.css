@@ -23,13 +23,6 @@
   padding: 0;
 }
 
-.role-items button video {
-  aspect-ratio: 16 / 10;
-  filter: grayscale(1) contrast(1.06);
-  object-fit: cover;
-  width: 100%;
-}
-
 .gallery-project-reader {
   align-content: center;
   display: grid;

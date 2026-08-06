@@ -45,14 +45,10 @@ const contentItems = window.CONTENT_INDEX?.items || [];
 const novelItems = contentItems.filter((item) => item.type === "novel");
 const galleryItems = contentItems.filter((item) => item.type === "gallery");
 const essayItems = contentItems.filter((item) => item.type === "essay");
-const paperItems = contentItems.filter((item) => item.type === "paper");
 const roleItems = contentItems.filter((item) => item.type === "role");
-const engineeringItems = contentItems.filter((item) => item.type === "engineering");
 const topLevelNovelItems = novelItems.filter((item) => item.topLevel !== false);
 const topLevelGalleryItems = galleryItems.filter((item) => item.topLevel !== false);
 const topLevelEssayItems = essayItems.filter((item) => item.topLevel !== false);
-const topLevelPaperItems = paperItems.filter((item) => item.topLevel !== false);
-const topLevelEngineeringItems = engineeringItems.filter((item) => item.topLevel !== false);
 const NOVEL_DEFAULT_VELOCITY = -0.14;
 const NOVEL_HOVER_VELOCITY = Math.abs(NOVEL_DEFAULT_VELOCITY) * 8;
 const NOVEL_SLOW_VELOCITY = -0.035;
@@ -1637,6 +1633,78 @@ function getMetaText(item, key, fallback = "") {
   return item?.meta?.[`${key}${lang}`] || item?.meta?.[key] || fallback;
 }
 
+function slugifyText(value = "") {
+  const slug = String(value)
+    .trim()
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^a-z0-9\s_-]+/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return slug || "item";
+}
+
+function getCvRowId(sectionTitle = "", row = {}, index = 0) {
+  return `cv-${slugifyText(sectionTitle)}-${slugifyText(row.label)}-${slugifyText(row.text)}-${index + 1}`;
+}
+
+function splitMarkdownTableRow(line = "") {
+  let source = String(line).trim();
+  if (!source.includes("|")) return [];
+  if (source.startsWith("|")) source = source.slice(1);
+  if (source.endsWith("|")) source = source.slice(0, -1);
+
+  const cells = [];
+  let cell = "";
+  let escaped = false;
+  for (const char of source) {
+    if (escaped) {
+      cell += char;
+      escaped = false;
+      continue;
+    }
+    if (char === "\\") {
+      escaped = true;
+      continue;
+    }
+    if (char === "|") {
+      cells.push(cell.trim());
+      cell = "";
+      continue;
+    }
+    cell += char;
+  }
+  cells.push(cell.trim());
+  return cells;
+}
+
+function isMarkdownTableDivider(cells = []) {
+  return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell.replace(/\s+/g, "")));
+}
+
+function normalizeTableHeader(value = "") {
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/[`*_~[\]()]/g, "")
+    .replace(/\s+/g, " ");
+}
+
+function getTableCell(headers = [], cells = [], names = [], fallbackIndex = -1) {
+  const index = headers.findIndex((header) => names.includes(normalizeTableHeader(header)));
+  const targetIndex = index >= 0 ? index : fallbackIndex;
+  return targetIndex >= 0 ? cells[targetIndex]?.trim() || "" : "";
+}
+
+function createTableRecordRow(headers = [], cells = []) {
+  return {
+    label: getTableCell(headers, cells, ["label", "date", "year", "period"], 0),
+    text: getTableCell(headers, cells, ["title", "name", "work"], 1),
+    detail: getTableCell(headers, cells, ["detail", "details", "description", "body", "content"], 2),
+    actions: getTableCell(headers, cells, ["links", "link", "actions", "action", "source", "sources"], 3),
+  };
+}
+
 function createRoleHeading(title, handle = "", tagName = "strong") {
   const heading = document.createElement(tagName);
   heading.className = "role-heading";
@@ -1757,6 +1825,8 @@ function createRoleItemButton(label, onClick, options = {}) {
 function parseRecordSections(markdown = "") {
   const sections = [];
   let current = null;
+  let pendingTableHeader = null;
+  let activeTableHeader = null;
 
   normalizeMarkdownSource(markdown).split("\n").forEach((rawLine) => {
     const line = rawLine.trim();
@@ -1764,9 +1834,32 @@ function parseRecordSections(markdown = "") {
     if (line.startsWith("## ")) {
       current = { title: line.slice(3).trim(), rows: [] };
       sections.push(current);
+      pendingTableHeader = null;
+      activeTableHeader = null;
       return;
     }
     if (!current) return;
+
+    if (line.startsWith("|")) {
+      const cells = splitMarkdownTableRow(line);
+      if (cells.length > 1) {
+        if (!pendingTableHeader && !activeTableHeader) {
+          pendingTableHeader = cells;
+          return;
+        }
+        if (pendingTableHeader && isMarkdownTableDivider(cells)) {
+          activeTableHeader = pendingTableHeader;
+          pendingTableHeader = null;
+          return;
+        }
+        if (activeTableHeader) {
+          const row = createTableRecordRow(activeTableHeader, cells);
+          if (row.label || row.text || row.detail || row.actions) current.rows.push(row);
+          return;
+        }
+      }
+    }
+
     const clean = line.replace(/^[-*]\s+/, "");
     const [label, ...rest] = clean.split("|");
     if (!label || rest.length === 0) return;
@@ -1774,6 +1867,7 @@ function parseRecordSections(markdown = "") {
       label: label.trim(),
       text: rest[0].trim(),
       detail: rest.slice(1).join("|").trim(),
+      actions: "",
     });
   });
 
@@ -1868,12 +1962,40 @@ function isPdfSignal(item) {
   return item?.meta?.format === "pdf" || Boolean(item?.meta?.pdf);
 }
 
-function getPaperDescription(item) {
-  const lines = normalizeMarkdownSource(getLocalizedMarkdown(item))
-    .split("\n")
+function getCvRowSignalDescription(detail = "") {
+  const lines = String(detail)
+    .split(/<br\s*\/?>/i)
     .map((line) => stripSignalMarkdown(line))
     .filter(Boolean);
-  return lines[lines.length - 1] || getLocalizedTitle(item);
+  return lines[lines.length - 1] || stripSignalMarkdown(detail);
+}
+
+function getEngineerPaperSignalItems() {
+  const engineer = getRoleItem("engineer");
+  if (!engineer) return [];
+
+  const section = parseRecordSections(getLocalizedMarkdown(engineer))
+    .find((entry) => entry.title.toLowerCase() === "paper");
+  if (!section) return [];
+
+  return section.rows.map((row, index) => ({
+    id: getCvRowId(section.title, row, index),
+    type: "paper",
+    title: row.text,
+    titleKo: row.text,
+    titleEn: row.text,
+    order: index + 1,
+    topLevel: true,
+    meta: {
+      year: row.label,
+      summary: getCvRowSignalDescription(row.detail),
+      cvRoleId: "engineer",
+      cvSection: section.title,
+    },
+    markdown: row.detail,
+    markdownKo: row.detail,
+    markdownEn: row.detail,
+  }));
 }
 
 function getTodaysSignalPreviewMode() {
@@ -1899,7 +2021,6 @@ function pickTodaysSignalItem(candidates, dateParts) {
 
 function getSignalDescription(item) {
   if (!item) return "";
-  if (item.type === "paper") return getPaperDescription(item);
 
   const metaSummary = getMetaText(item, "summary", "");
   if (metaSummary) return stripSignalMarkdown(metaSummary);
@@ -1915,7 +2036,7 @@ function getTodaysSignalCandidates() {
   return [
     ...topLevelGalleryItems,
     ...topLevelNovelItems,
-    ...topLevelPaperItems,
+    ...getEngineerPaperSignalItems(),
     ...topLevelEssayItems,
   ]
     .filter((item) => item && item.topLevel !== false)
@@ -1996,9 +2117,7 @@ function renderTodaysSignal() {
     const copy = document.createElement("p");
     copy.className = isPdf
       ? "todays-signal-copy todays-signal-copy-document"
-      : item.type === "paper"
-        ? "todays-signal-copy todays-signal-copy-paper"
-        : "todays-signal-copy";
+      : "todays-signal-copy";
     copy.textContent = description;
     card.append(copy);
   }
@@ -2186,51 +2305,42 @@ function renderCvRole(item, body) {
     heading.textContent = section.title;
     list.className = "cv-list";
 
-    const sectionKey = section.title.toLowerCase();
-    if (sectionKey === "projects") {
-      list.id = "role-engineer-items";
-      list.className = "role-items role-project-items cv-list";
-    } else if (sectionKey === "paper") {
-      list.id = "role-engineer-paper-items";
-      list.className = "role-items role-paper-items cv-list";
-    } else {
-      const isActionSection = sectionKey === "article / media";
-      section.rows.forEach((row) => {
-        const article = document.createElement("article");
-        const label = document.createElement("span");
-        const text = document.createElement("p");
-        const title = document.createElement("span");
-        const actions = document.createElement("span");
-        label.textContent = row.label;
-        title.className = "cv-entry-title";
-        appendMarkdownInline(title, row.text, {
+    section.rows.forEach((row, rowIndex) => {
+      const article = document.createElement("article");
+      const label = document.createElement("span");
+      const text = document.createElement("p");
+      const title = document.createElement("span");
+      const actions = document.createElement("span");
+      article.id = getContentAnchorId(getCvRowId(section.title, row, rowIndex));
+      label.textContent = row.label;
+      title.className = "cv-entry-title";
+      appendMarkdownInline(title, row.text, {
+        item,
+        basePath: item.path,
+      });
+      text.append(title);
+      if (row.detail) {
+        const detail = document.createElement("small");
+        detail.className = "cv-entry-detail";
+        appendMarkdownInline(detail, row.detail, {
           item,
           basePath: item.path,
         });
-        text.append(title);
-        if (row.detail && isActionSection) {
-          article.classList.add("cv-link-row");
-          actions.className = "cv-entry-actions";
-          appendMarkdownInline(actions, row.detail, {
-            item,
-            basePath: item.path,
-          });
-          article.append(label, text, actions);
-        } else if (row.detail) {
-          const detail = document.createElement("small");
-          detail.className = "cv-entry-detail";
-          appendMarkdownInline(detail, row.detail, {
-            item,
-            basePath: item.path,
-          });
-          text.append(detail);
-          article.append(label, text);
-        } else {
-          article.append(label, text);
-        }
-        list.append(article);
-      });
-    }
+        text.append(detail);
+      }
+      if (row.actions) {
+        article.classList.add("cv-link-row");
+        actions.className = "cv-entry-actions";
+        appendMarkdownInline(actions, row.actions, {
+          item,
+          basePath: item.path,
+        });
+        article.append(label, text, actions);
+      } else {
+        article.append(label, text);
+      }
+      list.append(article);
+    });
 
     block.append(heading, list);
     wrapper.append(block);
@@ -2412,44 +2522,10 @@ function renderRoleShells() {
 }
 
 function renderRoleItems() {
-  const engineerTarget = document.querySelector("#role-engineer-items");
   const visualTarget = document.querySelector("#role-visual-items");
   const novelOrbitTarget = document.querySelector("#role-novel-orbit-items");
   const novelGridTarget = document.querySelector("#role-novel-grid-items");
   const aestheticsTarget = document.querySelector("#role-aesthetics-items");
-  const engineerPaperTarget = document.querySelector("#role-engineer-paper-items");
-
-  if (engineerTarget) {
-    engineerTarget.replaceChildren(
-      ...topLevelEngineeringItems.map((item) =>
-        createRoleItemButton(getLocalizedTitle(item), () => renderMarkdownReader(item.id, true), {
-          anchorId: getContentAnchorId(item),
-          contentId: item.id,
-          kicker: item.meta?.label || "project",
-          description: getRecordIntro(getLocalizedMarkdown(item))[0] || getLocalizedMarkdown(item),
-        })
-      )
-    );
-  }
-
-  if (engineerPaperTarget) {
-    engineerPaperTarget.replaceChildren(
-      ...topLevelPaperItems.map((item, index) =>
-        createRoleItemButton(getLocalizedTitle(item), () => {
-          if (item.meta?.format === "pdf") {
-            renderPdfReader(item.id);
-          } else {
-            renderMarkdownReader(item.id, true);
-          }
-        }, {
-          anchorId: getContentAnchorId(item),
-          contentId: item.id,
-          kicker: item.meta?.year || "Paper",
-          description: getPaperDescription(item),
-        })
-      )
-    );
-  }
 
   if (visualTarget) {
     const galleryProjects = sortGalleryProjects(topLevelGalleryItems);
@@ -2866,7 +2942,7 @@ function appendMarkdownImage(parent, alt, src, context = {}) {
 }
 
 function appendMarkdownInline(parent, text, context = {}) {
-  const pattern = /(!?\[[^\]]*\]\([^)]+\)|`[^`\n]+`|\*\*[^*\n]+?\*\*|__[^_\n]+?__|~~[^~\n]+?~~|\*[^*\n]+?\*|_[^_\n]+?_|<br\s*\/?>)/gi;
+  const pattern = /(!?\[[^\]]*\]\([^)]+\)|`[^`\n]+`|\*\*[^*\n]+?\*\*|__[^_\n]+?__|~~[^~\n]+?~~|\*[^*\n]+?\*|_[^_\n]+?_|<u>[^<\n]+?<\/u>|<br\s*\/?>)/gi;
   let cursor = 0;
   let match = pattern.exec(text);
 
@@ -2915,6 +2991,11 @@ function appendMarkdownInline(parent, text, context = {}) {
       emphasis.className = "is-italic";
       appendMarkdownInline(emphasis, token.slice(1, -1), context);
       parent.append(emphasis);
+    } else if (/^<u>[\s\S]+<\/u>$/i.test(token)) {
+      const underline = document.createElement("span");
+      underline.className = "is-underlined";
+      appendMarkdownInline(underline, token.replace(/^<u>|<\/u>$/gi, ""), context);
+      parent.append(underline);
     } else {
       parent.append(document.createTextNode(token));
     }

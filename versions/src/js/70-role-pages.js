@@ -125,51 +125,42 @@ function renderCvRole(item, body) {
     heading.textContent = section.title;
     list.className = "cv-list";
 
-    const sectionKey = section.title.toLowerCase();
-    if (sectionKey === "projects") {
-      list.id = "role-engineer-items";
-      list.className = "role-items role-project-items cv-list";
-    } else if (sectionKey === "paper") {
-      list.id = "role-engineer-paper-items";
-      list.className = "role-items role-paper-items cv-list";
-    } else {
-      const isActionSection = sectionKey === "article / media";
-      section.rows.forEach((row) => {
-        const article = document.createElement("article");
-        const label = document.createElement("span");
-        const text = document.createElement("p");
-        const title = document.createElement("span");
-        const actions = document.createElement("span");
-        label.textContent = row.label;
-        title.className = "cv-entry-title";
-        appendMarkdownInline(title, row.text, {
+    section.rows.forEach((row, rowIndex) => {
+      const article = document.createElement("article");
+      const label = document.createElement("span");
+      const text = document.createElement("p");
+      const title = document.createElement("span");
+      const actions = document.createElement("span");
+      article.id = getContentAnchorId(getCvRowId(section.title, row, rowIndex));
+      label.textContent = row.label;
+      title.className = "cv-entry-title";
+      appendMarkdownInline(title, row.text, {
+        item,
+        basePath: item.path,
+      });
+      text.append(title);
+      if (row.detail) {
+        const detail = document.createElement("small");
+        detail.className = "cv-entry-detail";
+        appendMarkdownInline(detail, row.detail, {
           item,
           basePath: item.path,
         });
-        text.append(title);
-        if (row.detail && isActionSection) {
-          article.classList.add("cv-link-row");
-          actions.className = "cv-entry-actions";
-          appendMarkdownInline(actions, row.detail, {
-            item,
-            basePath: item.path,
-          });
-          article.append(label, text, actions);
-        } else if (row.detail) {
-          const detail = document.createElement("small");
-          detail.className = "cv-entry-detail";
-          appendMarkdownInline(detail, row.detail, {
-            item,
-            basePath: item.path,
-          });
-          text.append(detail);
-          article.append(label, text);
-        } else {
-          article.append(label, text);
-        }
-        list.append(article);
-      });
-    }
+        text.append(detail);
+      }
+      if (row.actions) {
+        article.classList.add("cv-link-row");
+        actions.className = "cv-entry-actions";
+        appendMarkdownInline(actions, row.actions, {
+          item,
+          basePath: item.path,
+        });
+        article.append(label, text, actions);
+      } else {
+        article.append(label, text);
+      }
+      list.append(article);
+    });
 
     block.append(heading, list);
     wrapper.append(block);
@@ -351,44 +342,10 @@ function renderRoleShells() {
 }
 
 function renderRoleItems() {
-  const engineerTarget = document.querySelector("#role-engineer-items");
   const visualTarget = document.querySelector("#role-visual-items");
   const novelOrbitTarget = document.querySelector("#role-novel-orbit-items");
   const novelGridTarget = document.querySelector("#role-novel-grid-items");
   const aestheticsTarget = document.querySelector("#role-aesthetics-items");
-  const engineerPaperTarget = document.querySelector("#role-engineer-paper-items");
-
-  if (engineerTarget) {
-    engineerTarget.replaceChildren(
-      ...topLevelEngineeringItems.map((item) =>
-        createRoleItemButton(getLocalizedTitle(item), () => renderMarkdownReader(item.id, true), {
-          anchorId: getContentAnchorId(item),
-          contentId: item.id,
-          kicker: item.meta?.label || "project",
-          description: getRecordIntro(getLocalizedMarkdown(item))[0] || getLocalizedMarkdown(item),
-        })
-      )
-    );
-  }
-
-  if (engineerPaperTarget) {
-    engineerPaperTarget.replaceChildren(
-      ...topLevelPaperItems.map((item, index) =>
-        createRoleItemButton(getLocalizedTitle(item), () => {
-          if (item.meta?.format === "pdf") {
-            renderPdfReader(item.id);
-          } else {
-            renderMarkdownReader(item.id, true);
-          }
-        }, {
-          anchorId: getContentAnchorId(item),
-          contentId: item.id,
-          kicker: item.meta?.year || "Paper",
-          description: getPaperDescription(item),
-        })
-      )
-    );
-  }
 
   if (visualTarget) {
     const galleryProjects = sortGalleryProjects(topLevelGalleryItems);

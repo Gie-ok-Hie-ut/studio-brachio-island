@@ -4,6 +4,11 @@
 
 ## 공통 구조
 
+- 사용자에게 보이는 내용은 markdown/frontmatter에 명시한다. JS는 내용을 숨겨서 자동 주입하지 않고, markdown에 적힌 구조를 렌더링만 한다.
+- CV형 섹션(`Career`, `Education`, `Projects`, `Paper`, `Article / Media`)은 `content/role/01-ai-engineer.md` 안의 markdown table을 단일 편집 표면으로 삼는다.
+- CV table은 `Label/Date/Year`, `Title`, `Detail`, `Links` 열을 기본으로 한다. `Detail`은 제목 아래에, `Links`는 오른쪽 액션 영역에 렌더링한다.
+- CV table 안의 링크, 강조, 줄바꿈(`<br>`), 밑줄(`<u>...</u>`)은 markdown에 적힌 위치와 의도를 따른다.
+- `Projects`와 `Paper`처럼 화면에 보이는 섹션을 비워 둔 뒤 JS가 별도 content collection을 끼워 넣는 구조를 만들지 않는다.
 - 역할 페이지의 제목 영역은 `role-section-title` 구조를 따른다.
 - 역할 이름과 닉네임의 타이포그래피는 공통 CSS에서만 조절한다.
 - 역할 소개글은 반드시 `createRoleIntroNode()`가 만들고, 기본 타이포그래피는 `.role-intro`에서만 조절한다.
@@ -31,7 +36,8 @@
 - `41-reader-content.css`는 reader markdown, Notion-style content, reader scroll 표시만 둔다.
 - `42-gallery-popup.css`는 gallery popup window variant, gallery media/detail, full-size original viewer만 둔다.
 - `60-home-signal.css`는 home landing과 Today's Signal만 둔다.
-- `70-role-room.css`는 standalone room page(`body[data-role-room]`) 레이아웃과 room-only responsive 예외만 둔다.
+- `70-role-room.css`는 standalone room page(`body[data-role-room]`) 공통 shell, title/handle, page-level responsive만 둔다.
+- `71-role-room-variants.css`는 standalone room page 안에서만 필요한 Novel, Visual Art, AI Research, Essay 역할별 예외만 둔다.
 - JS는 `20-reader-state.js`에 reader/popup mutable state, `21-content-lookup.js`에 content/path/localized field lookup, `22-popup-url-and-share.js`에 popup hash/share, `23-localization-refresh.js`에 language switch refresh, `24-reader-scroll-and-history.js`에 reader scroll/back history만 둔다.
 - JS는 `50-role-common.js`에 role 공통 helper만 둔다. Gallery, Novel, Essay, CV 어디서나 쓰는 role heading, meta text, profile icon, role item button 생성은 여기서 관리한다.
 - JS는 `30-novel.js`에 Novel 카드/오빗/그리드 동작만 두고, `40-gallery.js`에는 Gallery asset/project/rendering만 둔다.

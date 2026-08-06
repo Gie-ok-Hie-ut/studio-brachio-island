@@ -17,6 +17,7 @@ const bundles = [
       "versions/src/css/42-gallery-popup.css",
       "versions/src/css/60-home-signal.css",
       "versions/src/css/70-role-room.css",
+      "versions/src/css/71-role-room-variants.css",
     ],
   },
   {
