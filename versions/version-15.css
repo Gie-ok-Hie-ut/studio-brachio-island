@@ -49,6 +49,12 @@
 * { box-sizing: border-box; }
 
 html {
+  background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
+  min-height: 100%;
+  overscroll-behavior-y: none;
   scroll-behavior: smooth;
   scrollbar-color: var(--ink) transparent;
 }
@@ -73,10 +79,15 @@ html {
 body {
   margin: 0;
   background: var(--page);
+  background-image: var(--site-texture-surface);
+  background-repeat: repeat;
+  background-size: auto, var(--site-texture-size);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: 1.45;
+  min-height: 100%;
+  overscroll-behavior-y: none;
 }
 
 .intro-screen {
@@ -3885,13 +3896,6 @@ figcaption {
   --line: rgba(5, 5, 5, 0.16);
   --muted: rgba(5, 5, 5, 0.58);
   --inverse-muted: rgba(244, 239, 229, 0.66);
-}
-
-body {
-  background: var(--page);
-  background-image: var(--site-texture-surface);
-  background-repeat: repeat;
-  background-size: auto, var(--site-texture-size);
 }
 
 body.v15-home {
