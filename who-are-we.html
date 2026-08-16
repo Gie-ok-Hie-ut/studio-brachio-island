@@ -7,54 +7,43 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Studio Brachio Island</title>
+    <title>Who We Are - Studio Brachio Island</title>
     <meta property="og:site_name" content="Studio Brachio Island">
-    <meta property="og:title" content="Studio Brachio Island">
+    <meta property="og:title" content="Who We Are - Studio Brachio Island">
     <meta property="og:description" content="Studio Brachio Island gathers AI research, fiction, visual art, essays, and identity into one studio archive.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://brachioisland.studio/">
+    <meta property="og:url" content="https://brachioisland.studio/who-are-we.html">
     <meta property="og:image" content="https://brachioisland.studio/assets/share-thumbnail.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Studio Brachio Island">
+    <meta name="twitter:title" content="Who We Are - Studio Brachio Island">
     <meta name="twitter:description" content="Studio Brachio Island gathers AI research, fiction, visual art, essays, and identity into one studio archive.">
     <meta name="twitter:image" content="https://brachioisland.studio/assets/share-thumbnail.png">
     <meta name="description" content="Studio Brachio Island gathers AI research, fiction, visual art, essays, and identity into one studio archive.">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <link rel="canonical" href="https://brachioisland.studio/">
+    <link rel="canonical" href="https://brachioisland.studio/who-are-we.html">
     <link rel="stylesheet" href="versions/version-15.css?v=5db845cb4c">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="30aee87f-ef6c-4dab-afc4-410fb3c9ae21"></script>
   </head>
-  <body class="v15-home">
-    <main class="v15-home-main" aria-label="Studio Brachio Island">
-      <section class="v15-landing" aria-label="Studio Brachio Island">
-        <div class="v15-landing-title" aria-label="Studio Brachio Island">
-          <h1>
-            <span>STUDIO</span>
-            <span class="v15-landing-title-invert">BRACHIO</span>
-            <span class="v15-landing-title-invert">ISLAND</span>
-          </h1>
-        </div>
-        <a class="v15-scroll-hint" href="#todays-signal" aria-label="Go to today's signal">TODAY'S SIGNAL ↓</a>
-
-        <button
-          class="v15-menu-toggle"
-          type="button"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="v15-role-menu"
-          data-v15-menu-toggle
-        >
-          <span class="v15-menu-icon" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-
-        <nav id="v15-role-menu" class="v15-role-menu" aria-label="Studio roles">
+  <body data-role-room="identity">
+    <header class="v15-topbar">
+      <button
+        class="v15-menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="v15-role-menu"
+        data-v15-menu-toggle
+      >
+        <span class="v15-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+      <nav id="v15-role-menu" class="v15-role-menu" aria-label="Studio roles">
           <a href="./" data-menu-hover="HOME">HOME</a>
           <a href="who-are-we.html" data-menu-hover="@STUDIO BRACHIO ISLAND">WHO WE ARE</a>
           <a href="ai-research.html" data-menu-hover="@LEE GUNHEE">AI RESEARCH</a>
@@ -68,16 +57,13 @@
             <button type="button" data-language="ko">KO</button>
           </div>
         </nav>
-      </section>
-      <section id="todays-signal" class="todays-signal" data-todays-signal aria-label="Today's Signal">
-        <p class="todays-signal-placeholder">Tuning today's signal...</p>
-      </section>
+    </header>
+    <main class="role-room-main">
+      <section data-role-room-target></section>
     </main>
-
     <footer class="site-footer" aria-label="Copyright">
       <p>&copy; 2026 Studio Brachio Island. All rights reserved.</p>
     </footer>
-
     <div id="reader-modal" class="popup-modal popup-modal-reader" aria-hidden="true">
       <div class="popup-backdrop" data-close-reader></div>
       <section class="popup-window popup-window-reader" role="dialog" aria-modal="true" aria-labelledby="reader-title">
@@ -122,15 +108,12 @@
             <button class="modal-close" type="button" data-close-reader aria-label="Close reader">×</button>
           </div>
         </div>
-        <article id="reader-content" class="popup-content popup-content-reader">
-          <p>writing 섹션에서 제목을 클릭하면 이곳에 본문이 렌더링됩니다.</p>
-        </article>
+        <article id="reader-content" class="popup-content popup-content-reader"></article>
         <div class="reader-scroll-indicator" data-reader-scroll-indicator aria-hidden="true">
           <span data-reader-scroll-thumb></span>
         </div>
       </section>
     </div>
-
     <div id="pdf-modal" class="popup-modal popup-modal-pdf" aria-hidden="true">
       <div class="popup-backdrop" data-close-pdf></div>
       <section class="popup-window popup-window-pdf" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
@@ -152,7 +135,6 @@
         <iframe id="pdf-frame" class="pdf-frame" title="PDF viewer"></iframe>
       </section>
     </div>
-
     <script src="versions/writing-data.js"></script>
     <script src="content-index.js?v=68672d1e2f"></script>
     <script src="versions/version-15.js?v=c3692a166b"></script>

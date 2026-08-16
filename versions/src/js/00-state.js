@@ -29,9 +29,10 @@ const rolePanels = document.querySelectorAll("[data-role-panel]");
 const activeRoleRoom = document.body.dataset.roleRoom || "";
 const roleRoomTarget = document.querySelector("[data-role-room-target]");
 const isRoleRoomPage = Boolean(activeRoleRoom);
+const isLegacyRoleRoomPage = isRoleRoomPage && /\/versions\/rooms-v15\/[^/]+\.html$/i.test(window.location.pathname);
 const isArchivedVersionPage = !isRoleRoomPage && /\/versions\/[^/]+\.html$/i.test(window.location.pathname);
-const projectRoot = isRoleRoomPage ? "../../" : isArchivedVersionPage ? "../" : "";
-const roleRoomRoot = isRoleRoomPage ? "" : isArchivedVersionPage ? "rooms-v15/" : "versions/rooms-v15/";
+const projectRoot = isLegacyRoleRoomPage ? "../../" : isArchivedVersionPage ? "../" : "";
+const roleRoomRoot = isArchivedVersionPage ? "rooms-v15/" : "";
 const roleRoomPaths = {
   identity: `${roleRoomRoot}who-are-we.html`,
   engineer: `${roleRoomRoot}ai-research.html`,
