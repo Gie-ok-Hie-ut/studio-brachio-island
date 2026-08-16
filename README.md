@@ -48,4 +48,17 @@ Use the repository root as the Pages source.
 4. Select the `main` branch and `/ (root)`.
 5. Open the published GitHub Pages URL.
 
-The root `index.html` is the public entry page. Supporting CSS, JavaScript, and room pages live under `versions/`.
+The root `index.html` is the public entry page. Public room pages are generated
+at the repository root:
+
+```txt
+who-are-we.html
+ai-research.html
+novel.html
+visual-art.html
+essay.html
+```
+
+Supporting CSS and JavaScript live under `versions/`. Legacy
+`versions/rooms-v15/*.html` URLs are generated as redirects to the root public
+pages.
