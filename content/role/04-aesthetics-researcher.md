@@ -19,7 +19,7 @@ layout: "reading"
 topLevel: true
 ---
 <!-- ko -->
-
+섬 곳곳에서 나온 에세이, 노트, 글.
 
 <!-- en -->
-
+Essays, notes, and writings from across the island.
