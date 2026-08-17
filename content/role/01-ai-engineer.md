@@ -22,9 +22,7 @@ cvPdf: "../resource/ai_engineer/CV_eng_1pg_2025.pdf"
 topLevel: true
 ---
 <!-- ko -->
-@LEE GUNHEE는 생성형 Visual AI의 최전선에서 이미지 생성을 위한 모델, 시스템, 도구를 만든다.
-
-그의 연구는 스튜디오의 기술적 기반을 이룬다. 인간의 창의성을 확장하는 AI 시스템을 개발하면서, 동시에 그 시스템이 스스로 판단하거나 기억하거나 상상할 수 없는 것이 무엇인지 묻는다.
+이건희(LEE GUNHEE)는 생성형 Visual AI의 최전선에서 이미지 생성을 위한 모델, 시스템, 도구를 만든다. 그의 연구는 스튜디오의 기술적 기반을 이루며, 인간의 창의성을 확장하는 AI 시스템을 개발하면서 동시에 그 시스템이 스스로 판단하거나 기억하거나 상상할 수 없는 것이 무엇인지 묻는다.
 
 Research Interest: World Model, Generative AI
 
@@ -62,9 +60,7 @@ Research Interest: World Model, Generative AI
 | 2025.12 | VARCO Fashion 영상 | VARCO Fashion을 활용한 AI 기반 패션 콘텐츠 제작 사례 영상. | [Video](https://youtu.be/GJ04vdK9Gik?si=iMobWDWAYlKU5G_5&t=416) |
 
 <!-- en -->
-@LEE GUNHEE works at the front of generative visual AI, building models, systems, and tools for image creation.
-
-His research forms the technical ground of the studio: developing AI systems that amplify human creativity, while asking what such systems cannot judge, remember, or imagine on their own.
+LEE GUNHEE(이건희) works at the front of generative visual AI, building models, systems, and tools for image creation. His research forms the technical ground of the studio, developing AI systems that amplify human creativity while asking what such systems cannot judge, remember, or imagine on their own.
 
 Research Interest: World Model, Generative AI
 
