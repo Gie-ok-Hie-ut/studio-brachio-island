@@ -2,7 +2,7 @@
 id: "35f51218-e64b-47d6-8942-418689946505"
 title: "지구평면설"
 titleKo: "지구평면설"
-titleEn: ""
+titleEn: "Flat-Earth Theory"
 type: novel
 year: "2021"
 tags:
@@ -35,3 +35,19 @@ topLevel: true
 [7](07/index.md)
 
 <!-- en -->
+
+Contents
+
+[1](01/index.md)
+
+[2](02/index.md)
+
+[3](03/index.md)
+
+[4](04/index.md)
+
+[5](05/index.md)
+
+[6](06/index.md)
+
+[7](07/index.md)

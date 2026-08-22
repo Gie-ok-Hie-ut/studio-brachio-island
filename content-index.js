@@ -393,7 +393,7 @@ window.CONTENT_INDEX = {
       "type": "novel",
       "title": "지구평면설",
       "titleKo": "지구평면설",
-      "titleEn": "",
+      "titleEn": "Flat-Earth Theory",
       "order": 5,
       "topLevel": true,
       "path": "content/novel/05-지구평면설/index.md",
@@ -401,7 +401,7 @@ window.CONTENT_INDEX = {
         "id": "35f51218-e64b-47d6-8942-418689946505",
         "title": "지구평면설",
         "titleKo": "지구평면설",
-        "titleEn": "",
+        "titleEn": "Flat-Earth Theory",
         "type": "novel",
         "year": "2021",
         "tags": [
@@ -422,7 +422,7 @@ window.CONTENT_INDEX = {
       },
       "markdown": "목차\n\n[1](01/index.md)\n\n[2](02/index.md)\n\n[3](03/index.md)\n\n[4](04/index.md)\n\n[5](05/index.md)\n\n[6](06/index.md)\n\n[7](07/index.md)",
       "markdownKo": "목차\n\n[1](01/index.md)\n\n[2](02/index.md)\n\n[3](03/index.md)\n\n[4](04/index.md)\n\n[5](05/index.md)\n\n[6](06/index.md)\n\n[7](07/index.md)",
-      "markdownEn": ""
+      "markdownEn": "Contents\n\n[1](01/index.md)\n\n[2](02/index.md)\n\n[3](03/index.md)\n\n[4](04/index.md)\n\n[5](05/index.md)\n\n[6](06/index.md)\n\n[7](07/index.md)"
     },
     {
       "id": "7801718e-1d65-4fab-8373-1a198ab4f53f",
