@@ -107,3 +107,119 @@ topLevel: false
  "배의 정면. 앞쪽 끝에요"
 
 <!-- en -->
+
+For a moment, only the sound of rain remained in the plaza. The people on the platform listened in silence, waiting to hear what would come from the speakers. A terrible tension filled the stillness. Then the same low voice broke through it.
+
+“We hereby announce that the Southern Assembly has independently confirmed and accepted as fact both of the declarations made moments ago: first, the ‘flat sea,’ and second, the ‘infinite sea.’ We acknowledge that these two truths are painful and difficult for everyone aboard this ship to confront. A group that anticipated precisely this sense of futility has therefore offered the following proposal.”
+
+Mikaïla and Nakamura looked at one another. In the present circumstances, north and south no longer mattered. Everyone aboard appeared to have met the same shock.
+
+“In the past, when we lived upon the blue Earth, it was often difficult to determine where we were. The moon and stars in the night sky were therefore of the greatest importance. Here, however, as all of you know, we are enclosed by a dark canopy in which neither can be seen.”
+
+The voice cast a deep, low shadow.
+
+“Yet there were times even on the blue Earth when the night sky could not be seen. At those times, there was another means by which we learned our position.”
+
+In this vast sea, where not a single island could be seen, there was nothing at all that might serve as a point of reference. They listened even more intently.
+
+“And so we propose that together, we become that ‘lighthouse.’”
+
+Someone in the crowd cried, “Yes—a lighthouse!” The speakers continued to deliver their message with solemn composure.
+
+“Upon this dark sea, where nothing can be seen, let us become the point by which all else is measured. Let us proclaim that we shall become the sun and moon of this world and cast our light upon the sea. Let us make that declaration today, into the deepening darkness.”
+
+“Yes! We’ll make our declaration to the sea!”
+
+One by one, people began to respond. Astonishingly, the frozen silence absorbed the new vision with extraordinary speed.
+
+“Let us shout at the speed of light—the fastest thing in every world! Let us show them clearly that we are the masters of this ship, that we are its captains!”
+
+The people grew more fervent. The words flowing from the microphone wrapped themselves around the emptiness inside them faster than anything else could. Mr. Tucker’s eyes also began to shine again. He seized the microphone and rose to his feet.
+
+“The north plaza accepts the proposal that we become a lighthouse together. In addition, I propose that everyone turn on the lights in their cabins, take whatever lamps they possess, and climb to the roof to cast that light outward.”
+
+“The south plaza agrees.”
+
+After a brief silence, the answer crackled from the speakers. One cheer rose, then another, and the crowd’s fervor grew hot.
+
+“Who stands at the center of the sea?”
+
+“We do!”
+
+“Who are the masters of the ship?”
+
+“We are!”
+
+The people began to chant. Moving with one purpose, they filed up the stairs beside the plaza. Before long, Mr. Tucker too had disappeared, apparently making his way to the roof with the others.
+
+“Mikaïla!”
+
+To keep from being swept away by the crowd, Nakamura and Mikaïla clasped hands. The abrupt transformation had left her looking dazed.
+
+“What do we do now? It feels as though the whole ship is about to rise like a lighthouse.”
+
+Lights began to appear one by one in the outer cabins nearest them. The darkness was deepening, but the ship brightened faster still.
+
+“Mikaïla!”
+
+They turned at the sudden voice. It was Miriam, smiling brightly at them again and again.
+
+“You’re both here! What are you doing standing still? Hurry!”
+
+“Miriam! Something is wrong. This shouldn’t be happening!”
+
+With her free hand, Mikaïla seized Miriam’s arm.
+
+“Miriam, listen carefully. I heard the Voice aboard this ship!”
+
+“Good heavens!”
+
+Miriam covered her mouth with one hand.
+
+“That’s impossible!”
+
+The chanting around them grew louder.
+
+“Who stands at the center of the sea?”
+
+“We do!”
+
+“Who are the masters of the ship?”
+
+“We are!”
+
+With greater force, people pushed through the rain toward the roof.
+
+“Oh, dear…. I don’t know which voice I’m meant to follow….”
+
+From the speakers, Mr. Tucker’s voice and the low voice from the south plaza cried together, “To the roof!” calling the people upward. The crowd climbed the stairs in a state of exhilaration. Perhaps never before on the yellow sea had every person aboard gathered on the roof.
+
+Miriam glanced around and spoke hesitantly.
+
+“Mikaïla, I want to join this procession. For now, at least….”
+
+“Miriam!”
+
+“This is something that happens once in a lifetime. Come up to the roof with us.”
+
+Mikaïla could not answer.
+
+“Today is a festival! Look at everyone’s faces. We might miss it!”
+
+A man beside them interrupted their exchange with the chant, then shouted powerfully, “We stand at the center of the sea! We are the masters of the ship!” Miriam’s bright smile returned at once, and she followed his voice toward the stairs.
+
+“What can we possibly do now? No matter how loudly we speak, no one will hear us.”
+
+“Mikaïla, is there another microphone besides the one Mr. Tucker is carrying?”
+
+“No, I don’t think so….”
+
+She paused, lost in thought.
+
+“Wait…. There may be one.”
+
+Mikaïla hesitated.
+
+“At the very front of the ship. Right at the end of the bow.”
+
+(Translated in GPT 5.6)

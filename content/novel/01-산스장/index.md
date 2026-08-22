@@ -2,7 +2,7 @@
 id: "9da96c11-8ced-4929-bfc1-58226efc8e9b"
 title: "산스장"
 titleKo: "산스장"
-titleEn: ""
+titleEn: "Sansjang: The Mountain Gym"
 type: novel
 year: "2024"
 tags:
@@ -11,7 +11,7 @@ tags:
   - "#2024"
   - "#미출판"
 summaryKo: "안개 낀 새벽 숲에서 두 노인이 산스장을 방문하며 일어난 사건을 다룬 단편."
-summaryEn: "A short story about two elderly men visiting a forest gym before dawn in a fog-covered woods, and the incident that follows."
+summaryEn: "A short story about two elderly men visiting an outdoor gym in a fog-covered mountain forest before dawn, and the incident that follows."
 order: 1
 topLevel: true
 ---
@@ -257,3 +257,251 @@ topLevel: true
  두 노인은 산스장을 빠져나와 안개가 뒤덮은 산 정상을 향해 발걸음을 옮기기 시작했다. 숲 속에 햇빛이 비출지 아랑곳하지 않고 두 노인은 걸어 올라갔다. 멀리서 무언가 그들을 바라보고 있었다. 산스장 표지판은 왜인지 뽑혀 있었고, 그날 따라 유독 산스장에는 젊은 사람들이 북적였다.
 
 <!-- en -->
+
+Sansjang: The Mountain Gym
+
+The crisp air of dawn streams deep into the nostrils. Ancient trees, dark green and gnarled, stand shoulder to shoulder in a dense, uneven mass. Between their thick leaves, beads of fog whirl on the wind. A deep breath drawn with that wind rouses every cell in the body to the coming day. As it passes through the skin, black feathers that had lain sleek and firm rise into sharp points, stretching themselves awake. As it travels down the body, even the eggs nestled warmly beneath seem ready to stir. Beyond the darkness endured through a sleepless night, the first light is beginning to gather. Far below, through the mist, two men who look to be well past middle age are laboring up the mountain. The reddish hiking clothes of one and the dingy, colorless clothes of the other carry the lives they have lived straight into the woods, subtly altering the air around them.
+
+“Now where in the world are we? I can’t see a foot ahead in this fog.”
+
+The old man in red had a forceful voice, though it cracked as he spoke.
+
+“You came here only last month, and you still don’t remember the way?”
+
+The old man in gray, by contrast, sounded mild and dignified, with an inexplicable loneliness beneath his words.
+
+“There wasn’t any fog last time. Still, they’ve done a good job putting up signs everywhere. Without those, we’d have gotten lost before sunrise. And I told you we ought to hike while the weather was still good. You never liked hiking even in college, but did you really have to put it off this long? I don’t care how nice your neighborhood is—there are things you can only feel up in a mountain like this. Don’t you agree?”
+
+The gray-clad man was already panting, as though the climb had proved too much for him.
+
+“Tired, are you? Hang on a little longer. There’s something just up ahead that you’re going to like.”
+
+The man in red slowed his pace.
+
+“I heard your eldest daughter’s little girl started kindergarten. Yeeun, isn’t it?”
+
+“Where did you hear that?”
+
+“When we went over to Hwangcheol’s place, Mansu was there. He told me.”
+
+“Hwangcheol? Yellow-Teeth Hwang? Wasn’t he hospitalized after collapsing a while back?”
+
+“Don’t even get me started. Ever since it happened, his daughter has been going back and forth to the house every day, taking care of everything. His sons are both over in America making good money, and neither one has even come home to see him.”
+
+“It’s been quite a while since he collapsed, if I remember correctly.”
+
+“That’s what I’m saying. Nearly a year now, and still no visit. Hwangcheol’s wife was terribly hurt by it.”
+
+“Good grief. What is wrong with young people these days? Times may have changed, but surely the eldest son should still do the bare minimum expected of him. I’m not asking them to do everything we had to do in our day. They should at least show their faces. Isn’t that simple decency?”
+
+“Well… it sounded as if something had happened to them.”
+
+“What kind of thing?”
+
+“He used one of those English terms. I can almost remember it.”
+
+The man in red narrowed his eyes and stood thinking for a long while, looking as though the word hovered just beyond his reach.
+
+“You really are getting old. Never mind if you can’t remember.”
+
+The two men pressed on through the sightless forest, feeding their climb with stories. In the distance, on a nest loosely woven from twigs, a mother bird’s gaze glided after something. A tiny creature with dozens of delicate legs rippled slowly past the nest as though dancing. The mother bird would never let such easy prey escape. She watched for her moment, then darted forward with her beak open. Startled by the movement, the creature slipped. It fell beneath the nest, riding the mist downward, and landed with a soft plop in a drop of morning dew. Dozens of legs flailed in every direction. Even the sky seemed cruel. Beads of fog among the undergrowth tapped against the droplet, denying the creature any opening through which to escape. Its legs thrashed faster, more frantically. Then, as if they could no longer bear the weight of the dew, they stopped.
+
+“Oh, my legs.”
+
+“The sign said a hundred meters back there, didn’t it? We must be almost there. Why is there so much fog today? You can’t see a thing.”
+
+Another pale gust swept sharply through the forest, rummaging through every corner of it. Step by step, as the men climbed, a broad clearing began to emerge nearby. It was large enough to hold eight table-tennis tables. One by one, huge shapes appeared in a line across the mist.
+
+“You can’t mean—”
+
+“That’s right. This is the sansjang.”
+
+“The sansjang?”
+
+“You wouldn’t know, having no children. The young ones call a gym in the mountains a sansjang—a mountain gym.”
+
+“Would you look at that.”
+
+The gray-clad man’s eyes widened like a child’s. Only then did the familiar machines begin to take shape.
+
+“Well, this takes me back.”
+
+“Isn’t it something? Aren’t you glad you came?”
+
+The man in red smiled. The two approached slowly, taking everything in. People had already claimed places among the machines. Some looked as if they had arrived straight from bed, their hair still sticking up in nests. One wore thick, high-prescription glasses better suited to a cramped study cubicle. Another, apparently indifferent to the cold, had come in a T-shirt and shorts. Their faces were only faintly visible, but nothing could conceal their youth.
+
+“There are a lot of young people here. You’d think this was where they all came to work.”
+
+“Indeed. So many young people, at dawn on a weekday.”
+
+The man in gray walked over to a green mass of iron that had caught his eye. He studied it sidelong from one angle and then another, like a man encountering an old lover.
+
+“A bench press. It has been a long time.”
+
+The man in red watched his face with quiet satisfaction.
+
+“I knew you’d like this place.”
+
+A young man was using the bench, lifting so much weight that the bar looked ready to bend. His solid arms and chest seemed to bear the brutal load with ease.
+
+“That fellow is stronger than he looks.”
+
+“You ought to try it yourself. We came all this way.”
+
+“Perhaps I will, carefully.”
+
+The young man lowered the weight once more, bracing it with his entire body. After several repetitions, he hurried away to another station. The man in gray took his place. He removed some of the heavy plates and adjusted the load to something suitable. Recalling the young man’s form and what remained of his own old habits, he slowly lay back against the bench.
+
+“You know, when I was about his age, I trained seriously. I had so much energy boiling inside me that I didn’t know what to do with myself. I was drifting then, and exercise was the one thing I truly loved. Remember our final year at university? We were determined to enter that competition together. We trained nearly every day. There were always people calling for us, always somewhere to go, and hardly a worry in the world. I don’t even remember how I came to stop.”
+
+“When was it you went to America? Did you keep training there?”
+
+“At first, yes. Quite a lot. Then I happened to get a job and was transferred to the American branch. It took me so long to settle in that I more or less forgot about going to the gym.”
+
+“That must have been almost as soon as we graduated. Well, now that you’re here, you might as well make up for lost time.”
+
+The man in gray pressed his back firmly to the bench and raised his waist slightly. With a sharp exhalation, he drove the bar upward.
+
+“Easy now. Slowly.”
+
+There was genuine concern in the man in red’s voice. The man in gray brought the bar lightly down toward his chest, then raised it again with care. He repeated the movement three or four times before settling the bar onto the rack. For a moment, the same gleam they had seen in the young people flashed across his face.
+
+“Ah, this mountain gym is wonderful.”
+
+“I told you the climb would be worth it.”
+
+The two men began moving briskly from machine to machine, apparently determined to explore them all. Beside the bench press stood a lat pulldown, an arm-curl machine, a treadmill, and still more equipment in a waiting row. As the men felt their way across each machine, they felt their way back through old memories as well.
+
+A bird drifted down onto the roof of the octagonal pavilion. However much time had passed, the fog still rolled as thickly through the forest as it had before dawn. In the quiet woods, labored breaths—half moan, half sigh—and the sharp squeal of rusted metal spread from place to place. Beneath the heavy, cold mist, human heat welled upward in resistance.
+
+“Here. Try some of this.”
+
+The man in red tossed a walnut beyond the pavilion. The bird beat its wings and snatched it at once. The men sat under the pavilion to catch their breath, sharing the handfuls of snacks they had each brought and letting their conversation wander on. After a while, the man in red reached into his bag and unexpectedly pulled out a metal flask.
+
+“Oh, a Zojirushi?”
+
+“That’s right.”
+
+The man in red made little of it.
+
+“That is expensive Japanese stainless steel you’re carrying around.”
+
+“My son bought it for me.”
+
+He ran a hand lightly over the elephant logo on the flask.
+
+“There’s nothing like drinking coffee in the middle of a forest. It has a mood all its own.”
+
+Then he began pulling tangerines and chocolates from his bag. A white cord inside caught the gray-clad man’s eye.
+
+“What is that?”
+
+“What? Which thing? Oh—would you look at that. Where is my head?”
+
+Startled, the man in red seized the cord and pulled. A battered lump of silver plastic came tumbling out after it.
+
+“I searched everywhere for this. Never dreamed it was in here.”
+
+“Isn’t that a radio?”
+
+The man in gray continued in disbelief.
+
+“Who carries a radio in the age of smartphones?”
+
+“My daughter bought it for me years ago. I looked for it for ages, and all this time it was here.”
+
+The man in gray gave a wistful smile that betrayed a touch of envy.
+
+“This is Japanese too, isn’t it? Let’s see whether it still works.”
+
+He snatched the radio, pressed the power button, and a red light came on with a plastic click.
+
+“Turn up the volume.”
+
+Static crackled. A rough voice began to leak through as the man in gray rolled the round tuning dial back and forth.
+
+…nevertheless… however much…
+
+The voice gradually sharpened.
+
+…South Korea has not been able to avoid the trend spreading from the United States. The continuing wave of layoffs in America has now become a major social issue…
+
+“Ah!”
+
+The man in red’s eyes flew open.
+
+“What is it?”
+
+“I remember now. Yes, that’s it!”
+
+“Remember what?”
+
+“Layoff. That was the word. I heard it as ‘lease-off,’ so it stuck in my mind.”
+
+“What are you talking about?”
+
+“I told you earlier. Something happened to Hwangcheol’s boys in America. They both had this layoff—or lease-off, or whatever it was.”
+
+The man in gray’s face stiffened.
+
+“Both his sons?”
+
+“That’s what I heard. I thought maybe they’d taken out apartment leases, or been taken off one. But if they’re making that much money and still won’t visit their father…”
+
+The man in gray hesitated.
+
+“You don’t know what ‘layoff’ means, do you?”
+
+The man in red went on.
+
+“I already thought they were heartless for not visiting their father. Isn’t it something to do with apartments—with being on a lease? What does it mean, then?”
+
+The gray-clad man’s mild voice burst out, sharpened by frustration.
+
+“It means they lost their jobs.”
+
+His words rang across the clearing. In an instant, the entire mountain gym fell silent. Not one machine creaked; not one person groaned. The heat that had resisted the fog seemed to sag like air escaping from a balloon.
+
+In the suffocating stillness, a strange sound came from somewhere nearby. The wind drove beads of mist into a narrow crack. Within it, a small red mass of flesh writhed and struggled. Eyes still closed, the bloody little thing twisted in pain and struck the crack again with its beak. The instant the air reached its nostrils, blood surged through the creature, racing along every vessel. It struck the shell once more. Through the broken opening, the face of a hatchling came clearly into view. The tiny bird gave another desperate cry to the world it had just entered—a sound that might have been a scream or a sob. The first utterance at the hot, bloody moment of birth seemed, for some reason, closer to weeping than to laughter.
+
+As the cry slowly dissolved into the mist, rough breathing began again throughout the mountain gym. The old machines joined in all at once, their metallic shrieks layering into an urgent discord that swallowed the mountainside.
+
+“What time is it?”
+
+“We must have been here an hour or two.”
+
+“Shall we head for the summit before it gets too late?”
+
+The two men left the pavilion and walked slowly toward the exit. The man in gray seemed especially reluctant to go, disappointed that they had not tried every machine. Near the edge of the clearing, another piece of equipment caught his eye.
+
+“They really have everything here. Even a leg press.”
+
+A young man seated at the machine was slowly catching his breath. Sweat soaked his entire body and ran onto the metal beneath him. Heavy-looking plates hung from both sides of the apparatus. As if coming to a decision, he held his breath and drove against the weight with his legs. Slowly, once… and then again. His legs began to tremble.
+
+“Look at that. He’s going to hurt himself.”
+
+“He’s young. I’m sure he knows what he’s doing.”
+
+“No, no. He’ll injure himself.”
+
+The young man’s legs began to shake violently, as though they could bear no more. The man in gray crushed the heels of his shoes underfoot and hurried toward him. The other man followed. Bracing themselves on either side, the two old men seized the machine and pushed. The heavy apparatus began to move, little by little. As the load finally rose, the young man quickly pulled the safety lever and locked it in place. He gave an embarrassed smile. When the men turned to leave, he thanked them again and again for helping with the weight.
+
+“Still, something about this place is strange.”
+
+“What do you mean?”
+
+“When you used to exercise, what did you say it was like?”
+
+“I said I did it for the sheer pleasure of it, without thinking about much of anything.”
+
+“Doesn’t the atmosphere here feel a little different?”
+
+“Yes. Compared with when I was young, there is something…”
+
+The old man fell silent in thought. At last, he spoke.
+
+“None of them looks happy.”
+
+The two men left the mountain gym behind and resumed their climb toward the fog-covered summit. Whether or not sunlight would ever reach the forest, they kept walking. From far away, something watched them go. The sign marking the mountain gym had somehow been uprooted, and on that particular day the clearing was unusually crowded with young people.
+
+(Translated in GPT 5.6)

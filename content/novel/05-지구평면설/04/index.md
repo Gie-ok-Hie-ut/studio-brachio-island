@@ -113,3 +113,115 @@ topLevel: false
  그는 미카일라를 따라 좇아갔다.
 
 <!-- en -->
+
+It was a voice he had never heard before.
+
+A great many people were leaning over one side of the deck and looking toward the stern. From somewhere within the crowd came the faint sound of that unfamiliar voice. Taking hold of Mikaïla, Nakamura pushed through the people so that he could see what they were watching.
+
+Far out upon the sea was a tiny sailboat. Already very distant, it was growing smaller at roughly the same speed as the ship drew away from it.
+
+On closer inspection, the shape of its sail was unusual. The rectangular sail was crossed horizontally by stripes that ran parallel to the sea’s horizon. The lowest stripe was black, the next white, and the colors continued to alternate all the way to the top. For a sail it looked almost excessively plain, and Nakamura wondered who would make such a thing.
+
+Then realization struck. Gooseflesh rose across his entire body.
+
+“That’s it! Not a single stripe on the sail has been hidden! Even the lower part of the boat is clearly visible from this distance.”
+
+“At this rate, the next Shipboard Assembly will obviously belong to the Flat-Earthers. Could the sea here really be flat?”
+
+Cold sweat began to run down Nakamura’s back. The sailboat was moving farther and farther away. If the Earth were round, its lower parts should have disappeared one by one from view. Yet, as he had just confirmed, even the precise pattern upon its distant sail remained visible.
+
+“Everyone, look! That sail is the evidence! If the sea were curved, the bottom of the sail should gradually vanish from sight. Yet what do we see? As it approaches the horizon, it merely grows fainter. Neither the top nor the bottom of the boat has disappeared in the slightest. The evidence is clear: this yellow Earth is flat!”
+
+It was that voice—the one that had commanded this place moments earlier. Nakamura turned and saw a man in a battered brimmed hat speaking with a smile. People had naturally formed a circle around him and were observing his every expression and gesture.
+
+“Now then! Those of you who were round-Earthers and insisted that the Earth was a sphere—I should like to hear your thoughts.”
+
+A short, stout man with a thick beard stepped slowly into the center.
+
+“Everyone, I do not believe we can raise any objection to his argument. That this sea appears flat is perhaps not so surprising. This is a world none of us had ever visited before, and such a possibility was always open to us.”
+
+“That is utter nonsense!”
+
+Another voice rose from the crowd. A woman in a dark green dress cut him off. As though preparing a demonstration, she took a cup of tea from beside her and slowly poured it onto the floor.
+
+“Look at these drops of tea, everyone. Do you see how the water falls in rounded drops? Look—it gathers into a round shape. Even on this Earth, it is natural for water to draw itself together toward the center. This Earth is merely immense; it too must be round! Remember these droplets. The science of this world is not greatly different from the science we already knew!”
+
+Then she shot the bearded man a fierce look.
+
+“The science we knew applies here as well. We must not believe people like them. The claims of Flat-Earthers are a conspiracy meant to dash sacred science to the ground and make us lose faith in it!”
+
+She slowly surveyed the response. The crowd stood murmuring around them as though watching a boxing match. She took a breath, then continued, walking toward the Flat-Earther in the brimmed hat.
+
+“I have a question for our great Flat-Earther. Has your experiment with the sail truly proved that the Earth is flat? If this yellow Earth is simply much larger than the one we knew, you would surely obtain the same result.”
+
+He drew breath to reply, but she cut him off again.
+
+“And another question. This very experiment was conducted on the blue Earth to prove that the Earth was round. There, the sail gradually disappeared from the bottom upward. Yet both then and now you insisted the Earth was flat. Why did you refuse to believe the evidence for a round Earth when you were there?”
+
+“Yes, I wonder the same thing. Why did you refuse to accept this method of proof back then?”
+
+The bearded man voiced his agreement. The Flat-Earther released a long breath.
+
+“Because too many things seemed uncertain for such a conclusion to be guaranteed. Distortion in the air was one of them. Here, day and night pass while the temperature seems to remain nearly constant. In our old world, temperatures varied all the time. And did we perform the experiment in every part of the Earth? This is how I see it: the sun may have risen every day until now, but that does not prove it will rise tomorrow. Is it truly ‘scientific’ to leap to a conclusion on the strength of a handful of results?”
+
+“Do you honestly think he is right? If you think that way, nothing can be believed! None of our knowledge remains!”
+
+The Flat-Earther put greater force into his voice.
+
+“This is my position. ‘All human beings die,’ someone once said. According to our experience, perhaps that statement is true. But how many people have we observed during our own lives? Might we have arrived at the conclusion too hastily? If there may be a black swan, may we declare that all swans are white? I do not believe we can draw conclusions so carelessly.
+
+“You said that you believe in evolution. If so, were you and your great-great-grandfather the same person? Did you personally verify that he possessed kidneys? We live upon an enormous number of assumptions. I have merely rejected some of them. My belief that the Earth is flat, both here and there, is only an extension of that position.”
+
+“If your doubt is so radical, how can you be certain that this Earth is flat?”
+
+“Ah, but my position is precisely that it is a flat-Earth theory: a theory, an account of the evidence. It may be wrong. That is my position.”
+
+As though it were nothing of consequence, he took hold of his worn hat and shrugged. Nakamura was confused. He had expected the man to be profoundly hostile to science, yet instead he seemed to be defending it.
+
+“Do any of you truly believe him? It is madness. I very much doubt that such an argument could persuade even one person.”
+
+The woman set down her cup and looked around. Her gaze moved slowly over the crowd until it met Mikaïla’s.
+
+“Mikaïla. Do you really think that way? What do you make of his argument?”
+
+Every eye in the crowd turned toward Mikaïla. Flustered, she could not answer.
+
+“I only….”
+
+She opened her mouth quietly and continued.
+
+“I only wondered whether it mattered so much if the Earth was round or flat. I’m more interested in why we came here. Perhaps the Voice is waiting at the end of that sea. Every one of us came here after hearing it….”
+
+“Good grief, Mikaïla. The Voice? Are you still going on about that? In all the time we’ve lived aboard this ship, have you ever known anyone to hear it again? No. Forget the Voice. Perhaps our hearing it was nothing more than a coincidence.”
+
+“On that point, I agree,” the Flat-Earther interjected. “What matters more is the fact that we are here now.”
+
+The woman in the green dress hesitated, taken aback, then resumed.
+
+“Mikaïla, the Voice belongs to whatever dream we were having then. Look carefully. We are awake here and now. We may live out the rest of our lives in this place. If so, shouldn’t our first priority be to discover what kind of place it is?”
+
+The Flat-Earther stepped closer and added,
+
+“My dear lady, would anything change if we all happened to dream similar dreams? The unalterable fact is that we are here.”
+
+Mikaïla could say nothing. All three of them were now staring at her. Even so, she opened her mouth, though her voice was small.
+
+“You’re right. All of you are right. But what happened was too astonishing to be mere coincidence…. I want to know where we’re going….”
+
+“Mikaïla, listen to me. Once we resolve the questions we are considering now, your questions will answer themselves. Where are we going? That will become clear as soon as we understand the nature of this sea. Your question is not so important. Once we know how large this sea is, where it ends, and how quickly this ship must travel to reach that end, every other question will resolve itself.”
+
+“Then how will we discover who the Voice belongs to?”
+
+The Flat-Earther cleared his throat.
+
+“My dear lady, set the Voice aside for the moment. This sea, that sky, and the ship carrying us forward—these are real. Is it not already difficult enough to concentrate upon what we can know? Even if the Voice is waiting at the end of the sea, just as you believe, would it not be better to learn how we might cross the sea more quickly and how much farther we must travel? Then the identity of the Voice will soon reveal itself.”
+
+The hostility in the green-dressed woman’s eyes softened as she looked at the Flat-Earther, evidently satisfied with his answer. Overwhelmed by the sudden confrontation, Mikaïla looked close to tears. She excused herself and slipped out of the crowd.
+
+Dozens of words boiled up within Nakamura.
+
+“That is enough. You have gone too far.”
+
+He hurried after Mikaïla.
+
+(Translated in GPT 5.6)

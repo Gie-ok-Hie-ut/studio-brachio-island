@@ -97,3 +97,101 @@ topLevel: false
  "지구 평면론자말이죠"
 
 <!-- en -->
+
+Nakamura could not close his mouth at the sight before him. Perhaps this was what the agora had looked like in ancient Greece. Countless people had gathered in small groups, freely exchanging ideas and engaging in impassioned debate. There were those who listened and reflected in silence, those who argued so fiercely that spittle flew from their mouths, those who watched it all with indifference, and those who had withdrawn to a corner and were busily writing something down. In some respects, it was as though Raphael’s imagined School of Athens had come to life.
+
+Nakamura’s heart began to beat a little faster. Perhaps there was more for him to do here than there had been on the old blue Earth, which so many people had already dissected and understood down to its smallest pieces.
+
+“Mithter? What are you?”
+
+Coming to his senses, he lowered his head. A little girl of about six was staring intently up at him.
+
+“Rhoda! So this is where you were.”
+
+Mikaïla bent down and gently stroked the little girl’s hair.
+
+“Rhoda, you haven’t seen this gentleman before, have you? At times like this, you say, ‘Who are you, mister?’ Now, let’s try it together.”
+
+Nakamura smiled fondly and greeted her in a soft, friendly voice. Rhoda suddenly pricked up her ears.
+
+“Mm! Not this mithter!”
+
+With that, she ran off somewhere else. Laughing, Mikaïla explained that Rhoda loved roaming about in search of new arrivals and greeting them. Nakamura smiled and watched her go. She darted nimbly between the crowds as though playing a game. Then his gaze settled upon a platform at the front of the plaza. A huge man stood there speaking with the people around him. His expression carried great gravity, and his eyes were sharp. The hair at either side of his head had turned white, betraying his age, and although his steps were slow, they never wavered. Noticing where Nakamura was looking, Mikaïla spoke.
+
+“Mr. Nakamura! That’s Mr. Tucker. He must be one of the people who have been aboard the longest. Oh! I think he’s seen us. He’s beckoning us over.”
+
+The two walked toward the platform. Mr. Tucker watched them approach up the stairs before speaking.
+
+“How long has it been since I last saw a newcomer?”
+
+“Of course you recognized him at once, Mr. Tucker!”
+
+Mikaïla helped introduce Nakamura. When she explained that he had studied astronomy and worked in academia, Mr. Tucker’s expression grew noticeably grave. He fixed his piercing gaze directly upon Nakamura and listened for a long while without blinking once. At last he opened his mouth. His voice was confident, as if he had seen through everything, yet utterly composed.
+
+“I’ll come straight to the point. Perhaps I’m spoiling things before they have begun, but do not expect too much. You’re still young and hungry for scholarly achievement, so you must see this place as a land of opportunity. And rightly so. I will not condemn the desire to become another Newton or Einstein, names that will never fade with time. No one can help wanting to be the first. Some have tried far too many things in hopes of seizing the new opportunities offered by this new sea. But when they made less progress than expected, a few eventually threw themselves into the water.”
+
+Nakamura was startled, but he did not let it show. Mr. Tucker paused to draw breath before continuing.
+
+“Among them was a good friend who had been with me for many years. He was considered a man of exceptional ability. People made all sorts of guesses. Some said that, in his final moments, he wished to become one with the sea he had both loved and hated. Others said he believed he would discover something new if he entered it. But I know the truth. In the end, he had gone mad. He tried to hold in his mind not merely the wake our ship had already left behind, but the full breadth of the sea it had yet to cross. He tried to contain that immense sea. Of course his mind shattered.
+
+“Ever since then, I have found this sea unbearably empty. To me, that expanse is emptiness itself. Why are we doing any of this? We seem to be moving forward, yet the unknown keeps appearing without end. Whenever I look at the sea, it feels as though we have never moved at all.”
+
+He fell silent. Several seconds passed before he resumed.
+
+“Still, what we believed at first was this: just as the ship moves onward, so do we. The Shipboard Assembly, where we proclaim the knowledge we have gained, is the symbol of that hope. Many believe the Assembly is merely a place to declare and share what we know. For me, however, it is also a source of strength against this endless emptiness. I still hope that one day we shall break through it and discover that we truly have been advancing—that we truly have been learning.
+
+“So I shall tell you once more: do not expect too much, as I once did. Nevertheless, join us at the Shipboard Assembly. I still await that day—the day we learn that we really are moving forward, and that we have overcome this emptiness.”
+
+Mr. Tucker had spoken at length before finally stopping. Then, recalling the friend he had lost, he apologized for having said more than was necessary. Nakamura assured him it was all right and tried to comfort him. Mr. Tucker abruptly declared that this was no time for such things and led him to the center of the platform. Then he picked up the microphone.
+
+The countless people in the plaza fell silent as one and turned toward him. In his low voice, Mr. Tucker introduced Nakamura gently and distinctly, taking care over every word. When the introduction ended, murmurs once again filled every corner of the plaza. Several people crowded below the platform to meet the newcomer.
+
+Among them was a woman named Miriam. Remarkably, she and Mikaïla had attended the same school. Mikaïla had been their year representative in high school, while Miriam had been an ordinary student. One day, the school held a masquerade festival. Although they had not recognized each other beneath their masks, Miriam remembered the year representative’s voice and realized that the masked girl was Mikaïla. That was the first day the two of them ever met and spoke.
+
+After reminiscing for some time, Miriam looked at the frames of Nakamura’s glasses and said that they made him look unmistakably Japanese. She had always wanted to visit Japan, and if she ever went, she hoped to see the island inhabited almost entirely by cats. She had owned a cat for twelve years—its name was Miru—a Chartreux, a breed supposedly uncommon in Japan. Then she said that nearly two years seemed to have passed since she arrived here, and she worried whether Miru was managing without her. Taking hold of Mikaïla, she grew melancholy and said that even if a blizzard fell upon the banks of the Papillon, they would still never return. (The banks of the Papillon are always warm, and snow has never fallen there.—Translator’s note.)
+
+Mikaïla patted her gently and suggested that they go up to the roof together for some cool air. She invited Nakamura as well, but he said he wanted to look around a little longer and would remain in the plaza.
+
+Nakamura stood alone and surveyed the scene. Then he stepped into the crowd. With every step, different voices came into focus. One group was debating how they could converse so naturally with one another. Among them, a man who appeared to be Indian was expounding upon humanity’s “universal language” and “universal grammar.” Someone across from him argued that they first needed to understand the medium of this world. There must be some “semantic medium,” he claimed, between the speaking of words and their arrival in another person’s ear.
+
+Just as light changes direction when it is refracted in passing from air into water, every person’s language possessed its own wave, which was refracted in different ways as it passed through the medium of this place—whatever it was that they breathed here. At the final stage, as with polarized light, only the sounds suited to the listener’s language would pass through. It was this semantic medium, the man claimed, that made conversation between them possible.
+
+In the midst of his fervent explanation, the man’s eyes met Nakamura’s.
+
+“Are you interested in the semantic-medium theory?”
+
+The five adult men and women who had been participating in the discussion all turned their heads toward Nakamura at once.
+
+“Oh… no. I only found the discussion interesting and was listening. Please, carry on.”
+
+“Have you studied language, by any chance? I admit that our knowledge of Asian language families is rather lacking….”
+
+The Indian man from earlier took up the question.
+
+“Ha, no. I don’t know whether you heard the introduction, but I’m the newcomer Mr. Tucker just presented. I studied what lies beyond the sky.”
+
+They welcomed him warmly, explaining that they had been too far away to see his face properly. Then a woman in a beige sweater glanced around.
+
+“Hmm. They aren’t here today.”
+
+“Oh, those people?”
+
+The others began snickering as they too looked around.
+
+“There are some people who would welcome your presence more enthusiastically than anyone, but we haven’t seen much of them lately. They are deeply interested in this Earth, its sea, and its sky.”
+
+The Indian man continued.
+
+“Have you ever heard people say that you’ll die if you sleep with an electric fan running? Or… ah, yes! That you must never write someone’s name in red? You’ve heard stories like those, haven’t you?”
+
+“Good grief. How can they come to the Shipboard Assembly with such nonsense? It’s absurd, isn’t it?”
+
+The sudden turn in the conversation left Nakamura bewildered. What on earth were they talking about?
+
+“Well… perhaps you never encountered anyone who thought that way on the blue Earth. As you know, Mr. Nakamura, this yellow Earth is an entirely different world. But because all of us came here from the blue Earth, we naturally continue to think in the same ways we did before. A person’s thinking does not change overnight, does it? It is perfectly natural that we should go on looking at this world through the eyes with which we believed and understood the old one. But I had never met anyone like them—someone who had thought that way on the blue Earth and continued to do so here.”
+
+The woman in the beige sweater delivered the answer with quiet dignity.
+
+“Flat-Earthers.”
+
+(Translated in GPT 5.6)

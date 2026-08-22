@@ -83,3 +83,77 @@ topLevel: false
  “누구 목소리를 들을지 잘 집중해야 할 거에요!”
 
 <!-- en -->
+
+When he awoke, there was the sea. A sea of brilliant yellow.
+
+Sound flowed across that vast expanse of water. Far away—no, farther still—the sharp prow of a colossal ship cut through the sea toward a horizon that did not curve in the slightest.
+
+In one of the cabins, a Japanese man named Nakamura lay knowing nothing of any of this. His eyes slowly opened. Leaving the bedroom behind him, he gently opened the cabin door. Unlike the cool air inside, the mild air outside brushed past his cheeks. Cabins stood in an endless row along the corridor, linked by a long railing. He rested one hand lightly upon it and stared blankly at the distant horizon.
+
+He did not know what had happened. He had opened his eyes and found himself here. Taking a step forward, he leaned against the ship’s rail. The ship’s advance sent a somewhat stronger wind through his fringe, tousling it lightly. He adjusted his glasses, slowly lowered his hand, and gripped the wooden rail. The ship drove its head straight into the yellow sea as though determined to break through it, and a faint vibration traveled up through the rail. He looked to the sky and studied the passing clouds one by one. Then he sensed someone beside him.
+
+“What lovely weather. I see this view every day, and somehow I never tire of it.”
+
+He gently turned toward the voice. A fair-skinned woman with golden-blond hair was leaning against the rail just as he was, gazing up at the sky. Her bare face had a simple, unadorned beauty.
+
+“Oh, I haven’t introduced myself. My name is Mikaïla, and I’m from Nice (a port city in the south of France—Translator’s note). I’m French.”
+
+She turned and offered her right hand. Taken by surprise, Nakamura clasped it and gave it a light shake. A thought passed through his mind. When he was at university, he had once followed a friend into a class to learn another language. His English had never been very good, so studying English would have made perfect sense, but somehow that had felt like following a trend, and he had taken French instead. It had proved quite useful when, after graduating, he went on to study in Mainz, Germany. No—now that he thought about it, hadn’t the language he learned been German?
+
+“Are we… actually understanding each other?” he asked slowly.
+
+As though she had been waiting for the question, her voice leapt an octave.
+
+“Oh my goodness! You’ve only just arrived, haven’t you? Don’t tell me I’m the first person you’ve spoken to! I wondered when I saw you from a distance, and I was right! Yes! We understand each other! That’s how it works here!”
+
+The sudden situation left Nakamura bewildered, but it was also strange and rather delightful. Mikaïla beamed, overjoyed to have been the first to recognize him. She went on talking about one thing and another, then lightly took him by the elbow and said she would introduce him to everyone.
+
+“That’s right! If you’ve just arrived, the first person you must meet is Mr. Tucker. Come with me.”
+
+The softness of her hand seemed to travel up his arm. Then one of her questions suddenly drew every fragment of Nakamura’s memory into focus.
+
+“You came here after hearing the Voice too, didn’t you?”
+
+It had been an ordinary day, no different from any other. Nakamura lived in a small rural town in Kumamoto Prefecture. That evening, he had eaten dinner with friends from high school and was on his way home. After hearing that one of them was getting married, he had sat alone in a corner of the bus, the happiness of the news already receding, and leaned against the window. He squeezed his eyes shut and tried to sleep, wondering whether he might see the face of a woman he had never met. He did not know how much time passed after that, but at some point he heard his father’s voice. He could not remember exactly what it had said, yet he was certain that it had been his father.
+
+“I’m sure it was my father’s voice….”
+
+Mikaïla smiled and told him it was the same for everyone. Each of them had heard a voice resembling their own father’s say something to them.
+
+“Strange, isn’t it? In my case, I’d been spending my vacation in the French countryside and was taking the train home. I think I fell into a deep sleep on the TGV. Around the time I heard the train passing through a tunnel, I heard the Voice. Then I opened my eyes, and everything had turned into this. Just when I was sad that my holiday was over, it felt as if another one had begun.” She gave a little laugh. “I’ve probably been here for several months now. Lately I’ve been wondering where the ship is going and why I was brought here.”
+
+Her eyes shone above her bright smile.
+
+“This is what I think: we’re going to meet whoever the Voice belongs to, and this ship will lead us there. Or perhaps that person is coming to us. Was that too serious?”
+
+She wrinkled her nose. They continued along the rail, chatting as they went. Nakamura looked once more at the sea stretching away to his left. The small waves rippling across its yellow surface made the whole place seem warmer, while the clear blue sky formed a beautiful contrast above it.
+
+“Has anyone ever seen something beyond that horizon?”
+
+He slowed his pace and gripped the rail. Narrowing his eyes as far as he could, he peered into the distance. Mikaïla leaned over the rail beside him and, smiling, narrowed her eyes in imitation.
+
+“There are countless people here. Perhaps more than all the people you’ve ever seen in your life. Some of them used to spend their days just as we are now, staring out at that horizon. But there was only the sea. They say no one has ever seen even the smallest island.”
+
+Nakamura stared wordlessly at the horizon, then raised his eyes to the sky. The clouds did not appear to be moving in any consistent direction. Could the wind really blow so freely beneath such a vast sky? Just as he was about to lose himself in thought, he heard her voice again.
+
+“Mr. Nakamura, what kind of work did you do before you came to this yellow Earth? You look as though you must have studied for a very long time. Am I right?”
+
+“Oh, I studied astronomy. I was a researcher, so I used to stay up all night watching the stars….”
+
+Her eyes lit up once again.
+
+“Oh my! Really? You’re exactly the sort of person we need here! So many people will be delighted. I do have a good eye for people, don’t I? In any case, you’re the first astronomer I’ve ever met here! The plaza where Mr. Tucker is waiting will probably feel quite different. I think you’ll like it.”
+
+As soon as she finished speaking, the voices of people began to drift toward them from afar. One voice after another grew louder.
+
+“You hear that? It means we’re nearly at the front of the ship—the north deck. The ship is so enormous that only people from the northern section can come here.”
+
+Eager to show him, she quickened her pace. They passed an immense pillar, and beyond it the voices swelled. Before Nakamura knew it, an enormous plaza had opened below the railing. Mikaïla watched his expression, then smiled.
+
+“Welcome! This is the front of the ship, the north deck. And since there are so many people here….”
+
+She continued in a whisper.
+
+“You’ll have to listen carefully and decide whose voice to hear.”
+
+(Translated in GPT 5.6)

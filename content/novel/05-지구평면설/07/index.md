@@ -215,3 +215,231 @@ topLevel: false
  다시 한번 하늘 저 위, 누군가의 외침이 바다를 울리고 있었다. 그 목소리는 아직 바다로 떨어지고 있었고, 누군가 그의 곁에 서서 그를 지켜보고 있었다. 잠깐 잠을 자 눈을 비비고 일어나보면 아직 사람들이 하나둘 바다 위로 떨어지고 있었다.
 
 <!-- en -->
+
+“There’s a microphone at the front of the ship?”
+
+“Do you remember the first question you asked me when we met?”
+
+“The first question…. I asked whether anyone had ever seen anything beyond the horizon, didn’t I?”
+
+“Yes! You remember.”
+
+Even in the midst of the crisis, Mikaïla had not lost her nose-wrinkling smile.
+
+“I heard that there was once a time when people were always stationed at the very front of the ship in case of danger. If anything suspicious appeared, they would warn the entire ship over a microphone. Of course, several sightings turned out to be mistakes…. But the microphone may still be there.”
+
+“Then we must go to the bow.”
+
+“Yes. We can’t climb to the roof now, and finding Mr. Tucker would be even more difficult.”
+
+“Let’s hurry!”
+
+Nakamura gripped Mikaïla’s hand, and together they began walking against the flow of people.
+
+“If we can tell them the Voice is here, perhaps everything will change.”
+
+The people gathered on the roof continued to chant. Some danced in the rain while others formed circles and watched. Still others aimed their flashlights into the sky. Yellow rain fell from above in drops like tears.
+
+The roof was not large enough to hold everyone aboard. Some packed the stairs leading upward; others stood on the upper levels, gripping the railings outside their cabins. All of them chanted in unison.
+
+“Who stands at the center of the sea?”
+
+“We do!”
+
+“Who are the masters of the ship?”
+
+“We are!”
+
+The chant grew so loud that people could no longer hear one another even at close range. Several began stamping their feet against the deck in time with the words. More and more joined them.
+
+Thud. Thud.
+
+The stamping gathered strength and settled into a common rhythm until everyone was moving and chanting as one. A cheer erupted from somewhere. The people stopped stamping and surrendered themselves to the festival. Then a group on one side of the ship began to aim their flashlights toward the sea. As the beams converged, the darkness grew brighter.
+
+Someone shouted,
+
+“Toward the sea! Shine them toward the sea!”
+
+One flashlight after another turned outward. The sea, which had resembled a sheet of black paper, revealed its native yellow. Then, perhaps struck by a wave, the ship gave a violent lurch.
+
+“Mr. Nakamura, are you all right?”
+
+Nakamura slipped on the rainwater and landed hard on his backside.
+
+“I’m sorry. If only I hadn’t lost my flashlight earlier….”
+
+“No, don’t be. Without you, I would never even have thought to come this way.”
+
+As though nothing had happened, Nakamura took her hand and rose. He continued with his flashlight in one hand and the other pressed against the cabin wall. Mikaïla held him around the waist as they advanced one step at a time.
+
+“Where could Rhoda be? I never imagined anything like this would happen….”
+
+Mikaïla began to sniffle.
+
+“Mikaïla.”
+
+Nakamura turned and gently comforted her.
+
+“Don’t worry. I’m sure Rhoda followed the Voice. If it is the same Voice that called us here, then surely….”
+
+He wiped away her tears.
+
+“Perhaps it found Rhoda before we did.”
+
+Mikaïla apologized, then forced a smile and urged him to keep going. Somewhere nearby, Mr. Tucker’s voice sounded once more from a speaker.
+
+“Now, once again, let us cast our light upon that sea!”
+
+When the beams gathered one by one, their combined brightness carried unexpectedly far. The people delighted in discovering how much farther they could see with every new light. Each time another beam joined the others, cries of wonder rose from the roof. Laughter rang from every direction.
+
+“Did you think you could frighten us forever, you stupid sea?”
+
+“Try stopping my spit! Ptooey!”
+
+The bearded man walked with his hands clasped behind him, smiling at the shouts around him. He stopped at the forward rail of the roof and gazed over the vast sea, illuminated here and there. When all these lights came together, any darkness, however deep, would quickly grow afraid and hide.
+
+“You see? One never knows how things will turn out.”
+
+The Flat-Earther and the woman in the green dress patted the bearded man on the shoulder.
+
+“Our calculations are correct, aren’t they?”
+
+“Dozens of checks? More like hundreds. Let us put such worries aside for tonight.”
+
+“By the way, Vincent, have I ever apologized for mistaking you for a man who knew nothing of science? Even if it is late, I want you to know I am sorry.”
+
+“It is quite all right. I understand why you thought so.”
+
+They shared an awkward laugh.
+
+“You still believe the blue Earth was flat as well, don’t you?”
+
+“Regrettably, yes. The assumptions upon which our conclusions rest may always change.”
+
+“Then let us hope no great assumption about this world changes.”
+
+“Indeed—provided the world remains as it is!”
+
+The bearded man laughed heartily at the answer.
+
+“Now! Let us cast our light upon the path ahead—the sea before the ship!”
+
+The low voice from the Southern Assembly came through the speakers.
+
+“We must be close. The rails have been converging toward the bow for quite some time.”
+
+Perhaps from nervousness, Nakamura continued talking.
+
+“Yes. The headwind has grown much stronger.”
+
+Then he abruptly stopped.
+
+“Good God.”
+
+He flinched backward.
+
+“The sea is right in front of us.”
+
+“Oh!”
+
+Without realizing it, they had reached the very tip of the ship. A single flashlight could not reveal much in the absolute darkness.
+
+“Step back!”
+
+They edged one pace backward.
+
+“It must be somewhere nearby.”
+
+Mikaïla urgently wrapped her arms around Nakamura’s waist and searched from side to side.
+
+“I can’t see anything.”
+
+The yellow rain drove harder into Nakamura’s eyes. Then, perhaps struck by another wave, the ship gave an even more violent heave. Both of them lost their balance and fell. Nakamura’s flashlight bounced once against the deck and began rolling toward the stern. The one small light that had shown them a path through that immense night was leaving them too.
+
+“Mr. Nakamura, I’m frightened.”
+
+Still on the floor, Mikaïla wrapped herself around him. Nakamura opened his eyes, but nothing was visible. If they moved only a few steps farther, they could vanish into the sea without a sound and no one would ever know. The dark sea entered Nakamura’s eyes. He held Mikaïla with all his strength and squeezed his eyes shut.
+
+“It’s all right, Mikaïla. It’s all right.”
+
+They remained upon the deck, clinging to one another. They wished for the rain to stop, but it seemed only to grow more violent, pounding their entire bodies in the darkness. Then a faint sound reached them from somewhere.
+
+“Cast your light upon the sea ahead!”
+
+The speaker had to be nearer the center of the ship. Not wanting to look again at the pitch-black sea, Nakamura turned toward the sound. Feeling along the floor, he pulled Mikaïla with him and began to crawl. Then he heard the faint, delicate sound of something rolling. It had to be the flashlight.
+
+Nakamura cautiously opened his eyes. The flashlight had come to rest, and its beam was shining upon something.
+
+“Mikaïla! Mikaïla!”
+
+She had pressed her face against his chest with her eyes tightly closed, but now she responded.
+
+“Look at that thing shining in the light.”
+
+“Oh! It’s the microphone!”
+
+In the distance, a brass microphone glimmered faintly. Fixing his gaze solely upon the flashlight’s beam, Nakamura began to crawl toward it. It seemed almost within reach.
+
+“Nakamura! I think the people behind us have begun shining their lights this way.”
+
+The darkness ahead of the bow was gradually growing brighter.
+
+“Everyone, concentrate! Aim the light farther forward!”
+
+Mr. Tucker raised his voice into the microphone once more. The people at the rear of the roof stretched their arms above their heads and aimed their flashlights forward, the only way to keep the beams from being blocked.
+
+As the view ahead brightened little by little, the distance grew steadily clearer. The people chatting near the front of the roof gazed upon the sight in wonder. A rare smile filled the Flat-Earther’s face. Then a young man beside him casually muttered,
+
+“What is that?”
+
+The woman in the green dress glanced at him, then looked back toward the light cast by their lighthouse.
+
+“Wait—doesn’t it look as though something is out there in front of the ship?”
+
+As more beams converged, the object ahead became increasingly distinct.
+
+“It looks like a wall! There’s something yellow ahead.”
+
+Those standing at the front of the roof had also noticed the change. More people pointed their flashlights toward the bow. Then someone said,
+
+“There must be a wall ahead! Have we reached the end of the infinite sea?”
+
+The woman in the green dress opened her eyes wide.
+
+“Impossible! What sort of fool does not understand the meaning of infinity? We are traveling toward an end that can never be reached! We checked the results hundreds of times!”
+
+Yet they could not deny what stood before their eyes. The people of the north and south decks, those upon the stairs, and even those who had failed to reach the roof—all began aiming their flashlights toward the front of the ship. Silence gradually gnawed away at the chant. No one knew what the immense wall revealed by the light might be, or whether its appearance meant salvation or disaster.
+
+“Wait,” the Flat-Earther said quietly.
+
+“There is only one thing in this world with that much yellow.”
+
+As he murmured the words, several people nearby opened their eyes wide and began to whisper.
+
+Countless thoughts passed through them in that brief span of time. One by one, they realized what the wall was—a wall that seemed hundreds, no, thousands of times taller than the ship’s roof, rushing toward them with terrifying speed.
+
+It was a wave.
+
+Then everyone responded in whatever way they could. One person, before the wave had even arrived, tumbled from the stairs and fell into the sea. A woman who always told cheerful jokes at mealtimes gripped the rail, squeezed her eyes shut, and muttered something under her breath. Those who had failed to reach the roof and take part in the festival fled into the nearest cabins and locked the doors. Some pretended not to hear the pounding from outside.
+
+It was almost funny. How long had they lived upon this yellow sea? In that short time, they had mistaken themselves for people who understood it all—even after discovering that it was infinite. Of course they had learned something. That was true. But they had overlooked one fact: whenever the distance between them and the horizon narrowed, the horizon drew away again. There would be moments when even the assumptions by which they understood the world would change….
+
+In the midst of the chaos, a sound spread from the speakers: the voice of a familiar man. It had barely begun to cry out when the wave struck the ship with tremendous force.
+
+Time flowed like a strip of tape being stretched longer and longer. Heavy drops of rain fell one at a time, and lightning crawled slowly down the sky. As the impact shook the ship, the people slipped upon the rain-soaked deck and fell in unison. There was no longer anywhere to stand, nor even a straw to grasp. The ship began slowly to rise until, in a grotesque posture, it stood upon end against the sky. The people slid for a moment, then lifted into the air with the vessel and began their helpless fall toward the invisible sea.
+
+Lightning struck once more. Its light flashed upon the brass microphone at the bow and reflected its image across the water. The microphone began to rise. Yet nothing could be seen around it. The waves were too fierce.
+
+In retrospect, it was strange. Not one of them had come to the yellow sea of their own accord. How, then, had they come to care only about the sea, the ship, and one another? As though bound by an unspoken promise, they had quickly forgotten that fact and fixed their eyes solely upon the horizon.
+
+“Den boró na kolympíso!” (I cannot swim!—Translator’s note: Greek.)
+
+An unfamiliar language sounded from somewhere. Many cries rose around them, but the words could no longer be understood. Even so, anyone could hear the desperation in that voice.
+
+“¡Padre! ¡Padre!” (Father! Father!—Translator’s note: Spanish.)
+
+Once more, far above, someone’s cry set the sea trembling. The owner of that voice was still falling toward the water, and someone stood beside him, watching.
+
+One might have slept for a while, rubbed one’s eyes, and awakened to find that people were still falling, one after another, toward the sea.
+
+(Translated in GPT 5.6)

@@ -93,3 +93,91 @@ topLevel: false
  그녀의 목소리에는 슬픔이 젖어있었다. 그러던 와중에 어디선가 웅성거리는 소리가 들리기 시작했다. 배의 중앙 쪽 측면 부근이었다. 둘은 서둘러 그쪽으로 몸을 움직였다.
 
 <!-- en -->
+
+How much time had passed?
+
+By occasionally observing the night sky, Nakamura had nevertheless discovered several curious facts. The first was that no sun or stars of any kind could be seen here. The second was that, unlike the blue Earth, where daylight spread gradually from one side of the sky, the entire sky of the yellow Earth brightened and darkened evenly, as though it were a single flat plane. Time itself seemed to pass at roughly the same rate. Even so, he wondered whether he might devise a more precise calendar and clock.
+
+That day, too, Nakamura leaned against the rail and watched the sky as he waited for night. It had been an exhausting day. Once again he had wandered around the plaza searching for the Flat-Earthers, only to come back empty-handed. Others dismissed them, but Nakamura’s view was a little different. If they were genuinely interested in the yellow Earth, surely what they had seen and heard might be meaningful to him as well.
+
+A more precise calendar and clock. Those two achievements might be worth far more than a mere presentation at the Shipboard Assembly. Perhaps that was also what Mr. Tucker expected of him. And if he went further still and named a month after himself, as Augustus had….
+
+“Mr. Nakamura! What are you thinking about so intently?”
+
+It was Mikaïla. Embarrassed that his expression had betrayed him, Nakamura gave an awkward smile. She replied with her characteristic nose-wrinkling grin. Perhaps, he thought, she had not noticed after all.
+
+“I was just wondering what kind of place this is….” He laughed softly.
+
+As he spoke, he looked up. The clouds were drifting in every direction without any apparent order.
+
+“Oh, that reminds me! Mikaïla, do you know anything more about the Shipboard Assembly?”
+
+She thought for a moment before answering.
+
+“Well… as you already know, the Shipboard Assembly is where people share what they’ve discovered about this place and proclaim how we should act. There are so many people that I believe it is divided into the Northern and Southern Assemblies. Everyone gathers in their own plaza, and the discoveries are announced one after another over the microphones. To be honest, I haven’t seen one myself since I arrived. One of the earlier presenters at the Southern Assembly revealed something about the ship’s engine. Was it a perpetual-motion engine? I don’t really understand it myself.”
+
+She laughed, embarrassed that she could not remember properly.
+
+“So you’re interested in the Shipboard Assembly after all. I suppose it would be impossible not to feel ambitious! This is new land; all you need do is be the first to set foot upon it. Oh, that reminds me—what was it like studying space on the old Earth? It sounds romantic.”
+
+She told him about a trip she had once taken with friends to a desert in Bolivia. When night fell, the stars seemed ready to pour down upon her. For a moment she had been filled with wonder; then, without warning, she became afraid, squeezed her eyes shut, and clutched her friend’s hand. She added that she had known almost none of the constellations at the time, which she greatly regretted.
+
+“You must have looked through an enormous telescope. What was the universe like when you saw it that way?”
+
+“It was awe-inspiring, of course. And I understand the fear you described. There is even a term for it—astrophobia. When I began, the names of the stars in the night sky meant nothing to me, but I learned them one by one. Certain stars became especially dear to me, and the universe that had once frightened me gradually became familiar. I often centered my observations on those stars I had grown attached to, imagining what they would look like if I could see them with my own eyes. But there was always so much noise that catching an accurate signal was difficult. I wish I could see what they look like from this yellow Earth….”
+
+“Noise… and signal?”
+
+Her sudden question made him self-conscious about the technical language he had casually used.
+
+“Ah, well… those are terms used in fields such as signal processing. Light is ultimately a kind of wave. Our voices are waves too…. Hmm, I’m only making this more complicated. Let me put it this way: the true voice of the thing I care about is the signal. Everything else is noise.”
+
+“The true voice of the thing I care about is the signal….”
+
+Nakamura considered this, then added a few words.
+
+“How about this? Even in a crowded café full of people talking, two lovers can recognize each other’s voices, can’t they? That is because the lover’s voice is the voice of the very person one wishes to hear. Every other sound is noise.”
+
+“Ah! Then the voice of someone you love is always a signal.”
+
+Her unexpected answer made Nakamura smile. That day, Mikaïla’s voice seemed as soft as the air of the yellow Earth.
+
+One day, someone raised a new argument in the plaza. Since every one of them had come from the blue Earth to this yellow Earth, the speaker claimed, the entire place must be a virtual world. The sound that had called to them all had been the key that opened this virtual world, and by hearing it, they had connected to this place. But when others dismissed the idea as ridiculous and demanded evidence, the plaza quickly descended into chaos.
+
+His head aching, Nakamura went up to the roof. It was as broad as the plaza, but unlike the plaza it was filled with people leisurely enjoying life in this place. After walking for some time, Nakamura saw Mikaïla stretched out alone upon a long lounge chair, sunbathing. Her blond hair caught the light and shone as brilliantly as the sea. She always appeared energetic, yet unlike many others here, she seldom took an active part in the debates below.
+
+“It seems the discussions in the plaza don’t interest you very much.”
+
+Smiling, Nakamura approached and sat beside her.
+
+“Oh, Mr. Nakamura! What a lovely surprise to see you here.”
+
+She lowered her sunglasses and met his eyes. For some reason, her voice seemed to lack its usual strength. Nakamura asked quietly,
+
+“Is something troubling you, Mikaïla?”
+
+She smiled and said it was nothing, only a question she often brooded over when alone. Nakamura leaned back in the chair beside her and gazed at the sea. After a while, she spoke again.
+
+“Mr. Nakamura, you see that horizon? Whenever I look at it, I remember something my father always used to tell me. He would say, ‘You must be a good person.’”
+
+She paused. After taking some time to gather her thoughts, she continued.
+
+“Until the day I turned twenty, I never thought much about those words. I believed I was a good person. I never caused serious trouble, and I lived an ordinary life and worked hard. But one day, while I was eating, a thought passed through my mind. I have what you might call a bad habit: I never finish a meal. I always leave a little behind. Somehow that makes me feel as though I’ve eaten less and kept to my diet. Ridiculous, isn’t it?
+
+“But suddenly I imagined a hungry child somewhere far away, clutching an empty stomach and watching me. Once I imagined that child looking at me, I began to wonder whether I was really a good person. The sight of myself leaving food on the plate seemed pathetic. But the problem didn’t end there. I simply forgot. I forgot the child’s eyes. If I had truly been a good person, wouldn’t I have tried to help children like that? But I simply forgot.”
+
+She continued with her eyes fixed upon nothing.
+
+“Then an even more frightening thought came to me. If I met someone and married one day, I would ignore that hungry child’s eyes again. I had ignored them even when I lived alone. And if I had a child of my own? Of course I would forget those eyes while trying to give my own child something better. I could not even share my own food. Would I really share the food meant for my child? Not a chance.”
+
+Nakamura wanted to tell her that no one could possibly live that way, but when he saw her expression, he fell into thought. She went on.
+
+“That is why I always think of it when I look at the horizon. It is as though there is a line over there, and I keep moving forward toward it, but it never comes any closer. The farther I go… the farther away it becomes. I once believed I was a good person, but the more I thought about what goodness required, the farther away that line seemed. Eventually I would give up. Ah, I would think. I was never a good person. More than that, I can never become one. Just like that horizon, forever receding….”
+
+Her voice trembled faintly.
+
+“Sometimes I wonder whether I will ever hear the Voice that called me again. It was so warm. I hear it beyond the sea, calling me to come, but will I ever be able to reach it? Or will I remain here forever? The sea is so vast.”
+
+Her voice was soaked in sorrow. Then, in the midst of it, a murmur began somewhere nearby. It came from the side of the ship, near the central section. The two of them hurried toward it.
+
+(Translated in GPT 5.6)

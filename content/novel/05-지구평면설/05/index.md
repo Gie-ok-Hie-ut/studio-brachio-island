@@ -169,3 +169,179 @@ topLevel: false
  *"아아…. 배의 후면부. 남쪽 광장에서 이어서 전해드릴 총회 선언입니다…."*
 
 <!-- en -->
+
+Rhoda was the sort of child everyone aboard adored. There were several children on the ship, but Rhoda possessed one quality that set her apart: somehow she always knew before anyone else when a newcomer had arrived. She spent the whole day roaming the plaza, darting between the adults. Sadly, she was far too young to understand the countless discussions taking place in every corner. Mikaïla took particular care of her. There was something curiously alike in the way the two of them smiled.
+
+Then, one night when the darkness was deep, Nakamura found himself unable to sleep and stood looking at the night sky. Ever since rumors began that the Shipboard Assembly would be held that week, his sleep had been restless. Great changes always followed an Assembly, and the others seemed quietly tense as well. As far as Nakamura could see, the Flat-Earthers’ declaration was certain to command the central stage. He had heard that they had made even greater progress since the incident with the sailboat. The moment was approaching when the nature of all their secrets would be revealed.
+
+Nakamura had searched for them for a very long time. Yet after finally meeting them that day, his desire to join them had somehow scattered upon the wind. Perhaps he was merely being spiteful.
+
+Around the time everyone aboard had fallen asleep and the ship was sinking into darkness, rain began, strangely, to fall. It was the first rain to touch Nakamura’s face since his arrival. Forgetting even the agitation that had kept him awake, he took out a portable flashlight and studied the rain. The drops were transparent, yet glimmered with a yellow sheen.
+
+Then a pale light appeared far away toward the stern. In the heart of the darkness, the white light grew larger, and the sound of unfamiliar breathing grew louder. Afraid, Nakamura switched off his flashlight, released the rail, and took one step backward toward his cabin. The light continued to swell. Hurried sounds clattered against the ship’s rough ironwork and came flowing closer to Nakamura’s eyes. At last the white light stared directly into his pupils.
+
+“Oh! Mr. Nakamura? It is you, isn’t it?”
+
+“Mikaïla?”
+
+He recognized her voice.
+
+“Mr. Nakamura, were you watching the sky?… No, that isn’t important…. Something terrible has happened….” She panted for breath.
+
+He urged her to slow down. Once she had caught her breath, she continued.
+
+“Rhoda…. Rhoda isn’t in her room.”
+
+The day had been no different from any other. Before nightfall, Nakamura and Mikaïla had walked Rhoda back to her room as usual. After talking for a while, they had separated and returned to their own cabins. With neither moon nor stars, night upon this sea was pitch-black, enough to plant an inexplicable terror within them. Nothing remained of the beautiful yellow sea seen in the brightness of day. For that reason, they always took Rhoda back to her room early as night approached.
+
+“And I think something else strange is happening. I had washed and gone to bed and must have been asleep for some time. Then I heard someone talking as they passed my door—and, incredibly, it was the Voice we’ve been searching for.”
+
+Nakamura’s eyes widened.
+
+“The Voice is aboard this ship?”
+
+His reaction made her even more agitated.
+
+“I was so shocked that I held my breath and quietly pressed my ear to the door, trying to make certain. I heard the Voice moving farther away from my room. Before I knew what I was doing, I grabbed my flashlight and carefully opened the door. But there was no one there.
+
+“It was raining when I stepped outside. I went in the direction the Voice had disappeared. The floor was so slippery that I pointed the flashlight down, held the rail, and moved one step at a time. Then I realized I was walking toward Rhoda’s room. And, good heavens, I could see the light in her room burning in the distance! I wondered whether Rhoda had heard the Voice too, so I hurried over, knocked, and opened the door. But there was nothing inside except her unmade bed, and her shoes were gone. It was clear that Rhoda had disappeared.”
+
+Neither of them could understand what was happening.
+
+“What is going on? Could Rhoda have followed the Voice?”
+
+“She may have. But Mikaïla, for the moment we must consider the Voice and Rhoda’s disappearance separately. Two things occurring at the same time does not necessarily mean they are connected. What matters is that Rhoda is missing, and we must find her as quickly as possible.”
+
+No sooner had Nakamura finished than the door beside them flew open.
+
+“What did you just say?”
+
+It was Mr. Tucker, his expression grave.
+
+“I sincerely hope I misheard you. Rhoda has disappeared? In the middle of the night?”
+
+Frowning, Mr. Tucker studied their faces. The rain began to fall harder. Mikaïla and Nakamura silently nodded.
+
+“Then we must wake everyone and search at once. Sleep can wait; some things must be done at their proper hour, and this is one of them. We will wake the others now.”
+
+He spoke firmly to the two of them.
+
+“Let us go to the plaza. We must make an announcement. Both of you, follow me.”
+
+The ship suddenly lurched. Mikaïla lost her balance and dropped her flashlight. It slid through a gap beneath the rail and fell helplessly into the sea. Without sound or trace, it vanished below.
+
+“Are you hurt, Mikaïla? Come, we must hurry…. This damned sea. It does nothing but swallow whatever falls into it….”
+
+Mr. Tucker led them up the stairs.
+
+Before long, enough people had gathered to fill the plaza. Each carried a flashlight in one hand, and some stood beneath umbrellas. Yawns sounded here and there, but everyone seemed to understand that this unprecedented event was an emergency. Nakamura and Mikaïla stood below the platform with the others, looking up at Mr. Tucker. Someone in the crowd spoke.
+
+“What in the world has happened at this hour?”
+
+“Rhoda is missing,” Mr. Tucker said flatly, though his eyes were fiercer than Nakamura had ever seen them.
+
+People began to add their own remarks, and murmuring spread through the plaza.
+
+“Quiet, everyone. If anyone has suspicions or knows anything about what may have happened, raise your hand now or come speak to me upon the platform when I have finished. No one? Very well. Then we must find her quickly. I am sure it is nothing serious, and our search will end soon. Those of you from the far left up to Mrs. Clové, search the upper section of the ship as far as the central garden. Those beside Mrs. Clové….”
+
+A piercing scream tore through the air.
+
+The ship heaved violently. Someone standing near the rail lost his footing and went over the side. His body struck the ship once with a dull thud, then disappeared soundlessly into the sea. Mr. Tucker also staggered on the platform, dropped the microphone, and pitched forward. Several people managed to pull out life rings and throw them into the water, but in the sea where they could not see an inch before them, every trace of the fallen man had vanished.
+
+Those on the platform rushed forward to help Mr. Tucker. Clenching his fist, he spat sharply toward the sky,
+
+“You took my son. Take me next, then…. You damned sea!”
+
+Nakamura’s eyes widened below the platform. Mikaïla nodded silently. The promising man who had thrown himself into the sea long ago—the man Mr. Tucker had spoken of—had been his own son.
+
+Supported by the others, Mr. Tucker slowly rose and looked out over the plaza. Only hours earlier it had been a place of impassioned debate. Now its people moved like beasts overtaken by panic. Rain from the sky beat endlessly upon an abandoned flashlight.
+
+One of the men supporting Mr. Tucker—the bearded man who had stood with the Flat-Earther—opened his mouth.
+
+“Let us… let us hold the Shipboard Assembly now.”
+
+Mr. Tucker gathered his senses and stared at him.
+
+“Are you mad? You want an Assembly at a time like this?”
+
+“Listen to me. Do we possess anything else that can calm this chaos and quiet this terror? Look at them, trembling like frightened puppies. What we must remember now is our pride. Of course, perhaps you no longer believe in that pride. But was the Shipboard Assembly not a symbol of our reason—a symbol of how methodically we are bringing order to this bewildering world?”
+
+It was the Flat-Earther. Mr. Tucker controlled his breathing and listened. Then another person joined in: the woman in the green dress who had defended a spherical Earth.
+
+“You know as well as anyone that we have never saved a single person who fell into that sea. You, Tucker, have lived while carrying the weight of that helplessness more than anyone. Let a few people search for the man who fell. Let a few others search for Rhoda. But before all else, should we not restore our pride without another moment’s delay? We must constantly remind ourselves that we are making the world better. Otherwise, we will sink into helplessness….”
+
+Her voice trembled as she continued.
+
+“We must prove to ourselves that our voices have been more than mere sound….”
+
+Mr. Tucker’s face hardened. The face of his son sinking into the sea seemed to overlap with the faces of the people now drowning in confusion. He could not allow them to fall into such deep despair. In the end, the first and last thing he had been able to do for his son was the Shipboard Assembly.
+
+Without a word, Mr. Tucker nodded. The woman told him he had chosen wisely and picked up the fallen microphone.
+
+“Everyone! Look at me, please. Or at least listen to my voice. I know that all of you are frightened and confused. At times like this, we must remember who we are. I do not know how long each of you has lived aboard this ship, but with the intelligence given to us, we are learning more and more.”
+
+The three people around her adjusted the microphone. A declaration of the Shipboard Assembly was addressed to every deck of the vessel; its words therefore had to be heard beyond the north deck.
+
+“For that reason, we will now convene the Shipboard Assembly.”
+
+The crowd fell silent in an instant. The Shipboard Assembly—perhaps those words possessed a kind of magic aboard this ship. It was why they spent their days in the plaza, a part of what sustained their lives. The people began to respond to the very name.
+
+“The Northern Deck Earth Science Society, situated at the front of our ship, hereby makes the following declarations to everyone aboard. First: we have proved that this sea is flat.”
+
+The people reacted within the silence. The speakers quietly watched them.
+
+“Second: in addition to being flat, we have proved that this sea extends without end—that it is an ‘infinite sea.’ This Earth is not merely flat; its sea is infinite, its end unknowable. We proudly proclaim this fact.”
+
+Murmurs spread through the crowd. One by one, people began to applaud the astonishing power of their intellect. Whatever followed no longer mattered. What had been announced must surely be true. Standing beside Mikaïla, Nakamura applauded calmly, as though he had expected it all along.
+
+Then someone in the darkness shouted from among the crowd.
+
+“No! That can’t be true!”
+
+People turned toward the sharp voice.
+
+“If it is, then we are crossing this sea for no reason! It means we will never pass beyond that horizon!”
+
+The terrifying realization hidden beneath their cheers quickly gave birth once more to fear and emptiness. They had studied without cease to bring an end to their anxiety and futility, only to discover that futility itself was the ground beneath their feet.
+
+The bearded man and the green-dressed woman beside the Flat-Earther began to panic. None of them had expected this. The crowd grew louder. Was this ship truly sailing toward the end of a sea it could never reach?
+
+“You fools! You have poured oil on the fire!”
+
+Mr. Tucker shouted and snatched away the microphone. The ship lurched violently once more. Those who had led the Assembly faced one another and began an urgent conference. The cold rain soaked deep into the people’s flesh. Mikaïla had been listening with all her attention, and when she heard their conclusion, she could not hide her desolation.
+
+“Mr. Nakamura… I think this is the end for us. Will we never be able to cross this sea?”
+
+Nakamura clutched his head. Then a realization suddenly pierced his thoughts.
+
+“Mikaïla! Do you remember what you told me? The first thing you said when you found me tonight?”
+
+“What did we talk about? Was it this morning, when I told you about my favorite bread, croque monsieur?”
+
+“You said the Voice was here!”
+
+“Oh!”
+
+Mikaïla came back to herself.
+
+“Yes! That’s right. But I can’t be certain it truly was the Voice. Perhaps…. No. It was. I’m sure it was the Voice.”
+
+“You have always listened for it and kept it in your memory. I’m sure you are right. Perhaps that is what should be announced at the Assembly now—the fact that the Voice is here among us. Or we could use the microphone to ask the Voice to appear and speak. Shouldn’t we at least tell everyone aboard?”
+
+The ship lurched again. Mikaïla was thrown to the floor, and Nakamura rolled once before sliding away. She clutched her foot; she appeared to have twisted her ankle. The falling rain blinded him, and he wiped his eyes. He could no longer see her.
+
+“Mikaïla!”
+
+He shouted, but amid the rain and tumult she was nowhere to be seen. Then he spotted her climbing the stairs to the platform one step at a time. After one step, Mr. Tucker’s ashen face appeared above her. After another, she saw the Flat-Earthers who had led the Assembly locked in grave discussion. At the very moment they had expected glory, every kind of condemnation had turned upon them.
+
+“Everyone! There’s something… I have to tell you!”
+
+Blood ran down Mikaïla’s thigh. The bearded man on the platform looked toward her. As she took another step, a new sound emerged through a burst of static.
+
+“Ah….”
+
+An unfamiliar voice sounded from the speakers. The people upon the platform gradually turned their attention to it.
+
+“Ah…. We will now continue with the Assembly declarations from the rear of the ship—the south plaza….”
+
+(Translated in GPT 5.6)
