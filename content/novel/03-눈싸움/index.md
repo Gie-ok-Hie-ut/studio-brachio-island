@@ -2,7 +2,7 @@
 id: "2465ea91-8bb4-4de8-ae8e-9afb63cd0c50"
 title: "눈싸움"
 titleKo: "눈싸움"
-titleEn: ""
+titleEn: "Snowball Fight"
 type: novel
 year: "2023"
 tags:
@@ -83,3 +83,144 @@ topLevel: true
  “바룰르흐다.”
  나의 가슴 팍에 눈 뭉치가 아닌 무언가 스쳐 지나갔다. 입에 비명이 쏟아져나왔다. 비명이 눈발에 막혀 먹먹하게 퍼졌다.
 <!-- en -->
+One winter, when snow lay piled by the handful, nameless snowmen were born throughout a little village in the woods. Some were no bigger than ducklings; others stood as tall as tricycles. From every corner of the village, children's laughter spread softly through the falling snow. Against a black sky filled with nothing but darkness, snow whiter than clouds wrapped the village in layer after layer, quietly and slowly.
+
+The thrill of a child at daybreak, rushing outside before the sleep had even left his eyes to see whether the snowman before his house was safe. And then the betrayal: all that remained of it was a scattering of fragments, like so many pebbles.
+
+The enemy has been here.
+
+This year again, my eyes opened before I could utter so much as a cry. A childhood memory-the memory of watching the previous night's happiness disappear by morning. Whenever that nameless feeling rose somewhere between the helplessness of being unable to do anything, the guilt of failing to protect it, and the dread of never knowing when it might happen again, I would wake before dawn on the morning after a snowfall, even now, long since grown. And so, this year again, I layered coat over coat and stepped outside ahead of the dawn.
+
+The little snowman my boy had made the day before was still standing guard in front of the house, letting the snow fall upon him. Thank goodness. Not yet.
+
+I began making my way slowly around the little mountainside village, taking care not to betray the slightest sign of my presence. The hush was broken only by the soft crunch of snow beneath my feet. The snowman at this house was safe. On to the next. The duck-shaped one was safe as well. Clinging inwardly to my relief, I walked on until I saw a black shape in the distance.
+
+A man in a black jacket.
+
+I held my breath, slipped behind a tree, and watched him. He, too, was wandering here and there, much as I was.
+
+Harulrukh?
+
+I stayed hidden and watched. Then, as though seized by sudden delight, he kicked a snowman apart with savage force.
+
+The enemy.
+
+Without a moment's delay, I sprang out and ran toward him. Then, with all the strength in my lungs, I cried:
+
+"Who are you, O destroyer? O keeper of no promise! O violator of the standards we have raised, O rebel against the covenant we have made! Barulrukh-who are you?"
+
+And then, to my astonishment, he answered with the strangest words.
+
+"No-who are you? O keeper of hollow promises! O you who know not when a thing must fall, who know not when one must rebel, who pledge your loyalty to an empty standard! Who are you?"
+
+His reply came so utterly out of nowhere that I was struck dumb.
+
+"No. You are the one who destroys order. You are nothing more than one who breaks and casts aside our promises. Who told you that now was the time to destroy?"
+
+As though the answer were self-evident, he continued:
+
+"My own heart. My own feelings and thoughts. I wanted to."
+
+"Oho!"
+
+I seized upon his words at once.
+
+"Then you have destroyed the most important thing of all. Look around us. Do you not see this village and all its people? You have torn down the great standard our village raised together, and in its place raised yourself up as the standard! It is no mere snowman you have destroyed. Barulrukh!"
+
+"What proof have you that I am Barulrukh?"
+
+He called the challenge boldly.
+
+"Proof? It is plain as day. The mark of Barulrukh lies within you. Somewhere in your heart there must be shame, or guilt. The first time a man breaks a promise made by all, the mark is always left behind. He weeps and grinds his teeth, demanding to know why he broke it. You must even now regret having crossed a line drawn so plainly before you!"
+
+"Not in the least!"
+
+He fired the words back without hesitation.
+
+"I... I simply enjoyed it."
+
+He gave a sly smile.
+
+"The thrill of transgression!" I cried.
+
+"Was it truly not shame, but the thrill of transgression? You mean to say you took pleasure in breaking our covenant? If even the mark within your heart no longer works as it should, then that alone is proof that you are Barulrukh. You are no longer worthy of words."
+
+And then I cried:
+
+"Take up your snow!"
+
+I packed the snow tight between my fists. As though he had foreseen this very moment, the man snatched up a snowball he had prepared beside him.
+
+Silence descended.
+
+Snow whipped through the air on a fierce wind. The two men stood facing each other, each gripping a fist-sized snowball in one hand. High above them, a single snowflake surrendered itself to the wind and danced, bobbing and swaying as though it had been cast into a world smothered in white. The wind gradually died. The snowflake began to fall straight down.
+
+As it neared the ground, the two men came into view. Still they faced one another, snow held ready in their hands. The instant the flake touched the thick coat of one man, the other snapped his arm back. Not to be outdone, the man facing him whipped his own hand back and hurled it forward with all his might.
+
+One snowball flew in a powerful arc toward its mark. The other shot almost straight ahead.
+
+Thud!
+
+One man clutched his face with both hands and toppled backward. The other was left with nothing but the white burst of a snowball across his chest. Something red began to run down the face of the fallen man. Among the broken pieces of the snowball that had struck him and burst apart lay a dark gray stone.
+
+The man still standing approached him slowly.
+
+"A stone... you insane bastard..."
+
+"Barulrukh," I said with a smile.
+
+"The moment I knew you were Barulrukh, I knew you would fight this duel without honor. I needed no proof to know that your snowball, too, would be packed with iron filings."
+
+I turned my back on him. Then, without warning, I heard laughter.
+
+"Ha... ha ha ha ha!"
+
+He forced the words out quietly.
+
+"You are Barulrukh... you fool..."
+
+I spun around, anger surging through me. He let out a breath and went on.
+
+"You were the one who put a stone in your snowball. Look at your coat. See if you can find the mark of a stone. Search all you like-you will find nothing. Because I put no stone in mine. From the look of you, you are a mere child who does not even know what Barulrukh and Harulrukh are."
+
+"What did you say?"
+
+Uneasy now, I felt the front of my coat. I could feel where the snowball had glanced across my chest, but the fabric was perfectly smooth. There was none of the roughness a passing stone would have left.
+
+"Do you... even know where we are fighting?"
+
+Still lying where he had fallen, he continued to mutter.
+
+"We are fighting in the middle of a broad road... which means... you mistook me for something I am not."
+
+"What madness are you speaking? You lunatic! You are a merciless enemy who tramples upon the hearts of children!"
+
+"I destroyed a snowman that stood in the road. Look beyond that mountain. Morning is breaking. Soon people will hurry out toward the places where they live and work... In other words..."
+
+His voice was quiet, but he called out:
+
+"I destroyed a snowman that had to be destroyed..."
+
+Stunned, I looked around me. He lay in the snow, his breathing ragged, and continued.
+
+"You mistook... Barulrukh for one who merely tears things down... And Harulrukh as well... Harulrukh is one who builds, one who draws the line, one who keeps the promise... Yes... all of that is true."
+
+Each breath seemed to come harder than the last.
+
+"But there are times... when Harulrukh must destroy as well..."
+
+He fell silent for a moment, then spoke again.
+
+"A false promise... Harulrukh builds for the sake of the first line he has drawn, and for that same line destroys whatever stands against it. A wrongful line must be erased..."
+
+I stared at him in confusion. His breathing was growing harsher.
+
+"From this day forth..."
+
+He spoke as though uttering his final words.
+
+"You are Barulrukh."
+
+Something that was not a snowball swept through my chest. A scream poured from my mouth. Smothered by the falling snow, it spread dully through the air.
+
+(Translated in GPT 5.6)

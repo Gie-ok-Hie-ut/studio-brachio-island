@@ -2,7 +2,7 @@
 id: "7801718e-1d65-4fab-8373-1a198ab4f53f"
 title: "태풍"
 titleKo: "태풍"
-titleEn: ""
+titleEn: "Typhoon"
 type: novel
 year: "2020"
 tags:
@@ -100,3 +100,182 @@ topLevel: true
  창 밖에 번개가 내리쳤다. 순식 간에 선명한 빛이 커튼을 친 창문 틈 사이로 들어와, '...그러므로 과거 혹은 미래로 이동 및 연결은 불가능하다.'는 문장을 빠르게 비췄다 . 창 밖의 비가 무서울 정도로 더 거세졌다. 그러더니 마침내 창문이 깨져버렸다.
 
 <!-- en -->
+Kzzzt—krrr, kzz-kzzzt…
+
+Static suddenly crackled from the computer. Wondering whether something was wrong with the AK Nine song she had been playing, Yeon-su brought up the window on her screen. Her headset was wirelessly powered, so there should have been no reason for interference. Then every window disappeared, and a man abruptly appeared on the screen. It looked like a webcam connection.
+
+“Ah… ah… Yeon-su… can you hear me? This is… Seoul, in 2063…”
+
+The youthful voice of a man came through the computer. Startled, Yeon-su tried to close the window, but it would not disappear. Suspecting that she might have been hacked, she quickly covered the webcam atop her monitor with a sticky note, then drew the curtains over the window looking out into the dark night.
+
+“Ah… this is Seoul in the year 2063. My name is Jin-hee Kim, and I work for Medis Morgan… Can you hear me?”
+
+Yeon-su hurriedly picked up her smartphone. The screen read November 10, 2030.
+
+“Right… I know this must be startling, hearing from me out of nowhere. At the moment, chronologically speaking, I’m about twenty years ahead of you. You and I are, well… going to work together in the future.”
+
+He stopped, seemingly nervous, before continuing.
+
+“If you can hear this, then yes, that’s right. I’m contacting you from the future.”
+
+Utterly bewildered, Yeon-su peered at the screen, trying to make sense of the situation. A clean-cut young man was speaking cautiously from a darkened room.
+
+“What in the…” she murmured to herself, then noticed the microphone’s input meter jump on the screen.
+
+“Oh! So you can hear me, Yeon-su! You wouldn’t know me twenty years ago, of course, but I’m one of your future colleagues.”
+
+Yeon-su hesitated, still visibly wary, before speaking.
+
+“Never mind that. How did you connect to my computer?”
+
+“Well… technology has advanced tremendously in the future. A great many things are possible now.”
+
+The man laughed heartily as he spoke.
+
+“Why did you go to all this trouble to contact me? What are you trying to tell me? And how am I supposed to believe that you’re from the future?”
+
+Yeon-su’s eyes flashed with open hostility.
+
+“I can’t explain everything, and even if I did, of course you wouldn’t believe me. But I contacted you because I have something important to tell you.”
+
+He continued with an air of urgency. Yeon-su set down her phone. For the moment, she decided she might as well hear him out and silently watched the man on the screen.
+
+He began to explain his story more calmly. He told her that they would one day be colleagues and that a shareholder in the company she currently worked for would eventually become the largest shareholder in Medis Morgan. After gaining control, the man would exercise enormous influence over the company’s management. Yeon-su and Jin-hee, both loyal to the original owners, would attempt to resolve the situation. In the process, Yeon-su would be demoted and sent away. Jin-hee had contacted her in the past as a way to set things right.
+
+“Connecting to the past like this is illegal, actually, and it costs a fortune. Still, I thought this might work, so I took the risk and paid the price to contact you. Well, it’s on the company card, but… ha ha. Oh, and if this works, your contribution will be recognized and you’ll get your old position back.”
+
+As it happened, Yeon-su had already taken an interest in Medis Morgan. She was receiving a scholarship from the company and working with it on a project, but its worsening financial performance had recently made her wonder whether she should seek employment elsewhere. She was still suspicious, yet the man on the screen knew enough about her circumstances that she began to trust him a little. Something was still missing, however. The man continued.
+
+“Yeon-su! Another pandemic is about to strike. Afterward, Medis Morgan will develop a new drug, and the company’s value will soar. If you buy shares now and hold on to them, they’ll become a vital weapon for protecting the original owners. It’s November 10, 2030, where you are, correct? Look at Medis Morgan’s stock today! It’s at rock bottom. This is your opportunity.”
+
+Yeon-su pulled up Medis Morgan’s stock chart on her phone. He was right. The company’s value was at its lowest point in nearly a decade. Repeated failures in drug development and accounting problems among the executives had caused one crisis after another. What he said made sense. At this very moment, when the company looked likely to be sold, it also had a chance to come back to life. More than anything, the gravity in the man’s voice and expression moved her.
+
+“All right. How much should I invest?”
+
+The man’s face brightened. He laid out exactly what she needed to do. It was a convincing plan. Calmly, Yeon-su began carrying out his instructions one by one.
+
+Outside, rain began to patter down. As the night deepened, the yellow-lit clock on the table came to read 2:20 a.m.
+
+“By the way, mister—is that what I should call you? Tell me more about the future. We’re going to meet there anyway.”
+
+The question slipped out with casual curiosity.
+
+“Hmm… so many things happen that you could never imagine. Well, for one thing, the global community collapses during the Third World Pandemic.”
+
+His voice suddenly grew heavy.
+
+“The Republican Party in the United States loses for years on end, and at last the vast numbers of Chinese international students there take over the country. Chinese Americans enter politics. Then China, wanting to turn the United States into its own nation, begins making ordinary Americans marry Chinese Americans. You’re wondering how that could possibly happen, aren’t you? China is the kind of country that can make it happen.”
+
+Yeon-su’s hand froze on the mouse. She stared at the man on the screen. She had definitely heard this story somewhere before. She stopped what she was doing and turned up the volume on her headset.
+
+“The funny thing is, the Chinese American governor of New York once slipped up and referred to China as ‘our country.’ It caused a huge scandal. After that, resistance to China grew across America, but by then China had already swallowed most of the country. Ah, here’s the video of the governor making the mistake.”
+
+He held up his tablet and showed her the governor. In the middle of an interview conducted partly in Chinese, the governor could be seen saying, “Our China.”
+
+Yeon-su’s expression hardened. All of this had happened last week. Or perhaps it had not happened last week at all. Perhaps these were merely things that appeared to have happened last week. She distinctly remembered seeing the video while browsing online. The governor’s flustered reaction after the slip had looked so pitiful that it had stayed in her memory.
+
+“I can’t say whether the world has become better or worse than you’d expect, Yeon-su. The Chinese government was already using artificial intelligence to monitor everyone, and it’s a shame that the United States ended up doing the same. They say a lot of people died when the Third Pandemic struck. From what I heard, it was around five million, though oddly enough, everyone I knew was perfectly fine. After that, the entire 2040s were erased because in China the number four is associated with death. Under the new Chinese calendar, the decade became the 2050s, though in reality it was still the 2040s… You understand what I mean, right? That’s why I told you it was twenty years later even though I’m in 2060. I have no idea how the world works anymore.”
+
+Yeon-su checked her phone. It still read November 10, 2030. Something occurred to her as she listened, and she interrupted him with a question.
+
+“But wasn’t that governor of New York assassinated?”
+
+The man’s cheerful expression abruptly darkened. His voice dropped as he answered.
+
+“Yeon-su! That was fake news from years ago. We filter out fake news very strictly now. About ten years ago, companies began strategically producing fake news and fabricated media on a massive scale, and everything fell into confusion. They manufactured heroes for their own gain, created composite footage, and spread fake interviews. It became harder than ever to distinguish truth from falsehood. But that assassination was clearly a fabricated event. I’ve personally seen that governor of New York still active.”
+
+He paused in the middle of his explanation and cleared his throat.
+
+“But how would you, someone in the past, know that such a ridiculous story would appear in the future?”
+
+Yeon-su closed her mouth. Her thoughts were in chaos. She had definitely heard that the governor had died. But she had also heard reports that the governor was alive. That report had come from a renowned newspaper that still managed to survive. She could not remember the name of the paper—no, the name of the reporter. Outside, the rain battered the window with mounting violence.
+
+“No, I… I must have confused it with something similar. Don’t you have any other interesting stories?”
+
+Yeon-su brushed off the question and changed the subject. Then she searched the internet for “New York governor assassinated.” Beside the results were the words “5,000 results.” She stared at the number. Quickly, she opened another browser window, went to a different search engine, and entered the same phrase. This time, the screen read “No results.” She lowered her head and let out a deep sigh. Then she opened yet another search engine and searched for “New York governor assassinated” once more. This time, there were only ten news articles. She had used three different search engines, yet only one contained an unusual abundance of results.
+
+Yeon-su was about to open another search engine when she looked back at the screen. The man was still chattering excitedly. An artificial island had supposedly been built off Venezuela, and it had become a gathering place for drug traffickers from around the world. One of the major figures among them was the chairman of a medical association under North Korea’s Ministry of Public Health. The chairman had distributed narcotics to China’s People’s Liberation Army and incapacitated its soldiers. Then the United States, an ally of North Korea, had joined the North in bombarding China—
+
+“What kind of nonsense is that?” Yeon-su suddenly shouted.
+
+Silence followed. Startled by her own outburst and seemingly sorry for it, Yeon-su faltered. Then she drew a deep breath and continued.
+
+“North Korea was swallowed up by China, and the Kim dynasty ended ages ago. How does North Korea suddenly exist again in the future?”
+
+“North Korea was swallowed up by China?”
+
+The man fell speechless. Then he searched for something on what looked like a portable computer or tablet. One by one, he began reading articles that recounted precisely the events he had just described.
+
+“Are you all right, Yeon-su? Snap out of it! You seemed so sharp when I first met you. What’s gotten into you?”
+
+“Listen, mister.”
+
+Yeon-su paused and steadied her breathing before continuing.
+
+“Where do you get your news? No—more importantly, where do you search for it? Fake news has been running wild since my time, here in the past. Artificial intelligence, AI, whatever you want to call it—it’s everywhere. It’s gone beyond inventing fake people. Now it invents entire events, and it isn’t just one or two organizations doing it. Even I can’t tell what’s real and what’s fake. How much worse do you think it must be in your time?”
+
+The words poured out of her as though a dam of anger had burst.
+
+“That’s why the only way we can know the past is through the older people who lived before all this technology, and through the books handed down to us. It’s already like that here in 2030. In my grandfather’s time, or his grandfather’s time, there wasn’t fake news. Even when there was, the truth came out eventually… But now we’ve reached a point where we can’t even know what’s happening in the present. So why are the events you’re telling me about so different from everything the people of the past handed down to us?”
+
+Yeon-su felt as though the ground she had so carefully packed beneath her feet had collapsed, opening into a cavernous abyss.
+
+“This is why I don’t believe anything except what someone has personally experienced… Mister, try searching for the same things on the site I’m about to give you.”
+
+Sniffling faintly, Yeon-su typed out the website’s address. The man behind the cold monitor looked bewildered as he cautiously entered it, character by character. Then, one at a time, he searched for the things he believed he knew. As the results began to appear, he found himself unable to speak.
+
+“I only know about fifty search engines. But every one of them gives me different information. The only thing I have to judge by is what my father told me while he was alive. The things about the past that he knew. The truths his father passed down to him. Things that remain calm and unchanging, like the eye of a typhoon. Someone, somewhere, must have posted versions of them. All I can do is judge everything else against those accounts. If something is consistent with them and makes sense, then that becomes the present I live in. That’s what I believe.”
+
+Now calmer, Yeon-su spoke slowly.
+
+“Because my father wouldn’t have lied to me.”
+
+Her eyes fixed on something with fierce intensity. The man on the screen stared blankly at his monitor. He had nothing to say. He knew only a handful of search engines. His father had never told him much of anything. He continued staring numbly at the monitor. Lightning seemed to flash through the room around him.
+
+Yeon-su sat deep in thought. Then, as if she had decided to pass something on to him, she left her seat. A short while later, she returned carrying an extremely thick book.
+
+“Mister? This is a book my father gave me. He wrote it himself. I’ll pass its contents on to you. You should consider yourself incredibly lucky.”
+
+Yeon-su winked as though trying to reassure the dazed man on the screen.
+
+“Oh, thank you, Yeon-su. But…”
+
+As if abruptly coming back to his senses, he continued.
+
+“Connecting to the past costs much more than I expected. I appreciate the offer, but I don’t think I can stay long enough to hear all of it.”
+
+“Then just ask me about whatever you want to know from the facts my father wrote down! Religion, art, science…”
+
+The situation seemed to have reversed. The man on the screen squeezed his eyes shut, then answered.
+
+“I want to ask about religion… but we are a pharmaceutical company, so—science!”
+
+“All right. I’ll tell you the parts about science that seem most important.”
+
+Yeon-su turned to the book’s chapter on science. At the very end, she found the Ten Commandments containing the chapter’s most important principles. Not wanting to waste time, she began reading them aloud one by one.
+
+“Fields concerning plants and animals, such as anatomy, are unlikely to change even in the future and therefore have not been recorded separately. However, the Korean Asiatic black bear became extinct during the period in which this book was written.”
+
+“Following Thomas Kuhn’s theory of scientific revolutions in the 1960s, scientific theories ceased to be regarded as absolute and came instead to be understood as part of a continuous process.”
+
+“Research into mechanisms regulating epigenetic information across the genome, including histone modification and DNA methylation, began in earnest toward the end of the twentieth century.”
+
+“According to the special theory of relativity proposed in 1905, nothing can travel faster than light. Therefore…”
+
+Yeon-su’s eyes widened in the middle of the sentence. The rain outside had grown so violent that it seemed ready to burst through the window. The clock now read 3:30 a.m.
+
+“Mister… no, Jin-hee.”
+
+Yeon-su cleared her throat. In a faintly trembling voice, she asked what company had developed the technology he was using to travel through time. He said that it was technology a government agency had secretly released to a private contractor, and that he could not tell her more. He asked what was wrong. Yeon-su closed her eyes again. Through her headset, she heard the tremor in his voice as he repeated the question. Rain was hammering against the window in his room as well.
+
+Yeon-su opened her eyes and looked straight at him. Then she quietly spoke.
+
+“I think your today is November 10, 2030, too.”
+
+Lightning struck outside. For an instant, brilliant light poured through a gap in the drawn curtains and illuminated the rest of the sentence:
+
+“…Therefore, travel or communication into the past or future is impossible.”
+
+The rain beyond the window intensified to a terrifying roar. At last, the glass shattered.
+
+(Translated in GPT 5.6)

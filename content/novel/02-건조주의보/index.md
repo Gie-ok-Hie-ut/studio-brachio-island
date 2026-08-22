@@ -2,7 +2,7 @@
 id: "8e0b93a0-bda0-4916-ad4c-f775a0632819"
 title: "건조주의보"
 titleKo: "건조주의보"
-titleEn: ""
+titleEn: "Dry Weather Advisory"
 type: novel
 year: "2023"
 tags:
@@ -139,3 +139,126 @@ topLevel: true
  후두두둑. 건조했던 사막에 비가 내리기 시작했다. 외마디 웃음 소리를 비소리가 잡아먹었다. 웃고 있는 그의 얼굴에도 비가 흘러내렸다. 아마 금방 그치고 잊어버릴 소낙비일까 싶다.
 
 <!-- en -->
+Above the vast white desert, the deep-blue sky stretched in a perfectly straight line. Here, with nothing but the sound of the wind, I had been sitting for a long, long time. Sitting where, you ask? For reasons even I couldn't explain, I was sitting in a chair.
+
+If you asked me how long I'd been there, I couldn't tell you that either. At some point I had simply found myself sitting there, and the thought of getting up never much occurred to me. I just stayed where I was, looking around as though I were waiting for someone.
+
+How long had it been since I'd breathed outdoor air? Since I'd seen nature? In truth, I had forgotten even those sensations long ago. After sitting there for so long-had it been a year, perhaps?-all I did was breathe the air, bask in the sun, and gaze at the blue sky and white desert.
+
+Now and then, I would lose myself in the dance of a black shape wavering within the heat haze. Sometimes it seemed as if that dancing shape were coming toward me. Those moments were my one pleasure in that place.
+
+Today was no different. Far away, within the trembling haze, a black shape was approaching me. I squinted, but when I tried to focus, I couldn't make out a thing. A person dressed in black, perhaps? A laugh escaped me, and soon I couldn't stop.
+
+"Good grief! Someone walking through this washed-out desert in black leather! Now that's funny! Who ever heard of such a thing? Hee hee hee hee."
+
+And when the figure in black appeared to draw even closer, how could I possibly hold back my laughter?
+
+"Wow, this looks so real! How do they come up with this stuff? It's always when something completely out of context shows up that you really lose it, isn't it?"
+
+The figure in black came closer and closer, then suddenly raised a hand high toward the sky. It stopped in front of me and brought the hand down in one great sweep.
+
+Smack.
+
+A clear sound rang out. (Can sound ring out in a desert?) I rubbed my cheek. It didn't sting at all. Then the figure spoke.
+
+"For heaven's sake. You're dying."
+
+She grabbed me by my whitening hair and yanked my head up. I clutched my stomach, unable to hold back my laughter any longer.
+
+"Wow! I never saw that coming. Can you believe there's still new content out there? A completely unpredictable turn! Now this is the real thing."
+
+The woman in black pulled a white notebook from her pocket and studied its densely written pages. Then she sat down in front of me and stared just as intently into my face.
+
+On and on. Endlessly.
+
+At first, the longer I looked at her, the more I wanted to laugh. First at the sunglasses, then at those blazing red lips. Then her figure. I took her apart piece by piece.
+
+She did not move.
+
+But after watching her sit there for a while, I grew bored, and my laughter died away. Then it occurred to me that she was blocking my view of the other mirages.
+
+"Hey! Why don't you move along now? If you're done with whatever business you had, get going."
+
+The woman remained seated, looking at me.
+
+"You're blocking my view! Hey! You'd better get out of the way."
+
+I stamped my foot and sent sand flying. I kicked again, spraying it across her sunglasses. Still she did not move. She only kept looking at me.
+
+"Hey! I said move! Can't you hear me?"
+
+I kicked the mound of sand harder. Clumps of it spattered against her face.
+
+"Just get out of the fucking way! You really don't understand a word I'm saying, do you?"
+
+I kept kicking. Again and again. I kicked and hurled even uglier curses at her. Still she did not move. She only kept looking at me.
+
+"God fucking damn it!"
+
+The mere sight of her face made rage surge through me. Then, all at once, she spoke.
+
+"Hey! Why don't you get up from that chair and move me yourself, instead of carrying on from over there?"
+
+I stared at her face. She spoke again.
+
+"Hey, old man. Do you know who I am? I'm your guardian angel. The one who helped you through all seventy-three years of your life."
+
+I sat there looking at her.
+
+"Your first cry when you were born. Your first steps. Your first lie. I watched you through all of it, right up to your last meal and your final breath. Who did? Me. That's who."
+
+I held my breath and listened.
+
+"You had so many dreams. Big ones. But you stumbled a few times, and then you gave up on life that easily?"
+
+Gave up on life? Without thinking, I touched my neck. There was no mark. No. I hadn't taken my own life.
+
+"What I mean is, why did you waste so much time, you old fool? Do you remember what you did after you got fired? Do you remember what you did in bed?"
+
+I searched my memory, but nothing came to mind.
+
+"You just lay there and watched videos."
+
+She said I had watched videos.
+
+"You kept watching pointless videos. Just kept going. Lying there the whole time. On and on."
+
+She stared into my eyes as though she meant to bore straight through them.
+
+"You never went outside. You just watched one thing after another without thinking-for twenty years. That's how you ended up here. What were you doing when it happened? Watching videos."
+
+...
+
+"You never went outside. You just lay there watching this and that. That's why you can't even tell whether this place is outside. Why? Because all those senses in you simply died. That was your life. You forgot your dreams. You forgot the world outside. You just went on like that. And look what happened when you stopped using your mind. You can't think of a single thing now, can you, old man?"
+
+...
+
+"Do I still seem like content to you? No. This is real. This is the world you actually have to face. Your reckoning and judgment are already over. This moment is the first and last chance you and I will ever have to meet face-to-face, and just look at the conversation we're having. I only wanted to talk about your life..."
+
+Her voice suddenly began to tremble.
+
+"As the angel who watched over your entire life, who looked after it... I just can't bear the waste of it. How could you spend it that way? Look at yourself. Look at your eyes. There's nothing in them."
+
+Tears. I had seen them somewhere before. People crying in front of me. Had it been my wife? My children?
+
+"Yes, I know. You must have been tired. You wanted comfort. You wanted to laugh. You probably didn't want to think about your problems. But still... even so... how could you give all your freedom away to others as if it meant nothing?"
+
+She slowly rose. All at once, I could no longer hold back my laughter. I burst out laughing.
+
+"Oh, this is content. This is definitely content. This is really good."
+
+Her lips pressed into a hard line as she approached me. She reached out and took me by the wrist. Time to go. Come on. That was what I thought I heard her say.
+
+"Wow, this feels so real. It feels like I'm actually here."
+
+I couldn't stop laughing. I had to laugh. It made me feel a little more alive.
+
+"Ha ha! I've never seen anything like this! What they can do these days-it's incredible! It really feels like I'm about to get up from this chair. Right here! Wow!"
+
+She held my wrist and pulled. Slowly, I rose to my feet, and together we began walking away, one step at a time. As I took the first step, a drop or two of rain began to fall from a sky that had somehow filled with clouds.
+
+"Ha ha ha! This is so new I could cry! When that woman cried earlier, it looked like she was really crying, didn't it? Enough to make me think I'd seen someone cry like that with my own two eyes! Hee hee hee. I want to see it again! This, I mean. Hee hee, it's so good. It's so good!"
+
+Patter, patter, patter. Rain began to fall on the parched desert. The sound of it swallowed his solitary laughter. Rain ran down his laughing face as well. Perhaps it was only a passing shower, one that would soon stop and be forgotten.
+
+(Translated in GPT 5.6)

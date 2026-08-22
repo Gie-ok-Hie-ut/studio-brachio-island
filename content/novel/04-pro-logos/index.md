@@ -2,7 +2,7 @@
 id: "16bb4c78-b164-4bc7-8c27-c2e31ddf8a0d"
 title: "Pro-logos"
 titleKo: "Pro-logos"
-titleEn: ""
+titleEn: "Pro-logos"
 type: novel
 year: "2022"
 tags:
@@ -276,3 +276,370 @@ https://www.youtube.com/watch?v=Qs9_QrdNf1o
  하늘 아래로 빠르게 떨어지고 있었지만 괜찮았다. 내가 평생찾던 살아있고자 하던 그 호흡이 지금 여기 함께 있으니. 나는 할 수 있는 영원으로 태양이 주는 숨결을 감싸 안으며 눈을 서서히 감았다.
 
 <!-- en -->
+It was unmistakably a spider. That night, I saw the leg of a black spider against the yellow moon.
+
+It had been an ordinary day, no different from any other. The sun was blazing hot, but that didn't matter. My friend Tony and I were practicing on our skateboards, as usual. Skateboarding was cool in more ways than one. Sure, it was fun when it drew the girls' eyes, but that wasn't all.
+
+When I was little, I had a heart condition that kept me from even going to school. Most days, I spent my time alone at the hospital. Then one day, I spotted an abandoned skateboard in the park next door. Lying there all by itself in the bushes, it looked a little like me. Probably not just because of its dark, weathered color. I tried to climb onto it the way I'd seen people do on television, but I got scared and went home. When I found it still there the next day, I tried again. Day after day, I practiced in secret whenever I could slip away for a walk.
+
+When my mother finally caught me, she reacted better than I'd expected. Perhaps she hoped that even this little bit of exercise might help me live longer, or that moving my body might somehow make me well again. But I saw it differently. If death was going to come for me, I wanted it to find me doing something I loved. I don't think my mother knew how dangerous skateboarding could be—or what was really going through my mind.
+
+“That's it! That's the one! Now that's a double backflip.”
+
+There happened to be a half-pipe where we could practice all kinds of tricks, about an hour's walk along a mountain trail from my neighborhood. Young people gathered there to practice, show off, and pass the time. That was where I first met Tony.
+
+He was actually two years younger than me, but all the time I'd spent in the hospital had put us in the same grade, so we simply became friends. He was fairly popular with the girls. On his way to and from school, he always rode his skateboard with his backpack on and his cap turned backward. The clatter of his wheels drew people's eyes as though it were music announcing the entrance of the main character. But all that attention never seemed to satisfy him. Today, for some reason, he looked dejected.
+
+“What's with the face, Tony?”
+
+“My views haven't been going up lately. Man...”
+
+Whenever he was close to landing a new trick, he would film himself over and over, then upload the successful attempt to the internet. He was pretty good, but not as good as me. Everyone knew that, of course.
+
+“So, I was thinking...”
+
+He let his voice trail off. I knew that look in his eyes.
+
+“Oh, come on. You're not bringing that up again, are you?”
+
+“Yep! Ha-ha.”
+
+“I already told you I don't want to.”
+
+Tony was determined to post a video of me skating.
+
+“Hey, it's just a video!” another friend chimed in.
+
+Beside him stood a girl I had never seen before.
+
+“Why not? Is there some story behind it? I think it'd be great if you two filmed something together.”
+
+She turned her large, deep brown eyes toward me.
+
+“He wants every moment to belong only to itself,” Tony explained. “He absolutely hates having his picture taken or being filmed.”
+
+“The moment you record it, the video becomes the past. A trick exists only in the instant you do it.”
+
+Tony seemed to be turning my old words over in his head.
+
+“He says videos make you cling to the past. That they stop the present from being truly present, or something like that.”
+
+“Wow... That's...”
+
+The girl's already wide eyes opened wider.
+
+Without a word, I kicked hard against the ground and rolled forward. I calmly shifted my back foot toward the tail. As my weight settled over it, the nose of the board began to rise. I turned my waist gently and pushed my foot backward. The board swung behind me. When I pressed forward again, it swung ahead. With each turn of my waist, the momentum carried the board from side to side.
+
+“Guys, look at that! That's a tic-tac.”
+
+I rode on for a while, then turned toward the half-pipe sunk deep into the ground. Its curved walls let skaters plunge down at speed, shoot up the other side, and throw tricks. The front of my board rattled lightly against the lip before being drawn smoothly downward.
+
+For a moment, I held my breath. The speed made my body crouch instinctively, which only made me go faster. Every muscle tightened. Hot air swept across my eyes, and the wind gently lifted away a drop of sweat that had fallen above my eyebrow. I kept my speed along the bottom of the pipe until the opposite incline rose before me. I pushed off with my right foot and accelerated.
+
+My heart began to race, and my head started to ring. Blood rushed through the countless fine vessels in my body like water down a steep river. As the incline approached, I shifted my back foot toward the tail again. My thighs strained as the board climbed. Its white wheels clattered beneath the force. My body shot upward, almost vertically, and the front wheels touched the lip. A moment later, the rear wheels cleared it too, and my whole body lifted into the air.
+
+I slowly reached down with my right hand and grabbed the nose of the board. Like the blades of a pair of scissors opening, I kicked my front foot forward and my back foot hard behind me. Holding the board in midair, I gradually spread my legs apart.
+
+It was a trick I did all the time. Yet that day, I became unusually aware of everyone watching. My heart was pounding twice as hard as before. When my body stopped climbing and hung for a moment in weightlessness, as though caught on the wind, I turned my head slightly.
+
+I saw the girl from before. Unlike the sun-browned regulars who blended into the rough atmosphere of the place, she had a pale face and wore a cool sky-blue shirt. Both hands covered her mouth. I raised my gaze and found those brown eyes again. For that brief instant, our eyes met.
+
+Everything came into focus. It was like watching the end of a falling stream, where the closer you look, the more clearly each round drop separates into its own beautiful shape.
+
+I snapped my outstretched legs back in and brought the board beneath my feet. Then I landed steadily on the opposite wall of the pipe, absorbing the impact with my whole body. Everyone stared at me in silence.
+
+“...And that,” Tony finally managed after several speechless seconds, “was an airwalk.”
+
+The silence slowly filled with cheers. Tony went around telling everyone that I was probably the only person at our school—no, in the whole neighborhood—who could do that trick. I watched him until a bolt of pain suddenly tore through my heart like lightning. I collapsed and rolled onto my side.
+
+“Tony.”
+
+Perhaps the sun had grown bored of shining over the entire city, because it had already begun to leave its place. In a city where festivals of every kind were always unfolding, it might have been hard for anyone to pay attention to what happened here. You could practice something for years and still have no one there to see it. But what could you do? That was just how things were.
+
+As though they had agreed upon it in advance, people began leaving one by one. Still, perhaps because it was summer, a welcome warmth lingered beside me.
+
+“Tony, let me borrow your board for the night.”
+
+“What? You've got your yellow board.”
+
+“Not that one. Your longboard.”
+
+“My longboard? Why?”
+
+Unlike me, Tony mostly rode a longboard. Longer than an ordinary skateboard, it was much easier to balance on and was often used by people who raced down hills at high speed.
+
+“I'm going up to the hill.”
+
+“Isn't it getting dark already?”
+
+“I'll be fine. You can take my board home tonight.”
+
+Quietly, Tony picked up my yellow board.
+
+“Be careful riding at night! You looked like you were hurting earlier too... Anyway, I'm off.”
+
+He rode away on my board. The brown-eyed girl followed him, saying that they lived in the same direction.
+
+“You'll be here tomorrow, right? You have to come back tomorrow! Promise!”
+
+She waved from a distance and called out a soft goodbye. I said nothing, only smiled as I got to my feet. I grabbed a quick fast-food dinner nearby, then took the longboard and began climbing the hill.
+
+Videos make you cling to the past. They stop the present from being truly present.
+
+Why had I begun thinking that way? Perhaps it had come naturally from being sick at such a young age.
+
+Back when I could do nothing but lie in a hospital bed, I sometimes wished I would simply die sooner. Day after day, I endured treatments and swallowed medicine, waiting for some healthy future that might one day arrive. I bore the pain. Sometimes the medicine was so foul that I vomited it all back up. There was the hospital's oppressive air and its smell. I had been certain those days would end when the cherry blossoms bloomed again.
+
+But the blossoms came and fell, then came and fell again. I think I watched them bloom and scatter outside my window two or three more times.
+
+In the bed diagonally across from mine lay an old woman who seemed to have been there longer than I had. The hospital kept her bound so tightly with red straps that she couldn't move. Perhaps they were afraid she would roll out of bed. Every night, at about the same hour, she screamed at the top of her lungs.
+
+“Kill me... Just kill me instead!”
+
+Her feelings did not seem very different from mine. Once things had come to that, perhaps I simply wished my body would fail faster—or else get better.
+
+Those moments in the hospital were not life. They were merely steps toward some destination: either toward the ordinary days that might someday come, or toward the death that eventually would. They were an unbroken succession of meaningless, lifeless time.
+
+Then I found skateboarding, and the fact that I began looking forward to tomorrow felt like a miracle. Ollie, manual, pop shove-it, end-over... When I opened my eyes in the morning, all I could think about was which trick I would practice that day. When I closed them at night, I began looking forward to what I would do tomorrow. Living one day after another that way, I eventually learned to do almost every trick.
+
+The doctor treating me worried that I was putting too much strain on my already fragile heart, so at first he allowed me only thirty minutes a day. As time went on, that became two hours... then three. Little by little, he gave me more time. As something in me changed, my body began to improve as well.
+
+But over the past few months, pain had begun flashing through my body again like restless lightning. Attacks like the one earlier were becoming more frequent. That sharp lightning was telling me where my next stop would be. Death, in the end.
+
+I didn't need to visit a hospital to know it. I could feel it more clearly throughout my body with each passing day. I had already accepted death once, long ago, so the realization wasn't particularly shocking. All of this had merely been borrowed time, extended for a little while by chance... Perhaps this was news I had been waiting for all along.
+
+Around then, a downhill skateboarding video I happened upon seized my attention. In it, a man raced down a steep hill. He sped along tens of kilometers of treacherous road, always a breath away from disaster. The moment I watched it, I saw my own face in his.
+
+That face spoke to me. Even if a single instant was all it took for life to cross over into death, wasn't there an instant worth keeping? If death came immediately after the most beautiful moment of your life, wouldn't that be a life you could leave without regret?
+
+And then today came.
+
+Before I knew it, I was standing at the top of the hill. A full moon shone down upon it. Ahead of me, a long, endless slope stretched all the way to the little city where I lived.
+
+I sat down and pulled my shoelaces tight again. If this was a moment worth trading my life for, then it didn't matter if no one recognized it or remembered it. I drew a deep breath and looked at the pools of light cast by the streetlamps between the roadside trees. My feet stood firm on solid ground. I steadied my breathing, stepped forward, and pushed the longboard ahead. As it began to roll, I quickly climbed on.
+
+The trees stood at even intervals along the road. One, two, three. Then the next tree appeared. I lowered my stance. As I gradually gained speed, the distances between the separate trees seemed to shrink. Their once-distinct afterimages began to blend, as though a succession of tiny moments were becoming a single straight line.
+
+I forced my eyes wide and fixed them on the road ahead. The vanishing point in front of me kept rushing closer. I boldly dropped my center of gravity even lower. The board's rattle against the asphalt grew louder. As I went faster still, only what lay directly ahead remained clear. Everything around it dissolved into straight lines. My entire world was one vanishing point before me and two lines on either side.
+
+Even this radiant today will become the past. I need the courage to let it.
+
+I repeated the words to myself. Now—only now, at this very moment—I was alive. More keenly than anyone, I could feel that truth in my bones.
+
+This miserable today is not a stepping-stone to tomorrow.
+
+My speed was spiraling beyond control. It felt as though I couldn't afford to blink, not even once.
+
+Let the present be truly present.
+
+I had made this world into a world of glass, one that seemed certain to collapse if I closed my eyes for even a fraction of a second. Walking on glass, I had no choice but to devote every nerve in my body to every step. Yet one instant of carelessness could shatter the entire world beneath me.
+
+The thought had barely crossed my mind when something flashed through the road ahead, before the warmth of my gaze could even settle on it. A tiny black shape lay in my path. A stone. A perfectly ordinary little stone.
+
+I knew at once that it was racing toward my board too quickly. I twisted my body to turn away, but the stone came faster still.
+
+What had happened to the old woman in the bed across from mine?
+
+Every night, she had screamed for someone to kill her. But one night, unexpectedly, her voice said something else. I had been half asleep, yet I never forgot the words I heard so clearly.
+
+Don't. Come.
+
+When I woke the next morning, the old woman was gone. What had she seen? Perhaps it was something that looked like that little stone.
+
+I wanted to tell it not to come too, but my lips would not move. The stone was already passing beneath my board.
+
+Clack!
+
+Strangely, the very instant the board caught and began to wobble, I remembered the girl's brown eyes. My body lifted into the air. As it twisted from side to side, the roadside trees swept into view. One by one, I saw their deep green leaves.
+
+Ah! That girl had asked me to see her again tomorrow.
+
+I could almost hear her voice in my ears. That delicate voice. It was soft, the kind that made me secretly happy just to hear it. Come to think of it, I had never gathered the courage to reach out to anyone.
+
+My body turned farther, and my eyes were drawn up toward the sky.
+
+That was when I saw it.
+
+Against the yellow full moon hung the dark leg of a spider. The more clearly I stared at it, the stranger the sensation that came over me: I felt as if my body were floating upward. Moonlight soaked through me. I felt myself flying through the spaces in the night air.
+
+Slowly, my body completed a turn until my face pointed toward the ground. I could see the little neighborhood where I had lived.
+
+Ah. The world I knew was this small.
+
+The green rooftops of the buildings reflected the moonlight. My neighborhood lay silent and dark, without a single person in sight. Farther away, I began to make out the half-pipe I had walked to. Then even the neighborhood that had once seemed so large shrank to the size of my palm, then to a dot no bigger than my thumbnail.
+
+My body turned slowly as a warm wind carried me along the moonlight and drew me closer to the moon. When my eyes met it again, I saw the spider's leg clearly. Looking closer, it resembled a pitch-black object with a sharp point.
+
+As I approached the moon, I began to sense that something was wrong. A little closer, and I became certain that the circle was not the moon at all.
+
+The enormous circle was not a thing. It was a hole.
+
+The round moon that had always hung in the night sky was really a vast opening torn in a dark curtain draped over the earth. Beyond the curtain, light streamed through the opening and passed for moonlight. As I drew nearer, I realized at once that the hole was vast enough to swallow me without a sound.
+
+At its edge, the light became so bright that I had to narrow my eyes. Carefully, I extended my right foot and set it on the rim. Contrary to what I expected, it was solid enough to stand on, yet surprisingly thin, like the narrow edge of a white-sand shore. I cautiously brought my whole body through the opening and stood on the other side.
+
+Then the black spider's leg I had glimpsed behind the curtain came toward me. Its pointed tip gently touched my forehead.
+
+On the far side of the black curtain sat a man. He held the long spider's leg like a pen and looked at me. He was a young Asian man, or at least he looked fairly young. He sat in a room that seemed no larger than sixteen square meters. To his right, a brown wooden bookcase covered the wall, crammed with books in no particular order. Music was playing somewhere in the room.
+
+[https://www.youtube.com/watch?v=Qs9_QrdNf1o](https://www.youtube.com/watch?v=Qs9_QrdNf1o)
+
+We listened to it in silence. Then the man suddenly spoke.
+
+“Well? What do you think of what's behind the curtain...?”
+
+He kept the pen trained on my forehead.
+
+“Disappointed?”
+
+I could not speak. The place looked both utterly different from the world where I had lived and strangely similar to it. Perhaps it was simply too ordinary. Still holding the pen, he continued writing something. Soon he was scribbling away with growing intensity.
+
+I remained silent until I began to hear my heart pounding. I looked around, then opened my mouth.
+
+“Am I... dead?”
+
+The man gave a bitter smile.
+
+“Hmm... Not in this moment, at least.”
+
+This moment?
+
+What moment was he talking about? Did he mean I was going to live, or that I was going to die? I could not make sense of him. He kept thinking deeply as he wrote, pen in hand. His brow tightened as though he were struggling over some particular point.
+
+Clothes lay scattered around the room. There was a computer, and an old purple Bible. Slowly, I began again.
+
+“This place...”
+
+“This is...”
+
+As if he had made up his mind, he took the words from me.
+
+“This is where you were born.”
+
+Where I was born? I had never seen this place before.
+
+“You are a character in this story. I created you.”
+
+I knew what a story was. Then this man must be the author who had made everything. Through the hole in the moon, I was looking into the world where my author lived.
+
+“Do you...?”
+
+Unsure what to say, I hesitated.
+
+“I'm human,” he said. “Not God.”
+
+“No... Do you...?”
+
+The fact that he wasn't God did not surprise me. Within a story, of course, he might as well have been.
+
+“Do you like skateboarding too?”
+
+“I've always wanted to ride, but it was difficult. So I watched people do it instead.”
+
+“Was the reason you couldn't ride much... Were you like me?”
+
+“Ah...”
+
+He suddenly stopped, looking uncomfortable.
+
+“No. No, I'm not sick—not yet. Sorry. It feels wrong to say that all of a sudden.”
+
+“If you made me...”
+
+Something began to boil up inside me.
+
+“Then why did you...”
+
+I let the words burst out.
+
+“Why did you bring me into the world sick?”
+
+He said nothing. The question I had always wanted to ask whoever had made me had perhaps been settled inside me from the moment I was born.
+
+“Isn't that horribly irresponsible? If you were going to make me, would it have hurt you to make me properly? You had more than enough power to change things, but you just stood by and watched, didn't you? Ha. An author. I thought I lived in a world no one controlled, a world no one interfered with. Either that, or there was some god who hated me for no reason...”
+
+I closed my mouth for a moment and looked again at his lonely face.
+
+“It was so hard. Even now, I can't ride for long. Fine—let's say my being sick is one thing. But what about my parents? They were thrown into suffering the moment they had me. Maybe I...”
+
+I stopped, then tried again.
+
+“Maybe... maybe it was you I had resented all along.”
+
+He said nothing. The silence went on. He closed his eyes for a moment as though lost in thought. The clock in his room ticked slowly onward. His eyes seemed to fill with all the things he might have said. Warm breath slowly left his nostrils. At last, he spoke.
+
+“There was something I wanted to tell through you.”
+
+His voice was low. I could not begin to imagine what message he meant. After another silence, he continued.
+
+“You asked me a moment ago whether you were dead.”
+
+He began to move quietly and kept speaking.
+
+“I am going to give you a part to play.”
+
+With the black pen in his hand, he pressed lightly against my forehead.
+
+“Find what your breath is pointing toward.”
+
+I lowered my stance and raised both hands, afraid that one wrong movement would send me falling from the rim of the moon. As he pushed the black pen farther, I slid backward. One more step and I would fall.
+
+“And find whom that, in turn, points toward.”
+
+As though his mind were made up, he pressed the pen hard. I tensed every muscle to keep myself from falling from the moon's edge. If there was one thing I knew, it was balance.
+
+“Now it is your turn.”
+
+When he finished, he gave me a quick shove. I lost my balance and began to fall slowly backward through the hole in the moon. Far below, the city where I had lived lay sleeping in darkness.
+
+“Wait!”
+
+As I fell, I quickly caught hold of the curtain's edge. Instinct told me that I might never have another chance to speak with him. But there was one thing I had to know.
+
+“Your name!” I shouted.
+
+“At least tell me your name.”
+
+I tightened both hands around the curtain's hard edge. Sweat made my grip slip.
+
+He smiled.
+
+“Illi.”
+
+With the spiderlike pen, he nudged me once more. I lost my hold on the curtain.
+
+The enormous hole of the full moon slowly filled my vision. Through it, I heard a voice, barely audible.
+
+My child. May you live a life worthy of the life you have been given. Now that you know so much, perhaps you will lose your memory and fall into another world. I only hope the sun shines upon you. May the sun shine upon you all...
+
+At once, the night sky became the clear sky of dawn. Everything that had happened churned through my head like a whirlwind and called out to me: the birdsong I had heard at the half-pipe; the girl's brown eyes; the little stone and the dark curtain; and his final words...
+
+Who was the sun the author inside the moon had told me about?
+
+It could not be an author like the moon. Then it had to be someone alive beyond the curtain, as the author was alive.
+
+Yes. The sun was the reader.
+
+The living breath beyond the curtain. When their gaze shone upon us, their living breath became our breath. Only when their warmth fell upon the cold page did the darkness recede and we come alive.
+
+And yet the thought left me with an infinite sense of emptiness. What, then, were my breath and this moment of mine? Had the present I had searched for never existed in the first place? The only moment in which I was truly alive was the moment when someone beyond the curtain looked upon me. That was the only moment when they breathed life into me.
+
+I did not have enough breath.
+
+I wanted to breathe.
+
+As the thought came to me, I saw a sun rising into the clear dawn sky. With perfect ease, it spread the warmth of its own breath across this world. Somehow, the sun had not left. It remained there, watching.
+
+Ah. To be alive.
+
+How I envy that breath, that living breath!
+
+Carefully, I inhaled. I felt my heart pounding.
+
+Ah. How jealous I am of your breath, so different from mine.
+
+I was falling swiftly through the sky, but it was all right. The breath I had sought all my life—the breath of being alive—was here with me now.
+
+For whatever eternity was mine, I wrapped my arms around the breath the sun had given me and slowly closed my eyes.
+
+(Translated in GPT 5.6)
