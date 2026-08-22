@@ -587,13 +587,17 @@
 
 .novel-card .novel-book-title,
 .novel-grid-book .novel-book-title {
+  display: block;
   font-size: clamp(28px, 4vw, 52px);
   font-size: clamp(28px, 20cqw, 52px);
   font-weight: 900;
   hyphens: manual;
   line-height: 0.95;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   overflow-wrap: normal;
   text-transform: uppercase;
+  text-wrap: balance;
   white-space: normal;
   word-break: keep-all;
 }
@@ -607,6 +611,12 @@
 .novel-grid-book .novel-book-title[data-title-fit="compact"] {
   font-size: clamp(26px, 3.4vw, 46px);
   font-size: clamp(26px, 17cqw, 46px);
+}
+
+.novel-card .novel-book-title[data-title-fit="tight"],
+.novel-grid-book .novel-book-title[data-title-fit="tight"] {
+  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(24px, 15cqw, 40px);
 }
 
 .novel-grid-book-actions {
@@ -729,6 +739,12 @@
   .novel-grid-book .novel-book-title[data-title-fit="compact"] {
     font-size: clamp(32px, 10vw, 46px);
     font-size: clamp(26px, 17cqw, 46px);
+  }
+
+  .novel-card .novel-book-title[data-title-fit="tight"],
+  .novel-grid-book .novel-book-title[data-title-fit="tight"] {
+    font-size: clamp(30px, 9vw, 40px);
+    font-size: clamp(24px, 15cqw, 40px);
   }
 }
 

@@ -2,10 +2,16 @@ function setNovelBookTitle(titleNode, item) {
   const titleText = getLocalizedTitle(item);
   const solidLength = Array.from(titleText.replace(/[\s-]/g, "")).length;
   const hasNaturalBreak = /[\s-]/.test(titleText);
+  const longestSegmentLength = titleText
+    .split(/[\s-]+/)
+    .filter(Boolean)
+    .reduce((maxLength, segment) => Math.max(maxLength, Array.from(segment).length), 0);
 
   titleNode.className = "novel-book-title";
   titleNode.dataset.titleFlow = hasNaturalBreak ? "natural" : "solid";
-  if (!hasNaturalBreak && solidLength >= 5) {
+  if (longestSegmentLength >= 8) {
+    titleNode.dataset.titleFit = "tight";
+  } else if (!hasNaturalBreak && solidLength >= 5) {
     titleNode.dataset.titleFit = "compact";
   }
 
