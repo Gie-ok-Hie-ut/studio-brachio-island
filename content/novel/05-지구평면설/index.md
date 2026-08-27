@@ -5,11 +5,16 @@ titleKo: "지구평면설"
 titleEn: "Flat-Earth Theory"
 type: novel
 year: "2021"
-tags:
+tagsKo:
   - "#중편"
   - "#KOR"
   - "#2021"
   - "#미출판"
+tagsEn:
+  - "#NOVELLA"
+  - "#KOR"
+  - "#2021"
+  - "#UNPUBLISHED"
 summaryKo: "노란 바다 위에서 깨어난 사람들이 세계의 진실을 확인하는 과정을 다룬 중편."
 summaryEn: "A novella about people who wake on a yellow sea and begin to confirm the truth of their world."
 order: 5

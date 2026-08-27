@@ -76,6 +76,17 @@ function getLocalizedMarkdown(item, lang = getSiteLanguage()) {
   return item.markdownKo || item.markdown || item.markdownEn || "";
 }
 
+function getLocalizedTags(item, lang = getSiteLanguage()) {
+  const meta = item?.meta || {};
+  const localizedTags = lang === "en" ? meta.tagsEn : meta.tagsKo;
+  const fallbackTags = meta.tags || (lang === "en" ? meta.tagsKo : meta.tagsEn);
+  const tags = localizedTags || fallbackTags || [];
+
+  return (Array.isArray(tags) ? tags : [tags])
+    .map((tag) => String(tag).trim())
+    .filter(Boolean);
+}
+
 function getNovelBodyAccess(item) {
   if (item?.type !== "novel") return "public";
   const bodyAccess = String(item.meta?.bodyAccess || "").trim();

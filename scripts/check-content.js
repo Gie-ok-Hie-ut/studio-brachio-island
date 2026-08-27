@@ -141,6 +141,21 @@ function checkNovelBodyAccess(errors, item) {
   }
 }
 
+function checkNovelLocalizedTags(errors, item) {
+  if (item.type !== "novel" || !item.topLevel) return;
+
+  if (item.meta?.tags !== undefined) {
+    errors.push(`${item.id} must use tagsKo and tagsEn instead of shared tags.`);
+  }
+
+  ["tagsKo", "tagsEn"].forEach((key) => {
+    const tags = item.meta?.[key];
+    if (!Array.isArray(tags) || tags.length === 0 || tags.some((tag) => !String(tag).trim())) {
+      errors.push(`${item.id} must define a non-empty ${key} list.`);
+    }
+  });
+}
+
 function checkNovelAccessCopy(errors, item) {
   if (item.type !== "role" || item.meta?.roleId !== "novel") return;
 
@@ -194,6 +209,7 @@ function checkContent() {
     const markdown = [item.markdownKo, item.markdownEn].filter(Boolean).join("\n");
     checkEngineerCvSource(errors, item);
     checkNovelBodyAccess(errors, item);
+    checkNovelLocalizedTags(errors, item);
     checkNovelAccessCopy(errors, item);
 
     markdownLinks(markdown).forEach((href) => {

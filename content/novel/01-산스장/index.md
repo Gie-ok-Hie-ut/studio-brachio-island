@@ -5,11 +5,16 @@ titleKo: "산스장"
 titleEn: "Sansjang: The Mountain Gym"
 type: novel
 year: "2024"
-tags:
+tagsKo:
   - "#단편"
   - "#KOR"
   - "#2024"
   - "#미출판"
+tagsEn:
+  - "#SHORT_STORY"
+  - "#KOR"
+  - "#2024"
+  - "#UNPUBLISHED"
 summaryKo: "안개 낀 새벽 숲에서 두 노인이 산스장을 방문하며 일어난 사건을 다룬 단편."
 summaryEn: "A short story about two elderly men visiting an outdoor gym in a fog-covered mountain forest before dawn, and the incident that follows."
 order: 1

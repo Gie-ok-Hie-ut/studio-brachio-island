@@ -5,11 +5,16 @@ titleKo: "단맛"
 titleEn: "Sweetness"
 type: novel
 year: "2020"
-tags:
+tagsKo:
   - "#단편"
   - "#KOR"
   - "#2020"
   - "#미출판"
+tagsEn:
+  - "#SHORT_STORY"
+  - "#KOR"
+  - "#2020"
+  - "#UNPUBLISHED"
 summaryKo: "먹지 않아도 되는 시대 속 인간의 결핍을 다룬 우화 단편."
 summaryEn: "A fable-like short story about human lack in an age when eating is no longer necessary."
 order: 7

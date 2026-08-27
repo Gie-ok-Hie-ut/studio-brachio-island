@@ -292,6 +292,17 @@ function getLocalizedMarkdown(item, lang = getSiteLanguage()) {
   return item.markdownKo || item.markdown || item.markdownEn || "";
 }
 
+function getLocalizedTags(item, lang = getSiteLanguage()) {
+  const meta = item?.meta || {};
+  const localizedTags = lang === "en" ? meta.tagsEn : meta.tagsKo;
+  const fallbackTags = meta.tags || (lang === "en" ? meta.tagsKo : meta.tagsEn);
+  const tags = localizedTags || fallbackTags || [];
+
+  return (Array.isArray(tags) ? tags : [tags])
+    .map((tag) => String(tag).trim())
+    .filter(Boolean);
+}
+
 function getNovelBodyAccess(item) {
   if (item?.type !== "novel") return "public";
   const bodyAccess = String(item.meta?.bodyAccess || "").trim();
@@ -848,7 +859,7 @@ function createNovelCard(item, index) {
   copy.className = "novel-card-copy";
   setNovelBookTitle(title, item);
   tags.className = "novel-card-tags";
-  tags.textContent = (item.meta?.tags || []).join(" ");
+  tags.textContent = getLocalizedTags(item).join(" ");
   overlay.className = "novel-card-overlay";
   overlayText.className = "novel-card-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);
@@ -900,7 +911,7 @@ function createNovelGridBook(item) {
   copy.className = "novel-grid-book-copy";
   setNovelBookTitle(title, item);
   tags.className = "novel-grid-book-tags";
-  tags.textContent = (item.meta?.tags || []).join(" ");
+  tags.textContent = getLocalizedTags(item).join(" ");
   overlay.className = "novel-grid-book-overlay";
   overlayText.className = "novel-grid-book-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);
@@ -3223,8 +3234,8 @@ function createNovelAccessNotice(item, title, lang = getSiteLanguage()) {
   const notice = document.createElement("p");
   const contact = document.createElement("a");
   const year = String(item.meta?.year || "").trim();
-  const tags = (Array.isArray(item.meta?.tags) ? item.meta.tags : [])
-    .filter((tag) => String(tag).trim() !== `#${year}`);
+  const tags = getLocalizedTags(item, lang)
+    .filter((tag) => tag !== `#${year}`);
   const metaParts = [year, ...tags].filter(Boolean);
 
   section.className = "novel-access-notice";

@@ -73,7 +73,7 @@ function createNovelCard(item, index) {
   copy.className = "novel-card-copy";
   setNovelBookTitle(title, item);
   tags.className = "novel-card-tags";
-  tags.textContent = (item.meta?.tags || []).join(" ");
+  tags.textContent = getLocalizedTags(item).join(" ");
   overlay.className = "novel-card-overlay";
   overlayText.className = "novel-card-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);
@@ -125,7 +125,7 @@ function createNovelGridBook(item) {
   copy.className = "novel-grid-book-copy";
   setNovelBookTitle(title, item);
   tags.className = "novel-grid-book-tags";
-  tags.textContent = (item.meta?.tags || []).join(" ");
+  tags.textContent = getLocalizedTags(item).join(" ");
   overlay.className = "novel-grid-book-overlay";
   overlayText.className = "novel-grid-book-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);

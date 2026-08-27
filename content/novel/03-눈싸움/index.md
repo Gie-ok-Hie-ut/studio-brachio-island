@@ -5,11 +5,16 @@ titleKo: "눈싸움"
 titleEn: "Snowball Fight"
 type: novel
 year: "2023"
-tags:
+tagsKo:
   - "#단편"
   - "#KOR"
   - "#2023"
   - "#미출판"
+tagsEn:
+  - "#SHORT_STORY"
+  - "#KOR"
+  - "#2023"
+  - "#UNPUBLISHED"
 summaryKo: "세우는 자와 무너뜨리는 자, 두 싸움을 통해 근원을 탐구한 단편."
 summaryEn: "A short story that explores origins through a fight between one who builds and one who destroys."
 order: 3

@@ -5,11 +5,16 @@ titleKo: "건조주의보"
 titleEn: "Dry Weather Advisory"
 type: novel
 year: "2023"
-tags:
+tagsKo:
   - "#단편"
   - "#KOR"
   - "#2023"
   - "#미출판"
+tagsEn:
+  - "#SHORT_STORY"
+  - "#KOR"
+  - "#2023"
+  - "#UNPUBLISHED"
 summaryKo: "알고리즘에 삶을 맡긴 인물이 사막에서 깨어나 발생한 이야기를 다룬 단편."
 summaryEn: "A short story about a person who entrusts life to algorithms and wakes in a desert."
 order: 2

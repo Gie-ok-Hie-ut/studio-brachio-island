@@ -413,8 +413,8 @@ function createNovelAccessNotice(item, title, lang = getSiteLanguage()) {
   const notice = document.createElement("p");
   const contact = document.createElement("a");
   const year = String(item.meta?.year || "").trim();
-  const tags = (Array.isArray(item.meta?.tags) ? item.meta.tags : [])
-    .filter((tag) => String(tag).trim() !== `#${year}`);
+  const tags = getLocalizedTags(item, lang)
+    .filter((tag) => tag !== `#${year}`);
   const metaParts = [year, ...tags].filter(Boolean);
 
   section.className = "novel-access-notice";

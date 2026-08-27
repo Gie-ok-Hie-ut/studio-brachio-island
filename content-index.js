@@ -264,11 +264,17 @@ window.CONTENT_INDEX = {
         "titleEn": "Sansjang: The Mountain Gym",
         "type": "novel",
         "year": "2024",
-        "tags": [
+        "tagsKo": [
           "#단편",
           "#KOR",
           "#2024",
           "#미출판"
+        ],
+        "tagsEn": [
+          "#SHORT_STORY",
+          "#KOR",
+          "#2024",
+          "#UNPUBLISHED"
         ],
         "summaryKo": "안개 낀 새벽 숲에서 두 노인이 산스장을 방문하며 일어난 사건을 다룬 단편.",
         "summaryEn": "A short story about two elderly men visiting an outdoor gym in a fog-covered mountain forest before dawn, and the incident that follows.",
@@ -300,11 +306,17 @@ window.CONTENT_INDEX = {
         "titleEn": "Dry Weather Advisory",
         "type": "novel",
         "year": "2023",
-        "tags": [
+        "tagsKo": [
           "#단편",
           "#KOR",
           "#2023",
           "#미출판"
+        ],
+        "tagsEn": [
+          "#SHORT_STORY",
+          "#KOR",
+          "#2023",
+          "#UNPUBLISHED"
         ],
         "summaryKo": "알고리즘에 삶을 맡긴 인물이 사막에서 깨어나 발생한 이야기를 다룬 단편.",
         "summaryEn": "A short story about a person who entrusts life to algorithms and wakes in a desert.",
@@ -336,11 +348,17 @@ window.CONTENT_INDEX = {
         "titleEn": "Snowball Fight",
         "type": "novel",
         "year": "2023",
-        "tags": [
+        "tagsKo": [
           "#단편",
           "#KOR",
           "#2023",
           "#미출판"
+        ],
+        "tagsEn": [
+          "#SHORT_STORY",
+          "#KOR",
+          "#2023",
+          "#UNPUBLISHED"
         ],
         "summaryKo": "세우는 자와 무너뜨리는 자, 두 싸움을 통해 근원을 탐구한 단편.",
         "summaryEn": "A short story that explores origins through a fight between one who builds and one who destroys.",
@@ -372,11 +390,17 @@ window.CONTENT_INDEX = {
         "titleEn": "Pro-logos",
         "type": "novel",
         "year": "2022",
-        "tags": [
+        "tagsKo": [
           "#단편",
           "#KOR",
           "#2022",
           "#미출판"
+        ],
+        "tagsEn": [
+          "#SHORT_STORY",
+          "#KOR",
+          "#2022",
+          "#UNPUBLISHED"
         ],
         "summaryKo": "죽음과 가까운 화자가 삶을 찾기 위한 선택 과정에서 나타난 사건을 다룬 단편.",
         "summaryEn": "A short story about events that unfold as a narrator close to death chooses how to seek life.",
@@ -408,11 +432,17 @@ window.CONTENT_INDEX = {
         "titleEn": "Flat-Earth Theory",
         "type": "novel",
         "year": "2021",
-        "tags": [
+        "tagsKo": [
           "#중편",
           "#KOR",
           "#2021",
           "#미출판"
+        ],
+        "tagsEn": [
+          "#NOVELLA",
+          "#KOR",
+          "#2021",
+          "#UNPUBLISHED"
         ],
         "summaryKo": "노란 바다 위에서 깨어난 사람들이 세계의 진실을 확인하는 과정을 다룬 중편.",
         "summaryEn": "A novella about people who wake on a yellow sea and begin to confirm the truth of their world.",
@@ -445,11 +475,17 @@ window.CONTENT_INDEX = {
         "titleEn": "Typhoon",
         "type": "novel",
         "year": "2020",
-        "tags": [
+        "tagsKo": [
           "#단편",
           "#KOR",
           "#2020",
           "#미출판"
+        ],
+        "tagsEn": [
+          "#SHORT_STORY",
+          "#KOR",
+          "#2020",
+          "#UNPUBLISHED"
         ],
         "summaryKo": "미래에서 온 목소리를 통해 미래에 무엇을 믿을지를 다룬 단편.",
         "summaryEn": "A short story about what to believe in the future through a voice arriving from the future.",
@@ -481,11 +517,17 @@ window.CONTENT_INDEX = {
         "titleEn": "Sweetness",
         "type": "novel",
         "year": "2020",
-        "tags": [
+        "tagsKo": [
           "#단편",
           "#KOR",
           "#2020",
           "#미출판"
+        ],
+        "tagsEn": [
+          "#SHORT_STORY",
+          "#KOR",
+          "#2020",
+          "#UNPUBLISHED"
         ],
         "summaryKo": "먹지 않아도 되는 시대 속 인간의 결핍을 다룬 우화 단편.",
         "summaryEn": "A fable-like short story about human lack in an age when eating is no longer necessary.",
