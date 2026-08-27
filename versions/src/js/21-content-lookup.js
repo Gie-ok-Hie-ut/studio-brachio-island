@@ -6,20 +6,13 @@ function normalizeNotionId(value = "") {
   return match[0].replace(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/, "$1-$2-$3-$4-$5");
 }
 
-function findWritingByHref(href) {
-  const targetId = normalizeNotionId(href);
-  if (!targetId) return null;
-  return writings.find((item) => item.id === targetId) || null;
-}
-
 function findContentById(id) {
   return contentItems.find((item) => item.id === id) || null;
 }
 
-function findWritingByContent(item) {
-  const sourceUrl = item?.meta?.sourceUrl;
-  const sourceId = sourceUrl ? normalizeNotionId(sourceUrl) : "";
-  return writings.find((writing) => writing.id === item?.id || writing.id === sourceId) || null;
+function findContentByPath(path = "") {
+  const clean = String(path).trim().replace(/^\/+/, "");
+  return contentItems.find((item) => item.path === clean) || null;
 }
 
 function findContentByHref(href) {
@@ -81,6 +74,24 @@ function getLocalizedMarkdown(item, lang = getSiteLanguage()) {
   if (!item) return "";
   if (lang === "en") return item.markdownEn || item.markdownKo || item.markdown || "";
   return item.markdownKo || item.markdown || item.markdownEn || "";
+}
+
+function getNovelBodyAccess(item) {
+  if (item?.type !== "novel") return "public";
+  const bodyAccess = String(item.meta?.bodyAccess || "").trim();
+  return ["public", "excerpt", "withheld"].includes(bodyAccess) ? bodyAccess : "withheld";
+}
+
+function getNovelWithheldCopy(lang = getSiteLanguage()) {
+  const roleItem = contentItems.find((item) => item.type === "role" && item.meta?.roleId === "novel");
+  const meta = roleItem?.meta || {};
+  const targetLang = lang === "ko" ? "ko" : "en";
+
+  return {
+    notice: targetLang === "ko" ? meta.withheldNoticeKo : meta.withheldNoticeEn,
+    cta: targetLang === "ko" ? meta.withheldCtaKo : meta.withheldCtaEn,
+    email: meta.withheldContactEmail || "",
+  };
 }
 
 function hasLocalizedMarkdown(item, lang) {

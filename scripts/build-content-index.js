@@ -6,6 +6,7 @@ const contentRoot = path.join(root, "content");
 const outputPath = path.join(root, "content-index.js");
 const projectAssetExtensions = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif", ".svg", ".mov", ".mp4", ".webm"]);
 const identityImageExtensions = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif", ".svg"]);
+const novelBodyAccessValues = new Set(["public", "excerpt", "withheld"]);
 
 function walkMarkdownFiles(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -227,6 +228,27 @@ function withProjectAssets(filePath, data, type) {
   return next;
 }
 
+function validateNovelBodyAccess(filePath, meta, bodies, type) {
+  if (type !== "novel") return;
+
+  const relativePath = path.relative(root, filePath).replace(/\\/g, "/");
+  const bodyAccess = String(meta.bodyAccess || "").trim();
+  const hasBody = Boolean(String(bodies.ko || "").trim() || String(bodies.en || "").trim());
+
+  if (!novelBodyAccessValues.has(bodyAccess)) {
+    throw new Error(`${relativePath} must define bodyAccess as public, excerpt, or withheld.`);
+  }
+  if (bodyAccess === "withheld" && hasBody) {
+    throw new Error(`${relativePath} is withheld but still contains public body text.`);
+  }
+  if (bodyAccess !== "public" && (meta.source || meta.sourceUrl)) {
+    throw new Error(`${relativePath} cannot expose source or sourceUrl unless bodyAccess is public.`);
+  }
+  if (bodyAccess !== "withheld" && !hasBody) {
+    throw new Error(`${relativePath} uses bodyAccess: ${bodyAccess} but has no public body text.`);
+  }
+}
+
 const items = walkMarkdownFiles(contentRoot)
   .map((filePath) => {
     const source = fs.readFileSync(filePath, "utf8");
@@ -234,9 +256,11 @@ const items = walkMarkdownFiles(contentRoot)
     const bodies = parseLanguageBodies(body);
     const type = inferType(filePath, data);
     const meta = withProjectAssets(filePath, data, type);
+    validateNovelBodyAccess(filePath, meta, bodies, type);
     const id = data.id || normalizeId(filePath);
     const titleKo = data.titleKo || data.title || path.basename(filePath, ".md");
     const titleEn = data.titleEn || "";
+    const canPublishBody = type !== "novel" || meta.bodyAccess !== "withheld";
 
     return {
       id,
@@ -248,9 +272,9 @@ const items = walkMarkdownFiles(contentRoot)
       topLevel: inferTopLevel(filePath, data, type),
       path: path.relative(root, filePath).replace(/\\/g, "/"),
       meta,
-      markdown: bodies.ko || bodies.en,
-      markdownKo: bodies.ko,
-      markdownEn: bodies.en,
+      markdown: canPublishBody ? bodies.ko || bodies.en : "",
+      markdownKo: canPublishBody ? bodies.ko : "",
+      markdownEn: canPublishBody ? bodies.en : "",
     };
   })
   .sort((a, b) => {

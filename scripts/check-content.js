@@ -5,6 +5,7 @@ const vm = require("vm");
 const root = path.resolve(__dirname, "..");
 const indexPath = path.join(root, "content-index.js");
 const allowedTypes = new Set(["essay", "gallery", "novel", "role"]);
+const novelBodyAccessValues = new Set(["public", "excerpt", "withheld"]);
 const assetKeys = ["image", "cover"];
 
 function loadContentIndex() {
@@ -119,6 +120,40 @@ function checkEngineerCvSource(errors, item) {
   });
 }
 
+function checkNovelBodyAccess(errors, item) {
+  if (item.type !== "novel") return;
+
+  const bodyAccess = String(item.meta?.bodyAccess || "").trim();
+  const hasBody = Boolean(String(item.markdownKo || "").trim() || String(item.markdownEn || "").trim());
+
+  if (!novelBodyAccessValues.has(bodyAccess)) {
+    errors.push(`${item.id} must define bodyAccess as public, excerpt, or withheld.`);
+    return;
+  }
+  if (bodyAccess === "withheld" && hasBody) {
+    errors.push(`${item.id} is withheld but its generated content still contains body text.`);
+  }
+  if (bodyAccess !== "public" && (item.meta?.source || item.meta?.sourceUrl)) {
+    errors.push(`${item.id} cannot expose source or sourceUrl unless bodyAccess is public.`);
+  }
+  if (bodyAccess !== "withheld" && !hasBody) {
+    errors.push(`${item.id} uses bodyAccess: ${bodyAccess} but has no public body text.`);
+  }
+}
+
+function checkNovelAccessCopy(errors, item) {
+  if (item.type !== "role" || item.meta?.roleId !== "novel") return;
+
+  ["withheldNoticeKo", "withheldNoticeEn", "withheldCtaKo", "withheldCtaEn"].forEach((key) => {
+    if (!String(item.meta?.[key] || "").trim()) errors.push(`${item.id} is missing ${key}.`);
+  });
+
+  const email = String(item.meta?.withheldContactEmail || "").trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.push(`${item.id} must define a valid withheldContactEmail.`);
+  }
+}
+
 function checkContent() {
   const payload = loadContentIndex();
   const items = payload?.items || [];
@@ -158,6 +193,8 @@ function checkContent() {
 
     const markdown = [item.markdownKo, item.markdownEn].filter(Boolean).join("\n");
     checkEngineerCvSource(errors, item);
+    checkNovelBodyAccess(errors, item);
+    checkNovelAccessCopy(errors, item);
 
     markdownLinks(markdown).forEach((href) => {
       const clean = String(href).replace(/^chapter:/i, "").split("#")[0];

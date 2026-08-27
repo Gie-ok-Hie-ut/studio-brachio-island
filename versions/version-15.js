@@ -41,7 +41,6 @@ const roleRoomPaths = {
   aesthetics: `${roleRoomRoot}essay.html`,
 };
 const languageControls = document.querySelectorAll("[data-language]");
-const writings = window.WRITING_DATA?.items || [];
 const contentItems = window.CONTENT_INDEX?.items || [];
 const novelItems = contentItems.filter((item) => item.type === "novel");
 const galleryItems = contentItems.filter((item) => item.type === "gallery");
@@ -223,20 +222,13 @@ function normalizeNotionId(value = "") {
   return match[0].replace(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/, "$1-$2-$3-$4-$5");
 }
 
-function findWritingByHref(href) {
-  const targetId = normalizeNotionId(href);
-  if (!targetId) return null;
-  return writings.find((item) => item.id === targetId) || null;
-}
-
 function findContentById(id) {
   return contentItems.find((item) => item.id === id) || null;
 }
 
-function findWritingByContent(item) {
-  const sourceUrl = item?.meta?.sourceUrl;
-  const sourceId = sourceUrl ? normalizeNotionId(sourceUrl) : "";
-  return writings.find((writing) => writing.id === item?.id || writing.id === sourceId) || null;
+function findContentByPath(path = "") {
+  const clean = String(path).trim().replace(/^\/+/, "");
+  return contentItems.find((item) => item.path === clean) || null;
 }
 
 function findContentByHref(href) {
@@ -298,6 +290,24 @@ function getLocalizedMarkdown(item, lang = getSiteLanguage()) {
   if (!item) return "";
   if (lang === "en") return item.markdownEn || item.markdownKo || item.markdown || "";
   return item.markdownKo || item.markdown || item.markdownEn || "";
+}
+
+function getNovelBodyAccess(item) {
+  if (item?.type !== "novel") return "public";
+  const bodyAccess = String(item.meta?.bodyAccess || "").trim();
+  return ["public", "excerpt", "withheld"].includes(bodyAccess) ? bodyAccess : "withheld";
+}
+
+function getNovelWithheldCopy(lang = getSiteLanguage()) {
+  const roleItem = contentItems.find((item) => item.type === "role" && item.meta?.roleId === "novel");
+  const meta = roleItem?.meta || {};
+  const targetLang = lang === "ko" ? "ko" : "en";
+
+  return {
+    notice: targetLang === "ko" ? meta.withheldNoticeKo : meta.withheldNoticeEn,
+    cta: targetLang === "ko" ? meta.withheldCtaKo : meta.withheldCtaEn,
+    email: meta.withheldContactEmail || "",
+  };
 }
 
 function hasLocalizedMarkdown(item, lang) {
@@ -790,7 +800,6 @@ function setNovelBookTitle(titleNode, item) {
 
 function createNovelCard(item, index) {
   const originalIndex = topLevelNovelItems.findIndex((novel) => novel.id === item.id);
-  const notionItem = findWritingByContent(item);
   const coverAsset = getNovelCoverAsset(item);
   const hookText = getMetaText(item, "summary", "");
   const card = document.createElement("article");
@@ -799,10 +808,8 @@ function createNovelCard(item, index) {
   const copy = document.createElement("span");
   const title = document.createElement("strong");
   const tags = document.createElement("span");
-  const options = document.createElement("span");
   const overlay = document.createElement("span");
   const overlayText = document.createElement("span");
-  const notionButton = document.createElement("button");
 
   card.className = originalIndex % 3 === 1 ? "novel-card novel-card-blue" : "novel-card";
   if (coverAsset) {
@@ -842,28 +849,17 @@ function createNovelCard(item, index) {
   setNovelBookTitle(title, item);
   tags.className = "novel-card-tags";
   tags.textContent = (item.meta?.tags || []).join(" ");
-  options.className = "novel-card-actions";
   overlay.className = "novel-card-overlay";
   overlayText.className = "novel-card-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);
-  notionButton.type = "button";
-  notionButton.textContent = "Notion";
-  notionButton.disabled = !notionItem;
-  notionButton.addEventListener("click", (event) => {
-    event.stopPropagation();
-    if (notionItem) renderReader(notionItem.id, true);
-  });
-
-  options.append(notionButton);
   overlay.append(overlayText);
   copy.append(title, tags);
-  card.append(cover, label, copy, options, overlay);
+  card.append(cover, label, copy, overlay);
   return card;
 }
 
 function createNovelGridBook(item) {
   const originalIndex = topLevelNovelItems.findIndex((novel) => novel.id === item.id);
-  const notionItem = findWritingByContent(item);
   const coverAsset = getNovelCoverAsset(item);
   const hookText = getMetaText(item, "summary", "");
   const book = document.createElement("article");
@@ -872,10 +868,8 @@ function createNovelGridBook(item) {
   const copy = document.createElement("span");
   const title = document.createElement("strong");
   const tags = document.createElement("span");
-  const options = document.createElement("span");
   const overlay = document.createElement("span");
   const overlayText = document.createElement("span");
-  const notionButton = document.createElement("button");
 
   book.className = originalIndex % 3 === 1 ? "novel-grid-book novel-grid-book-blue" : "novel-grid-book";
   if (coverAsset) {
@@ -907,22 +901,12 @@ function createNovelGridBook(item) {
   setNovelBookTitle(title, item);
   tags.className = "novel-grid-book-tags";
   tags.textContent = (item.meta?.tags || []).join(" ");
-  options.className = "novel-grid-book-actions";
   overlay.className = "novel-grid-book-overlay";
   overlayText.className = "novel-grid-book-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);
-  notionButton.type = "button";
-  notionButton.textContent = "Notion";
-  notionButton.disabled = !notionItem;
-  notionButton.addEventListener("click", (event) => {
-    event.stopPropagation();
-    if (notionItem) renderReader(notionItem.id, true);
-  });
-
-  options.append(notionButton);
   overlay.append(overlayText);
   copy.append(title, tags);
-  book.append(cover, label, copy, options, overlay);
+  book.append(cover, label, copy, overlay);
   return book;
 }
 
@@ -2825,72 +2809,6 @@ function setPdfViewerSource(title, pdfPath) {
 }
 
 /* Markdown parsing and reader content rendering. */
-function renderInlinePart(part) {
-  const internalWriting = part.href ? findWritingByHref(part.href) : null;
-  const wrapper = part.href ? document.createElement(internalWriting ? "button" : "a") : document.createElement("span");
-  if (part.href) {
-    if (internalWriting) {
-      wrapper.type = "button";
-      wrapper.addEventListener("click", () => renderReader(internalWriting.id, true));
-    } else {
-      wrapper.href = part.href;
-      wrapper.target = "_blank";
-      wrapper.rel = "noreferrer";
-    }
-  }
-
-  (part.text || "").split("\n").forEach((line, index) => {
-    if (index > 0) wrapper.append(document.createElement("br"));
-    wrapper.append(document.createTextNode(line));
-  });
-
-  (part.marks || []).forEach((mark) => {
-    if (mark === "b") wrapper.classList.add("is-bold");
-    if (mark === "i") wrapper.classList.add("is-italic");
-    if (mark === "s") wrapper.classList.add("is-struck");
-    if (mark === "c") wrapper.classList.add("is-code");
-    if (mark.startsWith("h:")) wrapper.classList.add("is-highlighted");
-  });
-
-  return wrapper;
-}
-
-function renderMediaBlock(block) {
-  const figure = document.createElement("figure");
-  figure.className = `notion-media ${block.type}`;
-
-  if (block.type === "video") {
-    const iframe = document.createElement("iframe");
-    iframe.src = block.src;
-    iframe.title = block.caption || "Embedded video";
-    iframe.loading = "lazy";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-    iframe.allowFullscreen = true;
-    figure.append(iframe);
-  } else {
-    const image = document.createElement("img");
-    image.src = block.src;
-    image.alt = block.caption || "Notion image";
-    image.loading = "lazy";
-    image.addEventListener("error", () => {
-      figure.classList.add("is-unavailable");
-    });
-    figure.append(image);
-  }
-
-  const caption = document.createElement("figcaption");
-  const source = document.createElement("a");
-  caption.textContent = block.caption || block.type;
-  if (block.originalSrc) {
-    source.href = block.originalSrc;
-    source.target = "_blank";
-    source.rel = "noreferrer";
-    source.textContent = " original";
-    caption.append(source);
-  }
-  figure.append(caption);
-  return figure;
-}
 
 function normalizeMarkdownTextLine(line) {
   const italicSentence = line.match(/^\*\s+(.+)\*$/);
@@ -3298,11 +3216,57 @@ function createNovelReaderMedia(item, title) {
   return gallery;
 }
 
+function createNovelAccessNotice(item, title, lang = getSiteLanguage()) {
+  const copy = getNovelWithheldCopy(lang);
+  const section = document.createElement("section");
+  const meta = document.createElement("p");
+  const notice = document.createElement("p");
+  const contact = document.createElement("a");
+  const year = String(item.meta?.year || "").trim();
+  const tags = (Array.isArray(item.meta?.tags) ? item.meta.tags : [])
+    .filter((tag) => String(tag).trim() !== `#${year}`);
+  const metaParts = [year, ...tags].filter(Boolean);
+
+  section.className = "novel-access-notice";
+
+  if (metaParts.length > 0) {
+    meta.className = "novel-access-meta";
+    meta.textContent = metaParts.join(" ");
+    section.append(meta);
+  }
+
+  notice.className = "novel-access-copy";
+  notice.textContent = copy.notice || "";
+  section.append(notice);
+
+  contact.className = "novel-access-contact";
+  contact.href = `mailto:${copy.email}?subject=${encodeURIComponent(title)}`;
+  contact.textContent = copy.cta || "";
+  section.append(contact);
+
+  return section;
+}
+
+function composeReaderContent(item, title, lang, markdownNodes = []) {
+  if (item?.type !== "novel") return markdownNodes;
+
+  const bodyAccess = getNovelBodyAccess(item);
+  const media = createNovelReaderMedia(item, title);
+  const content = [media];
+
+  if (bodyAccess !== "withheld") content.push(...markdownNodes);
+  if (bodyAccess !== "public") content.push(createNovelAccessNotice(item, title, lang));
+
+  return content.filter(Boolean);
+}
+
 function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = false, options = {}) {
   if (!path || !readerTitle || !readerSource || !readerContent) return;
   setReaderVariant("");
+  const chapterItem = findContentByPath(path);
+  const readerItem = chapterItem || parentItem;
   if (shouldOpen || options.preserveLanguage) {
-    prepareReaderLanguage(parentItem, { preserveLanguage: options.preserveLanguage });
+    prepareReaderLanguage(readerItem, { preserveLanguage: options.preserveLanguage });
   }
   currentReader = {
     type: "chapter",
@@ -3312,7 +3276,8 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
     parentId: parentItem?.id || "",
   };
 
-  readerTitle.textContent = title;
+  const localizedTitle = chapterItem ? getLocalizedTitle(chapterItem, getReaderLanguage()) : title;
+  readerTitle.textContent = localizedTitle;
   readerSource.href = projectHref(path);
   readerSource.textContent = "";
   readerSource.target = "_blank";
@@ -3320,19 +3285,27 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
 
   if (shouldOpen) openReader({ skipUrl: options.skipUrl });
 
-  fetch(projectHref(path))
-    .then((response) => {
-      if (!response.ok) throw new Error("chapter not found");
-      return response.text();
-    })
+  const markdownRequest = chapterItem
+    ? Promise.resolve(getLocalizedMarkdown(chapterItem, getReaderLanguage()))
+    : fetch(projectHref(path)).then((response) => {
+        if (!response.ok) throw new Error("chapter not found");
+        return response.text();
+      });
+
+  markdownRequest
     .then((markdown) => {
       if (currentReader.type !== "chapter" || currentReader.path !== path) return;
-      const markdownNodes = renderMarkdown(markdown, title, {
-        item: parentItem,
+      const markdownNodes = renderMarkdown(markdown, localizedTitle, {
+        item: readerItem,
         basePath: path,
         lang: getReaderLanguage(),
       });
-      readerContent.replaceChildren(...markdownNodes);
+      readerContent.replaceChildren(...composeReaderContent(
+        readerItem,
+        localizedTitle,
+        getReaderLanguage(),
+        markdownNodes
+      ));
       if (options.scrollState) restoreReaderScrollState(options.scrollState);
       else readerContent.scrollTop = 0;
       updateReaderBackState();
@@ -3372,11 +3345,7 @@ function renderMarkdownReader(id, shouldOpen = false, options = {}) {
     basePath: item.path,
     lang: readerLanguage,
   });
-  const novelMedia = item.type === "novel" ? createNovelReaderMedia(item, title) : null;
-  readerContent.replaceChildren(...[
-    novelMedia,
-    ...markdownNodes,
-  ].filter(Boolean));
+  readerContent.replaceChildren(...composeReaderContent(item, title, readerLanguage, markdownNodes));
   if (options.scrollState) restoreReaderScrollState(options.scrollState);
   else readerContent.scrollTop = 0;
   updateReaderBackState();
@@ -3403,50 +3372,6 @@ function openPdfFile(title, pdfPath, options = {}) {
   pdfTitle.textContent = title;
   setPdfViewerSource(title, pdfPath);
   openPdf({ skipUrl: options.skipUrl });
-}
-
-function renderReader(id, shouldOpen = false) {
-  const item = writings.find((writing) => writing.id === id) || writings[0];
-  if (!item || !readerTitle || !readerSource || !readerContent) return;
-  setReaderVariant("");
-  currentReader = { type: "notion", id: item.id };
-
-  readerTitle.textContent = item.title;
-  readerSource.href = item.url;
-  readerSource.textContent = "";
-  readerSource.target = "_blank";
-  readerSource.rel = "noreferrer";
-
-  const nodes = item.blocks.map((block) => {
-    if (block.type === "image" || block.type === "video") {
-      return renderMediaBlock(block);
-    }
-
-    if (block.type === "page_link") {
-      const row = document.createElement("p");
-      const button = document.createElement("button");
-      row.className = `notion-block notion-page-link depth-${Math.min(block.depth || 0, 3)}`;
-      button.type = "button";
-      button.textContent = block.title;
-      button.addEventListener("click", () => renderReader(block.targetId, true));
-      row.append(button);
-      return row;
-    }
-
-    const element = document.createElement(block.type === "header" ? "h3" : "p");
-    element.className = `notion-block depth-${Math.min(block.depth || 0, 3)}`;
-    (block.parts || [{ text: block.text || "" }]).forEach((part) => {
-      element.append(renderInlinePart(part));
-    });
-    return element;
-  });
-
-  readerContent.replaceChildren(...nodes);
-  readerContent.scrollTop = 0;
-  scheduleReaderScrollIndicatorUpdate();
-  if (shouldOpen) {
-    openReader();
-  }
 }
 
 /* Page-level event binding and startup sequence. */

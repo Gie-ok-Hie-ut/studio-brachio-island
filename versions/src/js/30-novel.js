@@ -25,7 +25,6 @@ function setNovelBookTitle(titleNode, item) {
 
 function createNovelCard(item, index) {
   const originalIndex = topLevelNovelItems.findIndex((novel) => novel.id === item.id);
-  const notionItem = findWritingByContent(item);
   const coverAsset = getNovelCoverAsset(item);
   const hookText = getMetaText(item, "summary", "");
   const card = document.createElement("article");
@@ -34,10 +33,8 @@ function createNovelCard(item, index) {
   const copy = document.createElement("span");
   const title = document.createElement("strong");
   const tags = document.createElement("span");
-  const options = document.createElement("span");
   const overlay = document.createElement("span");
   const overlayText = document.createElement("span");
-  const notionButton = document.createElement("button");
 
   card.className = originalIndex % 3 === 1 ? "novel-card novel-card-blue" : "novel-card";
   if (coverAsset) {
@@ -77,28 +74,17 @@ function createNovelCard(item, index) {
   setNovelBookTitle(title, item);
   tags.className = "novel-card-tags";
   tags.textContent = (item.meta?.tags || []).join(" ");
-  options.className = "novel-card-actions";
   overlay.className = "novel-card-overlay";
   overlayText.className = "novel-card-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);
-  notionButton.type = "button";
-  notionButton.textContent = "Notion";
-  notionButton.disabled = !notionItem;
-  notionButton.addEventListener("click", (event) => {
-    event.stopPropagation();
-    if (notionItem) renderReader(notionItem.id, true);
-  });
-
-  options.append(notionButton);
   overlay.append(overlayText);
   copy.append(title, tags);
-  card.append(cover, label, copy, options, overlay);
+  card.append(cover, label, copy, overlay);
   return card;
 }
 
 function createNovelGridBook(item) {
   const originalIndex = topLevelNovelItems.findIndex((novel) => novel.id === item.id);
-  const notionItem = findWritingByContent(item);
   const coverAsset = getNovelCoverAsset(item);
   const hookText = getMetaText(item, "summary", "");
   const book = document.createElement("article");
@@ -107,10 +93,8 @@ function createNovelGridBook(item) {
   const copy = document.createElement("span");
   const title = document.createElement("strong");
   const tags = document.createElement("span");
-  const options = document.createElement("span");
   const overlay = document.createElement("span");
   const overlayText = document.createElement("span");
-  const notionButton = document.createElement("button");
 
   book.className = originalIndex % 3 === 1 ? "novel-grid-book novel-grid-book-blue" : "novel-grid-book";
   if (coverAsset) {
@@ -142,22 +126,12 @@ function createNovelGridBook(item) {
   setNovelBookTitle(title, item);
   tags.className = "novel-grid-book-tags";
   tags.textContent = (item.meta?.tags || []).join(" ");
-  options.className = "novel-grid-book-actions";
   overlay.className = "novel-grid-book-overlay";
   overlayText.className = "novel-grid-book-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);
-  notionButton.type = "button";
-  notionButton.textContent = "Notion";
-  notionButton.disabled = !notionItem;
-  notionButton.addEventListener("click", (event) => {
-    event.stopPropagation();
-    if (notionItem) renderReader(notionItem.id, true);
-  });
-
-  options.append(notionButton);
   overlay.append(overlayText);
   copy.append(title, tags);
-  book.append(cover, label, copy, options, overlay);
+  book.append(cover, label, copy, overlay);
   return book;
 }
 

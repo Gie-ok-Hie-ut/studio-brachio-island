@@ -41,7 +41,6 @@ const roleRoomPaths = {
   aesthetics: `${roleRoomRoot}essay.html`,
 };
 const languageControls = document.querySelectorAll("[data-language]");
-const writings = window.WRITING_DATA?.items || [];
 const contentItems = window.CONTENT_INDEX?.items || [];
 const novelItems = contentItems.filter((item) => item.type === "novel");
 const galleryItems = contentItems.filter((item) => item.type === "gallery");

@@ -207,9 +207,8 @@ function pdfModal() {
     </div>`;
 }
 
-function scripts({ writingData, contentIndex, app }) {
-  return `    <script src="${writingData}"></script>
-    <script src="${contentIndex}?v=${versions.content}"></script>
+function scripts({ contentIndex, app }) {
+  return `    <script src="${contentIndex}?v=${versions.content}"></script>
     <script src="${app}?v=${versions.js}"></script>`;
 }
 
@@ -251,7 +250,7 @@ ${readerModal("\n          <p>writing 섹션에서 제목을 클릭하면 이곳
 
 ${pdfModal()}
 
-${scripts({ writingData: "versions/writing-data.js", contentIndex: "content-index.js", app: "versions/version-15.js" })}
+${scripts({ contentIndex: "content-index.js", app: "versions/version-15.js" })}
   </body>
 </html>
 `;
@@ -273,7 +272,7 @@ ${menuToggle("      ")}
 ${siteFooter()}
 ${readerModal("")}
 ${pdfModal()}
-${scripts({ writingData: "versions/writing-data.js", contentIndex: "content-index.js", app: "versions/version-15.js" })}
+${scripts({ contentIndex: "content-index.js", app: "versions/version-15.js" })}
   </body>
 </html>
 `;

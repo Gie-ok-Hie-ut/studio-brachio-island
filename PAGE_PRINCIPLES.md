@@ -19,6 +19,10 @@
 - 긴 role handle은 `//` 원문 줄바꿈을 보존하되, 넓은 모바일에서는 `createRoleHeading()`이 만든 `data-handle-flat`을 사용해 한 줄 표시를 허용한다.
 - 역할별 본문 렌더링은 `ROLE_BODY_RENDERERS` registry에서만 추가한다. `renderRoleBody()`에 새 `if/else` 분기를 늘리지 않는다.
 - 팝업 열기/닫기 상태 변경은 `openPopupModal()` / `closePopupModal()`을 통한다. Reader, PDF, Gallery마다 다른 것은 내용 렌더링과 정리 작업만 별도 함수에 둔다.
+- Novel의 표지, 제목, 연도, 태그는 항상 공개하고 본문 공개 범위만 각 markdown의 `bodyAccess`(`public`, `excerpt`, `withheld`)로 정한다.
+- `withheld` Novel의 공개 markdown에는 본문을 두지 않는다. 원문은 Git에서 제외된 `private-content/novel/`의 같은 경로에 보관한다.
+- Novel 비공개 안내 문구와 이메일은 `content/role/03-novel-writer.md`를 단일 편집 표면으로 삼는다. 팝업 JS는 이 값을 렌더링만 한다.
+- Novel의 `bodyAccess`가 누락되거나, `withheld` markdown에 본문이 남아 있으면 빌드를 실패시킨다.
 
 ## 분리 구조
 
