@@ -45,7 +45,7 @@ const navItems = [
   { label: "NOVEL", hover: "@ILLI", href: "novel.html" },
   { label: "VISUAL ART", hover: "@NEOHEE", href: "visual-art.html" },
   { label: "ESSAY", hover: "@ALL", href: "essay.html" },
-  { label: "CONTACT", hover: "EMAIL", href: "mailto:ivagasm@naver.com", ariaLabel: "Contact by email" },
+  { label: "CONTACT", hover: "EMAIL", href: "mailto:brachioisland.studio@gmail.com", ariaLabel: "Contact by email" },
 ];
 
 const rooms = [
