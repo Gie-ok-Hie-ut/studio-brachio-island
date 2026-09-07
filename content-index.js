@@ -249,6 +249,35 @@ window.CONTENT_INDEX = {
       "markdownEn": "2017"
     },
     {
+      "id": "visual-project-10",
+      "type": "gallery",
+      "title": "ground",
+      "titleKo": "ground",
+      "titleEn": "ground",
+      "order": 10,
+      "topLevel": true,
+      "path": "content/gallery/10-ground/index.md",
+      "meta": {
+        "id": "visual-project-10",
+        "title": "ground",
+        "titleKo": "ground",
+        "titleEn": "ground",
+        "type": "gallery",
+        "order": 10,
+        "year": "2026",
+        "medium": "image",
+        "layout": "portrait",
+        "image": "ground.jpg",
+        "assets": [
+          "ground.jpg"
+        ],
+        "topLevel": true
+      },
+      "markdown": "2026",
+      "markdownKo": "2026",
+      "markdownEn": "2026"
+    },
+    {
       "id": "9da96c11-8ced-4929-bfc1-58226efc8e9b",
       "type": "novel",
       "title": "산스장",
