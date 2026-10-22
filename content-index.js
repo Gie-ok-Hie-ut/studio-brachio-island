@@ -278,6 +278,35 @@ window.CONTENT_INDEX = {
       "markdownEn": "2026"
     },
     {
+      "id": "visual-project-11",
+      "type": "gallery",
+      "title": "자화상",
+      "titleKo": "자화상",
+      "titleEn": "자화상",
+      "order": 11,
+      "topLevel": true,
+      "path": "content/gallery/11-self-portrait/index.md",
+      "meta": {
+        "id": "visual-project-11",
+        "title": "자화상",
+        "titleKo": "자화상",
+        "titleEn": "자화상",
+        "type": "gallery",
+        "order": 11,
+        "year": "2022",
+        "medium": "image",
+        "layout": "portrait",
+        "image": "self-portrait.jpg",
+        "assets": [
+          "self-portrait.jpg"
+        ],
+        "topLevel": true
+      },
+      "markdown": "2022",
+      "markdownKo": "2022",
+      "markdownEn": "2022"
+    },
+    {
       "id": "9da96c11-8ced-4929-bfc1-58226efc8e9b",
       "type": "novel",
       "title": "산스장",
