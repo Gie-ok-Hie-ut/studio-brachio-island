@@ -2,7 +2,7 @@
 id: "visual-project-11"
 title: "자화상"
 titleKo: "자화상"
-titleEn: "자화상"
+titleEn: "self portrait"
 type: gallery
 order: 11
 year: "2022"
