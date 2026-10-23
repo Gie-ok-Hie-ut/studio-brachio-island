@@ -22,7 +22,7 @@ identityImagesDir: "identity-residents"
 identityImageCaptions:
   - "@ILLI.png|@ILLI|@ILLI"
   - "@LEE-GUNHEE.png|@이건희|@LEE GUNHEE"
-  - "@NEOHEE.png|@NEOHEE|@NEOHEE"
+  - "@NEOHEE.jpg|@NEOHEE|@NEOHEE"
 topLevel: true
 ---
 <!-- ko -->

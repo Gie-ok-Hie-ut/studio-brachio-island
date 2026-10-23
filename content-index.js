@@ -307,6 +307,35 @@ window.CONTENT_INDEX = {
       "markdownEn": "2022"
     },
     {
+      "id": "visual-project-12",
+      "type": "gallery",
+      "title": "untitled-1117",
+      "titleKo": "untitled-1117",
+      "titleEn": "untitled-1117",
+      "order": 12,
+      "topLevel": true,
+      "path": "content/gallery/12-untitled-1117/index.md",
+      "meta": {
+        "id": "visual-project-12",
+        "title": "untitled-1117",
+        "titleKo": "untitled-1117",
+        "titleEn": "untitled-1117",
+        "type": "gallery",
+        "order": 12,
+        "year": "2025",
+        "medium": "image",
+        "layout": "portrait",
+        "image": "untitled-1117.png",
+        "assets": [
+          "untitled-1117.png"
+        ],
+        "topLevel": true
+      },
+      "markdown": "2025",
+      "markdownKo": "2025",
+      "markdownEn": "2025"
+    },
+    {
       "id": "9da96c11-8ced-4929-bfc1-58226efc8e9b",
       "type": "novel",
       "title": "산스장",
@@ -830,7 +859,7 @@ window.CONTENT_INDEX = {
         "identityImageCaptions": [
           "@ILLI.png|@ILLI|@ILLI",
           "@LEE-GUNHEE.png|@이건희|@LEE GUNHEE",
-          "@NEOHEE.png|@NEOHEE|@NEOHEE"
+          "@NEOHEE.jpg|@NEOHEE|@NEOHEE"
         ],
         "topLevel": true,
         "residentImages": [
@@ -847,7 +876,7 @@ window.CONTENT_INDEX = {
             "labelEn": "@LEE GUNHEE"
           },
           {
-            "src": "content/role/identity-residents/@NEOHEE.png",
+            "src": "content/role/identity-residents/@NEOHEE.jpg",
             "label": "@NEOHEE",
             "labelKo": "@NEOHEE",
             "labelEn": "@NEOHEE"
