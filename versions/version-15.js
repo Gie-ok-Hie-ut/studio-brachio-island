@@ -784,6 +784,37 @@ function openMarkdownFileReaderFromCurrent(path, title, parentItem = null) {
   renderMarkdownFileReader(path, title, parentItem, true);
 }
 
+/* Responsive derivatives are only used for lists; detail views keep original files. */
+function setListImageSource(image, asset, sizes) {
+  const original = projectHref(asset);
+  const projectUrl = new URL(projectRoot || "./", document.baseURI);
+  const assetUrl = new URL(original, document.baseURI);
+  const key = assetUrl.origin === projectUrl.origin && assetUrl.pathname.startsWith(projectUrl.pathname)
+    ? decodeURIComponent(assetUrl.pathname.slice(projectUrl.pathname.length))
+    : "";
+  const preview = window.IMAGE_PREVIEWS?.images?.[key];
+
+  image.loading = "lazy";
+  image.decoding = "async";
+  if (!preview?.variants?.length) {
+    image.src = original;
+    return;
+  }
+
+  image.width = preview.width;
+  image.height = preview.height;
+  image.sizes = sizes;
+  image.srcset = preview.variants
+    .map((variant) => `${projectHref(variant.src)} ${variant.width}w`)
+    .join(", ");
+  image.src = projectHref((preview.variants.find((variant) => variant.width >= 640) || preview.variants.at(-1)).src);
+  image.addEventListener("error", () => {
+    image.removeAttribute("srcset");
+    image.removeAttribute("sizes");
+    image.src = original;
+  }, { once: true });
+}
+
 function setNovelBookTitle(titleNode, item) {
   const titleText = getLocalizedTitle(item);
   const solidLength = Array.from(titleText.replace(/[\s-]/g, "")).length;
@@ -827,9 +858,8 @@ function createNovelCard(item, index) {
     const image = document.createElement("img");
     card.classList.add("novel-card-with-cover");
     cover.className = "novel-card-cover";
-    image.src = projectHref(coverAsset);
     image.alt = getLocalizedTitle(item);
-    image.loading = "lazy";
+    setListImageSource(image, coverAsset, "(max-width: 520px) 76vw, (max-width: 900px) 218px, clamp(190px, 17.4vw, 330px)");
     cover.append(image);
   }
   card.tabIndex = 0;
@@ -887,9 +917,8 @@ function createNovelGridBook(item) {
     const image = document.createElement("img");
     book.classList.add("novel-grid-book-with-cover");
     cover.className = "novel-grid-book-cover";
-    image.src = projectHref(coverAsset);
     image.alt = getLocalizedTitle(item);
-    image.loading = "lazy";
+    setListImageSource(image, coverAsset, "(max-width: 520px) calc(100vw - 44px), (max-width: 900px) 50vw, (max-width: 1200px) 236px, 248px");
     cover.append(image);
   }
 
@@ -928,6 +957,10 @@ function createTodaysSignalNovelBook(item) {
   book.removeAttribute("role");
   book.removeAttribute("tabindex");
   book.setAttribute("aria-hidden", "true");
+  const image = book.querySelector(".novel-grid-book-cover img");
+  if (image) {
+    setListImageSource(image, getNovelCoverAsset(item), "(max-width: 900px) 320px, clamp(240px, 24vw, 360px)");
+  }
   return book;
 }
 
@@ -1238,8 +1271,8 @@ function sortGalleryProjects(items) {
 function createGalleryMedia(asset, title, options = {}) {
   const isVideo = /\.(mov|mp4|webm)$/i.test(asset);
   const media = document.createElement(isVideo ? "video" : "img");
-  media.src = getGalleryAssetPath(asset);
   if (isVideo) {
+    media.src = getGalleryAssetPath(asset);
     media.muted = options.muted !== false;
     media.playsInline = true;
     media.preload = "metadata";
@@ -1247,6 +1280,11 @@ function createGalleryMedia(asset, title, options = {}) {
   } else {
     media.alt = title;
     media.loading = "lazy";
+    if (options.previewSizes) {
+      setListImageSource(media, getGalleryAssetPath(asset), options.previewSizes);
+    } else {
+      media.src = getGalleryAssetPath(asset);
+    }
   }
   return media;
 }
@@ -1487,7 +1525,9 @@ function createGalleryProjectButton(item) {
   mainButton.type = "button";
   mainButton.className = "gallery-project-main";
   mainButton.setAttribute("aria-label", `${projectTitle} main image`);
-  if (mainAsset) mainButton.append(createGalleryMedia(mainAsset, projectTitle));
+  if (mainAsset) mainButton.append(createGalleryMedia(mainAsset, projectTitle, {
+    previewSizes: "(max-width: 520px) calc(100vw - 44px), (max-width: 900px) 46vw, (max-width: 1200px) 30vw, 24vw",
+  }));
   mainButton.addEventListener("click", (event) => {
     event.stopPropagation();
     openGalleryProject(item, 0);
@@ -1509,7 +1549,9 @@ function createGalleryProjectButton(item) {
       button.type = "button";
       button.className = "gallery-project-preview";
       button.setAttribute("aria-label", `${projectTitle} preview ${index + 1}`);
-      button.append(createGalleryMedia(asset, projectTitle));
+      button.append(createGalleryMedia(asset, projectTitle, {
+        previewSizes: "(max-width: 520px) 30vw, (max-width: 900px) 15vw, (max-width: 1200px) 10vw, 8vw",
+      }));
       button.addEventListener("click", (event) => {
         event.stopPropagation();
         openGalleryProject(item, index);
@@ -2108,9 +2150,8 @@ function renderTodaysSignal() {
     const figure = document.createElement("figure");
     const img = document.createElement("img");
     figure.className = "todays-signal-media";
-    img.src = projectHref(image);
     img.alt = title;
-    img.loading = "lazy";
+    setListImageSource(img, image, "(max-width: 900px) calc(100vw - 44px), (max-width: 1100px) 62vw, 680px");
     figure.append(img);
     makeTodaysSignalMediaClickable(figure, href, title);
     card.append(figure);

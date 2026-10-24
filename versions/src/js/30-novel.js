@@ -41,9 +41,8 @@ function createNovelCard(item, index) {
     const image = document.createElement("img");
     card.classList.add("novel-card-with-cover");
     cover.className = "novel-card-cover";
-    image.src = projectHref(coverAsset);
     image.alt = getLocalizedTitle(item);
-    image.loading = "lazy";
+    setListImageSource(image, coverAsset, "(max-width: 520px) 76vw, (max-width: 900px) 218px, clamp(190px, 17.4vw, 330px)");
     cover.append(image);
   }
   card.tabIndex = 0;
@@ -101,9 +100,8 @@ function createNovelGridBook(item) {
     const image = document.createElement("img");
     book.classList.add("novel-grid-book-with-cover");
     cover.className = "novel-grid-book-cover";
-    image.src = projectHref(coverAsset);
     image.alt = getLocalizedTitle(item);
-    image.loading = "lazy";
+    setListImageSource(image, coverAsset, "(max-width: 520px) calc(100vw - 44px), (max-width: 900px) 50vw, (max-width: 1200px) 236px, 248px");
     cover.append(image);
   }
 
@@ -142,6 +140,10 @@ function createTodaysSignalNovelBook(item) {
   book.removeAttribute("role");
   book.removeAttribute("tabindex");
   book.setAttribute("aria-hidden", "true");
+  const image = book.querySelector(".novel-grid-book-cover img");
+  if (image) {
+    setListImageSource(image, getNovelCoverAsset(item), "(max-width: 900px) 320px, clamp(240px, 24vw, 360px)");
+  }
   return book;
 }
 

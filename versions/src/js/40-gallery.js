@@ -81,8 +81,8 @@ function sortGalleryProjects(items) {
 function createGalleryMedia(asset, title, options = {}) {
   const isVideo = /\.(mov|mp4|webm)$/i.test(asset);
   const media = document.createElement(isVideo ? "video" : "img");
-  media.src = getGalleryAssetPath(asset);
   if (isVideo) {
+    media.src = getGalleryAssetPath(asset);
     media.muted = options.muted !== false;
     media.playsInline = true;
     media.preload = "metadata";
@@ -90,6 +90,11 @@ function createGalleryMedia(asset, title, options = {}) {
   } else {
     media.alt = title;
     media.loading = "lazy";
+    if (options.previewSizes) {
+      setListImageSource(media, getGalleryAssetPath(asset), options.previewSizes);
+    } else {
+      media.src = getGalleryAssetPath(asset);
+    }
   }
   return media;
 }
@@ -330,7 +335,9 @@ function createGalleryProjectButton(item) {
   mainButton.type = "button";
   mainButton.className = "gallery-project-main";
   mainButton.setAttribute("aria-label", `${projectTitle} main image`);
-  if (mainAsset) mainButton.append(createGalleryMedia(mainAsset, projectTitle));
+  if (mainAsset) mainButton.append(createGalleryMedia(mainAsset, projectTitle, {
+    previewSizes: "(max-width: 520px) calc(100vw - 44px), (max-width: 900px) 46vw, (max-width: 1200px) 30vw, 24vw",
+  }));
   mainButton.addEventListener("click", (event) => {
     event.stopPropagation();
     openGalleryProject(item, 0);
@@ -352,7 +359,9 @@ function createGalleryProjectButton(item) {
       button.type = "button";
       button.className = "gallery-project-preview";
       button.setAttribute("aria-label", `${projectTitle} preview ${index + 1}`);
-      button.append(createGalleryMedia(asset, projectTitle));
+      button.append(createGalleryMedia(asset, projectTitle, {
+        previewSizes: "(max-width: 520px) 30vw, (max-width: 900px) 15vw, (max-width: 1200px) 10vw, 8vw",
+      }));
       button.addEventListener("click", (event) => {
         event.stopPropagation();
         openGalleryProject(item, index);

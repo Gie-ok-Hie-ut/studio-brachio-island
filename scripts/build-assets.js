@@ -30,6 +30,7 @@ const bundles = [
       "versions/src/js/22-popup-url-and-share.js",
       "versions/src/js/23-localization-refresh.js",
       "versions/src/js/24-reader-scroll-and-history.js",
+      "versions/src/js/25-image-previews.js",
       "versions/src/js/30-novel.js",
       "versions/src/js/40-gallery.js",
       "versions/src/js/50-role-common.js",

@@ -214,9 +214,8 @@ function renderTodaysSignal() {
     const figure = document.createElement("figure");
     const img = document.createElement("img");
     figure.className = "todays-signal-media";
-    img.src = projectHref(image);
     img.alt = title;
-    img.loading = "lazy";
+    setListImageSource(img, image, "(max-width: 900px) calc(100vw - 44px), (max-width: 1100px) 62vw, 680px");
     figure.append(img);
     makeTodaysSignalMediaClickable(figure, href, title);
     card.append(figure);

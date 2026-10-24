@@ -27,6 +27,37 @@ Active CSS and JavaScript source lives in `versions/src/` and is bundled into
 `versions/version-15.css` and `versions/version-15.js`. The root `styles.css`
 and `script.js` files are not used by the current generated pages.
 
+### Image previews
+
+Install the pinned image-build dependency with `npm ci` (Node.js 20.9 or newer).
+After changing gallery images or top-level novel covers, run:
+
+```sh
+npm run build:images
+npm run build:pages
+```
+
+`npm run build` performs both steps and refreshes the content index first.
+The image builder reads gallery `image` / `assets` and top-level novel covers
+from the generated content index. It writes list-only WebP derivatives to
+`assets/previews/` and their dimensions, hashes, and source mapping to
+`image-previews.js`. Commit both generated outputs with the source changes.
+The original files under `content/` remain unchanged and are still used for
+full-image viewing. Videos, remote images, and unsupported formats retain their
+existing behavior.
+
+Previews preserve the full composition, aspect ratio, transparency, embedded ICC
+profile, and EXIF display orientation. Widths are 160, 320, 640, 960, and 1280 px;
+smaller originals stop at their native width and are never enlarged. WebP uses
+quality 90, alpha quality 100, and effort 6. These are visually compressed list
+images; they are not replacements for the original artwork files.
+
+`npm run check:images` verifies source and output SHA-256 hashes, build settings,
+file presence, WebP dimensions, and ICC profiles using Node's built-in modules
+only. It also reports stale manifests or unused generated files. `npm run build:images`
+reuses valid previews, regenerates changed or missing ones, and removes unused
+generated previews without modifying originals.
+
 Before committing, run:
 
 ```sh

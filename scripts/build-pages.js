@@ -35,6 +35,7 @@ function fileVersion(relativePath) {
 const versions = {
   css: fileVersion("versions/version-15.css"),
   content: fileVersion("content-index.js"),
+  images: fileVersion("image-previews.js"),
   js: fileVersion("versions/version-15.js"),
 };
 
@@ -240,6 +241,7 @@ function pdfModal() {
 
 function scripts({ contentIndex, app }) {
   return `    <script src="${contentIndex}?v=${versions.content}"></script>
+    <script src="image-previews.js?v=${versions.images}"></script>
     <script src="${app}?v=${versions.js}"></script>`;
 }
 
