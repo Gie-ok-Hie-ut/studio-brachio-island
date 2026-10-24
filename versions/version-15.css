@@ -2,7 +2,7 @@
   font-family: "Studio Pretendard";
   font-style: normal;
   font-weight: 45 920;
-  font-display: swap;
+  font-display: block;
   src: url("../assets/fonts/PretendardVariable.woff2") format("woff2-variations");
 }
 
@@ -35,7 +35,8 @@
   --motion-panel: 760ms;
   --motion-soft: 760ms;
   --motion-quick: 760ms;
-  --font-sans: "Studio Pretendard", Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --font-fallback: Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --font-sans: "Studio Pretendard", var(--font-fallback);
   --site-texture: url("../assets/background-texture2.png");
   --site-texture-size: 1448px 1086px;
   --site-texture-surface:
@@ -44,6 +45,16 @@
   --site-texture-popup:
     linear-gradient(rgba(var(--paper-rgb), 0.64), rgba(var(--paper-rgb), 0.64)),
     var(--site-texture);
+}
+
+/* Keep the first visible layout in its final font, even on a slow connection. */
+html.is-font-loading body {
+  visibility: hidden;
+}
+
+/* A failed/timed-out download must not cause a later visible font swap. */
+html.is-font-unavailable {
+  --font-sans: var(--font-fallback);
 }
 
 * { box-sizing: border-box; }

@@ -95,6 +95,35 @@ ${indent}  </span>
 ${indent}</button>`;
 }
 
+// Inlined in the head after the stylesheet, before any body can be painted.
+function waitForStudioFont() {
+  const font = '16px "Studio Pretendard"';
+  if (!document.fonts || document.fonts.check(font)) return Promise.resolve();
+
+  const root = document.documentElement;
+  root.classList.add("is-font-loading");
+
+  return new Promise((resolve) => {
+    let settled = false;
+    const timeout = setTimeout(() => finish(false), 8000);
+
+    function finish(loaded) {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timeout);
+      // Keep failed loads readable without swapping fonts if a late response arrives.
+      root.classList.toggle("is-font-unavailable", !loaded);
+      root.classList.remove("is-font-loading");
+      resolve();
+    }
+
+    document.fonts.load(font).then(
+      (faces) => finish(faces.length > 0),
+      () => finish(false)
+    );
+  });
+}
+
 function head({ title, urlPath, cssHref, assetRoot = "" }) {
   const fullTitle = title === siteName ? siteName : `${title} - ${siteName}`;
   const url = urlPath ? `${publicBaseUrl}/${urlPath}` : `${publicBaseUrl}/`;
@@ -105,6 +134,7 @@ function head({ title, urlPath, cssHref, assetRoot = "" }) {
   return `  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="${assetPrefix}assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -126,6 +156,7 @@ function head({ title, urlPath, cssHref, assetRoot = "" }) {
     <link rel="apple-touch-icon" href="${appleTouchIconHref}">
     <link rel="canonical" href="${url}">
     <link rel="stylesheet" href="${cssHref}?v=${versions.css}">
+    <script>window.studioFontsReady = (${waitForStudioFont.toString()})();</script>
 ${analyticsScript().trimEnd()}
   </head>`;
 }

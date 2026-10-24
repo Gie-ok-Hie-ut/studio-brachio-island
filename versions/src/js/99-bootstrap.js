@@ -68,4 +68,9 @@ function initializeStudioPage() {
   }
 }
 
-initializeStudioPage();
+// Measure galleries and start page animations only after the final font is selected.
+if (window.studioFontsReady) {
+  window.studioFontsReady.then(initializeStudioPage);
+} else {
+  initializeStudioPage();
+}

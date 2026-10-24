@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -24,7 +25,34 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="canonical" href="https://brachioisland.studio/ai-research.html">
-    <link rel="stylesheet" href="versions/version-15.css?v=e68108007c">
+    <link rel="stylesheet" href="versions/version-15.css?v=77ec10d2c0">
+    <script>window.studioFontsReady = (function waitForStudioFont() {
+  const font = '16px "Studio Pretendard"';
+  if (!document.fonts || document.fonts.check(font)) return Promise.resolve();
+
+  const root = document.documentElement;
+  root.classList.add("is-font-loading");
+
+  return new Promise((resolve) => {
+    let settled = false;
+    const timeout = setTimeout(() => finish(false), 8000);
+
+    function finish(loaded) {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timeout);
+      // Keep failed loads readable without swapping fonts if a late response arrives.
+      root.classList.toggle("is-font-unavailable", !loaded);
+      root.classList.remove("is-font-loading");
+      resolve();
+    }
+
+    document.fonts.load(font).then(
+      (faces) => finish(faces.length > 0),
+      () => finish(false)
+    );
+  });
+})();</script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="30aee87f-ef6c-4dab-afc4-410fb3c9ae21"></script>
   </head>
   <body data-role-room="engineer">
@@ -136,6 +164,6 @@
       </section>
     </div>
     <script src="content-index.js?v=5f593fbb99"></script>
-    <script src="versions/version-15.js?v=0476114efb"></script>
+    <script src="versions/version-15.js?v=6d2f58a178"></script>
   </body>
 </html>
