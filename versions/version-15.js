@@ -139,12 +139,37 @@ function restoreExploreHash() {
 
 function setV15MenuState(isOpen) {
   if (!v15MenuToggle || !v15RoleMenu) return;
+  const wasOpen = document.body.classList.contains("is-v15-menu-open");
+  if (!isOpen && v15RoleMenu.contains(document.activeElement)) {
+    v15MenuToggle.focus({ preventScroll: true });
+  }
+  v15RoleMenu.inert = !isOpen;
+  v15RoleMenu.setAttribute("aria-hidden", String(!isOpen));
   document.body.classList.toggle("is-v15-menu-open", isOpen);
   v15MenuToggle.setAttribute("aria-expanded", String(isOpen));
+  v15MenuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  if (isOpen && !wasOpen) {
+    const items = v15RoleMenu.querySelector(".v15-role-menu-items");
+    if (items) items.scrollLeft = 0;
+  }
 }
 
 function bindV15Menu() {
   if (!v15MenuToggle || !v15RoleMenu) return;
+  const items = v15RoleMenu.querySelector(".v15-role-menu-items");
+  v15RoleMenu.addEventListener("focusin", (event) => {
+    const control = event.target.closest("a, button");
+    if (!items || !control || !items.contains(control)) return;
+    // Native focus scrolling can leave a partly visible link clipped. Reveal
+    // the whole control, including its existing hover/focus label padding.
+    const viewport = items.getBoundingClientRect();
+    const target = control.getBoundingClientRect();
+    const style = getComputedStyle(items);
+    const left = viewport.left + parseFloat(style.paddingLeft);
+    const right = viewport.right - parseFloat(style.paddingRight);
+    if (target.left < left) items.scrollLeft += target.left - left;
+    else if (target.right > right) items.scrollLeft += target.right - right;
+  });
   v15MenuToggle.addEventListener("click", () => {
     setV15MenuState(!document.body.classList.contains("is-v15-menu-open"));
   });

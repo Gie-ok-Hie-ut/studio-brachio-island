@@ -67,14 +67,16 @@ function nav() {
     .map((item) => {
       return `<a href="${item.href}" data-menu-hover="${item.hover}"${attr("aria-label", item.ariaLabel)}>${item.label}</a>`;
     })
-    .join("\n          ");
+    .join("\n            ");
 
-  return `<nav id="v15-role-menu" class="v15-role-menu" aria-label="Studio roles">
-          ${links}
-          <div class="v15-menu-language language-switch" aria-label="Language">
-            <button type="button" data-language="en">EN</button>
-            <span>/</span>
-            <button type="button" data-language="ko">KO</button>
+  return `<nav id="v15-role-menu" class="v15-role-menu" aria-label="Studio roles" aria-hidden="true" inert>
+          <div class="v15-role-menu-items">
+            ${links}
+            <div class="v15-menu-language language-switch" aria-label="Language">
+              <button type="button" data-language="en">EN</button>
+              <span>/</span>
+              <button type="button" data-language="ko">KO</button>
+            </div>
           </div>
         </nav>`;
 }
