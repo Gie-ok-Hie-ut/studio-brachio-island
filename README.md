@@ -27,6 +27,43 @@ Active CSS and JavaScript source lives in `versions/src/` and is bundled into
 `versions/version-15.css` and `versions/version-15.js`. The root `styles.css`
 and `script.js` files are not used by the current generated pages.
 
+### Font loading
+
+The site uses the unmodified official Pretendard v1.3.9 variable dynamic subsets,
+served locally from `assets/fonts/subsets/`. The preserved original font matches
+that release byte for byte. `unicode-range` lets the browser request the pieces
+used by the page instead of downloading the entire 2.06 MB font on every cold
+visit. Only the 37,996-byte basic Latin subset is preloaded. The CSS family,
+weight range, glyph shapes, and layout remain the same.
+
+The official subsets cover 12,029 of the original 14,336 supported characters.
+The remaining 2,307 characters retain a separate, non-overlapping Unicode range
+pointing to the original font. Future content using those less common characters
+can still display in the same font, but will download the original file when
+needed. The original font and its OFL license must remain in the repository.
+
+`npm run build:fonts` generates `versions/src/css/00-fonts.css` from the verified
+manifest. `npm run check:fonts` checks file hashes, character coverage, variable
+axes, and generated CSS using only Node's built-in modules. Both commands are
+included in the complete build/check. Commit the manifest, official subset
+files, upstream CSS, and generated CSS together.
+
+For an optional deep audit, install `fonttools[woff]==4.60.2` in a Python virtual
+environment and run `python scripts/build-fonts.py --check`. This compares every
+subset character's outlines, horizontal metrics, and variable-font deltas with
+the original. `python scripts/build-fonts.py --download` restores pinned official
+files and regenerates the manifest/CSS. Ordinary builds do not require Python,
+fontTools, or a network connection.
+
+The first-paint guard now waits for the actual localized DOM and an initial
+chapter opened by URL, then explicitly loads those characters and waits for a
+fresh `document.fonts.ready`. Closed readers are populated when opened. The
+previous 8-second failure/fallback behavior is retained pending a separate
+product decision; this optimization does not adopt a new failure policy.
+Language changes keep the current text visible while loading the target
+language's subsets for the current page and open reader, then update the text
+and language state together. The latest selection wins if requests overlap.
+
 ### Image previews
 
 Install the pinned image-build dependency with `npm ci` (Node.js 20.9 or newer).

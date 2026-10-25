@@ -272,6 +272,10 @@ function makeTodaysSignalMediaClickable(media, href, title) {
 
 function revealDeepLinkedContent() {
   if (!isRoleRoomPage || !window.location.hash.startsWith("#item-")) return;
+  if (document.documentElement.classList.contains("is-font-loading") && window.studioFontsReady) {
+    window.studioFontsReady.then(revealDeepLinkedContent);
+    return;
+  }
   const targetId = window.location.hash.slice(1);
   if (activeRoleRoom === "novel") setNovelViewMode("grid");
   requestAnimationFrame(() => {

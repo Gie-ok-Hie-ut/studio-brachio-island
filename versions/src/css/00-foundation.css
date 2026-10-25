@@ -1,11 +1,3 @@
-@font-face {
-  font-family: "Studio Pretendard";
-  font-style: normal;
-  font-weight: 45 920;
-  font-display: block;
-  src: url("../assets/fonts/PretendardVariable.woff2") format("woff2-variations");
-}
-
 :root {
   --page: #5a5a5a;
   --paper: #f2f2f0;

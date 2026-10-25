@@ -56,6 +56,10 @@ function updateHomeScrollMotion() {
 
 function restoreExploreHash() {
   if (isRoleRoomPage || window.location.hash !== "#explore") return;
+  if (document.documentElement.classList.contains("is-font-loading") && window.studioFontsReady) {
+    window.studioFontsReady.then(restoreExploreHash);
+    return;
+  }
   const explore = document.querySelector("#explore");
   if (!explore) return;
   requestAnimationFrame(() => {

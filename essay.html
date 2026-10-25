@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" href="assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/subsets/PretendardVariable.subset.91.woff2" as="font" type="font/woff2" crossorigin>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -25,11 +25,9 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="canonical" href="https://brachioisland.studio/essay.html">
-    <link rel="stylesheet" href="versions/version-15.css?v=77ec10d2c0">
-    <script>window.studioFontsReady = (function waitForStudioFont() {
-  const font = '16px "Studio Pretendard"';
-  if (!document.fonts || document.fonts.check(font)) return Promise.resolve();
-
+    <link rel="stylesheet" href="versions/version-15.css?v=a6822c62cb">
+    <script>window.studioFontsReady = (function prepareStudioFonts() {
+  if (!document.fonts) return Promise.resolve();
   const root = document.documentElement;
   root.classList.add("is-font-loading");
 
@@ -47,10 +45,16 @@
       resolve();
     }
 
-    document.fonts.load(font).then(
-      (faces) => finish(faces.length > 0),
-      () => finish(false)
-    );
+    window.finishStudioFontLoading = finish;
+    // If the app script fails, keep the static HTML readable in its loaded font.
+    // Normal startup owns the guard and waits for its dynamically rendered text.
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.studioFontInitializationStarted) return;
+      document.body?.getBoundingClientRect();
+      document.fonts.ready.then(() => {
+        finish(![...document.fonts].some((face) => face.status === "error"));
+      });
+    }, { once: true });
   });
 })();</script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="30aee87f-ef6c-4dab-afc4-410fb3c9ae21"></script>
@@ -165,6 +169,6 @@
     </div>
     <script src="content-index.js?v=5f593fbb99"></script>
     <script src="image-previews.js?v=eae12291ec"></script>
-    <script src="versions/version-15.js?v=d691770594"></script>
+    <script src="versions/version-15.js?v=390d1687e5"></script>
   </body>
 </html>

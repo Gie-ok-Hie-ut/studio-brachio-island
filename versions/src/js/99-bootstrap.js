@@ -62,15 +62,17 @@ function initializeStudioPage() {
   bindRolePanels();
   updateIntroScroll();
   restoreExploreHash();
-  const openedPopupFromUrl = syncPopupFromUrl();
-  if (!openedPopupFromUrl && contentItems[0]) {
-    renderMarkdownReader(contentItems[0].id);
-  }
+  syncPopupFromUrl();
 }
 
-// Measure galleries and start page animations only after the final font is selected.
-if (window.studioFontsReady) {
-  window.studioFontsReady.then(initializeStudioPage);
-} else {
-  initializeStudioPage();
-}
+// Build localized text while the head's first-paint guard is active, then load
+// its actual subsets. A closed reader is populated only when a work is opened.
+initializeStudioPage();
+window.studioFontInitializationStarted = true;
+finishInitialStudioFonts();
+Promise.resolve(window.studioFontsReady).then(() => {
+  refreshGalleryMasonryOnResize();
+  positionNovelOrbitCards();
+  scheduleReaderScrollIndicatorUpdate();
+  updateIntroScroll();
+});

@@ -482,7 +482,7 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
         return response.text();
       });
 
-  markdownRequest
+  currentReader.ready = markdownRequest
     .then((markdown) => {
       if (currentReader.type !== "chapter" || currentReader.path !== path) return;
       const markdownNodes = renderMarkdown(markdown, localizedTitle, {
@@ -511,6 +511,7 @@ function renderMarkdownFileReader(path, title, parentItem = null, shouldOpen = f
       readerContent.replaceChildren(error);
       scheduleReaderScrollIndicatorUpdate();
     });
+  return currentReader.ready;
 }
 
 function renderMarkdownReader(id, shouldOpen = false, options = {}) {

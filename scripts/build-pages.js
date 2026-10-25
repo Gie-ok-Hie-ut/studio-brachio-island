@@ -96,11 +96,10 @@ ${indent}  </span>
 ${indent}</button>`;
 }
 
-// Inlined in the head after the stylesheet, before any body can be painted.
-function waitForStudioFont() {
-  const font = '16px "Studio Pretendard"';
-  if (!document.fonts || document.fonts.check(font)) return Promise.resolve();
-
+// Begin the existing first-paint guard before the body can be painted.
+// The app completes it after rendering and loading the actual page's characters.
+function prepareStudioFonts() {
+  if (!document.fonts) return Promise.resolve();
   const root = document.documentElement;
   root.classList.add("is-font-loading");
 
@@ -118,10 +117,16 @@ function waitForStudioFont() {
       resolve();
     }
 
-    document.fonts.load(font).then(
-      (faces) => finish(faces.length > 0),
-      () => finish(false)
-    );
+    window.finishStudioFontLoading = finish;
+    // If the app script fails, keep the static HTML readable in its loaded font.
+    // Normal startup owns the guard and waits for its dynamically rendered text.
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.studioFontInitializationStarted) return;
+      document.body?.getBoundingClientRect();
+      document.fonts.ready.then(() => {
+        finish(![...document.fonts].some((face) => face.status === "error"));
+      });
+    }, { once: true });
   });
 }
 
@@ -135,7 +140,7 @@ function head({ title, urlPath, cssHref, assetRoot = "" }) {
   return `  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" href="${assetPrefix}assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="${assetPrefix}assets/fonts/subsets/PretendardVariable.subset.91.woff2" as="font" type="font/woff2" crossorigin>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -157,7 +162,7 @@ function head({ title, urlPath, cssHref, assetRoot = "" }) {
     <link rel="apple-touch-icon" href="${appleTouchIconHref}">
     <link rel="canonical" href="${url}">
     <link rel="stylesheet" href="${cssHref}?v=${versions.css}">
-    <script>window.studioFontsReady = (${waitForStudioFont.toString()})();</script>
+    <script>window.studioFontsReady = (${prepareStudioFonts.toString()})();</script>
 ${analyticsScript().trimEnd()}
   </head>`;
 }
@@ -279,7 +284,7 @@ ${menuToggle("        ")}
 
 ${siteFooter()}
 
-${readerModal("\n          <p>writing 섹션에서 제목을 클릭하면 이곳에 본문이 렌더링됩니다.</p>\n        ")}
+${readerModal("")}
 
 ${pdfModal()}
 

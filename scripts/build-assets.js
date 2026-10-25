@@ -7,6 +7,7 @@ const bundles = [
   {
     output: "versions/version-15.css",
     sources: [
+      "versions/src/css/00-fonts.css",
       "versions/src/css/00-foundation.css",
       "versions/src/css/05-site-chrome.css",
       "versions/src/css/10-role-layouts.css",
@@ -31,6 +32,7 @@ const bundles = [
       "versions/src/js/23-localization-refresh.js",
       "versions/src/js/24-reader-scroll-and-history.js",
       "versions/src/js/25-image-previews.js",
+      "versions/src/js/26-font-loading.js",
       "versions/src/js/30-novel.js",
       "versions/src/js/40-gallery.js",
       "versions/src/js/50-role-common.js",

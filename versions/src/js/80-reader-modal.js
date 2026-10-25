@@ -83,10 +83,10 @@ function refreshCurrentReaderContent(scrollState = getReaderScrollState()) {
 }
 
 function setReaderLanguage(lang) {
-  const scrollState = getReaderScrollState();
-  setActiveReaderLanguage(lang);
-  applyReaderSettings({ persist: false });
-  refreshCurrentReaderContent(scrollState);
+  return requestStudioLanguageChange({
+    readerLanguage: lang === "ko" ? "ko" : "en",
+    readerOrigin: currentReader,
+  });
 }
 
 function bindReaderSetting(control, key) {

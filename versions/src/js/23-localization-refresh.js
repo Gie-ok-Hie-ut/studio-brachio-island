@@ -71,14 +71,66 @@ function setReaderVariant(variant = "") {
   readerWindow.dataset.popupVariant = variant || "reader";
 }
 
-function setLanguage(lang) {
+let studioLanguageChangeVersion = 0;
+let pendingStudioLanguageChange = null;
+
+async function requestStudioLanguageChange(change) {
+  const version = ++studioLanguageChangeVersion;
+  const target = {
+    siteLanguage: getSiteLanguage(),
+    readerLanguage: activeReaderLanguage,
+    refreshSite: false,
+    readerOrigin: null,
+    ...pendingStudioLanguageChange,
+    ...change,
+  };
+  pendingStudioLanguageChange = target;
+  // A select changes its value before its handler runs. Keep it consistent with
+  // the text that remains visible while the new language's subsets are loading.
+  if (readerLang) readerLang.value = getReaderLanguage();
+
+  const deadline = Date.now() + 8000;
+  let context;
+  do {
+    if (target.readerOrigin && (target.readerOrigin !== currentReader ||
+        !readerModal?.classList.contains("is-open"))) {
+      if (!target.refreshSite) {
+        pendingStudioLanguageChange = null;
+        return;
+      }
+      target.readerLanguage = "";
+      target.readerOrigin = null;
+    }
+    context = getStudioLanguageFontContext();
+    await prepareStudioLanguageFonts(target.siteLanguage, target.readerLanguage, deadline);
+    if (version !== studioLanguageChangeVersion) return;
+    // Opening a different work during a site-language request adds different
+    // characters. Prepare those too before committing the latest selection.
+  } while (context !== getStudioLanguageFontContext() && Date.now() < deadline);
+
+  pendingStudioLanguageChange = null;
+  if (target.readerOrigin && (target.readerOrigin !== currentReader ||
+      !readerModal?.classList.contains("is-open"))) {
+    if (!target.refreshSite) return;
+    target.readerLanguage = "";
+  }
   const scrollState = getReaderScrollState();
-  readerSettings.lang = lang === "ko" ? "ko" : "en";
-  activeReaderLanguage = "";
-  applyReaderSettings();
-  refreshLocalizedContent({
-    preserveReaderScroll: true,
-    scrollState,
+  readerSettings.lang = target.siteLanguage;
+  activeReaderLanguage = target.readerLanguage;
+  applyReaderSettings({ persist: target.refreshSite });
+  if (target.refreshSite) {
+    refreshLocalizedContent({ preserveReaderScroll: true, scrollState });
+  } else {
+    refreshCurrentReaderContent(scrollState);
+  }
+}
+
+function setLanguage(lang) {
+  return requestStudioLanguageChange({
+    siteLanguage: lang === "ko" ? "ko" : "en",
+    readerLanguage: "",
+    refreshSite: true,
+    readerOrigin: null,
   });
 }
 
