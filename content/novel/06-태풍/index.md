@@ -4,6 +4,9 @@ title: "태풍"
 titleKo: "태풍"
 titleEn: "Typhoon"
 type: novel
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
 year: "2020"
 tagsKo:
   - "#단편"

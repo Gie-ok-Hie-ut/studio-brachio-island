@@ -4,6 +4,9 @@ title: "눈싸움"
 titleKo: "눈싸움"
 titleEn: "Snowball Fight"
 type: novel
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
 year: "2023"
 tagsKo:
   - "#단편"

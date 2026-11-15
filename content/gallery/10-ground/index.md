@@ -4,6 +4,9 @@ title: "ground"
 titleKo: "ground"
 titleEn: "ground"
 type: gallery
+creativeContributionLevel: 3
+creativeContributionStatus: "provisional"
+creativeProcess: "ai-generated"
 order: 10
 year: "2026"
 medium: "image"

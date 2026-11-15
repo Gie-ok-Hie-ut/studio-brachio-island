@@ -4,6 +4,9 @@ title: "Latent Murmuration"
 titleKo: "Latent Murmuration"
 titleEn: "Latent Murmuration"
 type: gallery
+creativeContributionLevel: 2
+creativeContributionStatus: "provisional"
+creativeProcess: "code-assisted"
 order: 3
 year: "2024"
 medium: "image"

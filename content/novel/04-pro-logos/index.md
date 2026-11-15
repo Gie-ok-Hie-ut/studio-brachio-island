@@ -4,6 +4,9 @@ title: "Pro-logos"
 titleKo: "Pro-logos"
 titleEn: "Pro-logos"
 type: novel
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
 year: "2022"
 tagsKo:
   - "#단편"

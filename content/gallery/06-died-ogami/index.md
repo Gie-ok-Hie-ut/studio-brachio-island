@@ -4,6 +4,9 @@ title: "DIED OGAMI"
 titleKo: "DIED OGAMI"
 titleEn: "DIED OGAMI"
 type: gallery
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-made"
 order: 6
 year: "2016"
 medium: "image / motion"

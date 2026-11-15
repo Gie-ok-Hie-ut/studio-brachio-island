@@ -53,6 +53,7 @@ function collectStudioItemFontText(item, lang, includeBody = false) {
   const meta = item.meta || {};
   const suffix = lang === "ko" ? "Ko" : "En";
   const text = [getLocalizedTitle(item, lang), ...getLocalizedTags(item, lang)];
+  if (Number.isInteger(meta.creativeContributionLevel)) text.push(getCreativeContributionFontText(lang));
   for (const key of ["panelTitle", "detailTitle", "handle", "kicker", "tagline", "summary", "caption", "year", "medium"]) {
     text.push(meta[`${key}${suffix}`] || meta[key] || "");
   }
@@ -74,6 +75,7 @@ function collectStudioPageLanguageText(lang) {
   const text = Object.values(staticCopy).map((copy) => copy[lang]);
   const roles = isRoleRoomPage ? [activeRoleRoom] : [...rolePanels].map((panel) => panel.dataset.rolePanel);
   for (const role of roles) {
+    if (["visual", "novel", "aesthetics"].includes(role)) text.push(getCreativeContributionFontText(lang));
     text.push(collectStudioItemFontText(getRoleItem(role), lang, true));
     const items = role === "visual" ? topLevelGalleryItems
       : role === "novel" ? topLevelNovelItems

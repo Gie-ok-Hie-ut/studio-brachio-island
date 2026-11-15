@@ -4,6 +4,9 @@ title: "He Wept"
 titleKo: "He Wept"
 titleEn: "He Wept"
 type: gallery
+creativeContributionLevel: 3
+creativeContributionStatus: "provisional"
+creativeProcess: "ai-generated"
 order: 4
 year: "2026"
 medium: "image"

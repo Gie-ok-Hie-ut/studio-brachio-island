@@ -2804,6 +2804,130 @@ body.role-closing .role-detail * {
   }
 }
 
+/* A quiet process disclosure beneath the Novel / Visual Art / Essay introduction. */
+.ccl-badge,
+.novel-card .ccl-badge,
+.novel-grid-book .ccl-badge {
+  border: 1px solid currentColor;
+  border-radius: 0;
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+  padding: 3px 6px;
+  text-shadow: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ccl-context,
+.novel-card .ccl-context,
+.novel-grid-book .ccl-context {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
+.ccl-context-text,
+.novel-card .ccl-context-text,
+.novel-grid-book .ccl-context-text {
+  font: inherit;
+  min-width: 0;
+}
+.role-essay-items .ccl-context-text { color: inherit; }
+.ccl-work-meta,
+.novel-card .ccl-work-meta,
+.novel-grid-book .ccl-work-meta {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  text-transform: none;
+}
+.novel-card .novel-card-tags,
+.novel-grid-book .novel-grid-book-tags { line-height: 1.8; }
+
+.ccl-disclosure {
+  color: #71716c;
+  font-size: 13px;
+  font-weight: 450;
+  line-height: 1.6;
+  margin-top: 20px;
+  max-width: 980px;
+  min-width: 0;
+  text-transform: none;
+  width: 100%;
+}
+
+.ccl-disclosure > summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 12px;
+  list-style: none;
+  padding: 0;
+  width: fit-content;
+}
+
+.ccl-disclosure > summary::-webkit-details-marker { display: none; }
+.ccl-disclosure > summary::after {
+  border-bottom: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  content: "";
+  height: 5px;
+  margin-left: 2px;
+  position: relative;
+  top: -1px;
+  transform: rotate(45deg);
+  width: 5px;
+}
+.ccl-disclosure[open] > summary::after { top: 1px; transform: rotate(225deg); }
+.ccl-disclosure > summary:hover { color: #42423e; }
+.ccl-disclosure > summary:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 5px;
+}
+.ccl-label {
+  border: 1px solid currentColor;
+  border-radius: 0;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+  padding: 3px 6px;
+  white-space: nowrap;
+}
+.ccl-hint { font-size: 12px; }
+.ccl-content { padding-top: 8px; }
+.ccl-content .ccl-description strong {
+  font-weight: 650;
+}
+.ccl-content .ccl-description {
+  font-size: 12px;
+  font-weight: 450;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+.ccl-table { border-collapse: collapse; color: #62625d; max-width: 560px; width: 100%; }
+.ccl-table th, .ccl-table td {
+  border: 0;
+  padding: 4px 0;
+  text-align: left;
+  vertical-align: middle;
+}
+.ccl-table tbody th { padding-right: 16px; white-space: nowrap; width: 73px; }
+.ccl-table td { font-size: 12px; overflow-wrap: anywhere; }
+.ccl-source { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 520px) {
+  .ccl-disclosure { margin-top: 16px; }
+  .ccl-disclosure > summary { min-height: 44px; align-content: center; gap: 3px 8px; }
+  .ccl-table tbody th { padding-right: 14px; width: 73px; }
+}
+
 .gallery {
   display: grid;
   gap: 84px;

@@ -73,6 +73,7 @@ function createNovelCard(item, index) {
   setNovelBookTitle(title, item);
   tags.className = "novel-card-tags";
   tags.textContent = getLocalizedTags(item).join(" ");
+  appendWorkCreativeContribution(tags, item);
   overlay.className = "novel-card-overlay";
   overlayText.className = "novel-card-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);
@@ -124,6 +125,7 @@ function createNovelGridBook(item) {
   setNovelBookTitle(title, item);
   tags.className = "novel-grid-book-tags";
   tags.textContent = getLocalizedTags(item).join(" ");
+  appendWorkCreativeContribution(tags, item);
   overlay.className = "novel-grid-book-overlay";
   overlayText.className = "novel-grid-book-overlay-text";
   overlayText.textContent = hookText || getLocalizedTitle(item);

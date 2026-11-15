@@ -4,6 +4,9 @@ title: "BCAD"
 titleKo: "BCAD"
 titleEn: "BCAD"
 type: gallery
+creativeContributionLevel: 2
+creativeContributionStatus: "provisional"
+creativeProcess: "ai-generated"
 order: 7
 year: "2023"
 medium: "image series"

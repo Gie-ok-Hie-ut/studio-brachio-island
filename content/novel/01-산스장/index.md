@@ -4,6 +4,9 @@ title: "산스장"
 titleKo: "산스장"
 titleEn: "Sansjang: The Mountain Gym"
 type: novel
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
 year: "2024"
 tagsKo:
   - "#단편"

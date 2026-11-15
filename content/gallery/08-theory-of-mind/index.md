@@ -4,6 +4,9 @@ title: "Theory of Mind"
 titleKo: "Theory of Mind"
 titleEn: "Theory of Mind"
 type: gallery
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-made"
 order: 8
 year: "2017"
 medium: "image"

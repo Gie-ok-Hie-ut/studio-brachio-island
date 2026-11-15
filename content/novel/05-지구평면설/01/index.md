@@ -4,6 +4,9 @@ title: "1"
 titleKo: "1"
 titleEn: ""
 type: novel
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
 tags:
   - "#Novel"
   - "#Fiction"

@@ -4,6 +4,9 @@ title: "Root"
 titleKo: "Root"
 titleEn: "Root"
 type: gallery
+creativeContributionLevel: 3
+creativeContributionStatus: "provisional"
+creativeProcess: "ai-generated"
 order: 5
 year: "2026"
 medium: "image"

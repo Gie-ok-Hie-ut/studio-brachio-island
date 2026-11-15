@@ -4,6 +4,9 @@ title: "단맛"
 titleKo: "단맛"
 titleEn: "Sweetness"
 type: novel
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
 year: "2020"
 tagsKo:
   - "#단편"

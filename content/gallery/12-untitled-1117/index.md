@@ -4,6 +4,9 @@ title: "untitled-1117"
 titleKo: "untitled-1117"
 titleEn: "untitled-1117"
 type: gallery
+creativeContributionLevel: 3
+creativeContributionStatus: "provisional"
+creativeProcess: "ai-generated"
 order: 12
 year: "2025"
 medium: "image"

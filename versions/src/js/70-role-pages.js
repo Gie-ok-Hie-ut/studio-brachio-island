@@ -176,7 +176,10 @@ function renderGalleryRole(item, body) {
     item,
     basePath: item.path,
   });
-  if (overview) children.push(overview);
+  if (overview) {
+    overview.append(createCreativeContributionDisclosure("visual"));
+    children.push(overview);
+  }
 
   const target = document.createElement("div");
   target.id = "role-visual-items";
@@ -187,10 +190,11 @@ function renderGalleryRole(item, body) {
 
 function renderNovelRole(item, body) {
   const markdown = getLocalizedMarkdown(item);
-  appendRoleOverview(markdown, body, {
+  const overview = appendRoleOverview(markdown, body, {
     item,
     basePath: item.path,
   });
+  if (overview) overview.append(createCreativeContributionDisclosure("novel"));
   const controls = document.createElement("div");
   const orbit = createNovelViewButton("orbit", readerSettings.lang === "ko" ? "회전 보기" : "Rotation view");
   const grid = createNovelViewButton("grid", readerSettings.lang === "ko" ? "그리드 보기" : "Grid view");
@@ -212,10 +216,11 @@ function renderNovelRole(item, body) {
 
 function renderReadingRole(item, body) {
   const markdown = getLocalizedMarkdown(item);
-  appendRoleOverview(markdown, body, {
+  const overview = appendRoleOverview(markdown, body, {
     item,
     basePath: item.path,
   });
+  if (overview) overview.append(createCreativeContributionDisclosure("aesthetics"));
   const target = document.createElement("div");
   target.id = "role-aesthetics-items";
   target.className = "role-items role-paper-items role-essay-items";
@@ -376,6 +381,7 @@ function renderRoleItems() {
           contentId: item.id,
           kicker: item.meta?.year || `Essay ${String(index + 1).padStart(2, "0")}`,
           description: getMetaText(item, "summary", ""),
+          creativeContributionItem: item,
         })
       )
     );

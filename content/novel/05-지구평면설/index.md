@@ -4,6 +4,9 @@ title: "지구평면설"
 titleKo: "지구평면설"
 titleEn: "Flat-Earth Theory"
 type: novel
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
 year: "2021"
 tagsKo:
   - "#중편"

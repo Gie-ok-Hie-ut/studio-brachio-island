@@ -239,6 +239,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
   info.className = "gallery-project-info";
   infoMeta.className = "gallery-project-info-meta";
   infoMeta.textContent = metadataText;
+  appendWorkCreativeContribution(infoMeta, item, readerLanguage);
   infoToggle.type = "button";
   infoToggle.className = "gallery-project-info-toggle";
   infoToggle.setAttribute("aria-expanded", "false");
@@ -258,7 +259,7 @@ function openGalleryProject(item, startIndex = 0, options = {}) {
     const detail = getGalleryProjectDetailMarkdown(item, readerLanguage);
     const hasDetail = Boolean(detail);
     navCounter.textContent = total > 1 ? `${paddedIndex} OF ${paddedTotal}` : "";
-    info.hidden = !metadataText && !hasDetail;
+    info.hidden = !infoMeta.textContent.trim() && !hasDetail;
     info.classList.toggle("has-detail", hasDetail);
     infoToggle.hidden = !hasDetail;
     detailBody.hidden = !hasDetail;
@@ -346,6 +347,7 @@ function createGalleryProjectButton(item) {
   overlay.className = "gallery-project-overlay";
   overlayText.className = "gallery-project-overlay-text";
   overlayText.textContent = [projectYear, projectTitle].filter(Boolean).join(", ");
+  appendWorkCreativeContribution(overlayText, item);
   overlay.append(overlayText);
   mainButton.append(overlay);
   group.append(mainButton);

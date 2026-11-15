@@ -4,6 +4,9 @@ title: "건조주의보"
 titleKo: "건조주의보"
 titleEn: "Dry Weather Advisory"
 type: novel
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
 year: "2023"
 tagsKo:
   - "#단편"

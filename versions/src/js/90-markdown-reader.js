@@ -419,9 +419,10 @@ function createNovelAccessNotice(item, title, lang = getSiteLanguage()) {
 
   section.className = "novel-access-notice";
 
-  if (metaParts.length > 0) {
-    meta.className = "novel-access-meta";
-    meta.textContent = metaParts.join(" ");
+  meta.className = "novel-access-meta";
+  meta.textContent = metaParts.join(" ");
+  appendWorkCreativeContribution(meta, item, lang);
+  if (meta.textContent.trim()) {
     section.append(meta);
   }
 
@@ -546,13 +547,22 @@ function renderMarkdownReader(id, shouldOpen = false, options = {}) {
   }
 }
 
+function setPdfReaderHeading(title, item = null) {
+  if (pdfTitle) pdfTitle.textContent = title;
+  const kicker = pdfModal?.querySelector(".popup-kicker");
+  if (!kicker) return;
+  kicker.classList.remove("ccl-context");
+  kicker.textContent = "PDF";
+  if (item) appendWorkCreativeContribution(kicker, item);
+}
+
 function renderPdfReader(id, options = {}) {
   const item = findContentById(id);
   if (!item || !pdfTitle || !pdfSource || !pdfFrame || !item.meta?.pdf) return;
 
   currentReader = { type: "pdf", id: item.id };
   const title = getLocalizedTitle(item);
-  pdfTitle.textContent = title;
+  setPdfReaderHeading(title, item);
   setPdfViewerSource(title, item.meta.pdf);
   openPdf({ skipUrl: options.skipUrl });
 }
@@ -560,7 +570,7 @@ function renderPdfReader(id, options = {}) {
 function openPdfFile(title, pdfPath, options = {}) {
   if (!pdfTitle || !pdfSource || !pdfFrame) return;
   currentReader = { type: "pdf", id: pdfPath };
-  pdfTitle.textContent = title;
+  setPdfReaderHeading(title);
   setPdfViewerSource(title, pdfPath);
   openPdf({ skipUrl: options.skipUrl });
 }

@@ -4,6 +4,12 @@ title: "온전한 예술가와 직선적 예술"
 titleKo: "온전한 예술가와 직선적 예술"
 titleEn: "The Whole Artist and Vertical Art (Kor)"
 type: essay
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "human-written"
+aiAssistance:
+  - "proofreading"
+  - "research"
 order: 1
 format: "pdf"
 pdf: "../assets/pdf/온전한_예술가와_직선적_예술.pdf"

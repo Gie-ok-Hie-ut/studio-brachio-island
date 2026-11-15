@@ -57,7 +57,7 @@ function refreshLocalizedContent(options = {}) {
   }
   if (currentReader.type === "pdf") {
     const item = findContentById(currentReader.id);
-    if (item && pdfTitle) pdfTitle.textContent = getLocalizedTitle(item);
+    if (item && pdfTitle) setPdfReaderHeading(getLocalizedTitle(item), item);
   }
   renderTodaysSignal();
   revealDeepLinkedContent();

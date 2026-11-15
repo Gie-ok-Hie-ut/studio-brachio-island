@@ -242,6 +242,10 @@ function createRoleItemButton(label, onClick, options = {}) {
   } else {
     title.textContent = label;
   }
+  if (options.creativeContributionItem) {
+    appendWorkCreativeContribution(title.querySelector(".cv-entry-title") || title,
+      options.creativeContributionItem);
+  }
   button.append(kicker, title);
   button.addEventListener("click", (event) => {
     event.stopPropagation();

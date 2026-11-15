@@ -4,6 +4,9 @@ title: "Frame"
 titleKo: "Frame"
 titleEn: "Frame"
 type: gallery
+creativeContributionLevel: 5
+creativeContributionStatus: "provisional"
+creativeProcess: "quality-enhanced"
 order: 9
 year: "2017"
 medium: "image"
