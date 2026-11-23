@@ -22,14 +22,14 @@ cvPdf: "../resource/ai_engineer/CV_eng_1pg_2025.pdf"
 topLevel: true
 ---
 <!-- ko -->
-이건희(LEE GUNHEE)는 생성형 Visual AI의 최전선에서 이미지 생성을 위한 모델, 시스템, 도구를 만든다. 그의 연구는 스튜디오의 기술적 기반을 이루며, 인간의 창의성을 확장하는 AI 시스템을 개발하면서 동시에 그 시스템이 스스로 판단하거나 기억하거나 상상할 수 없는 것이 무엇인지 묻는다.
+이건희(LEE GUNHEE)는 기술과 예술의 접점에서 인간의 창의성을 확장하는 AI를 연구한다. 이미지 생성 모델과 창작 도구를 개발해 온 그의 연구는, 이제 세계의 움직임과 상호작용을 배우는 월드 모델로 이어진다. 그는 디지털에서 인간의 상상을 돕던 기술이 물리적 세계에서도 창작의 가능성을 넓힐 수 있는지 탐구한다.
 
 Research Interest: World Model, Generative AI
 
 ## Career
 | Date | Title | Detail | Links |
 | --- | --- | --- | --- |
-| 2025-now | NC AI, Visual Content Service Division | Generative AI Research Engineer | |
+| 2025-now | NC AI, Spatial AI Lab, World Model Team | Generative AI Research Engineer | |
 | 2020-2025 | NCSOFT, Image Generation Team | Generative AI Research Engineer | |
 
 ## Education
@@ -41,10 +41,13 @@ Research Interest: World Model, Generative AI
 ## Projects
 | Label | Title | Detail | Links |
 | --- | --- | --- | --- |
-| VARCO | AI SaaS Platform (VARCO) | Diffusion 기반 이미지 생성 AI SaaS 플랫폼(VARCO)과 실제 서비스용 creative tooling을 위한 모델 및 기능 개발을 수행했습니다.<br>Base foundational model과 corresponding adaptor 개발 연구를 수행했습니다.<br>LoRA 기반 generative model fine-tuning과 multi-GPU training을 활용해 virtual try-on 기술 개발을 주도했습니다.<br>Data refinement, model training, AI architecture pipeline design을 통합해 multi-view image generation 기능을 설계하고 구현했습니다.<br>Lighting adaptation과 automatic coloring을 가능하게 하는 volume generation 기능 개발을 주도했습니다. | [Link1](https://www.youtube.com/watch?v=_4lfjJn5Pyg) / [Link2](https://youtu.be/vgpX5jhPDGw?si=-5XU9hk2HyjSoiva) |
-| Control | Controllable Image Generation Research | 고해상도 landscape image synthesis와 controllable image generation을 위한 conditional pipeline 및 모델 구조를 연구했습니다.<br>GAN 기반 고해상도 landscape image synthesis를 위해 coarse-to-fine conditional pipeline과 model architecture를 설계했습니다.<br>사용자가 빠르게 제어할 수 있으면서도 세밀한 이미지를 생성할 수 있는 controllable generation workflow를 구축했습니다.<br>단일 얼굴 이미지에서 latent manipulation을 통해 synthetic face dataset을 생성하는 자동화 pipeline을 구축했습니다. | |
-| FaceSwap | Advanced Video FaceSwap Research | Digital human 프로젝트를 위한 high-resolution video face-swap 및 head-swap application을 개발했습니다.<br>Identity preservation을 목표로 1024px high-resolution video face-swap 기술을 개발했습니다.<br>Single face image input만으로 작동하는 video head-swap application을 개발해 사용자 제어 가능성을 높였습니다. | |
-| Talking-Heads | Realistic Video Talking-Heads Research | Entertainment platform을 위한 realistic video talking-heads와 안정적인 lip-sync animation을 연구했습니다.<br>Landmark-based GAN model을 최적화해 안정적인 lip-sync animation을 구현했습니다.<br>Korean-speech dataset을 위한 specialized dataset을 구축했습니다.<br>Single-character 및 multi-character model training을 통해 talking-head generation 성능을 개선했습니다. | |
+| Physical AI | World Models | 세계 시뮬레이션을 위한 **물리적으로 일관된 영상 생성** 연구<br>로봇 학습용 **월드 모델·월드 액션 모델** 개발 | |
+| Fashion | Structured SVG Vectorization | 래스터 스케치를 **편집 가능한 SVG**로 변환: 면·원·선 분리 및 제어점 최적화<br>Illustrator 플러그인 **VARCO Fashion**에 API 적용 | |
+| Fashion | VARCO Fashion | LoRA·다중 GPU 학습을 활용한 **가상 피팅** 개발 및 [무신사 유즈드](https://www.musinsa.com/main/used/recommend?gf=A)(중고 패션 거래 서비스) 적용 | [영상 1](https://youtu.be/GJ04vdK9Gik?si=iMobWDWAYlKU5G_5&t=416) / [영상 2](https://youtu.be/vgpX5jhPDGw?si=-5XU9hk2HyjSoiva) |
+| Game Art | VARCO Art | **Diffusion 기반 이미지 생성 모델·어댑터** 연구<br>데이터 정제·모델 학습·파이프라인 설계를 통합한 **다시점 이미지 생성** 개발<br>**조명 조절·자동 채색**을 위한 볼륨 생성 개발 | [영상](https://youtube.com/shorts/rlXRzbvmm5M?si=uRPTZivGP6uUHTnG) |
+| Game Art | Controllable Image Generation | **Coarse-to-fine GAN** 기반 고해상도 풍경 생성<br>사용자 입력에 따른 **생성 결과 제어** 구현<br>GAN 잠재 공간을 활용한 단일 얼굴 이미지의 **합성 데이터셋 확장** | |
+| Digital Human | Face & Head Swapping | 인물의 고유한 특징을 유지하는 **1024px 영상 얼굴 교체**<br>**단일 얼굴 이미지** 기반의 사용자 제어형 영상 머리 교체 | |
+| Digital Human | Talking Heads | GAN 기반 모델 최적화로 **안정적인 립싱크** 구현<br>**한국어 발화 데이터셋** 구축 및 단일·다중 캐릭터 학습으로 성능 개선 | |
 
 ## Paper
 | Year | Title | Detail | Links |
@@ -60,14 +63,14 @@ Research Interest: World Model, Generative AI
 | 2025.12 | VARCO Fashion 영상 | VARCO Fashion을 활용한 AI 기반 패션 콘텐츠 제작 사례 영상. | [Video](https://youtu.be/GJ04vdK9Gik?si=iMobWDWAYlKU5G_5&t=416) |
 
 <!-- en -->
-LEE GUNHEE(이건희) works at the front of generative visual AI, building models, systems, and tools for image creation. His research forms the technical ground of the studio, developing AI systems that amplify human creativity while asking what such systems cannot judge, remember, or imagine on their own.
+LEE GUNHEE(이건희) researches AI at the intersection of technology and art, expanding the possibilities of human creativity. His work has grown from image generation models and creative tools to world models that learn physical dynamics and interactions. He explores how technologies that support human imagination in the digital world can open new possibilities for creation in the physical world.
 
 Research Interest: World Model, Generative AI
 
 ## Career
 | Date | Title | Detail | Links |
 | --- | --- | --- | --- |
-| 2025-now | NC AI, Visual Content Service Division | Generative AI Research Engineer | |
+| 2025-now | NC AI, Spatial AI Lab, World Model Team | Generative AI Research Engineer | |
 | 2020-2025 | NCSOFT, Image Generation Team | Generative AI Research Engineer | |
 
 ## Education
@@ -79,10 +82,13 @@ Research Interest: World Model, Generative AI
 ## Projects
 | Label | Title | Detail | Links |
 | --- | --- | --- | --- |
-| VARCO | AI SaaS Platform (VARCO) | Diffusion-based image generation AI SaaS platform (VARCO) and production-facing creative tooling.<br>Conducted research on developing base foundational models and corresponding adaptors.<br>Spearheaded virtual try-on technology using LoRA-based generative model fine-tuning with multi-GPU training.<br>Designed and implemented multi-view image generation features, integrating data refinement, model training, and AI architecture pipeline design.<br>Led volume generation features for lighting adaptation and automatic coloring. | [Link1](https://www.youtube.com/watch?v=_4lfjJn5Pyg) / [Link2](https://youtu.be/vgpX5jhPDGw?si=-5XU9hk2HyjSoiva) |
-| Control | Controllable Image Generation Research | Conditional pipelines and model architectures for high-resolution landscape image synthesis and controllable image generation.<br>Designed a coarse-to-fine conditional pipeline and model architecture for high-resolution landscape image synthesis using GANs.<br>Enabled fast, user-controlled, and highly detailed visual generation workflows.<br>Built an automated synthetic face dataset pipeline that generates datasets from single face images through latent manipulation in GANs. | |
-| FaceSwap | Advanced Video FaceSwap Research | High-resolution video face-swap and head-swap applications for digital human projects.<br>Developed high-resolution 1024px video face-swap technology to preserve identity for digital human projects.<br>Developed a video head-swap application using a single face image input, enabling user control. | |
-| Talking-Heads | Realistic Video Talking-Heads Research | Realistic video talking-heads and stable lip-sync animation research for entertainment platforms.<br>Optimized landmark-based GAN models to ensure stable lip-sync animations for an entertainment platform.<br>Constructed specialized datasets for Korean speech.<br>Improved performance through single-character and multi-character model training. | |
+| Physical AI | World Models | Researching **physically consistent video generation** for world simulation<br>Developing **world models and world action models** for robot learning | |
+| Fashion | Structured SVG Vectorization | Converted raster sketches into **editable SVGs**, separating planes, circles, and lines with optimized control points<br>Deployed an API in **VARCO Fashion**, an Adobe Illustrator plugin | |
+| Fashion | VARCO Fashion | Developed **virtual try-on** using LoRA and multi-GPU training; applied in [MUSINSA Used](https://www.musinsa.com/main/used/recommend?gf=A) (secondhand fashion marketplace) | [Video 1](https://youtu.be/GJ04vdK9Gik?si=iMobWDWAYlKU5G_5&t=416) / [Video 2](https://youtu.be/vgpX5jhPDGw?si=-5XU9hk2HyjSoiva) |
+| Game Art | VARCO Art | Researched **diffusion models and adapters** for image generation<br>Developed **multi-view image generation**, integrating data refinement, model training, and pipeline design<br>Led volume generation for **lighting adaptation and automatic coloring** | [Video](https://youtube.com/shorts/rlXRzbvmm5M?si=uRPTZivGP6uUHTnG) |
+| Game Art | Controllable Image Generation | Designed **coarse-to-fine GANs** for high-resolution landscape generation<br>Enabled **user control** over generated images<br>Built **synthetic face datasets** from single images through GAN latent-space manipulation | |
+| Digital Human | Face & Head Swapping | Developed **identity-preserving video face swapping at 1024px**<br>Built controllable video head swapping from a **single face image** | |
+| Digital Human | Talking Heads | Optimized GAN-based models for **stable lip-sync animation**<br>Built **Korean speech datasets** and improved performance through single-character and multi-character training | |
 
 ## Paper
 | Year | Title | Detail | Links |

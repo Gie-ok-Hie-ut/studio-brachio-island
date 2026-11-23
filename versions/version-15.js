@@ -2716,6 +2716,83 @@ function renderIdentityRole(item, body) {
   body.append(statement, figure);
 }
 
+function renderCvProjectSection(section, list, item) {
+  const groups = [];
+
+  section.rows.forEach((row, rowIndex) => {
+    let group = groups[groups.length - 1];
+    if (!group || group.label !== row.label) {
+      group = { label: row.label, rows: [] };
+      groups.push(group);
+    }
+    group.rows.push({ row, rowIndex });
+  });
+
+  groups.forEach((group) => {
+    const article = document.createElement("article");
+    const label = document.createElement("span");
+    const content = document.createElement("div");
+    article.id = `cv-projects-${slugifyText(group.label)}`;
+    label.textContent = group.label;
+    content.className = "project-content";
+
+    group.rows.forEach(({ row, rowIndex }) => {
+      const project = document.createElement("div");
+      const copy = document.createElement("div");
+      const text = document.createElement("p");
+      const title = document.createElement("span");
+      project.id = getContentAnchorId(getCvRowId(section.title, row, rowIndex));
+      project.className = "project-item";
+      copy.className = "project-item-copy";
+      title.className = "cv-entry-title";
+      appendMarkdownInline(title, row.text, {
+        item,
+        basePath: item.path,
+      });
+      text.append(title);
+      copy.append(text);
+
+      if (row.detail) {
+        const points = document.createElement("ul");
+        points.className = "cv-entry-detail project-points";
+        row.detail
+          .split(/<br\s*\/?>/i)
+          .map((point) => point.trim().replace(/^[-*]\s+/, ""))
+          .filter(Boolean)
+          .forEach((point) => {
+            const entry = document.createElement("li");
+            appendMarkdownInline(entry, point, {
+              item,
+              basePath: item.path,
+            });
+            entry.querySelectorAll("a").forEach((link) => {
+              if (link.href.includes("musinsa.com/main/used/recommend")) {
+                link.classList.add("project-service-link");
+              }
+            });
+            points.append(entry);
+          });
+        copy.append(points);
+      }
+
+      project.append(copy);
+      if (row.actions) {
+        const actions = document.createElement("span");
+        actions.className = "cv-entry-actions";
+        appendMarkdownInline(actions, row.actions, {
+          item,
+          basePath: item.path,
+        });
+        project.append(actions);
+      }
+      content.append(project);
+    });
+
+    article.append(label, content);
+    list.append(article);
+  });
+}
+
 function renderCvRole(item, body) {
   const wrapper = document.createElement("div");
   const markdown = getLocalizedMarkdown(item);
@@ -2736,6 +2813,13 @@ function renderCvRole(item, body) {
     block.className = "cv-block";
     heading.textContent = section.title;
     list.className = "cv-list";
+
+    if (section.title.trim().toLowerCase() === "projects") {
+      renderCvProjectSection(section, list, item);
+      block.append(heading, list);
+      wrapper.append(block);
+      return;
+    }
 
     section.rows.forEach((row, rowIndex) => {
       const article = document.createElement("article");

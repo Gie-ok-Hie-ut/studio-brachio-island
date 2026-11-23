@@ -2486,6 +2486,72 @@ body.role-closing .role-detail * {
   margin-top: 2px;
 }
 
+.project-content {
+  min-width: 0;
+}
+
+.project-item {
+  align-items: start;
+  display: grid;
+  gap: 0 30px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.project-item + .project-item {
+  margin-top: 18px;
+}
+
+.project-item-copy {
+  display: contents;
+}
+
+.project-item-copy > p {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.project-item-copy > .project-points {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.project-points {
+  list-style: disc;
+  margin-bottom: 0;
+  padding-left: 1.15em;
+}
+
+.project-points li {
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+.project-points li + li {
+  margin-top: 2px;
+}
+
+.project-points strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.project-points .project-service-link {
+  border-bottom: 0;
+  text-decoration: none;
+}
+
+.project-item > .cv-entry-actions {
+  color: var(--muted);
+  font-size: clamp(12px, 0.72vw, 13px);
+  font-weight: 700;
+  grid-column: 2;
+  grid-row: 1;
+  line-height: 1.25;
+  padding-top: 2px;
+  text-transform: uppercase;
+}
+
 .cv-list button::after {
   display: none;
 }
@@ -5887,6 +5953,10 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
 
   body[data-role-room="engineer"] .cv-list article.cv-link-row {
     grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
+  }
+
+  body[data-role-room="engineer"] .project-item {
+    gap: 0 clamp(12px, 3vw, 18px);
   }
 
   body[data-role-room="aesthetics"] .role-essay-items button {

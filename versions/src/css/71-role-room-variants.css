@@ -73,6 +73,10 @@ body[data-role-room="novel"] .role-detail-layout-novel .role-novel-stage .novel-
     grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
   }
 
+  body[data-role-room="engineer"] .project-item {
+    gap: 0 clamp(12px, 3vw, 18px);
+  }
+
   body[data-role-room="aesthetics"] .role-essay-items button {
     gap: clamp(12px, 3vw, 18px);
     grid-template-columns: clamp(64px, 18vw, 84px) minmax(0, 1fr) auto;
