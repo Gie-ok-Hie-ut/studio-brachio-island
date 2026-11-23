@@ -4,7 +4,7 @@ title: "Latent Murmuration"
 titleKo: "Latent Murmuration"
 titleEn: "Latent Murmuration"
 type: gallery
-creativeContributionLevel: 2
+creativeContributionLevel: 4
 creativeContributionStatus: "provisional"
 creativeProcess: "code-assisted"
 order: 3

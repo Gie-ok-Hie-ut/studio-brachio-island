@@ -44,10 +44,10 @@
 .novel-grid-book .novel-grid-book-tags { line-height: 1.8; }
 
 .ccl-disclosure {
-  color: #71716c;
-  font-size: 13px;
-  font-weight: 450;
-  line-height: 1.6;
+  color: #4b4b47;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.55;
   margin-top: 20px;
   max-width: 980px;
   min-width: 0;
@@ -95,27 +95,78 @@
   padding: 3px 6px;
   white-space: nowrap;
 }
-.ccl-hint { font-size: 12px; }
-.ccl-content { padding-top: 8px; }
+.ccl-hint {
+  font-size: 13px;
+  font-weight: 600;
+}
+.ccl-content { padding-top: 12px; }
 .ccl-content .ccl-description strong {
-  font-weight: 650;
+  color: #30302d;
+  font-weight: 700;
 }
 .ccl-content .ccl-description {
-  font-size: 12px;
-  font-weight: 450;
-  line-height: 1.6;
-  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 0 0 10px;
 }
-.ccl-table { border-collapse: collapse; color: #62625d; max-width: 560px; width: 100%; }
+.ccl-table { border-collapse: collapse; color: #444440; max-width: 980px; width: 100%; }
 .ccl-table th, .ccl-table td {
   border: 0;
-  padding: 4px 0;
+  padding: 5px 0;
   text-align: left;
   vertical-align: middle;
 }
+.ccl-table thead th {
+  color: #6a6a65;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
 .ccl-table tbody th { padding-right: 16px; white-space: nowrap; width: 73px; }
-.ccl-table td { font-size: 12px; overflow-wrap: anywhere; }
+.ccl-table td {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.ccl-step-title {
+  color: #30302d;
+  display: inline;
+  font-weight: 700;
+}
+.ccl-col-level { width: 73px; }
+.ccl-col-stage { width: 34%; }
+.ccl-col-human { width: 31%; }
+.ccl-col-ai { width: 35%; }
+.ccl-stage-cell,
+.ccl-human-cell { padding-right: 18px !important; }
 .ccl-source { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 820px) {
+  .ccl-table thead {
+    display: none;
+  }
+  .ccl-table tbody tr {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    padding: 6px 0;
+  }
+  .ccl-table tbody th {
+    grid-column: 1;
+    grid-row: 1 / 4;
+  }
+  .ccl-table tbody td {
+    grid-column: 2;
+    padding: 1px 0 !important;
+  }
+  .ccl-domain-cell::before {
+    color: #30302d;
+    content: attr(data-label) ": ";
+    font-weight: 700;
+  }
+}
 @media (max-width: 520px) {
   .ccl-disclosure { margin-top: 16px; }
   .ccl-disclosure > summary { min-height: 44px; align-content: center; gap: 3px 8px; }

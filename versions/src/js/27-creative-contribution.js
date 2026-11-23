@@ -11,13 +11,41 @@ const creativeContributionCopy = {
     provisional: "Provisional assessment",
     source: "Background ↗",
     sourceTitle: "The Whole Artist and Vertical Art (Korean)",
+    humanLabel: "Creator",
+    aiLabel: "AI",
+    levelLabel: "CCL",
+    stageLabel: "Level",
     rows: [
-      "Accept · Use an AI output without a specific intention",
-      "Select · Choose a preferred result from multiple AI outputs",
-      "Concept · Define the meaning and direction and reflect them in the work",
-      "Composition · Design key elements, layout, and relationships and reflect them in the work",
-      "Detail · Determine and adjust significant details, such as form, color, and texture",
-      "Whole · Determine and realize the work’s key expressions as intended",
+      {
+        title: "Acceptance",
+        human: "Uses the output as generated",
+        ai: "Determines the key expression",
+      },
+      {
+        title: "Selection",
+        human: "Selects the output",
+        ai: "Determines composition, form, and details",
+      },
+      {
+        title: "Concept",
+        human: "Sets meaning and direction",
+        ai: "Generates composition and expression",
+      },
+      {
+        title: "Composition",
+        human: "Designs elements and composition",
+        ai: "Generates detailed expression",
+      },
+      {
+        title: "Detail",
+        human: "Determines and adjusts form, color, and texture",
+        ai: "Generates and revises as directed",
+      },
+      {
+        title: "Full Realization",
+        human: "Determines and realizes the key expression throughout",
+        ai: "Provides support only, or is not used",
+      },
     ],
     definitions: [
       "Use an AI-generated output without a specific expressive intention.",
@@ -37,13 +65,41 @@ const creativeContributionCopy = {
     provisional: "잠정 평가",
     source: "기준 배경 ↗",
     sourceTitle: "온전한 예술가와 직선적 예술",
+    humanLabel: "창작자",
+    aiLabel: "AI",
+    levelLabel: "CCL",
+    stageLabel: "단계",
     rows: [
-      "수용 · 구체적인 의도 없이 AI 결과를 사용",
-      "선별 · 여러 AI 결과 중 취향에 맞는 것을 선택",
-      "개념 · 전달할 의미와 방향을 구상하고 결과에 반영",
-      "구성 · 주요 요소·구도·관계를 설계하고 결과에 반영",
-      "세부 · 중요한 형태·색·질감 등 세부 표현을 결정·조정",
-      "전반 구현 · 핵심 표현 전반을 의도대로 결정·구현",
+      {
+        title: "수용(Acceptance)",
+        human: "생성 결과를 그대로 사용",
+        ai: "핵심 표현 결정",
+      },
+      {
+        title: "선별(Selection)",
+        human: "결과 선별",
+        ai: "구도·형태·세부 표현을 결정",
+      },
+      {
+        title: "개념(Concept)",
+        human: "의미·방향 설정",
+        ai: "구성·표현 생성",
+      },
+      {
+        title: "구성(Composition)",
+        human: "요소·구도 설계",
+        ai: "세부 표현 생성",
+      },
+      {
+        title: "세부(Detail)",
+        human: "형태·색·질감 결정·조정",
+        ai: "지시대로 생성·수정",
+      },
+      {
+        title: "전반 구현(Full Realization)",
+        human: "핵심 표현 전반 결정·구현",
+        ai: "보조 작업만 수행 또는 미사용",
+      },
     ],
     definitions: [
       "구체적인 표현 의도 없이 AI가 생성한 결과를 그대로 사용합니다.",
@@ -59,7 +115,9 @@ const creativeContributionCopy = {
 function getCreativeContributionFontText(lang) {
   const copy = creativeContributionCopy[lang === "ko" ? "ko" : "en"];
   return [`${creativeContributionName}(CCL)`, "CCL 0 1 2 3 4 5 3–4", copy.summary,
-    copy.descriptionPrefix, copy.criterion, copy.description, copy.note, copy.source, ...copy.rows].join("\n");
+    copy.descriptionPrefix, copy.criterion, copy.description, copy.note, copy.source,
+    copy.levelLabel, copy.stageLabel, copy.humanLabel, copy.aiLabel,
+    ...copy.rows.flatMap((row) => [row.title, row.human, row.ai])].join("\n");
 }
 
 function createCreativeContributionBadge(level, maximum = level, lang = getSiteLanguage()) {
@@ -107,6 +165,9 @@ function createCreativeContributionDisclosure(roleId) {
   const criterion = document.createElement("strong");
   const description = document.createElement("p");
   const table = document.createElement("table");
+  const columns = document.createElement("colgroup");
+  const head = table.createTHead();
+  const headRow = head.insertRow();
   const rows = table.createTBody();
   const source = document.createElement("a");
 
@@ -127,15 +188,39 @@ function createCreativeContributionDisclosure(roleId) {
     document.createTextNode(`${copy.description} ${copy.note} `));
   table.className = "ccl-table";
   table.setAttribute("aria-label", `${creativeContributionName} 0–5`);
-  copy.rows.forEach((text, index) => {
+  ["level", "stage", "human", "ai"].forEach((name) => {
+    const column = document.createElement("col");
+    column.className = `ccl-col-${name}`;
+    columns.append(column);
+  });
+  table.prepend(columns);
+  [copy.levelLabel, copy.stageLabel, copy.humanLabel, copy.aiLabel].forEach((text) => {
+    const header = document.createElement("th");
+    header.scope = "col";
+    header.textContent = text;
+    headRow.append(header);
+  });
+  copy.rows.forEach((entry, index) => {
     const row = rows.insertRow();
     const level = document.createElement("th");
-    const cell = document.createElement("td");
+    const stage = document.createElement("td");
+    const human = document.createElement("td");
+    const ai = document.createElement("td");
+    const title = document.createElement("strong");
     level.scope = "row";
     level.append(createCreativeContributionBadge(index));
-    cell.textContent = text;
-    cell.title = copy.definitions[index];
-    row.append(level, cell);
+    title.className = "ccl-step-title";
+    title.textContent = entry.title;
+    stage.className = "ccl-stage-cell";
+    stage.append(title);
+    human.className = "ccl-domain-cell ccl-human-cell";
+    human.dataset.label = copy.humanLabel;
+    human.textContent = entry.human;
+    ai.className = "ccl-domain-cell ccl-ai-cell";
+    ai.dataset.label = copy.aiLabel;
+    ai.textContent = entry.ai;
+    row.title = copy.definitions[index];
+    row.append(level, stage, human, ai);
   });
   source.className = "ccl-source";
   source.textContent = copy.source;
